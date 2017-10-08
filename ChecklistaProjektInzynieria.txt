@@ -1,0 +1,9 @@
+Termin i miejsce podróży
+Estymacja budżetu podróży
+Tworzenie budżetu na bieżąco w trakcie podróży
+Generowanie raportu z podróży
+Walidacja zmieszenia się w budżecie OK/NOK
+Checklista rzeczy do zabrania
+Checklista rzeczy do zrobienia
+Procentowy postęp: status bar, buźki, gwaiazdki, kolorki, fajerwerki
+Optional: Kurs NBP zaciągany dynamicznie/Ręcznie
