@@ -1,0 +1,21 @@
+Schemat dzieli sie w sumie na 4 powiazane czesci:
+Wycieczka - od ktorej wychodza wszystkie pozostale. Tu bedzie glowny identyfikator powiazany z pozostalymi modulami aplikacji. 
+Zawartosc:
+-Nazwa, VARCHAR NOT NULL
+-Data wyjazdu DATATIME NULL
+-Budzet, DECIMAL poczatkowo zero
+-Budzet Estymowany, DEFAULT  na zero, tu trzeba bedzie napisac trigger ktory wykona sie po kazdym updacie na tabeli zawierajacej koszty w tym module. 
+
+Z wycieczki, relacja jeden do wielu przechodzimy do tabeli Transport. Tabela podzielona jest na 3 czesci 
+Transport (Glowna tabela transportu) 
+Zawartosc:
+-Koszt DECIMAL, DEFAULT na zero
+-Podroz_Powrot  BIT NOT NULL - dzieki tej kolumnie nie musimy tworzyc tych samych kolumn dla powrotu z wycieczki. W bazie bedzie to wygladalo tak, ze jezeli w kolumnie jest 1 to mowa o podrozy do miejsca wypoczynku, jezeli jest 0 to znaczy ze chodzi o powrot.
+Z tabela transportu powiazana jest minitabelka srodek transportu, mozna by zrobic zwyklego enuma ale to rozwiazanie umozliwi dodawanie srodkow transportu z poziomu uzytkownika 
+Z tabela Transport jest powiazana rowniez (na razie jeden do jeden i chyba wolalbym zeby tak zostalo). Tabela bilet, utworzenie biletu bedzie opcjonalne i przeznaczone tylko dla srodkow transportu innych niz samochod. 
+Zawartosc:
+-Data wyjazdu i przyjazdu, czy NULL do ustalenia
+-Miejsca VARCHAR NULL na informacje o miejscach np w samolocie 
+-Dwa klucze obce na miejsce wyjazdu i przyjazdu (Wydaje mi sie rozsadniejsze niz relacja jeden do wielu)
+Tabela Miejsce jest powiazana z biletem oraz Tabela pobyt ktora docelowo zawierala bedzie informacje o miejscu w ktore sie udajemy, koszcie pobytu (w hotelu), date rozpoczecia pobytu oraz zakonczenia. Co jeszcze powinna zawierac tabela do ustalenia
+Tabela miejsce zawiera minitabelke kraj stworzona by nie powielac danych.
