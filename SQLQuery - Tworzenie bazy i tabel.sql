@@ -58,7 +58,8 @@ GO
 	CREATE TABLE dbo.Vehicle
 	(
 	VehicleID TINYINT IDENTITY(1, 1) PRIMARY KEY NOT NULL,
-	VehicleName VARCHAR(50) UNIQUE NOT NULL
+	Name VARCHAR(50) UNIQUE NOT NULL,
+	ModifiedDate DATETIME DEFAULT GETDATE() NOT NULL
 	)
 
 
@@ -80,14 +81,14 @@ GO
 	(
 	TicketID INT IDENTITY(1, 1) PRIMARY KEY NOT NULL,
 	Seats VARCHAR(10) NULL,
-	Departure_Time DATETIME NOT NULL,
+	DepartureTime DATETIME NOT NULL,
 	ArrivalTime DATETIME NOT NULL,
 	TransportID INT NOT NULL,
 	DepartureLocalization INT  NOT NULL,
-	ArivalLocalization INT  NOT NULL,
+	ArrivalLocalization INT  NOT NULL,
 	ModifiedDate DATETIME DEFAULT GETDATE() NOT NULL,
 	CreateDate DATETIME DEFAULT GETDATE() NOT NULL,
 	CONSTRAINT FK_TransportTicket FOREIGN KEY(TransportID) REFERENCES Transport(TransportID),
 	CONSTRAINT FK_LocationDeparture FOREIGN KEY(DepartureLocalization) REFERENCES Localization(LocalizationID),
-	CONSTRAINT FK_LocationArrival FOREIGN KEY(ArivalLocalization) REFERENCES Localization(LocalizationID)
+	CONSTRAINT FK_LocationArrival FOREIGN KEY(ArrivalLocalization) REFERENCES Localization(LocalizationID)
 	)
