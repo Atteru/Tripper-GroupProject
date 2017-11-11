@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14.25, 8.5" name="TripperData">
+  <DataContextMoniker Name="/TripperDataDataContext" />
+  <nestedChildShapes>
+    <classShape Id="b001a930-0a45-49a6-afa0-c9a653f4d915" absoluteBounds="0.75, 4.125, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/TripperDataDataContext/Continent" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bedf38e0-fbd5-4937-aba0-a100a7f9ec4b" absoluteBounds="0.765, 4.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="53e89a45-3e9d-4ed1-a98e-dec06a863f10" absoluteBounds="3.5, 1.875, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/TripperDataDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="290ab140-93a6-4973-8884-88bbc3a532dc" absoluteBounds="3.515, 2.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dcc8daad-4b4c-4e5d-84e4-07c04578cbc2" absoluteBounds="3.5, 4, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/TripperDataDataContext/Country" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9cb01633-3a82-4e76-9238-7505211990da" absoluteBounds="3.515, 4.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2ca83829-f243-47f6-aaa0-462293fe9f3f" absoluteBounds="6.25, 4, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/TripperDataDataContext/Localization" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fd75c066-b59d-4168-9a1a-4849a6080321" absoluteBounds="6.265, 4.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="41479b00-53c2-469d-8e71-0f17aec6e85c" absoluteBounds="9, 3.5, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/TripperDataDataContext/Stayment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="45b62c2d-ce90-466f-b73a-94b76eb118d4" absoluteBounds="9.015, 3.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="99f19131-7a44-4f57-bf90-437b006c27fd" absoluteBounds="12, 3.125, 2, 3.1170068359375005">
+      <DataClassMoniker Name="/TripperDataDataContext/Transport" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c176c0c4-a9f6-4a3f-99dd-5dcc64499311" absoluteBounds="12.015, 3.585, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c2419006-befc-4b93-a056-578b3805b31b" absoluteBounds="6.25, 0.75, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/TripperDataDataContext/Trip" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ec0deba0-a10e-414a-82eb-6fd5ba622299" absoluteBounds="6.265, 1.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 4.72199625651042); (3.5 : 4.72199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TripperDataDataContext/Continent/Continent_Country" />
+      <nodes>
+        <classShapeMoniker Id="b001a930-0a45-49a6-afa0-c9a653f4d915" />
+        <classShapeMoniker Id="dcc8daad-4b4c-4e5d-84e4-07c04578cbc2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 4.69314697265625); (6.25 : 4.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TripperDataDataContext/Country/Country_Localization" />
+      <nodes>
+        <classShapeMoniker Id="dcc8daad-4b4c-4e5d-84e4-07c04578cbc2" />
+        <classShapeMoniker Id="2ca83829-f243-47f6-aaa0-462293fe9f3f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 4.69314697265625); (9 : 4.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TripperDataDataContext/Localization/Localization_Stayment" />
+      <nodes>
+        <classShapeMoniker Id="2ca83829-f243-47f6-aaa0-462293fe9f3f" />
+        <classShapeMoniker Id="41479b00-53c2-469d-8e71-0f17aec6e85c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.25 : 5.3862939453125); (7.25 : 6.1723046875); (12 : 6.1723046875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TripperDataDataContext/Localization/Localization_Transport" />
+      <nodes>
+        <classShapeMoniker Id="2ca83829-f243-47f6-aaa0-462293fe9f3f" />
+        <classShapeMoniker Id="99f19131-7a44-4f57-bf90-437b006c27fd" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.7812525 : 5.3862939453125); (7.7812525 : 6.1410521875); (12 : 6.1410521875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TripperDataDataContext/Localization/Localization_Transport1" />
+      <nodes>
+        <classShapeMoniker Id="2ca83829-f243-47f6-aaa0-462293fe9f3f" />
+        <classShapeMoniker Id="99f19131-7a44-4f57-bf90-437b006c27fd" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 1.73159912109375); (10 : 1.73159912109375); (10 : 3.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TripperDataDataContext/Trip/Trip_Stayment" />
+      <nodes>
+        <classShapeMoniker Id="c2419006-befc-4b93-a056-578b3805b31b" />
+        <classShapeMoniker Id="41479b00-53c2-469d-8e71-0f17aec6e85c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 2.25365118164063); (9.91666666666667 : 2.25365118164062 : JumpStart); (10.0833333333333 : 2.25365118164063 : JumpEnd); (13 : 2.25365118164063); (13 : 3.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TripperDataDataContext/Trip/Trip_Transport" />
+      <nodes>
+        <classShapeMoniker Id="c2419006-befc-4b93-a056-578b3805b31b" />
+        <classShapeMoniker Id="99f19131-7a44-4f57-bf90-437b006c27fd" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 2.29409912109375); (6.25 : 2.29409912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TripperDataDataContext/User/User_Trip" />
+      <nodes>
+        <classShapeMoniker Id="53e89a45-3e9d-4ed1-a98e-dec06a863f10" />
+        <classShapeMoniker Id="c2419006-befc-4b93-a056-578b3805b31b" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
