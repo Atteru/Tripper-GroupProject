@@ -146,6 +146,7 @@ namespace Tripper.WinLogic.UserControls
         {
             DynamicCombo comboBox = sender as DynamicCombo;
             comboBox.Close();
+            comboBox.SendToBack();
         }
 
         private void cbCountry_Validating(object sender, CancelEventArgs e)

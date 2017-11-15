@@ -8,9 +8,10 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Tripper</RootNamespace>
     <AssemblyName>Tripper</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -55,6 +56,8 @@
     <Compile Include="Enums\Vehicle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WinLogic\Classes\NewTransport.cs" />
+    <Compile Include="WinLogic\Classes\NewTrip.cs" />
     <Compile Include="WinLogic\Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,17 +70,81 @@
     <Compile Include="WinLogic\Forms\MainForm.designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinLogic\Forms\NewTransportCreator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinLogic\Forms\NewTransportCreator.designer.cs">
+      <DependentUpon>NewTransportCreator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinLogic\Forms\NewTripCreatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinLogic\Forms\NewTripCreatorForm.designer.cs">
+      <DependentUpon>NewTripCreatorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinLogic\Forms\TransoportChoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinLogic\Forms\TransoportChoice.designer.cs">
+      <DependentUpon>TransoportChoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinLogic\Forms\TripperMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinLogic\Forms\TripperMessageBox.designer.cs">
+      <DependentUpon>TripperMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinLogic\UserControls\CurrencyTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinLogic\UserControls\DataTimeUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinLogic\UserControls\DataTimeUC.Designer.cs">
+      <DependentUpon>DataTimeUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinLogic\UserControls\DynamicCombo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinLogic\UserControls\LocalizationsUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinLogic\UserControls\LocalizationsUC.Designer.cs">
+      <DependentUpon>LocalizationsUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinLogic\UserControls\TextBoxUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="WinLogic\UserControls\TextBoxUC.Designer.cs">
       <DependentUpon>TextBoxUC.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinLogic\WinLogicUIMethods.cs" />
     <EmbeddedResource Include="WinLogic\Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinLogic\Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinLogic\Forms\NewTransportCreator.resx">
+      <DependentUpon>NewTransportCreator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinLogic\Forms\NewTripCreatorForm.resx">
+      <DependentUpon>NewTripCreatorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinLogic\Forms\TransoportChoice.resx">
+      <DependentUpon>TransoportChoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinLogic\Forms\TripperMessageBox.resx">
+      <DependentUpon>TripperMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinLogic\UserControls\DataTimeUC.resx">
+      <DependentUpon>DataTimeUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinLogic\UserControls\DynamicCombo.resx">
+      <DependentUpon>DynamicCombo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinLogic\UserControls\LocalizationsUC.resx">
+      <DependentUpon>LocalizationsUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinLogic\UserControls\TextBoxUC.resx">
       <DependentUpon>TextBoxUC.cs</DependentUpon>
