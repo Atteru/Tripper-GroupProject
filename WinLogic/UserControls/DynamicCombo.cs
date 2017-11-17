@@ -7,10 +7,13 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
+
+
 namespace Tripper.WinLogic.UserControls
 {
     public class DynamicCombo : ComboBox
     {
+
         public int StartingSize
         {
             get; set;
@@ -21,15 +24,14 @@ namespace Tripper.WinLogic.UserControls
             get; set;
         }
 
-        private bool initialized = false;
-
         public DynamicCombo()
             :base()
         {
             this.IsOpened = false;
             this.PreviewKeyDown += DynamicCombo_PreviewKeyDown;
             this.Resize += DynamicCombo_SizeChanged;
-            this.Click += DynamicCombo_Click; 
+            this.Click += DynamicCombo_Click;
+            base.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
         }
 
         private void DynamicCombo_Click(object sender, System.EventArgs e)
@@ -65,6 +67,11 @@ namespace Tripper.WinLogic.UserControls
             }
         }
 
+        public void ClickEvent()
+        {
+            this.DynamicCombo_Click(this, null);
+        }
+
         private void DynamicCombo_SizeChanged(object sender, System.EventArgs e)
         {
             var comboBox = sender as DynamicCombo;
@@ -90,5 +97,6 @@ namespace Tripper.WinLogic.UserControls
                 this.Height = StartingSize;
             this.SendToBack();
         }
+
     }
 }

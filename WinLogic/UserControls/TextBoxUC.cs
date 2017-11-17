@@ -16,6 +16,8 @@ namespace Tripper.WinLogic.UserControls
         {
             InitializeComponent();
             base.AutoScaleMode = AutoScaleMode.None;
+            textBox.Text = "";
+
         }
 
         // Property Content odnosi się do textBoxa zawartego w kotrolce
@@ -39,6 +41,22 @@ namespace Tripper.WinLogic.UserControls
             {
                 textBox.Text = value;
             }
+        }
+
+
+        public bool Multiline
+        {
+            get
+            {
+                return textBox.Multiline;
+            }
+
+            set
+            {
+                textBox.Multiline = value;
+            
+            }
+
         }
 
 
@@ -92,7 +110,7 @@ namespace Tripper.WinLogic.UserControls
             }
         }
 
-        private Font _Font = UserControl.DefaultFont;
+        private Font _Font = DefaultFont;
         [Bindable(true)]
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
@@ -102,11 +120,27 @@ namespace Tripper.WinLogic.UserControls
             get { return _Font; }
             set
             {
-                _Font = value;
-                messageLabel.Font = _Font;
-                textBox.Font = _Font;
+                _Font = base.Font = value;
+                this.textBox.Font = _Font;
+                this.messageLabel.Font = _Font;
             }
         }
+
+     /*   [Bindable(true)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        public TextAlignment TextAlignment
+        {
+            get { return ; }
+            set
+            {
+                _Font = base.Font = value;
+                this.textBox.Font = _Font;
+                this.messageLabel.Font = _Font;
+            }
+        } */
+
 
         private void textBox_Validating(object sender, CancelEventArgs e)
         {

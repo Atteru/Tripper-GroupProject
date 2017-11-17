@@ -30,8 +30,8 @@
         {
             this.lCityError = new System.Windows.Forms.Label();
             this.lCountryError = new System.Windows.Forms.Label();
-            this.cbCity = new Tripper.WinLogic.UserControls.DynamicCombo();
             this.cbCountry = new Tripper.WinLogic.UserControls.DynamicCombo();
+            this.cbCity = new Tripper.WinLogic.UserControls.DynamicCombo();
             this.SuspendLayout();
             // 
             // lCityError
@@ -40,13 +40,12 @@
             this.lCityError.BackColor = System.Drawing.Color.White;
             this.lCityError.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lCityError.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lCityError.Location = new System.Drawing.Point(3, 41);
+            this.lCityError.Location = new System.Drawing.Point(3, 38);
             this.lCityError.Name = "lCityError";
             this.lCityError.Size = new System.Drawing.Size(84, 20);
             this.lCityError.TabIndex = 3;
             this.lCityError.Text = "Komunikat";
-            this.lCityError.Visible = false;
-            this.lCityError.Click += new System.EventHandler(this.lError_Click);
+            this.lCityError.Click += new System.EventHandler(this.lCityError_Click);
             // 
             // lCountryError
             // 
@@ -54,31 +53,12 @@
             this.lCountryError.BackColor = System.Drawing.Color.White;
             this.lCountryError.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lCountryError.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lCountryError.Location = new System.Drawing.Point(3, 7);
+            this.lCountryError.Location = new System.Drawing.Point(3, 3);
             this.lCountryError.Name = "lCountryError";
             this.lCountryError.Size = new System.Drawing.Size(84, 20);
             this.lCountryError.TabIndex = 5;
             this.lCountryError.Text = "Komunikat";
-            this.lCountryError.Visible = false;
-            this.lCountryError.Click += new System.EventHandler(this.lError_Click);
-            // 
-            // cbCity
-            // 
-            this.cbCity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbCity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.cbCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cbCity.FormattingEnabled = true;
-            this.cbCity.IsOpened = true;
-            this.cbCity.Location = new System.Drawing.Point(0, 37);
-            this.cbCity.Name = "cbCity";
-            this.cbCity.Size = new System.Drawing.Size(195, 28);
-            this.cbCity.StartingSize = 0;
-            this.cbCity.TabIndex = 1;
-            this.cbCity.SelectionChangeCommitted += new System.EventHandler(this.cbCity_SelectionChangeCommitted);
-            this.cbCity.TextUpdate += new System.EventHandler(this.cbCity_TextUpdate);
-            this.cbCity.Leave += new System.EventHandler(this.cbCity_Leave);
-            this.cbCity.Validating += new System.ComponentModel.CancelEventHandler(this.cbCity_Validating);
+            this.lCountryError.Click += new System.EventHandler(this.lCountryError_Click);
             // 
             // cbCountry
             // 
@@ -87,16 +67,36 @@
             this.cbCountry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.cbCountry.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbCountry.FormattingEnabled = true;
-            this.cbCountry.IsOpened = true;
-            this.cbCountry.Location = new System.Drawing.Point(0, 3);
+            this.cbCountry.IsOpened = false;
+            this.cbCountry.Location = new System.Drawing.Point(0, 0);
             this.cbCountry.Name = "cbCountry";
-            this.cbCountry.Size = new System.Drawing.Size(195, 28);
+            this.cbCountry.Size = new System.Drawing.Size(208, 28);
             this.cbCountry.StartingSize = 0;
-            this.cbCountry.TabIndex = 4;
+            this.cbCountry.TabIndex = 6;
             this.cbCountry.SelectionChangeCommitted += new System.EventHandler(this.cbCountry_SelectionChangeCommitted);
             this.cbCountry.TextUpdate += new System.EventHandler(this.cbCountry_TextUpdate);
+            this.cbCountry.Click += new System.EventHandler(this.cbCountry_Click);
             this.cbCountry.Leave += new System.EventHandler(this.cbCountry_Leave);
             this.cbCountry.Validating += new System.ComponentModel.CancelEventHandler(this.cbCountry_Validating);
+            // 
+            // cbCity
+            // 
+            this.cbCity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbCity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.cbCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cbCity.FormattingEnabled = true;
+            this.cbCity.IsOpened = false;
+            this.cbCity.Location = new System.Drawing.Point(0, 34);
+            this.cbCity.Name = "cbCity";
+            this.cbCity.Size = new System.Drawing.Size(208, 28);
+            this.cbCity.StartingSize = 0;
+            this.cbCity.TabIndex = 1;
+            this.cbCity.SelectionChangeCommitted += new System.EventHandler(this.cbCity_SelectionChangeCommitted);
+            this.cbCity.TextUpdate += new System.EventHandler(this.cbCity_TextUpdate);
+            this.cbCity.Click += new System.EventHandler(this.cbCity_Click);
+            this.cbCity.Leave += new System.EventHandler(this.cbCity_Leave);
+            this.cbCity.Validating += new System.ComponentModel.CancelEventHandler(this.cbCity_Validating);
             // 
             // LocalizationsUC
             // 
@@ -109,7 +109,7 @@
             this.Controls.Add(this.lCityError);
             this.Controls.Add(this.cbCity);
             this.Name = "LocalizationsUC";
-            this.Size = new System.Drawing.Size(204, 74);
+            this.Size = new System.Drawing.Size(217, 69);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -42,6 +42,12 @@ namespace Tripper.DbLogic.LinqToSQL
     partial void InsertLocalization(Localization instance);
     partial void UpdateLocalization(Localization instance);
     partial void DeleteLocalization(Localization instance);
+    partial void InsertOtherCost(OtherCost instance);
+    partial void UpdateOtherCost(OtherCost instance);
+    partial void DeleteOtherCost(OtherCost instance);
+    partial void InsertOtherCostsCatergory(OtherCostsCatergory instance);
+    partial void UpdateOtherCostsCatergory(OtherCostsCatergory instance);
+    partial void DeleteOtherCostsCatergory(OtherCostsCatergory instance);
     partial void InsertStayment(Stayment instance);
     partial void UpdateStayment(Stayment instance);
     partial void DeleteStayment(Stayment instance);
@@ -54,7 +60,7 @@ namespace Tripper.DbLogic.LinqToSQL
     #endregion
 		
 		public TripperDataDataContext() : 
-				base(global::Tripper.Properties.Settings.Default.TripperDBConnectionString, mappingSource)
+				base(global::Tripper.Properties.Settings.Default.TripperDBConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -112,6 +118,22 @@ namespace Tripper.DbLogic.LinqToSQL
 			get
 			{
 				return this.GetTable<Localization>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OtherCost> OtherCosts
+		{
+			get
+			{
+				return this.GetTable<OtherCost>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OtherCostsCatergory> OtherCostsCatergories
+		{
+			get
+			{
+				return this.GetTable<OtherCostsCatergory>();
 			}
 		}
 		
@@ -803,6 +825,336 @@ namespace Tripper.DbLogic.LinqToSQL
 		{
 			this.SendPropertyChanging();
 			entity.Localization1 = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OtherCosts")]
+	public partial class OtherCost : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _OtherCostsID;
+		
+		private int _OtherCategoryID;
+		
+		private int _TripID;
+		
+		private decimal _Cost;
+		
+		private EntityRef<OtherCostsCatergory> _OtherCostsCatergory;
+		
+		private EntityRef<Trip> _Trip;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnOtherCostsIDChanging(int value);
+    partial void OnOtherCostsIDChanged();
+    partial void OnOtherCategoryIDChanging(int value);
+    partial void OnOtherCategoryIDChanged();
+    partial void OnTripIDChanging(int value);
+    partial void OnTripIDChanged();
+    partial void OnCostChanging(decimal value);
+    partial void OnCostChanged();
+    #endregion
+		
+		public OtherCost()
+		{
+			this._OtherCostsCatergory = default(EntityRef<OtherCostsCatergory>);
+			this._Trip = default(EntityRef<Trip>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OtherCostsID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int OtherCostsID
+		{
+			get
+			{
+				return this._OtherCostsID;
+			}
+			set
+			{
+				if ((this._OtherCostsID != value))
+				{
+					this.OnOtherCostsIDChanging(value);
+					this.SendPropertyChanging();
+					this._OtherCostsID = value;
+					this.SendPropertyChanged("OtherCostsID");
+					this.OnOtherCostsIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OtherCategoryID", DbType="Int NOT NULL")]
+		public int OtherCategoryID
+		{
+			get
+			{
+				return this._OtherCategoryID;
+			}
+			set
+			{
+				if ((this._OtherCategoryID != value))
+				{
+					if (this._OtherCostsCatergory.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOtherCategoryIDChanging(value);
+					this.SendPropertyChanging();
+					this._OtherCategoryID = value;
+					this.SendPropertyChanged("OtherCategoryID");
+					this.OnOtherCategoryIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TripID", DbType="Int NOT NULL")]
+		public int TripID
+		{
+			get
+			{
+				return this._TripID;
+			}
+			set
+			{
+				if ((this._TripID != value))
+				{
+					if (this._Trip.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnTripIDChanging(value);
+					this.SendPropertyChanging();
+					this._TripID = value;
+					this.SendPropertyChanged("TripID");
+					this.OnTripIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cost", DbType="Decimal(10,2) NOT NULL")]
+		public decimal Cost
+		{
+			get
+			{
+				return this._Cost;
+			}
+			set
+			{
+				if ((this._Cost != value))
+				{
+					this.OnCostChanging(value);
+					this.SendPropertyChanging();
+					this._Cost = value;
+					this.SendPropertyChanged("Cost");
+					this.OnCostChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OtherCostsCatergory_OtherCost", Storage="_OtherCostsCatergory", ThisKey="OtherCategoryID", OtherKey="OtherCategoryID", IsForeignKey=true)]
+		public OtherCostsCatergory OtherCostsCatergory
+		{
+			get
+			{
+				return this._OtherCostsCatergory.Entity;
+			}
+			set
+			{
+				OtherCostsCatergory previousValue = this._OtherCostsCatergory.Entity;
+				if (((previousValue != value) 
+							|| (this._OtherCostsCatergory.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._OtherCostsCatergory.Entity = null;
+						previousValue.OtherCosts.Remove(this);
+					}
+					this._OtherCostsCatergory.Entity = value;
+					if ((value != null))
+					{
+						value.OtherCosts.Add(this);
+						this._OtherCategoryID = value.OtherCategoryID;
+					}
+					else
+					{
+						this._OtherCategoryID = default(int);
+					}
+					this.SendPropertyChanged("OtherCostsCatergory");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Trip_OtherCost", Storage="_Trip", ThisKey="TripID", OtherKey="TripID", IsForeignKey=true)]
+		public Trip Trip
+		{
+			get
+			{
+				return this._Trip.Entity;
+			}
+			set
+			{
+				Trip previousValue = this._Trip.Entity;
+				if (((previousValue != value) 
+							|| (this._Trip.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Trip.Entity = null;
+						previousValue.OtherCosts.Remove(this);
+					}
+					this._Trip.Entity = value;
+					if ((value != null))
+					{
+						value.OtherCosts.Add(this);
+						this._TripID = value.TripID;
+					}
+					else
+					{
+						this._TripID = default(int);
+					}
+					this.SendPropertyChanged("Trip");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OtherCostsCatergory")]
+	public partial class OtherCostsCatergory : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _OtherCategoryID;
+		
+		private string _OtherCategoryName;
+		
+		private EntitySet<OtherCost> _OtherCosts;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnOtherCategoryIDChanging(int value);
+    partial void OnOtherCategoryIDChanged();
+    partial void OnOtherCategoryNameChanging(string value);
+    partial void OnOtherCategoryNameChanged();
+    #endregion
+		
+		public OtherCostsCatergory()
+		{
+			this._OtherCosts = new EntitySet<OtherCost>(new Action<OtherCost>(this.attach_OtherCosts), new Action<OtherCost>(this.detach_OtherCosts));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OtherCategoryID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int OtherCategoryID
+		{
+			get
+			{
+				return this._OtherCategoryID;
+			}
+			set
+			{
+				if ((this._OtherCategoryID != value))
+				{
+					this.OnOtherCategoryIDChanging(value);
+					this.SendPropertyChanging();
+					this._OtherCategoryID = value;
+					this.SendPropertyChanged("OtherCategoryID");
+					this.OnOtherCategoryIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OtherCategoryName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string OtherCategoryName
+		{
+			get
+			{
+				return this._OtherCategoryName;
+			}
+			set
+			{
+				if ((this._OtherCategoryName != value))
+				{
+					this.OnOtherCategoryNameChanging(value);
+					this.SendPropertyChanging();
+					this._OtherCategoryName = value;
+					this.SendPropertyChanged("OtherCategoryName");
+					this.OnOtherCategoryNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OtherCostsCatergory_OtherCost", Storage="_OtherCosts", ThisKey="OtherCategoryID", OtherKey="OtherCategoryID")]
+		public EntitySet<OtherCost> OtherCosts
+		{
+			get
+			{
+				return this._OtherCosts;
+			}
+			set
+			{
+				this._OtherCosts.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_OtherCosts(OtherCost entity)
+		{
+			this.SendPropertyChanging();
+			entity.OtherCostsCatergory = this;
+		}
+		
+		private void detach_OtherCosts(OtherCost entity)
+		{
+			this.SendPropertyChanging();
+			entity.OtherCostsCatergory = null;
 		}
 	}
 	
@@ -1609,6 +1961,8 @@ namespace Tripper.DbLogic.LinqToSQL
 		
 		private System.DateTime _CreateDate;
 		
+		private EntitySet<OtherCost> _OtherCosts;
+		
 		private EntitySet<Stayment> _Stayments;
 		
 		private EntitySet<Transport> _Transports;
@@ -1635,6 +1989,7 @@ namespace Tripper.DbLogic.LinqToSQL
 		
 		public Trip()
 		{
+			this._OtherCosts = new EntitySet<OtherCost>(new Action<OtherCost>(this.attach_OtherCosts), new Action<OtherCost>(this.detach_OtherCosts));
 			this._Stayments = new EntitySet<Stayment>(new Action<Stayment>(this.attach_Stayments), new Action<Stayment>(this.detach_Stayments));
 			this._Transports = new EntitySet<Transport>(new Action<Transport>(this.attach_Transports), new Action<Transport>(this.detach_Transports));
 			this._User = default(EntityRef<User>);
@@ -1765,6 +2120,19 @@ namespace Tripper.DbLogic.LinqToSQL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Trip_OtherCost", Storage="_OtherCosts", ThisKey="TripID", OtherKey="TripID")]
+		public EntitySet<OtherCost> OtherCosts
+		{
+			get
+			{
+				return this._OtherCosts;
+			}
+			set
+			{
+				this._OtherCosts.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Trip_Stayment", Storage="_Stayments", ThisKey="TripID", OtherKey="TripID")]
 		public EntitySet<Stayment> Stayments
 		{
@@ -1843,6 +2211,18 @@ namespace Tripper.DbLogic.LinqToSQL
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_OtherCosts(OtherCost entity)
+		{
+			this.SendPropertyChanging();
+			entity.Trip = this;
+		}
+		
+		private void detach_OtherCosts(OtherCost entity)
+		{
+			this.SendPropertyChanging();
+			entity.Trip = null;
 		}
 		
 		private void attach_Stayments(Stayment entity)

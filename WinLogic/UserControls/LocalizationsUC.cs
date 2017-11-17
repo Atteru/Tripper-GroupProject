@@ -26,6 +26,8 @@ namespace Tripper.WinLogic.UserControls
             cbCountry.SelectedIndex = -1;
             cbCountry.IsOpened = false;
             cbCity.IsOpened = false;
+            lCityError.Text = CityMessageIfEmpty = "Miasto";
+            lCountryError.Text = CountryMessageIfEmpty = "Kraj";
         }
 
         public DynamicCombo CountryBox
@@ -44,7 +46,28 @@ namespace Tripper.WinLogic.UserControls
             }
         }
 
+        public string CityMessageIfEmpty
+        {
+            get; set;
+        }
 
+        public string CountryMessageIfEmpty
+        {
+            get; set;
+        }
+
+        [Browsable(true)]
+        public bool MessageVisibility
+        {
+            get
+            {
+                return lCityError.Visible == true && lCountryError.Visible == true;
+            }
+            set
+            {
+                lCountryError.Visible = lCityError.Visible = value;
+            }
+        }
 
         private void cbCountry_TextUpdate(object sender, EventArgs e)
         {
@@ -99,6 +122,7 @@ namespace Tripper.WinLogic.UserControls
             {
                 cbCity.Text = "";
             }
+          //  cbCountry_Validating(sender, null);
             cbCity.SelectedIndex = -1;
         }
 
@@ -130,6 +154,7 @@ namespace Tripper.WinLogic.UserControls
                             MessageBox.Show(ex.Message);
                         }
                     }
+                  //  cbCity_Validating(sender, null);
                     comboBox.Close();
                 }
             }
@@ -146,7 +171,6 @@ namespace Tripper.WinLogic.UserControls
         {
             DynamicCombo comboBox = sender as DynamicCombo;
             comboBox.Close();
-            comboBox.SendToBack();
         }
 
         private void cbCountry_Validating(object sender, CancelEventArgs e)
@@ -155,38 +179,60 @@ namespace Tripper.WinLogic.UserControls
             if (cbCountry.Text == string.Empty)
             {
                 lCountryError.Visible = true;
-                lCountryError.Text = "Nie podano Państwa";
+                lCountryError.Text = CountryMessageIfEmpty;
                 lCountryError.BringToFront();
             }
             else if (!countryList.Any(country => country.Name.Equals(cbCountry.Text)))
             {
                 cbCountry.SelectedItem = cbCountry.Text = null;
                 lCountryError.Visible = true;
-                lCountryError.Text = "Nieprawidłowa nazwa kraju";
+                lCountryError.Text = "Nieprawidłowa wartość";
                 lCountryError.BringToFront();
+            }
+            else
+            {
+                lCountryError.Visible = false;
             }
         }
 
         private void cbCity_Validating(object sender, CancelEventArgs e)
         {
-            if (cbCity.Text == string.Empty && cbCountry.SelectedItem != null)
+            if (cbCity.Text == string.Empty)
             {
                 lCityError.Visible = true;
-                lCityError.Text = "Nie podano Miasta";
+                lCityError.Text = CityMessageIfEmpty;
                 lCityError.BringToFront();
+            }
+            else
+            {
+                lCityError.Visible = false;
             }
         }
 
-        private void lError_Click(object sender, EventArgs e)
+        private void lCountryError_Click(object sender, EventArgs e)
         {
             ((Label)sender).Visible = false;
             cbCountry.Focus();
-            
+            cbCountry.ClickEvent();
         }
 
+        private void lCityError_Click(object sender, EventArgs e)
+        {
+            ((Label)sender).Visible = false;
+            cbCity.Focus();
+            cbCity.ClickEvent();
+        }
 
+        private void cbCountry_Click(object sender, EventArgs e)
+        {
+            if (lCountryError.Visible)
+                lCountryError.Visible = false;
+        }
 
-
-
+        private void cbCity_Click(object sender, EventArgs e)
+        {
+            if (lCityError.Visible)
+                lCityError.Visible = false;
+        }
     }
 }

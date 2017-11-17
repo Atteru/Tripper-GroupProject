@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TripperDB" Class="TripperDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=&quot;C:\Users\Administrator PC\Desktop\Projekt\Tripper\TripperDB.mdf&quot;;Integrated Security=True;Connect Timeout=30" SettingsObjectName="Tripper.Properties.Settings" SettingsPropertyName="TripperDBConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=&quot;C:\Users\Administrator PC\Desktop\xxx\Tripper\TripperDB.mdf&quot;;Integrated Security=True;Connect Timeout=30" SettingsObjectName="Tripper.Properties.Settings" SettingsPropertyName="TripperDBConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Continent" Member="Continents">
     <Type Name="Continent">
       <Column Name="continentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -33,6 +33,23 @@
       <Association Name="Localization_Transport" Member="Transports" ThisKey="LocalizationID" OtherKey="ArrivalLocalization" Type="Transport" />
       <Association Name="Localization_Transport1" Member="Transports1" ThisKey="LocalizationID" OtherKey="DepartureLocalization" Type="Transport" />
       <Association Name="Country_Localization" Member="Country" ThisKey="CountryID" OtherKey="CountryID" Type="Country" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OtherCosts" Member="OtherCosts">
+    <Type Name="OtherCost">
+      <Column Name="OtherCostsID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OtherCategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TripID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Cost" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Association Name="OtherCostsCatergory_OtherCost" Member="OtherCostsCatergory" ThisKey="OtherCategoryID" OtherKey="OtherCategoryID" Type="OtherCostsCatergory" IsForeignKey="true" />
+      <Association Name="Trip_OtherCost" Member="Trip" ThisKey="TripID" OtherKey="TripID" Type="Trip" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OtherCostsCatergory" Member="OtherCostsCatergories">
+    <Type Name="OtherCostsCatergory">
+      <Column Name="OtherCategoryID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OtherCategoryName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="OtherCostsCatergory_OtherCost" Member="OtherCosts" ThisKey="OtherCategoryID" OtherKey="OtherCategoryID" Type="OtherCost" />
     </Type>
   </Table>
   <Table Name="dbo.Stayment" Member="Stayments">
@@ -77,6 +94,7 @@
       <Column Name="Budget" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
       <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Trip_OtherCost" Member="OtherCosts" ThisKey="TripID" OtherKey="TripID" Type="OtherCost" />
       <Association Name="Trip_Stayment" Member="Stayments" ThisKey="TripID" OtherKey="TripID" Type="Stayment" />
       <Association Name="Trip_Transport" Member="Transports" ThisKey="TripID" OtherKey="TripID" Type="Transport" />
       <Association Name="User_Trip" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" />

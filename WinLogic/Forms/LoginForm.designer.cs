@@ -31,17 +31,17 @@
             this.tcLogin = new System.Windows.Forms.TabControl();
             this.tabLogin = new System.Windows.Forms.TabPage();
             this.pLogin = new System.Windows.Forms.Panel();
+            this.tPassword = new Tripper.WinLogic.UserControls.TextBoxUC();
+            this.tUserName = new Tripper.WinLogic.UserControls.TextBoxUC();
             this.llNewAccount = new System.Windows.Forms.LinkLabel();
             this.bLogin = new System.Windows.Forms.Button();
             this.tabNewAccount = new System.Windows.Forms.TabPage();
             this.pNewAccount = new System.Windows.Forms.Panel();
-            this.bAddNewUser = new System.Windows.Forms.Button();
             this.tNewPasswordConfirm = new Tripper.WinLogic.UserControls.TextBoxUC();
             this.tNewPassword = new Tripper.WinLogic.UserControls.TextBoxUC();
-            this.textBoxUC4 = new Tripper.WinLogic.UserControls.TextBoxUC();
             this.textBoxUC3 = new Tripper.WinLogic.UserControls.TextBoxUC();
-            this.tPassword = new Tripper.WinLogic.UserControls.TextBoxUC();
-            this.tUserName = new Tripper.WinLogic.UserControls.TextBoxUC();
+            this.textBoxUC4 = new Tripper.WinLogic.UserControls.TextBoxUC();
+            this.bAddNewUser = new System.Windows.Forms.Button();
             this.tcLogin.SuspendLayout();
             this.tabLogin.SuspendLayout();
             this.pLogin.SuspendLayout();
@@ -84,6 +84,28 @@
             this.pLogin.Name = "pLogin";
             this.pLogin.Size = new System.Drawing.Size(480, 300);
             this.pLogin.TabIndex = 17;
+            // 
+            // tPassword
+            // 
+            this.tPassword.AutoSize = true;
+            this.tPassword.BackColor = System.Drawing.Color.Transparent;
+            this.tPassword.LabelMessage = "Hasło";
+            this.tPassword.Location = new System.Drawing.Point(48, 87);
+            this.tPassword.MessageVisibility = false;
+            this.tPassword.Name = "tPassword";
+            this.tPassword.Size = new System.Drawing.Size(389, 29);
+            this.tPassword.TabIndex = 23;
+            // 
+            // tUserName
+            // 
+            this.tUserName.AutoSize = true;
+            this.tUserName.BackColor = System.Drawing.Color.Transparent;
+            this.tUserName.LabelMessage = "Nazwa użytkownika";
+            this.tUserName.Location = new System.Drawing.Point(48, 52);
+            this.tUserName.MessageVisibility = false;
+            this.tUserName.Name = "tUserName";
+            this.tUserName.Size = new System.Drawing.Size(389, 29);
+            this.tUserName.TabIndex = 22;
             // 
             // llNewAccount
             // 
@@ -139,17 +161,6 @@
             this.pNewAccount.Size = new System.Drawing.Size(480, 350);
             this.pNewAccount.TabIndex = 18;
             // 
-            // bAddNewUser
-            // 
-            this.bAddNewUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bAddNewUser.Location = new System.Drawing.Point(48, 233);
-            this.bAddNewUser.Name = "bAddNewUser";
-            this.bAddNewUser.Size = new System.Drawing.Size(390, 37);
-            this.bAddNewUser.TabIndex = 16;
-            this.bAddNewUser.Text = "Dodaj konto";
-            this.bAddNewUser.UseVisualStyleBackColor = true;
-            this.bAddNewUser.Click += new System.EventHandler(this.bAddNewUser_Click);
-            // 
             // tNewPasswordConfirm
             // 
             this.tNewPasswordConfirm.AutoSize = true;
@@ -172,17 +183,6 @@
             this.tNewPassword.Size = new System.Drawing.Size(390, 29);
             this.tNewPassword.TabIndex = 22;
             // 
-            // textBoxUC4
-            // 
-            this.textBoxUC4.AutoSize = true;
-            this.textBoxUC4.BackColor = System.Drawing.Color.Transparent;
-            this.textBoxUC4.LabelMessage = "Nazwa użytkownika";
-            this.textBoxUC4.Location = new System.Drawing.Point(48, 54);
-            this.textBoxUC4.MessageVisibility = true;
-            this.textBoxUC4.Name = "textBoxUC4";
-            this.textBoxUC4.Size = new System.Drawing.Size(389, 29);
-            this.textBoxUC4.TabIndex = 20;
-            // 
             // textBoxUC3
             // 
             this.textBoxUC3.AutoSize = true;
@@ -194,27 +194,27 @@
             this.textBoxUC3.Size = new System.Drawing.Size(389, 29);
             this.textBoxUC3.TabIndex = 21;
             // 
-            // tPassword
+            // textBoxUC4
             // 
-            this.tPassword.AutoSize = true;
-            this.tPassword.BackColor = System.Drawing.Color.Transparent;
-            this.tPassword.LabelMessage = "Hasło";
-            this.tPassword.Location = new System.Drawing.Point(48, 87);
-            this.tPassword.MessageVisibility = true;
-            this.tPassword.Name = "tPassword";
-            this.tPassword.Size = new System.Drawing.Size(389, 29);
-            this.tPassword.TabIndex = 23;
+            this.textBoxUC4.AutoSize = true;
+            this.textBoxUC4.BackColor = System.Drawing.Color.Transparent;
+            this.textBoxUC4.LabelMessage = "Nazwa użytkownika";
+            this.textBoxUC4.Location = new System.Drawing.Point(48, 54);
+            this.textBoxUC4.MessageVisibility = true;
+            this.textBoxUC4.Name = "textBoxUC4";
+            this.textBoxUC4.Size = new System.Drawing.Size(389, 29);
+            this.textBoxUC4.TabIndex = 20;
             // 
-            // tUserName
+            // bAddNewUser
             // 
-            this.tUserName.AutoSize = true;
-            this.tUserName.BackColor = System.Drawing.Color.Transparent;
-            this.tUserName.LabelMessage = "Nazwa użytkownika";
-            this.tUserName.Location = new System.Drawing.Point(48, 52);
-            this.tUserName.MessageVisibility = true;
-            this.tUserName.Name = "tUserName";
-            this.tUserName.Size = new System.Drawing.Size(389, 29);
-            this.tUserName.TabIndex = 22;
+            this.bAddNewUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bAddNewUser.Location = new System.Drawing.Point(48, 233);
+            this.bAddNewUser.Name = "bAddNewUser";
+            this.bAddNewUser.Size = new System.Drawing.Size(390, 37);
+            this.bAddNewUser.TabIndex = 16;
+            this.bAddNewUser.Text = "Dodaj konto";
+            this.bAddNewUser.UseVisualStyleBackColor = true;
+            this.bAddNewUser.Click += new System.EventHandler(this.bAddNewUser_Click);
             // 
             // LoginForm
             // 
