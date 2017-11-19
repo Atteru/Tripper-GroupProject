@@ -30,16 +30,16 @@
         {
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.pCurrentView = new System.Windows.Forms.Panel();
-            this.pTripView = new System.Windows.Forms.Panel();
-            this.lDestination = new System.Windows.Forms.Label();
-            this.lDaysCount = new System.Windows.Forms.Label();
-            this.lStartDate = new System.Windows.Forms.Label();
-            this.lTripName = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lTripName = new System.Windows.Forms.Label();
+            this.lStartDate = new System.Windows.Forms.Label();
+            this.lDaysCount = new System.Windows.Forms.Label();
+            this.lDestination = new System.Windows.Forms.Label();
+            this.pTripView = new System.Windows.Forms.Panel();
             this.tableLayoutPanel.SuspendLayout();
-            this.pTripView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pTripView.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel
@@ -62,60 +62,31 @@
             // 
             this.pCurrentView.BackColor = System.Drawing.Color.Teal;
             this.pCurrentView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pCurrentView.Location = new System.Drawing.Point(0, 198);
+            this.pCurrentView.Location = new System.Drawing.Point(0, 203);
             this.pCurrentView.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.pCurrentView.Name = "pCurrentView";
             this.pCurrentView.Size = new System.Drawing.Size(1171, 409);
             this.pCurrentView.TabIndex = 0;
             // 
-            // pTripView
+            // label5
             // 
-            this.pTripView.BackColor = System.Drawing.Color.Teal;
-            this.pTripView.Controls.Add(this.lDestination);
-            this.pTripView.Controls.Add(this.lDaysCount);
-            this.pTripView.Controls.Add(this.lStartDate);
-            this.pTripView.Controls.Add(this.lTripName);
-            this.pTripView.Controls.Add(this.pictureBox1);
-            this.pTripView.Controls.Add(this.label5);
-            this.pTripView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pTripView.Location = new System.Drawing.Point(0, 0);
-            this.pTripView.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
-            this.pTripView.Name = "pTripView";
-            this.pTripView.Size = new System.Drawing.Size(1171, 192);
-            this.pTripView.TabIndex = 1;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(24, 6);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(234, 29);
+            this.label5.TabIndex = 158;
+            this.label5.Text = "Szczegóły podrózy";
             // 
-            // lDestination
+            // pictureBox1
             // 
-            this.lDestination.AutoSize = true;
-            this.lDestination.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lDestination.ForeColor = System.Drawing.Color.White;
-            this.lDestination.Location = new System.Drawing.Point(192, 105);
-            this.lDestination.Name = "lDestination";
-            this.lDestination.Size = new System.Drawing.Size(125, 20);
-            this.lDestination.TabIndex = 163;
-            this.lDestination.Text = "Miasto, Państwo";
-            // 
-            // lDaysCount
-            // 
-            this.lDaysCount.AutoSize = true;
-            this.lDaysCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lDaysCount.ForeColor = System.Drawing.Color.White;
-            this.lDaysCount.Location = new System.Drawing.Point(192, 145);
-            this.lDaysCount.Name = "lDaysCount";
-            this.lDaysCount.Size = new System.Drawing.Size(221, 20);
-            this.lDaysCount.TabIndex = 162;
-            this.lDaysCount.Text = "Podróż rozpocznie się za x dni";
-            // 
-            // lStartDate
-            // 
-            this.lStartDate.AutoSize = true;
-            this.lStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lStartDate.ForeColor = System.Drawing.Color.White;
-            this.lStartDate.Location = new System.Drawing.Point(192, 125);
-            this.lStartDate.Name = "lStartDate";
-            this.lStartDate.Size = new System.Drawing.Size(53, 20);
-            this.lStartDate.TabIndex = 161;
-            this.lStartDate.Text = "termin";
+            this.pictureBox1.BackColor = System.Drawing.Color.MintCream;
+            this.pictureBox1.Location = new System.Drawing.Point(35, 57);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(141, 111);
+            this.pictureBox1.TabIndex = 159;
+            this.pictureBox1.TabStop = false;
             // 
             // lTripName
             // 
@@ -128,25 +99,55 @@
             this.lTripName.TabIndex = 160;
             this.lTripName.Text = "Nazwa podróży";
             // 
-            // pictureBox1
+            // lStartDate
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.MintCream;
-            this.pictureBox1.Location = new System.Drawing.Point(35, 57);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(141, 111);
-            this.pictureBox1.TabIndex = 159;
-            this.pictureBox1.TabStop = false;
+            this.lStartDate.AutoSize = true;
+            this.lStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lStartDate.ForeColor = System.Drawing.Color.White;
+            this.lStartDate.Location = new System.Drawing.Point(192, 125);
+            this.lStartDate.Name = "lStartDate";
+            this.lStartDate.Size = new System.Drawing.Size(53, 20);
+            this.lStartDate.TabIndex = 161;
+            this.lStartDate.Text = "termin";
             // 
-            // label5
+            // lDaysCount
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(24, 6);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(234, 29);
-            this.label5.TabIndex = 158;
-            this.label5.Text = "Szczegóły podrózy";
+            this.lDaysCount.AutoSize = true;
+            this.lDaysCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lDaysCount.ForeColor = System.Drawing.Color.White;
+            this.lDaysCount.Location = new System.Drawing.Point(192, 145);
+            this.lDaysCount.Name = "lDaysCount";
+            this.lDaysCount.Size = new System.Drawing.Size(221, 20);
+            this.lDaysCount.TabIndex = 162;
+            this.lDaysCount.Text = "Podróż rozpocznie się za x dni";
+            // 
+            // lDestination
+            // 
+            this.lDestination.AutoSize = true;
+            this.lDestination.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lDestination.ForeColor = System.Drawing.Color.White;
+            this.lDestination.Location = new System.Drawing.Point(192, 105);
+            this.lDestination.Name = "lDestination";
+            this.lDestination.Size = new System.Drawing.Size(125, 20);
+            this.lDestination.TabIndex = 163;
+            this.lDestination.Text = "Miasto, Państwo";
+            // 
+            // pTripView
+            // 
+            this.pTripView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pTripView.BackColor = System.Drawing.Color.Teal;
+            this.pTripView.Controls.Add(this.lDestination);
+            this.pTripView.Controls.Add(this.lDaysCount);
+            this.pTripView.Controls.Add(this.lStartDate);
+            this.pTripView.Controls.Add(this.lTripName);
+            this.pTripView.Controls.Add(this.pictureBox1);
+            this.pTripView.Controls.Add(this.label5);
+            this.pTripView.Location = new System.Drawing.Point(0, 0);
+            this.pTripView.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.pTripView.Name = "pTripView";
+            this.pTripView.Size = new System.Drawing.Size(1171, 197);
+            this.pTripView.TabIndex = 1;
             // 
             // TripDetailsView
             // 
@@ -163,9 +164,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "TripEditViewContainer";
             this.tableLayoutPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pTripView.ResumeLayout(false);
             this.pTripView.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -173,13 +174,13 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
+        public System.Windows.Forms.Panel pCurrentView;
         private System.Windows.Forms.Panel pTripView;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lDestination;
         private System.Windows.Forms.Label lDaysCount;
         private System.Windows.Forms.Label lStartDate;
         private System.Windows.Forms.Label lTripName;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lDestination;
-        public System.Windows.Forms.Panel pCurrentView;
+        private System.Windows.Forms.Label label5;
     }
 }

@@ -43,11 +43,10 @@ namespace Tripper.WinLogic.Forms
                 transportDetails.Parent = this.pCurrentView;
                 transportDetails.Dock = DockStyle.Fill;
                 transportDetails.Show();
-                transportDetails.BringToFront();
                 DisplayedForm = transportDetails;
             }
         }
 
-
+        
     }
 }

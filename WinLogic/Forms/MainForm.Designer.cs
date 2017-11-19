@@ -30,14 +30,14 @@
         {
             this.pTopBanner = new System.Windows.Forms.TableLayoutPanel();
             this.mainPanelTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.pLeft = new System.Windows.Forms.Panel();
             this.pCenter = new System.Windows.Forms.Panel();
+            this.pLeft = new System.Windows.Forms.Panel();
+            this.newTripCreatorButtonPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.bOtherCosts = new System.Windows.Forms.Button();
+            this.bStayment = new System.Windows.Forms.Button();
+            this.bTransport = new System.Windows.Forms.Button();
             this.pTop = new System.Windows.Forms.Panel();
             this.pLeftCorner = new System.Windows.Forms.Panel();
-            this.bTransport = new System.Windows.Forms.Button();
-            this.newTripCreatorButtonPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.bStayment = new System.Windows.Forms.Button();
-            this.bOtherCosts = new System.Windows.Forms.Button();
             this.pTopBanner.SuspendLayout();
             this.mainPanelTableLayoutPanel.SuspendLayout();
             this.pLeft.SuspendLayout();
@@ -79,59 +79,24 @@
             this.mainPanelTableLayoutPanel.Size = new System.Drawing.Size(1239, 671);
             this.mainPanelTableLayoutPanel.TabIndex = 0;
             // 
+            // pCenter
+            // 
+            this.pCenter.BackColor = System.Drawing.Color.Teal;
+            this.pCenter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pCenter.Location = new System.Drawing.Point(229, 50);
+            this.pCenter.Name = "pCenter";
+            this.pCenter.Size = new System.Drawing.Size(1007, 618);
+            this.pCenter.TabIndex = 1;
+            // 
             // pLeft
             // 
             this.pLeft.BackColor = System.Drawing.Color.Teal;
             this.pLeft.Controls.Add(this.newTripCreatorButtonPanel);
             this.pLeft.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pLeft.Location = new System.Drawing.Point(3, 51);
+            this.pLeft.Location = new System.Drawing.Point(3, 50);
             this.pLeft.Name = "pLeft";
-            this.pLeft.Size = new System.Drawing.Size(220, 617);
+            this.pLeft.Size = new System.Drawing.Size(220, 618);
             this.pLeft.TabIndex = 0;
-            // 
-            // pCenter
-            // 
-            this.pCenter.BackColor = System.Drawing.Color.Teal;
-            this.pCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pCenter.Location = new System.Drawing.Point(229, 51);
-            this.pCenter.Name = "pCenter";
-            this.pCenter.Size = new System.Drawing.Size(1007, 617);
-            this.pCenter.TabIndex = 1;
-            // 
-            // pTop
-            // 
-            this.pTop.BackColor = System.Drawing.Color.Teal;
-            this.pTop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pTop.Location = new System.Drawing.Point(229, 3);
-            this.pTop.Name = "pTop";
-            this.pTop.Size = new System.Drawing.Size(1007, 42);
-            this.pTop.TabIndex = 2;
-            // 
-            // pLeftCorner
-            // 
-            this.pLeftCorner.BackColor = System.Drawing.Color.Teal;
-            this.pLeftCorner.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pLeftCorner.Location = new System.Drawing.Point(3, 3);
-            this.pLeftCorner.Name = "pLeftCorner";
-            this.pLeftCorner.Size = new System.Drawing.Size(220, 42);
-            this.pLeftCorner.TabIndex = 3;
-            // 
-            // bTransport
-            // 
-            this.bTransport.BackColor = System.Drawing.Color.Teal;
-            this.bTransport.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bTransport.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.bTransport.FlatAppearance.BorderSize = 2;
-            this.bTransport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bTransport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bTransport.ForeColor = System.Drawing.Color.White;
-            this.bTransport.Location = new System.Drawing.Point(6, 6);
-            this.bTransport.Name = "bTransport";
-            this.bTransport.Size = new System.Drawing.Size(208, 44);
-            this.bTransport.TabIndex = 155;
-            this.bTransport.Text = "Transport";
-            this.bTransport.UseVisualStyleBackColor = false;
-            this.bTransport.Click += new System.EventHandler(this.bTransport_Click);
             // 
             // newTripCreatorButtonPanel
             // 
@@ -151,6 +116,22 @@
             this.newTripCreatorButtonPanel.Size = new System.Drawing.Size(220, 162);
             this.newTripCreatorButtonPanel.TabIndex = 0;
             // 
+            // bOtherCosts
+            // 
+            this.bOtherCosts.BackColor = System.Drawing.Color.Teal;
+            this.bOtherCosts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bOtherCosts.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bOtherCosts.FlatAppearance.BorderSize = 2;
+            this.bOtherCosts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bOtherCosts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bOtherCosts.ForeColor = System.Drawing.Color.White;
+            this.bOtherCosts.Location = new System.Drawing.Point(6, 106);
+            this.bOtherCosts.Name = "bOtherCosts";
+            this.bOtherCosts.Size = new System.Drawing.Size(208, 50);
+            this.bOtherCosts.TabIndex = 157;
+            this.bOtherCosts.Text = "Wydatki";
+            this.bOtherCosts.UseVisualStyleBackColor = false;
+            // 
             // bStayment
             // 
             this.bStayment.BackColor = System.Drawing.Color.Teal;
@@ -168,21 +149,40 @@
             this.bStayment.UseVisualStyleBackColor = false;
             this.bStayment.Click += new System.EventHandler(this.bStayment_Click);
             // 
-            // bOtherCosts
+            // bTransport
             // 
-            this.bOtherCosts.BackColor = System.Drawing.Color.Teal;
-            this.bOtherCosts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bOtherCosts.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.bOtherCosts.FlatAppearance.BorderSize = 2;
-            this.bOtherCosts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bOtherCosts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bOtherCosts.ForeColor = System.Drawing.Color.White;
-            this.bOtherCosts.Location = new System.Drawing.Point(6, 106);
-            this.bOtherCosts.Name = "bOtherCosts";
-            this.bOtherCosts.Size = new System.Drawing.Size(208, 50);
-            this.bOtherCosts.TabIndex = 157;
-            this.bOtherCosts.Text = "Wydatki";
-            this.bOtherCosts.UseVisualStyleBackColor = false;
+            this.bTransport.BackColor = System.Drawing.Color.Teal;
+            this.bTransport.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bTransport.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bTransport.FlatAppearance.BorderSize = 2;
+            this.bTransport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bTransport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bTransport.ForeColor = System.Drawing.Color.White;
+            this.bTransport.Location = new System.Drawing.Point(6, 6);
+            this.bTransport.Name = "bTransport";
+            this.bTransport.Size = new System.Drawing.Size(208, 44);
+            this.bTransport.TabIndex = 155;
+            this.bTransport.Text = "Transport";
+            this.bTransport.UseVisualStyleBackColor = false;
+            this.bTransport.Click += new System.EventHandler(this.bTransport_Click);
+            // 
+            // pTop
+            // 
+            this.pTop.BackColor = System.Drawing.Color.Teal;
+            this.pTop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pTop.Location = new System.Drawing.Point(229, 3);
+            this.pTop.Name = "pTop";
+            this.pTop.Size = new System.Drawing.Size(1007, 41);
+            this.pTop.TabIndex = 2;
+            // 
+            // pLeftCorner
+            // 
+            this.pLeftCorner.BackColor = System.Drawing.Color.Teal;
+            this.pLeftCorner.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pLeftCorner.Location = new System.Drawing.Point(3, 3);
+            this.pLeftCorner.Name = "pLeftCorner";
+            this.pLeftCorner.Size = new System.Drawing.Size(220, 41);
+            this.pLeftCorner.TabIndex = 3;
             // 
             // MainForm
             // 

@@ -8,9 +8,10 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Tripper</RootNamespace>
     <AssemblyName>Tripper</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -138,17 +139,23 @@
     <Compile Include="WinLogic\UserControls\LocalizationsUC.Designer.cs">
       <DependentUpon>LocalizationsUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinLogic\UserControls\OtherCostListTable.cs">
+    <Compile Include="WinLogic\UserControls\OtherCostListRow.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="WinLogic\UserControls\OtherCostListTable.Designer.cs">
-      <DependentUpon>OtherCostListTable.cs</DependentUpon>
+    <Compile Include="WinLogic\UserControls\OtherCostListRow.Designer.cs">
+      <DependentUpon>OtherCostListRow.cs</DependentUpon>
     </Compile>
     <Compile Include="WinLogic\UserControls\TextBoxUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="WinLogic\UserControls\TextBoxUC.Designer.cs">
       <DependentUpon>TextBoxUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinLogic\UserControls\TransportListRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinLogic\UserControls\TransportListRow.Designer.cs">
+      <DependentUpon>TransportListRow.cs</DependentUpon>
     </Compile>
     <Compile Include="WinLogic\WinLogicUIMethods.cs" />
     <EmbeddedResource Include="WinLogic\Forms\LoginForm.resx">
@@ -190,11 +197,14 @@
     <EmbeddedResource Include="WinLogic\UserControls\LocalizationsUC.resx">
       <DependentUpon>LocalizationsUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinLogic\UserControls\OtherCostListTable.resx">
-      <DependentUpon>OtherCostListTable.cs</DependentUpon>
+    <EmbeddedResource Include="WinLogic\UserControls\OtherCostListRow.resx">
+      <DependentUpon>OtherCostListRow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinLogic\UserControls\TextBoxUC.resx">
       <DependentUpon>TextBoxUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinLogic\UserControls\TransportListRow.resx">
+      <DependentUpon>TransportListRow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DbLogic\LinqToSQL\TripperData.dbml.layout">
       <DependentUpon>TripperData.dbml</DependentUpon>

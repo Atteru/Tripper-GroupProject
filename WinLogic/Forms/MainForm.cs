@@ -51,6 +51,7 @@ namespace Tripper.WinLogic.Forms
             if (tripDetails.DisplayedForm != null)
             {
                 tripDetails.DisplayedForm.Close();
+                tripDetails.DisplayedForm = null;
             }
             
                 tripDetails.ShowTransportDetails();
@@ -61,6 +62,7 @@ namespace Tripper.WinLogic.Forms
             if (tripDetails.DisplayedForm != null)
             {
                 tripDetails.DisplayedForm.Close();
+                tripDetails.DisplayedForm = null;
             }
                
         }
