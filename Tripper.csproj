@@ -93,6 +93,18 @@
     <Compile Include="WinLogic\Forms\NewTripCreatorForm.designer.cs">
       <DependentUpon>NewTripCreatorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinLogic\Forms\TransportDetailsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinLogic\Forms\TransportDetailsView.Designer.cs">
+      <DependentUpon>TransportDetailsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinLogic\Forms\TripDetailsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinLogic\Forms\TripDetailsView.Designer.cs">
+      <DependentUpon>TripDetailsView.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinLogic\Forms\TripperMessageBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +168,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WinLogic\Forms\NewTripCreatorForm.resx">
       <DependentUpon>NewTripCreatorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinLogic\Forms\TransportDetailsView.resx">
+      <DependentUpon>TransportDetailsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinLogic\Forms\TripDetailsView.resx">
+      <DependentUpon>TripDetailsView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinLogic\Forms\TripperMessageBox.resx">
       <DependentUpon>TripperMessageBox.cs</DependentUpon>

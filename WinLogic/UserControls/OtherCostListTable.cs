@@ -14,8 +14,25 @@ namespace Tripper.WinLogic.UserControls
 {
     public partial class OtherCostListTableUC : UserControl
     {
-        // private List<OtherCostsCatergory> categoryList = Connection.TripperData.OtherCostsCatergories.ToList();
-        private List<OtherCostsCatergory> categoryList = new List<OtherCostsCatergory>();
+        private List<OtherCostsCatergory> categoryList = Connection.TripperData.OtherCostsCatergories.ToList();
+
+        // true -> button dodaje, false -> button usuwa
+        private bool _buttonStatus = true;
+        public bool ButtonStatus
+        {
+            get
+            {
+                return _buttonStatus;
+            }
+            set
+            {
+                _buttonStatus = value;
+                if (!value)
+                {
+
+                }
+            }
+        }
 
         public OtherCostListTableUC()
         {
@@ -28,12 +45,12 @@ namespace Tripper.WinLogic.UserControls
         {
             get
             {
-                return lRowNumber.Enabled && lCategory.Enabled && tCostName.Enabled && tCost.Enabled;
+                return  tCostName.Enabled && tCost.Enabled;
             }
 
             set
             {
-                lRowNumber.Enabled = lCategory.Enabled = tCostName.Enabled = tCost.Enabled = value;
+                tCostName.Enabled = tCost.Enabled = value;
             }
         }
 
@@ -54,12 +71,25 @@ namespace Tripper.WinLogic.UserControls
             get; set;
         }
 
-        private void button_Click(object sender, EventArgs e)
+   
+
+        private void buttonChangeAdd()
         {
-            contextMenuStrip.Show(button, 0, button.Height);
+            button.Text = "Dodaj";
+            button.Click += button_ClickAdd;
         }
 
 
+        private void buttonChangeDelete()
+        {
+            button.Text = "Usuń";
+        }
+
+        private void button_ClickAdd(object sender, EventArgs e)
+        {
+            contextMenuStrip.Show(button, 0, button.Height);
+
+        }
 
         public void FillContextMenu(List<OtherCostsCatergory> categoryList)
         {
@@ -74,8 +104,8 @@ namespace Tripper.WinLogic.UserControls
 
         private void contextMenuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            var category = e.ClickedItem;
-            
+            lCategory.Text = e.ClickedItem.ToString();
+            this.Enabled = true;
 
         }
     }

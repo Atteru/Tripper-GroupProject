@@ -28,56 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.jedzenieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rozrywkaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.zwiedzanieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dodajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.otherCostListTableUC1 = new Tripper.WinLogic.UserControls.OtherCostListTableUC();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // jedzenieToolStripMenuItem
-            // 
-            this.jedzenieToolStripMenuItem.Name = "jedzenieToolStripMenuItem";
-            this.jedzenieToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-            this.jedzenieToolStripMenuItem.Text = "Jedzenie";
-            // 
-            // rozrywkaToolStripMenuItem
-            // 
-            this.rozrywkaToolStripMenuItem.Name = "rozrywkaToolStripMenuItem";
-            this.rozrywkaToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-            this.rozrywkaToolStripMenuItem.Text = "Rozrywka";
-            // 
-            // zwiedzanieToolStripMenuItem
-            // 
-            this.zwiedzanieToolStripMenuItem.Name = "zwiedzanieToolStripMenuItem";
-            this.zwiedzanieToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-            this.zwiedzanieToolStripMenuItem.Text = "Zwiedzanie";
-            // 
-            // dodajToolStripMenuItem
-            // 
-            this.dodajToolStripMenuItem.Name = "dodajToolStripMenuItem";
-            this.dodajToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-            this.dodajToolStripMenuItem.Text = "Dodaj";
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.jedzenieToolStripMenuItem,
-            this.rozrywkaToolStripMenuItem,
-            this.zwiedzanieToolStripMenuItem,
-            this.dodajToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(134, 92);
             // 
             // otherCostListTableUC1
             // 
             this.otherCostListTableUC1.BackColor = System.Drawing.Color.Transparent;
-            this.otherCostListTableUC1.Location = new System.Drawing.Point(64, 81);
+            this.otherCostListTableUC1.Location = new System.Drawing.Point(55, 81);
             this.otherCostListTableUC1.Name = "otherCostListTableUC1";
             this.otherCostListTableUC1.RowIsAdded = false;
+            this.otherCostListTableUC1.RowNumber = 1;
             this.otherCostListTableUC1.Size = new System.Drawing.Size(632, 41);
             this.otherCostListTableUC1.TabIndex = 155;
             // 
@@ -90,17 +50,11 @@
             this.Controls.Add(this.otherCostListTableUC1);
             this.Name = "NewOtherCostsList";
             this.Text = "NewOtherCostsList";
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.ToolStripMenuItem jedzenieToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rozrywkaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem zwiedzanieToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dodajToolStripMenuItem;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private UserControls.OtherCostListTableUC otherCostListTableUC1;
     }
 }
