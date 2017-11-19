@@ -46,7 +46,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.88653F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 206F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 124F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 131F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
             this.tableLayoutPanel2.Controls.Add(this.lRowNumber, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.button, 4, 0);
             this.tableLayoutPanel2.Controls.Add(this.tCost, 3, 0);
@@ -84,25 +84,24 @@
             this.button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button.ForeColor = System.Drawing.Color.White;
-            this.button.Location = new System.Drawing.Point(505, 5);
+            this.button.Location = new System.Drawing.Point(506, 5);
             this.button.Margin = new System.Windows.Forms.Padding(5);
             this.button.Name = "button";
-            this.button.Size = new System.Drawing.Size(122, 31);
+            this.button.Size = new System.Drawing.Size(121, 31);
             this.button.TabIndex = 154;
             this.button.Text = "Dodaj";
             this.button.UseVisualStyleBackColor = false;
-            this.button.Click += new System.EventHandler(this.button_ClickAdd);
+            this.button.Click += new System.EventHandler(this.button_Click);
             // 
             // tCost
             // 
             this.tCost.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tCost.Enabled = false;
             this.tCost.LabelMessage = "Koszt";
-            this.tCost.Location = new System.Drawing.Point(382, 8);
-            this.tCost.Margin = new System.Windows.Forms.Padding(6, 8, 6, 6);
+            this.tCost.Location = new System.Drawing.Point(383, 6);
+            this.tCost.Margin = new System.Windows.Forms.Padding(6);
             this.tCost.MessageVisibility = true;
             this.tCost.Name = "tCost";
-            this.tCost.Size = new System.Drawing.Size(112, 27);
+            this.tCost.Size = new System.Drawing.Size(112, 29);
             this.tCost.TabIndex = 151;
             // 
             // lCategory
@@ -114,7 +113,7 @@
             this.lCategory.Location = new System.Drawing.Point(46, 5);
             this.lCategory.Margin = new System.Windows.Forms.Padding(5);
             this.lCategory.Name = "lCategory";
-            this.lCategory.Size = new System.Drawing.Size(119, 31);
+            this.lCategory.Size = new System.Drawing.Size(120, 31);
             this.lCategory.TabIndex = 152;
             this.lCategory.Text = "Kategoria";
             this.lCategory.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -124,21 +123,20 @@
             this.tCostName.AutoSize = true;
             this.tCostName.BackColor = System.Drawing.Color.Transparent;
             this.tCostName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tCostName.Enabled = false;
             this.tCostName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tCostName.LabelMessage = "Nazwa kosztu";
-            this.tCostName.Location = new System.Drawing.Point(175, 8);
-            this.tCostName.Margin = new System.Windows.Forms.Padding(5, 8, 5, 6);
+            this.tCostName.Location = new System.Drawing.Point(176, 6);
+            this.tCostName.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.tCostName.MessageVisibility = true;
             this.tCostName.Multiline = false;
             this.tCostName.Name = "tCostName";
-            this.tCostName.Size = new System.Drawing.Size(196, 27);
+            this.tCostName.Size = new System.Drawing.Size(196, 29);
             this.tCostName.TabIndex = 1;
             // 
             // contextMenuStrip
             // 
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(61, 4);
+            this.contextMenuStrip.Size = new System.Drawing.Size(153, 26);
             this.contextMenuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStrip_ItemClicked);
             // 
             // OtherCostListTableUC

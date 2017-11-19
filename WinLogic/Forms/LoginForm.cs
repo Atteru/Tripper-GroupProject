@@ -39,8 +39,7 @@ namespace Tripper.WinLogic.Forms
                 if ((String.Compare(u.Login, tUserName.Text, true) == 0) && (String.Compare(u.Password, tPassword.Text, false) == 0))
                 {
                     this.Hide();
-                    //MainForm welcome = new MainForm(u.UserID);
-                    MainForm welcome = new MainForm();
+                    MainForm welcome = new MainForm(u.UserID);
                     welcome.ShowDialog();
                     this.Close();
                 }

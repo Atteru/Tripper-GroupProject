@@ -25,9 +25,10 @@ namespace Tripper.WinLogic.Forms
         Vehicle type;
 
 
-        public NewTransportCreator()
+        public NewTransportCreator(object vehicle)
         {
             InitializeComponent();
+            type = (Vehicle)vehicle;
             //textBoxUC1.Font = new Font("Microsoft Sans Serif", 12);
             //textBoxUC2.Font = new Font("Microsoft Sans Serif", 12);
             //textBoxUC3.Font = new Font("Microsoft Sans Serif", 12);
