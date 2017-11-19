@@ -10,18 +10,12 @@ using System.Windows.Forms;
 
 namespace Tripper.WinLogic.Forms
 {
-    public partial class NewOtherCostsList : Form
+    public partial class TransportDetailsView : Form
     {
-        public NewOtherCostsList()
+
+        public TransportDetailsView()
         {
             InitializeComponent();
-        }
-
-
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

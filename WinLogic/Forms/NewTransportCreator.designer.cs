@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
             this.dateTimeUC2 = new Tripper.WinLogic.UserControls.DateTimeUC();
             this.dateTimeUC1 = new Tripper.WinLogic.UserControls.DateTimeUC();
             this.localizationsUC3 = new Tripper.WinLogic.UserControls.LocalizationsUC();
@@ -42,7 +43,6 @@
             this.textBoxUC2 = new Tripper.WinLogic.UserControls.TextBoxUC();
             this.textBoxUC1 = new Tripper.WinLogic.UserControls.TextBoxUC();
             this.currencyTextBoxUC1 = new Tripper.WinLogic.UserControls.CurrencyTextBoxUC();
-            this.button5 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -101,6 +101,21 @@
             this.label4.Size = new System.Drawing.Size(125, 20);
             this.label4.TabIndex = 151;
             this.label4.Text = "Data i godzina";
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.Teal;
+            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button5.FlatAppearance.BorderSize = 2;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Location = new System.Drawing.Point(463, 210);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(217, 38);
+            this.button5.TabIndex = 154;
+            this.button5.Text = "Dodaj ";
+            this.button5.UseVisualStyleBackColor = false;
             // 
             // dateTimeUC2
             // 
@@ -212,21 +227,6 @@
             this.currencyTextBoxUC1.Name = "currencyTextBoxUC1";
             this.currencyTextBoxUC1.Size = new System.Drawing.Size(162, 27);
             this.currencyTextBoxUC1.TabIndex = 146;
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.Teal;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button5.FlatAppearance.BorderSize = 2;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(463, 210);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(217, 38);
-            this.button5.TabIndex = 154;
-            this.button5.Text = "Dodaj ";
-            this.button5.UseVisualStyleBackColor = false;
             // 
             // label5
             // 

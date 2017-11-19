@@ -42,6 +42,23 @@ namespace Tripper.WinLogic.UserControls
             }
         }
 
+        [Browsable(true)]
+        public new bool Enabled
+        {
+            get
+            {
+                return textBox.Enabled && messageLabel.Enabled;
+            }
+            set
+            {
+                textBox.Enabled = messageLabel.Enabled = value;
+                if (!textBox.Enabled)
+                    messageLabel.BackColor = SystemColors.Control;
+                else
+                    messageLabel.BackColor = SystemColors.Window;
+            }
+        }
+
 
         // Property Message odnosi się do labela zawartego w kotrolce
         // label służy do wyświetlania komunikatów na textboxie w stylu: "Podaj imię"
