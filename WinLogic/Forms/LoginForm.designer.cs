@@ -39,8 +39,8 @@
             this.pNewAccount = new System.Windows.Forms.Panel();
             this.tNewPasswordConfirm = new Tripper.WinLogic.UserControls.TextBoxUC();
             this.tNewPassword = new Tripper.WinLogic.UserControls.TextBoxUC();
-            this.textBoxUC3 = new Tripper.WinLogic.UserControls.TextBoxUC();
-            this.textBoxUC4 = new Tripper.WinLogic.UserControls.TextBoxUC();
+            this.tNewName = new Tripper.WinLogic.UserControls.TextBoxUC();
+            this.tNewUserName = new Tripper.WinLogic.UserControls.TextBoxUC();
             this.bAddNewUser = new System.Windows.Forms.Button();
             this.tcLogin.SuspendLayout();
             this.tabLogin.SuspendLayout();
@@ -153,8 +153,8 @@
             this.pNewAccount.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.pNewAccount.Controls.Add(this.tNewPasswordConfirm);
             this.pNewAccount.Controls.Add(this.tNewPassword);
-            this.pNewAccount.Controls.Add(this.textBoxUC3);
-            this.pNewAccount.Controls.Add(this.textBoxUC4);
+            this.pNewAccount.Controls.Add(this.tNewName);
+            this.pNewAccount.Controls.Add(this.tNewUserName);
             this.pNewAccount.Controls.Add(this.bAddNewUser);
             this.pNewAccount.Location = new System.Drawing.Point(270, 100);
             this.pNewAccount.Name = "pNewAccount";
@@ -185,25 +185,25 @@
             // 
             // textBoxUC3
             // 
-            this.textBoxUC3.AutoSize = true;
-            this.textBoxUC3.BackColor = System.Drawing.Color.Transparent;
-            this.textBoxUC3.LabelMessage = "Imię";
-            this.textBoxUC3.Location = new System.Drawing.Point(48, 89);
-            this.textBoxUC3.MessageVisibility = true;
-            this.textBoxUC3.Name = "textBoxUC3";
-            this.textBoxUC3.Size = new System.Drawing.Size(389, 29);
-            this.textBoxUC3.TabIndex = 21;
+            this.tNewName.AutoSize = true;
+            this.tNewName.BackColor = System.Drawing.Color.Transparent;
+            this.tNewName.LabelMessage = "Imię";
+            this.tNewName.Location = new System.Drawing.Point(48, 89);
+            this.tNewName.MessageVisibility = true;
+            this.tNewName.Name = "textBoxUC3";
+            this.tNewName.Size = new System.Drawing.Size(389, 29);
+            this.tNewName.TabIndex = 21;
             // 
             // textBoxUC4
             // 
-            this.textBoxUC4.AutoSize = true;
-            this.textBoxUC4.BackColor = System.Drawing.Color.Transparent;
-            this.textBoxUC4.LabelMessage = "Nazwa użytkownika";
-            this.textBoxUC4.Location = new System.Drawing.Point(48, 54);
-            this.textBoxUC4.MessageVisibility = true;
-            this.textBoxUC4.Name = "textBoxUC4";
-            this.textBoxUC4.Size = new System.Drawing.Size(389, 29);
-            this.textBoxUC4.TabIndex = 20;
+            this.tNewUserName.AutoSize = true;
+            this.tNewUserName.BackColor = System.Drawing.Color.Transparent;
+            this.tNewUserName.LabelMessage = "Nazwa użytkownika";
+            this.tNewUserName.Location = new System.Drawing.Point(48, 54);
+            this.tNewUserName.MessageVisibility = true;
+            this.tNewUserName.Name = "textBoxUC4";
+            this.tNewUserName.Size = new System.Drawing.Size(389, 29);
+            this.tNewUserName.TabIndex = 20;
             // 
             // bAddNewUser
             // 
@@ -248,11 +248,11 @@
         private System.Windows.Forms.Panel pLogin;
         private System.Windows.Forms.LinkLabel llNewAccount;
         private System.Windows.Forms.Button bLogin;
-        private UserControls.TextBoxUC tNewPasswordConfirm;
-        private UserControls.TextBoxUC tNewPassword;
         private UserControls.TextBoxUC tPassword;
         private UserControls.TextBoxUC tUserName;
-        private UserControls.TextBoxUC textBoxUC3;
-        private UserControls.TextBoxUC textBoxUC4;
+        private UserControls.TextBoxUC tNewUserName;
+        private UserControls.TextBoxUC tNewName;
+        private UserControls.TextBoxUC tNewPasswordConfirm;
+        private UserControls.TextBoxUC tNewPassword;
     }
 }

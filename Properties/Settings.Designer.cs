@@ -26,23 +26,11 @@ namespace Tripper.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\Administrator PC\\De" +
-            "sktop\\Projekt\\Tripper\\TripperDB.mdf\";Integrated Security=True;Connect Timeout=30" +
-            "")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\Repos\\Tripper\\DataBase\\Tri" +
+            "pperDB.mdf;Integrated Security=True;Connect Timeout=30")]
         public string TripperDBConnectionString {
             get {
                 return ((string)(this["TripperDBConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\Administrator PC\\De" +
-            "sktop\\xxx\\Tripper\\TripperDB.mdf\";Integrated Security=True;Connect Timeout=30")]
-        public string TripperDBConnectionString1 {
-            get {
-                return ((string)(this["TripperDBConnectionString1"]));
             }
         }
     }

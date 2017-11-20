@@ -55,6 +55,8 @@
     <Compile Include="Enums\Vehicle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="WinLogic\Classes\NewUser.cs" />
     <Compile Include="WinLogic\Classes\NewTransport.cs" />
     <Compile Include="WinLogic\Classes\NewTrip.cs" />
     <Compile Include="WinLogic\Forms\LoginForm.cs">
