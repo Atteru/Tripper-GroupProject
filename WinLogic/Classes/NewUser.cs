@@ -11,13 +11,25 @@ namespace Tripper.WinLogic.Classes
 {
     class NewUser
     {
-        public static User AddNewUser(string userAccountName,string userPassword, string userPasswordConfirm)//, string userName)
+        public static User AddNewUser(string userAccountName,string userPassword, string userPasswordConfirm, string userName)
         {
-            if (userAccountName == "" || userPassword == "" || userPasswordConfirm == "")// userName != "")
+            if (userAccountName == "" || userPassword == "" || userPasswordConfirm == "" || userName != "")
             {
                 MessageBox.Show("Uzupełnij wszystkie pola");
                 return null;
             }
+            if (userPassword.Length < 8)
+            {
+                MessageBox.Show("Hasło musi mieć conajmniej 8 znaków");
+                return null;
+            }
+            if (userPassword.Any(c => char.IsUpper(c)) == false || userPassword.Any(c => char.IsDigit(c)) == false)
+            {
+                MessageBox.Show("Hasło musi zawierać conajmniej jedną wielką literę i cyfrę");
+                return null;
+            }
+
+            
             foreach (User user in Connection.TripperData.Users)
             { 
                 if ((String.Compare(user.Login, userAccountName, true) == 0))
