@@ -117,6 +117,12 @@ namespace Tripper.WinLogic.UserControls
             }
         }
 
+        public void GetData(decimal value)
+        {
+              MessageVisibility = false;
+              Text = value.ToString();
+        }
+
         private void textBox_Validating(object sender, CancelEventArgs e)
         {
             TextBox tbox = sender as TextBox;
@@ -127,6 +133,7 @@ namespace Tripper.WinLogic.UserControls
         }
 
 
+
         private void messageLabel_Click(object sender, EventArgs e)
         {
             if (MessageVisibility == true)
@@ -134,10 +141,12 @@ namespace Tripper.WinLogic.UserControls
             textBox.Focus();
         }
 
-        private void textBox_Click(object sender, EventArgs e)
+
+        private void textBox_MessageLabelHide(object sender, EventArgs e)
         {
             if (MessageVisibility == true)
                 MessageVisibility = false;
         }
+
     }
 }

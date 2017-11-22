@@ -42,18 +42,18 @@
             this.bAddOtherVehicle = new System.Windows.Forms.Button();
             this.bAddPlane = new System.Windows.Forms.Button();
             this.bAddCar = new System.Windows.Forms.Button();
+            this.pNewTransportBack = new System.Windows.Forms.Panel();
+            this.pNewTicketView = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.pNewTicketView = new System.Windows.Forms.Panel();
-            this.pNewTransportBack = new System.Windows.Forms.Panel();
             this.pTransportList.SuspendLayout();
             this.tcTransportView.SuspendLayout();
             this.transportList.SuspendLayout();
             this.newTransport.SuspendLayout();
             this.pVehicleTop.SuspendLayout();
             this.pVehicleChoice.SuspendLayout();
-            this.tableLayoutPanel.SuspendLayout();
             this.pNewTransportBack.SuspendLayout();
+            this.tableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // vehiclesImageList
@@ -220,7 +220,7 @@
             this.bAddPlane.TabIndex = 12;
             this.bAddPlane.Text = "Samolot";
             this.bAddPlane.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.bAddPlane.UseVisualStyleBackColor = false;
+            this.bAddPlane.UseVisualStyleBackColor = true;
             this.bAddPlane.Click += new System.EventHandler(this.bAddPlane_Click);
             // 
             // bAddCar
@@ -243,6 +243,28 @@
             this.bAddCar.Text = "Samochód";
             this.bAddCar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bAddCar.UseVisualStyleBackColor = false;
+            // 
+            // pNewTransportBack
+            // 
+            this.pNewTransportBack.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pNewTransportBack.BackColor = System.Drawing.Color.White;
+            this.pNewTransportBack.Controls.Add(this.pNewTicketView);
+            this.pNewTransportBack.Location = new System.Drawing.Point(20, 124);
+            this.pNewTransportBack.Name = "pNewTransportBack";
+            this.pNewTransportBack.Padding = new System.Windows.Forms.Padding(2);
+            this.pNewTransportBack.Size = new System.Drawing.Size(1379, 322);
+            this.pNewTransportBack.TabIndex = 7;
+            // 
+            // pNewTicketView
+            // 
+            this.pNewTicketView.BackColor = System.Drawing.Color.DarkCyan;
+            this.pNewTicketView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pNewTicketView.Location = new System.Drawing.Point(2, 2);
+            this.pNewTicketView.Name = "pNewTicketView";
+            this.pNewTicketView.Size = new System.Drawing.Size(1375, 318);
+            this.pNewTicketView.TabIndex = 5;
             // 
             // label2
             // 
@@ -268,28 +290,6 @@
             this.tableLayoutPanel.Size = new System.Drawing.Size(1471, 646);
             this.tableLayoutPanel.TabIndex = 0;
             // 
-            // pNewTicketView
-            // 
-            this.pNewTicketView.BackColor = System.Drawing.Color.DarkCyan;
-            this.pNewTicketView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pNewTicketView.Location = new System.Drawing.Point(2, 2);
-            this.pNewTicketView.Name = "pNewTicketView";
-            this.pNewTicketView.Size = new System.Drawing.Size(1375, 318);
-            this.pNewTicketView.TabIndex = 5;
-            // 
-            // pNewTransportBack
-            // 
-            this.pNewTransportBack.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pNewTransportBack.BackColor = System.Drawing.Color.White;
-            this.pNewTransportBack.Controls.Add(this.pNewTicketView);
-            this.pNewTransportBack.Location = new System.Drawing.Point(20, 124);
-            this.pNewTransportBack.Name = "pNewTransportBack";
-            this.pNewTransportBack.Padding = new System.Windows.Forms.Padding(2);
-            this.pNewTransportBack.Size = new System.Drawing.Size(1379, 322);
-            this.pNewTransportBack.TabIndex = 7;
-            // 
             // TransportDetailsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -313,8 +313,8 @@
             this.pVehicleTop.ResumeLayout(false);
             this.pVehicleTop.PerformLayout();
             this.pVehicleChoice.ResumeLayout(false);
-            this.tableLayoutPanel.ResumeLayout(false);
             this.pNewTransportBack.ResumeLayout(false);
+            this.tableLayoutPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

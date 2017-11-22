@@ -18,41 +18,32 @@ namespace Tripper.WinLogic.Forms
 {
     public partial class NewTransportCreator : Form
     {
-        List<Country> countryList = Connection.TripperData.Countries.ToList();
-        List<Localization> cityList = Connection.TripperData.Localizations.ToList();
-        NewTransport newTransport = new NewTransport();
-        CultureInfo ci = new CultureInfo("en-US");
-        Vehicle type;
-
+        Transport selectedTransport;
 
         public NewTransportCreator()
         {
+            int transportID = 1;
+            selectedTransport = Connection.TripperData.Transports.Single(transport => transport.TransportID.Equals(transportID));
             InitializeComponent();
-            //textBoxUC1.Font = new Font("Microsoft Sans Serif", 12);
-            //textBoxUC2.Font = new Font("Microsoft Sans Serif", 12);
-            //textBoxUC3.Font = new Font("Microsoft Sans Serif", 12);
-
+            tLocalizationDeparture.GetLocalization(selectedTransport.DepartureLocalization);
+            tLocalizationArrival.GetLocalization(selectedTransport.ArrivalLocalization);
+            tFlightNo.GetData<string>(selectedTransport.FlightNumber);
+            tSeats.GetData<string>(selectedTransport.Seats);
+            tConfirmationNo.GetData<string>(selectedTransport.ConfirmationNumber);
+            tTransportCost.GetData(selectedTransport.Cost);
+            dtpDeparture.GetDate(selectedTransport.DepartureTime);
+            dtpDeparture.GetDate(selectedTransport.DepartureTime);
+            dtpArrival.GetDate(selectedTransport.ArrivalTime);
         }
 
-        private void NewTransportCreator_Load(object sender, EventArgs e)
+        private void tAdditionalInformations_Enter(object sender, EventArgs e)
         {
+            tAdditonalInformations.Height = 150;
+        }
 
-            switch (type)
-            {
-                case Vehicle.Samolot:
-                    //lOthers1.Text = "Nr. Lotu";
-                 //   lOthers2.Text = "Terminal";
-                    break;
-                case Vehicle.Pociąg:
-                  //  lOthers1.Text = "Peron";
-                  //  lOthers2.Text = "Nr. Wagonu";
-                    break;
-                case Vehicle.Samochód:
-                    break;
-                case Vehicle.Bus:
-                    break;
-
-            }
+        private void tAdditionalInformations_Leave(object sender, EventArgs e)
+        {
+            tAdditonalInformations.Height = 26;
         }
     }
 }

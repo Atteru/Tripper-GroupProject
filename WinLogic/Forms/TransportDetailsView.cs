@@ -15,6 +15,20 @@ namespace Tripper.WinLogic.Forms
     {
         List<TransportListRow> tranportList = new List<TransportListRow>();
 
+        Button selectedVehicle
+        {
+            get
+            {
+                return selectedVehicle;
+            }
+
+            set
+            {
+                selectedVehicle = value;
+                value.BackColor = Color.Wheat;
+            }
+        }
+
         public TransportDetailsView()
         {
             InitializeComponent();

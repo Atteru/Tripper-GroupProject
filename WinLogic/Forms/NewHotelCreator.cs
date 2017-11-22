@@ -35,19 +35,15 @@ namespace Tripper.WinLogic.Forms
 
         }
 
-        private void textBoxUC3_Load(object sender, EventArgs e)
+        private void tAdditionalInformations_Enter(object sender, EventArgs e)
         {
-
+            tAdditonalInformations.Height = 150;
         }
 
-        private void textBoxUC3_Enter(object sender, EventArgs e)
+        private void tAdditionalInformations_Leave(object sender, EventArgs e)
         {
-            textBoxUC3.Height = 150;
+            tAdditonalInformations.Height = 26;
         }
 
-        private void textBoxUC3_Leave(object sender, EventArgs e)
-        {
-            textBoxUC3.Height = 26;
-        }
     }
 }

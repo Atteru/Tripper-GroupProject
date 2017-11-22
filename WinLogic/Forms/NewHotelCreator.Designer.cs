@@ -34,7 +34,7 @@
             this.localizationsUC1 = new Tripper.WinLogic.UserControls.LocalizationsUC();
             this.dtpDateTo = new Tripper.WinLogic.UserControls.DateTimeUC();
             this.lDaysCount = new System.Windows.Forms.Label();
-            this.textBoxUC3 = new Tripper.WinLogic.UserControls.TextBoxUC();
+            this.tAdditonalInformations = new Tripper.WinLogic.UserControls.TextBoxUC();
             this.textBoxUC4 = new Tripper.WinLogic.UserControls.TextBoxUC();
             this.button5 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -117,23 +117,22 @@
             this.lDaysCount.Text = "Dni łącznie:";
             this.lDaysCount.Visible = false;
             // 
-            // textBoxUC3
+            // tAdditonalInformations
             // 
-            this.textBoxUC3.AutoScroll = true;
-            this.textBoxUC3.AutoSize = true;
-            this.textBoxUC3.BackColor = System.Drawing.Color.Transparent;
-            this.textBoxUC3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBoxUC3.LabelMessage = "Informacje dodatkowe";
-            this.textBoxUC3.Location = new System.Drawing.Point(14, 183);
-            this.textBoxUC3.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.textBoxUC3.MessageVisibility = true;
-            this.textBoxUC3.Multiline = true;
-            this.textBoxUC3.Name = "textBoxUC3";
-            this.textBoxUC3.Size = new System.Drawing.Size(420, 26);
-            this.textBoxUC3.TabIndex = 149;
-            this.textBoxUC3.Load += new System.EventHandler(this.textBoxUC3_Load);
-            this.textBoxUC3.Enter += new System.EventHandler(this.textBoxUC3_Enter);
-            this.textBoxUC3.Leave += new System.EventHandler(this.textBoxUC3_Leave);
+            this.tAdditonalInformations.AutoScroll = true;
+            this.tAdditonalInformations.AutoSize = true;
+            this.tAdditonalInformations.BackColor = System.Drawing.Color.Transparent;
+            this.tAdditonalInformations.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tAdditonalInformations.LabelMessage = "Informacje dodatkowe";
+            this.tAdditonalInformations.Location = new System.Drawing.Point(14, 183);
+            this.tAdditonalInformations.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.tAdditonalInformations.MessageVisibility = true;
+            this.tAdditonalInformations.Multiline = true;
+            this.tAdditonalInformations.Name = "tAdditonalInformations";
+            this.tAdditonalInformations.Size = new System.Drawing.Size(420, 26);
+            this.tAdditonalInformations.TabIndex = 149;
+            this.tAdditonalInformations.Enter += new System.EventHandler(this.tAdditionalInformations_Enter);
+            this.tAdditonalInformations.Leave += new System.EventHandler(this.tAdditionalInformations_Leave);
             // 
             // textBoxUC4
             // 
@@ -191,7 +190,7 @@
             this.Controls.Add(this.textBoxUC2);
             this.Controls.Add(this.textBoxUC1);
             this.Controls.Add(this.localizationsUC1);
-            this.Controls.Add(this.textBoxUC3);
+            this.Controls.Add(this.tAdditonalInformations);
             this.Name = "NewHotelCreator";
             this.Text = "NewHotelCreator";
             this.ResumeLayout(false);
@@ -207,7 +206,7 @@
         private UserControls.DateTimeUC dtpDateFrom;
         private UserControls.DateTimeUC dtpDateTo;
         private System.Windows.Forms.Label lDaysCount;
-        private UserControls.TextBoxUC textBoxUC3;
+        private UserControls.TextBoxUC tAdditonalInformations;
         private UserControls.TextBoxUC textBoxUC4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label5;

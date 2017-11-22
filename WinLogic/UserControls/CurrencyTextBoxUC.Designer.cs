@@ -36,6 +36,7 @@
             // 
             this.messageLabel.AutoSize = true;
             this.messageLabel.BackColor = System.Drawing.Color.White;
+            this.messageLabel.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.messageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.messageLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.messageLabel.Location = new System.Drawing.Point(3, 2);
@@ -50,6 +51,7 @@
             // 
             // textBox
             // 
+            this.textBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBox.Location = new System.Drawing.Point(0, 0);
             this.textBox.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
@@ -57,7 +59,8 @@
             this.textBox.Size = new System.Drawing.Size(216, 26);
             this.textBox.TabIndex = 8;
             this.textBox.Text = "0,00";
-            this.textBox.Click += new System.EventHandler(this.textBox_Click);
+            this.textBox.Click += new System.EventHandler(this.textBox_MessageLabelHide);
+            this.textBox.TextChanged += new System.EventHandler(this.textBox_MessageLabelHide);
             this.textBox.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_Validating);
             // 
             // CurrencyTextBoxUC

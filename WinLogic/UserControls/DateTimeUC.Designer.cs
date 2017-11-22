@@ -67,15 +67,17 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pDateMessage.BackColor = System.Drawing.Color.White;
             this.pDateMessage.Controls.Add(this.lDateMessage);
+            this.pDateMessage.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.pDateMessage.Location = new System.Drawing.Point(1, 1);
             this.pDateMessage.Name = "pDateMessage";
-            this.pDateMessage.Size = new System.Drawing.Size(154, 23);
+            this.pDateMessage.Size = new System.Drawing.Size(153, 23);
             this.pDateMessage.TabIndex = 114;
             this.pDateMessage.Click += new System.EventHandler(this.pDateMessage_Click);
             // 
             // lDateMessage
             // 
             this.lDateMessage.AutoSize = true;
+            this.lDateMessage.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.lDateMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lDateMessage.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.lDateMessage.Location = new System.Drawing.Point(3, 2);
@@ -99,6 +101,7 @@
             // lTimeMessage
             // 
             this.lTimeMessage.AutoSize = true;
+            this.lTimeMessage.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.lTimeMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lTimeMessage.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.lTimeMessage.Location = new System.Drawing.Point(4, 2);
