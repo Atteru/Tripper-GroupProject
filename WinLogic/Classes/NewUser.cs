@@ -13,7 +13,7 @@ namespace Tripper.WinLogic.Classes
     {
         public static User AddNewUser(string userAccountName,string userPassword, string userPasswordConfirm, string userName)
         {
-            if (userAccountName == "" || userPassword == "" || userPasswordConfirm == "" || userName != "")
+            if (userAccountName == "" || userPassword == "" || userPasswordConfirm == "" || userName == "")
             {
                 MessageBox.Show("Uzupełnij wszystkie pola");
                 return null;
@@ -26,6 +26,11 @@ namespace Tripper.WinLogic.Classes
             if (userPassword.Any(c => char.IsUpper(c)) == false || userPassword.Any(c => char.IsDigit(c)) == false)
             {
                 MessageBox.Show("Hasło musi zawierać conajmniej jedną wielką literę i cyfrę");
+                return null;
+            }
+            if (userAccountName.Length < 6)
+            {
+                MessageBox.Show("Nazwa użytkownika musi zawierać conajmniej 6 znaków");
                 return null;
             }
 
@@ -42,7 +47,7 @@ namespace Tripper.WinLogic.Classes
 
             newUser.Login = userAccountName;
             newUser.Password = userPassword;
-            //newUser.Name = userName;
+            newUser.Name = userName;
             MessageBox.Show("Użytkownik " + newUser.Login.ToString() + " został stwożony");
             return newUser;
         }
