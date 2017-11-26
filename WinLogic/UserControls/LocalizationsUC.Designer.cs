@@ -28,25 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lCityError = new System.Windows.Forms.Label();
             this.lCountryError = new System.Windows.Forms.Label();
             this.cbCountry = new Tripper.WinLogic.UserControls.DynamicCombo();
             this.cbCity = new Tripper.WinLogic.UserControls.DynamicCombo();
+            this.lCityError = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // lCityError
-            // 
-            this.lCityError.AutoSize = true;
-            this.lCityError.BackColor = System.Drawing.Color.White;
-            this.lCityError.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.lCityError.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lCityError.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lCityError.Location = new System.Drawing.Point(3, 38);
-            this.lCityError.Name = "lCityError";
-            this.lCityError.Size = new System.Drawing.Size(84, 20);
-            this.lCityError.TabIndex = 3;
-            this.lCityError.Text = "Komunikat";
-            this.lCityError.Click += new System.EventHandler(this.lCityError_Click);
             // 
             // lCountryError
             // 
@@ -64,16 +50,15 @@
             // 
             // cbCountry
             // 
-            this.cbCountry.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbCountry.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.cbCountry.Dock = System.Windows.Forms.DockStyle.Top;
             this.cbCountry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.cbCountry.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbCountry.FormattingEnabled = true;
             this.cbCountry.IsOpened = false;
             this.cbCountry.Location = new System.Drawing.Point(0, 0);
             this.cbCountry.Name = "cbCountry";
-            this.cbCountry.Size = new System.Drawing.Size(208, 28);
+            this.cbCountry.Size = new System.Drawing.Size(226, 28);
             this.cbCountry.StartingSize = 0;
             this.cbCountry.TabIndex = 6;
             this.cbCountry.SelectionChangeCommitted += new System.EventHandler(this.cbCountry_SelectionChangeCommitted);
@@ -84,16 +69,15 @@
             // 
             // cbCity
             // 
-            this.cbCity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbCity.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.cbCity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.cbCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbCity.FormattingEnabled = true;
             this.cbCity.IsOpened = false;
-            this.cbCity.Location = new System.Drawing.Point(0, 34);
+            this.cbCity.Location = new System.Drawing.Point(0, 35);
+            this.cbCity.Margin = new System.Windows.Forms.Padding(0);
             this.cbCity.Name = "cbCity";
-            this.cbCity.Size = new System.Drawing.Size(208, 28);
+            this.cbCity.Size = new System.Drawing.Size(226, 28);
             this.cbCity.StartingSize = 0;
             this.cbCity.TabIndex = 1;
             this.cbCity.SelectionChangeCommitted += new System.EventHandler(this.cbCity_SelectionChangeCommitted);
@@ -101,6 +85,20 @@
             this.cbCity.Click += new System.EventHandler(this.cbCity_Click);
             this.cbCity.Leave += new System.EventHandler(this.cbCity_Leave);
             this.cbCity.Validating += new System.ComponentModel.CancelEventHandler(this.cbCity_Validating);
+            // 
+            // lCityError
+            // 
+            this.lCityError.AutoSize = true;
+            this.lCityError.BackColor = System.Drawing.Color.White;
+            this.lCityError.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.lCityError.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lCityError.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lCityError.Location = new System.Drawing.Point(3, 38);
+            this.lCityError.Name = "lCityError";
+            this.lCityError.Size = new System.Drawing.Size(84, 20);
+            this.lCityError.TabIndex = 3;
+            this.lCityError.Text = "Komunikat";
+            this.lCityError.Click += new System.EventHandler(this.lCityError_Click);
             // 
             // LocalizationsUC
             // 
@@ -113,7 +111,7 @@
             this.Controls.Add(this.lCityError);
             this.Controls.Add(this.cbCity);
             this.Name = "LocalizationsUC";
-            this.Size = new System.Drawing.Size(217, 69);
+            this.Size = new System.Drawing.Size(226, 69);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -121,8 +119,8 @@
 
         #endregion
         private DynamicCombo cbCity;
-        private System.Windows.Forms.Label lCityError;
         private System.Windows.Forms.Label lCountryError;
         private DynamicCombo cbCountry;
+        private System.Windows.Forms.Label lCityError;
     }
 }

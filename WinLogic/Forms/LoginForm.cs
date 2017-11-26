@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tripper.DbLogic;
 using Tripper.DbLogic.LinqToSQL;
-using Tripper.WinLogic.Classes;
 
 namespace Tripper.WinLogic.Forms
 {
@@ -34,7 +33,7 @@ namespace Tripper.WinLogic.Forms
             tUserName.Text = "user";
             tPassword.Text = "user";
 
-            foreach (User u in Connection.TripperData.Users)
+            foreach (Traveler u in Connection.TripperData.Travelers)
             {
                 // Metoda Compare(string1, string2, wielkośćZnaków) zwraca 0 jeśli łańcuchy są takie same
                 if ((String.Compare(u.Login, tUserName.Text, true) == 0) && (String.Compare(u.Password, tPassword.Text, false) == 0))
@@ -67,13 +66,7 @@ namespace Tripper.WinLogic.Forms
 
         private void bAddNewUser_Click(object sender, EventArgs e)
         {
-            User newUser = new User();
-            newUser = NewUser.AddNewUser(tNewUserName.Text, tNewPassword.Text, tNewPasswordConfirm.Text, tNewName.Text);
-            if (newUser != null) { 
-                Connection.TripperData.Users.InsertOnSubmit(newUser);
-                Connection.TripperData.SubmitChanges();
-            }
-
+            tcLogin.SelectedTab = tabLogin;
         }
 
     }

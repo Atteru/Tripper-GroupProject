@@ -44,12 +44,12 @@
             this.bAddPublic = new System.Windows.Forms.Button();
             this.bAddOtherVehicle = new System.Windows.Forms.Button();
             this.bAddPlane = new System.Windows.Forms.Button();
+            this.vehicleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bAddCar = new System.Windows.Forms.Button();
             this.pNewTransportBack = new System.Windows.Forms.Panel();
             this.pNewTicketView = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.vehicleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pTransportList.SuspendLayout();
             this.tcTransportView.SuspendLayout();
             this.transportList.SuspendLayout();
@@ -58,9 +58,9 @@
             this.newTransport.SuspendLayout();
             this.pVehicleTop.SuspendLayout();
             this.pVehicleChoice.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vehicleBindingSource)).BeginInit();
             this.pNewTransportBack.SuspendLayout();
             this.tableLayoutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vehicleBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // vehiclesImageList
@@ -124,7 +124,7 @@
             this.pTableLayoutTransportList.Name = "pTableLayoutTransportList";
             this.pTableLayoutTransportList.RowCount = 1;
             this.pTableLayoutTransportList.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.pTableLayoutTransportList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.pTableLayoutTransportList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 537F));
             this.pTableLayoutTransportList.Size = new System.Drawing.Size(1413, 537);
             this.pTableLayoutTransportList.TabIndex = 0;
             // 
@@ -230,6 +230,7 @@
             this.bAddPublic.Text = "Transport publiczny";
             this.bAddPublic.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bAddPublic.UseVisualStyleBackColor = false;
+            this.bAddPublic.Click += new System.EventHandler(this.bAddPublic_Click);
             // 
             // bAddOtherVehicle
             // 
@@ -251,11 +252,11 @@
             this.bAddOtherVehicle.Text = "Inne";
             this.bAddOtherVehicle.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bAddOtherVehicle.UseVisualStyleBackColor = false;
+            this.bAddOtherVehicle.Click += new System.EventHandler(this.bAddOtherVehicle_Click);
             // 
             // bAddPlane
             // 
             this.bAddPlane.BackColor = System.Drawing.Color.Teal;
-            this.bAddPlane.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "Name", true));
             this.bAddPlane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bAddPlane.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
             this.bAddPlane.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -274,6 +275,10 @@
             this.bAddPlane.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bAddPlane.UseVisualStyleBackColor = true;
             this.bAddPlane.Click += new System.EventHandler(this.bAddPlane_Click);
+            // 
+            // vehicleBindingSource
+            // 
+            this.vehicleBindingSource.DataSource = typeof(Tripper.DbLogic.LinqToSQL.Vehicle);
             // 
             // bAddCar
             // 
@@ -295,6 +300,7 @@
             this.bAddCar.Text = "Samochód";
             this.bAddCar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bAddCar.UseVisualStyleBackColor = false;
+            this.bAddCar.Click += new System.EventHandler(this.bAddCar_Click);
             // 
             // pNewTransportBack
             // 
@@ -311,6 +317,8 @@
             // 
             // pNewTicketView
             // 
+            this.pNewTicketView.AutoSize = true;
+            this.pNewTicketView.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pNewTicketView.BackColor = System.Drawing.Color.DarkCyan;
             this.pNewTicketView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pNewTicketView.Location = new System.Drawing.Point(2, 2);
@@ -342,10 +350,6 @@
             this.tableLayoutPanel.Size = new System.Drawing.Size(1471, 646);
             this.tableLayoutPanel.TabIndex = 0;
             // 
-            // vehicleBindingSource
-            // 
-            this.vehicleBindingSource.DataSource = typeof(Tripper.DbLogic.LinqToSQL.Vehicle);
-            // 
             // TransportDetailsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -368,9 +372,10 @@
             this.pVehicleTop.ResumeLayout(false);
             this.pVehicleTop.PerformLayout();
             this.pVehicleChoice.ResumeLayout(false);
-            this.pNewTransportBack.ResumeLayout(false);
-            this.tableLayoutPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.vehicleBindingSource)).EndInit();
+            this.pNewTransportBack.ResumeLayout(false);
+            this.pNewTransportBack.PerformLayout();
+            this.tableLayoutPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

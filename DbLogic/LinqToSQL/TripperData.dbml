@@ -1,28 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TripperDB" Class="TripperDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=&quot;C:\Users\Administrator PC\Desktop\xxx\Tripper\TripperDB.mdf&quot;;Integrated Security=True;Connect Timeout=30" SettingsObjectName="Tripper.Properties.Settings" SettingsPropertyName="TripperDBConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=&quot;C:\Users\Administrator PC\Desktop\Projekt\Tripper\TripperDB.mdf&quot;;Integrated Security=True;Connect Timeout=30" SettingsObjectName="Tripper.Properties.Settings" SettingsPropertyName="TripperDBConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Continent" Member="Continents">
     <Type Name="Continent">
-      <Column Name="ContinentID" Type="System.String" DbType="Char(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="continentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Continent_Country" Member="Countries" ThisKey="ContinentID" OtherKey="ContinentID" Type="Country" />
+      <Association Name="Continent_Country" Member="Countries" ThisKey="continentID" OtherKey="ContinentID" Type="Country" />
     </Type>
   </Table>
-  <Table Name="dbo.[User]" Member="Users">
-    <Type Name="User">
-      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Login" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Password" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
-      <Association Name="User_Trip" Member="Trips" ThisKey="UserID" OtherKey="UserID" Type="Trip" />
+  <Table Name="dbo.Trip" Member="Trips">
+    <Type Name="Trip">
+      <Column Name="TripID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TravelerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Budget" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="AdditionalInformation" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Trip_Stayment" Member="Stayments" ThisKey="TripID" OtherKey="TripID" Type="Stayment" />
+      <Association Name="Trip_Transport" Member="Transports" ThisKey="TripID" OtherKey="TripID" Type="Transport" />
+      <Association Name="Traveler_Trip" Member="Traveler" ThisKey="TravelerID" OtherKey="TravelerID" Type="Traveler" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Country" Member="Countries">
     <Type Name="Country">
       <Column Name="CountryID" Type="System.String" DbType="Char(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="ContinentID" Type="System.String" DbType="Char(3) NOT NULL" CanBeNull="false" />
-      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ContinentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Country_Localization" Member="Localizations" ThisKey="CountryID" OtherKey="CountryID" Type="Localization" />
-      <Association Name="Continent_Country" Member="Continent" ThisKey="ContinentID" OtherKey="ContinentID" Type="Continent" IsForeignKey="true" />
+      <Association Name="Continent_Country" Member="Continent" ThisKey="ContinentID" OtherKey="continentID" Type="Continent" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Localization" Member="Localizations">
@@ -30,7 +35,6 @@
       <Column Name="LocalizationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="City" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="CountryID" Type="System.String" DbType="Char(3) NOT NULL" CanBeNull="false" />
-      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Association Name="Localization_Stayment" Member="Stayments" ThisKey="LocalizationID" OtherKey="LocalizationID" Type="Stayment" />
       <Association Name="Localization_Transport" Member="Transports" ThisKey="LocalizationID" OtherKey="ArrivalLocalization" Type="Transport" />
       <Association Name="Localization_Transport1" Member="Transports1" ThisKey="LocalizationID" OtherKey="DepartureLocalization" Type="Transport" />
@@ -77,39 +81,23 @@
       <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Association Name="Localization_Transport" Member="Localization" ThisKey="ArrivalLocalization" OtherKey="LocalizationID" Type="Localization" IsForeignKey="true" />
       <Association Name="Localization_Transport1" Member="Localization1" ThisKey="DepartureLocalization" OtherKey="LocalizationID" Type="Localization" IsForeignKey="true" />
-      <Association Name="Vehicle_Transport" Member="Vehicle" ThisKey="VehicleID" OtherKey="VehicleID" Type="Vehicle" IsForeignKey="true" />
       <Association Name="Trip_Transport" Member="Trip" ThisKey="TripID" OtherKey="TripID" Type="Trip" IsForeignKey="true" />
+      <Association Name="Vehicle_Transport" Member="Vehicle" ThisKey="VehicleID" OtherKey="VehicleID" Type="Vehicle" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Trip" Member="Trips">
-    <Type Name="Trip">
-      <Column Name="TripID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="TravelerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DepartureTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="Budget" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
-      <Column Name="EstimatedCost" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
-      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="AdditionalInformation" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Association Name="Trip_Stayment" Member="Stayments" ThisKey="TripID" OtherKey="TripID" Type="Stayment" />
-      <Association Name="Trip_Transport" Member="Transports" ThisKey="TripID" OtherKey="TripID" Type="Transport" />
-    </Type>
-  </Table>
-  <Table Name="dbo.[User]" Member="Users">
-    <Type Name="User">
-      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+  <Table Name="dbo.Traveler" Member="Travelers">
+    <Type Name="Traveler">
+      <Column Name="TravelerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Login" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Password" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Traveler_Trip" Member="Trips" ThisKey="TravelerID" OtherKey="TravelerID" Type="Trip" />
     </Type>
   </Table>
-  <Table Name="dbo.[User]" Member="Users">
-    <Type Name="User">
-      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Login" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Password" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
-      <Association Name="User_Trip" Member="Trips" ThisKey="UserID" OtherKey="UserID" Type="Trip" />
+  <Table Name="dbo.Vehicle" Member="Vehicles">
+    <Type Name="Vehicle">
+      <Column Name="VehicleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Vehicle_Transport" Member="Transports" ThisKey="VehicleID" OtherKey="VehicleID" Type="Transport" />
     </Type>
   </Table>
 </Database>

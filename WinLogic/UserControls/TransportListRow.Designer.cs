@@ -33,7 +33,7 @@
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.bEdit = new System.Windows.Forms.Button();
             this.bDelete = new System.Windows.Forms.Button();
-            this.TicketPanel = new System.Windows.Forms.Panel();
+            this.pTicketPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.pTop.SuspendLayout();
             this.flowLayoutPanel.SuspendLayout();
@@ -106,24 +106,22 @@
             this.bDelete.Text = "Usuń";
             this.bDelete.UseVisualStyleBackColor = false;
             // 
-            // TicketPanel
+            // pTicketPanel
             // 
-            this.TicketPanel.AutoSize = true;
-            this.TicketPanel.BackColor = System.Drawing.Color.DarkCyan;
-            this.TicketPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TicketPanel.Location = new System.Drawing.Point(3, 58);
-            this.TicketPanel.MinimumSize = new System.Drawing.Size(970, 370);
-            this.TicketPanel.Name = "TicketPanel";
-            this.TicketPanel.Size = new System.Drawing.Size(970, 370);
-            this.TicketPanel.TabIndex = 2;
-            this.TicketPanel.Visible = false;
+            this.pTicketPanel.BackColor = System.Drawing.Color.DarkCyan;
+            this.pTicketPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pTicketPanel.Location = new System.Drawing.Point(3, 58);
+            this.pTicketPanel.Name = "pTicketPanel";
+            this.pTicketPanel.Size = new System.Drawing.Size(970, 370);
+            this.pTicketPanel.TabIndex = 2;
+            this.pTicketPanel.Visible = false;
             // 
             // tableLayoutPanel
             // 
             this.tableLayoutPanel.AutoSize = true;
             this.tableLayoutPanel.ColumnCount = 1;
             this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel.Controls.Add(this.TicketPanel, 0, 1);
+            this.tableLayoutPanel.Controls.Add(this.pTicketPanel, 0, 1);
             this.tableLayoutPanel.Controls.Add(this.pTop, 0, 0);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel.Location = new System.Drawing.Point(3, 3);
@@ -148,7 +146,6 @@
             this.pTop.PerformLayout();
             this.flowLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.ResumeLayout(false);
-            this.tableLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,7 +157,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
         private System.Windows.Forms.Button bEdit;
         private System.Windows.Forms.Button bDelete;
-        private System.Windows.Forms.Panel TicketPanel;
+        private System.Windows.Forms.Panel pTicketPanel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
         private System.Windows.Forms.Label lTransportInfo;
     }
