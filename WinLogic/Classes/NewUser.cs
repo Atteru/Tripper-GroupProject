@@ -11,7 +11,7 @@ namespace Tripper.WinLogic.Classes
 {
     class NewUser
     {
-        public static User AddNewUser(string userAccountName,string userPassword, string userPasswordConfirm, string userName)
+        public static Traveler AddNewUser(string userAccountName,string userPassword, string userPasswordConfirm, string userName)
         {
             if (userAccountName == "" || userPassword == "" || userPasswordConfirm == "" || userName == "")
             {
@@ -35,7 +35,7 @@ namespace Tripper.WinLogic.Classes
             }
 
             
-            foreach (User user in Connection.TripperData.Users)
+            foreach (Traveler user in Connection.TripperData.Travelers)
             { 
                 if ((String.Compare(user.Login, userAccountName, true) == 0))
                 {
@@ -43,11 +43,10 @@ namespace Tripper.WinLogic.Classes
                     return null;
                 }
             }
-            User newUser = new User();
+            Traveler newUser = new Traveler();
 
             newUser.Login = userAccountName;
             newUser.Password = userPassword;
-            newUser.Name = userName;
             MessageBox.Show("Użytkownik " + newUser.Login.ToString() + " został stwożony");
             return newUser;
         }

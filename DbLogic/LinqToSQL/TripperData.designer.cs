@@ -33,9 +33,9 @@ namespace Tripper.DbLogic.LinqToSQL
     partial void InsertContinent(Continent instance);
     partial void UpdateContinent(Continent instance);
     partial void DeleteContinent(Continent instance);
-    partial void InsertVehicle(Vehicle instance);
-    partial void UpdateVehicle(Vehicle instance);
-    partial void DeleteVehicle(Vehicle instance);
+    partial void InsertTrip(Trip instance);
+    partial void UpdateTrip(Trip instance);
+    partial void DeleteTrip(Trip instance);
     partial void InsertCountry(Country instance);
     partial void UpdateCountry(Country instance);
     partial void DeleteCountry(Country instance);
@@ -48,16 +48,16 @@ namespace Tripper.DbLogic.LinqToSQL
     partial void InsertTransport(Transport instance);
     partial void UpdateTransport(Transport instance);
     partial void DeleteTransport(Transport instance);
-    partial void InsertTrip(Trip instance);
-    partial void UpdateTrip(Trip instance);
-    partial void DeleteTrip(Trip instance);
-    partial void InsertUser(User instance);
-    partial void UpdateUser(User instance);
-    partial void DeleteUser(User instance);
+    partial void InsertTraveler(Traveler instance);
+    partial void UpdateTraveler(Traveler instance);
+    partial void DeleteTraveler(Traveler instance);
+    partial void InsertVehicle(Vehicle instance);
+    partial void UpdateVehicle(Vehicle instance);
+    partial void DeleteVehicle(Vehicle instance);
     #endregion
 		
 		public TripperDataDataContext() : 
-				base(global::Tripper.Properties.Settings.Default.TripperDBConnectionString2, mappingSource)
+				base(global::Tripper.Properties.Settings.Default.TripperDBConnectionString4, mappingSource)
 		{
 			OnCreated();
 		}
@@ -94,11 +94,11 @@ namespace Tripper.DbLogic.LinqToSQL
 			}
 		}
 		
-		public System.Data.Linq.Table<Vehicle> Vehicles
+		public System.Data.Linq.Table<Trip> Trips
 		{
 			get
 			{
-				return this.GetTable<Vehicle>();
+				return this.GetTable<Trip>();
 			}
 		}
 		
@@ -134,19 +134,19 @@ namespace Tripper.DbLogic.LinqToSQL
 			}
 		}
 		
-		public System.Data.Linq.Table<Trip> Trips
+		public System.Data.Linq.Table<Traveler> Travelers
 		{
 			get
 			{
-				return this.GetTable<Trip>();
+				return this.GetTable<Traveler>();
 			}
 		}
 		
-		public System.Data.Linq.Table<User> Users
+		public System.Data.Linq.Table<Vehicle> Vehicles
 		{
 			get
 			{
-				return this.GetTable<User>();
+				return this.GetTable<Vehicle>();
 			}
 		}
 	}
@@ -157,7 +157,7 @@ namespace Tripper.DbLogic.LinqToSQL
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _ContinentID;
+		private int _continentID;
 		
 		private string _Name;
 		
@@ -167,8 +167,8 @@ namespace Tripper.DbLogic.LinqToSQL
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnContinentIDChanging(string value);
-    partial void OnContinentIDChanged();
+    partial void OncontinentIDChanging(int value);
+    partial void OncontinentIDChanged();
     partial void OnNameChanging(string value);
     partial void OnNameChanged();
     #endregion
@@ -179,22 +179,22 @@ namespace Tripper.DbLogic.LinqToSQL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContinentID", DbType="Char(3) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string ContinentID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_continentID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int continentID
 		{
 			get
 			{
-				return this._ContinentID;
+				return this._continentID;
 			}
 			set
 			{
-				if ((this._ContinentID != value))
+				if ((this._continentID != value))
 				{
-					this.OnContinentIDChanging(value);
+					this.OncontinentIDChanging(value);
 					this.SendPropertyChanging();
-					this._ContinentID = value;
-					this.SendPropertyChanged("ContinentID");
-					this.OnContinentIDChanged();
+					this._continentID = value;
+					this.SendPropertyChanged("continentID");
+					this.OncontinentIDChanged();
 				}
 			}
 		}
@@ -219,7 +219,7 @@ namespace Tripper.DbLogic.LinqToSQL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Continent_Country", Storage="_Countries", ThisKey="ContinentID", OtherKey="ContinentID")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Continent_Country", Storage="_Countries", ThisKey="continentID", OtherKey="ContinentID")]
 		public EntitySet<Country> Countries
 		{
 			get
@@ -265,50 +265,76 @@ namespace Tripper.DbLogic.LinqToSQL
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Vehicle")]
-	public partial class Vehicle : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Trip")]
+	public partial class Trip : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _VehicleID;
+		private int _TripID;
 		
 		private string _Name;
 		
+		private int _TravelerID;
+		
+		private decimal _Budget;
+		
+		private string _AdditionalInformation;
+		
+		private System.DateTime _ModifiedDate;
+		
+		private System.DateTime _CreateDate;
+		
+		private EntitySet<Stayment> _Stayments;
+		
 		private EntitySet<Transport> _Transports;
+		
+		private EntityRef<Traveler> _Traveler;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnVehicleIDChanging(int value);
-    partial void OnVehicleIDChanged();
+    partial void OnTripIDChanging(int value);
+    partial void OnTripIDChanged();
     partial void OnNameChanging(string value);
     partial void OnNameChanged();
+    partial void OnTravelerIDChanging(int value);
+    partial void OnTravelerIDChanged();
+    partial void OnBudgetChanging(decimal value);
+    partial void OnBudgetChanged();
+    partial void OnAdditionalInformationChanging(string value);
+    partial void OnAdditionalInformationChanged();
+    partial void OnModifiedDateChanging(System.DateTime value);
+    partial void OnModifiedDateChanged();
+    partial void OnCreateDateChanging(System.DateTime value);
+    partial void OnCreateDateChanged();
     #endregion
 		
-		public Vehicle()
+		public Trip()
 		{
+			this._Stayments = new EntitySet<Stayment>(new Action<Stayment>(this.attach_Stayments), new Action<Stayment>(this.detach_Stayments));
 			this._Transports = new EntitySet<Transport>(new Action<Transport>(this.attach_Transports), new Action<Transport>(this.detach_Transports));
+			this._Traveler = default(EntityRef<Traveler>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VehicleID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int VehicleID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TripID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int TripID
 		{
 			get
 			{
-				return this._VehicleID;
+				return this._TripID;
 			}
 			set
 			{
-				if ((this._VehicleID != value))
+				if ((this._TripID != value))
 				{
-					this.OnVehicleIDChanging(value);
+					this.OnTripIDChanging(value);
 					this.SendPropertyChanging();
-					this._VehicleID = value;
-					this.SendPropertyChanged("VehicleID");
-					this.OnVehicleIDChanged();
+					this._TripID = value;
+					this.SendPropertyChanged("TripID");
+					this.OnTripIDChanged();
 				}
 			}
 		}
@@ -333,7 +359,124 @@ namespace Tripper.DbLogic.LinqToSQL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Vehicle_Transport", Storage="_Transports", ThisKey="VehicleID", OtherKey="VehicleID")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TravelerID", DbType="Int NOT NULL")]
+		public int TravelerID
+		{
+			get
+			{
+				return this._TravelerID;
+			}
+			set
+			{
+				if ((this._TravelerID != value))
+				{
+					if (this._Traveler.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnTravelerIDChanging(value);
+					this.SendPropertyChanging();
+					this._TravelerID = value;
+					this.SendPropertyChanged("TravelerID");
+					this.OnTravelerIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Budget", DbType="Decimal(10,2) NOT NULL")]
+		public decimal Budget
+		{
+			get
+			{
+				return this._Budget;
+			}
+			set
+			{
+				if ((this._Budget != value))
+				{
+					this.OnBudgetChanging(value);
+					this.SendPropertyChanging();
+					this._Budget = value;
+					this.SendPropertyChanged("Budget");
+					this.OnBudgetChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdditionalInformation", DbType="NVarChar(100)")]
+		public string AdditionalInformation
+		{
+			get
+			{
+				return this._AdditionalInformation;
+			}
+			set
+			{
+				if ((this._AdditionalInformation != value))
+				{
+					this.OnAdditionalInformationChanging(value);
+					this.SendPropertyChanging();
+					this._AdditionalInformation = value;
+					this.SendPropertyChanged("AdditionalInformation");
+					this.OnAdditionalInformationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedDate", DbType="DateTime NOT NULL")]
+		public System.DateTime ModifiedDate
+		{
+			get
+			{
+				return this._ModifiedDate;
+			}
+			set
+			{
+				if ((this._ModifiedDate != value))
+				{
+					this.OnModifiedDateChanging(value);
+					this.SendPropertyChanging();
+					this._ModifiedDate = value;
+					this.SendPropertyChanged("ModifiedDate");
+					this.OnModifiedDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateDate", DbType="DateTime NOT NULL")]
+		public System.DateTime CreateDate
+		{
+			get
+			{
+				return this._CreateDate;
+			}
+			set
+			{
+				if ((this._CreateDate != value))
+				{
+					this.OnCreateDateChanging(value);
+					this.SendPropertyChanging();
+					this._CreateDate = value;
+					this.SendPropertyChanged("CreateDate");
+					this.OnCreateDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Trip_Stayment", Storage="_Stayments", ThisKey="TripID", OtherKey="TripID")]
+		public EntitySet<Stayment> Stayments
+		{
+			get
+			{
+				return this._Stayments;
+			}
+			set
+			{
+				this._Stayments.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Trip_Transport", Storage="_Transports", ThisKey="TripID", OtherKey="TripID")]
 		public EntitySet<Transport> Transports
 		{
 			get
@@ -343,6 +486,40 @@ namespace Tripper.DbLogic.LinqToSQL
 			set
 			{
 				this._Transports.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Traveler_Trip", Storage="_Traveler", ThisKey="TravelerID", OtherKey="TravelerID", IsForeignKey=true)]
+		public Traveler Traveler
+		{
+			get
+			{
+				return this._Traveler.Entity;
+			}
+			set
+			{
+				Traveler previousValue = this._Traveler.Entity;
+				if (((previousValue != value) 
+							|| (this._Traveler.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Traveler.Entity = null;
+						previousValue.Trips.Remove(this);
+					}
+					this._Traveler.Entity = value;
+					if ((value != null))
+					{
+						value.Trips.Add(this);
+						this._TravelerID = value.TravelerID;
+					}
+					else
+					{
+						this._TravelerID = default(int);
+					}
+					this.SendPropertyChanged("Traveler");
+				}
 			}
 		}
 		
@@ -366,16 +543,28 @@ namespace Tripper.DbLogic.LinqToSQL
 			}
 		}
 		
+		private void attach_Stayments(Stayment entity)
+		{
+			this.SendPropertyChanging();
+			entity.Trip = this;
+		}
+		
+		private void detach_Stayments(Stayment entity)
+		{
+			this.SendPropertyChanging();
+			entity.Trip = null;
+		}
+		
 		private void attach_Transports(Transport entity)
 		{
 			this.SendPropertyChanging();
-			entity.Vehicle = this;
+			entity.Trip = this;
 		}
 		
 		private void detach_Transports(Transport entity)
 		{
 			this.SendPropertyChanging();
-			entity.Vehicle = null;
+			entity.Trip = null;
 		}
 	}
 	
@@ -389,9 +578,7 @@ namespace Tripper.DbLogic.LinqToSQL
 		
 		private string _Name;
 		
-		private string _ContinentID;
-		
-		private System.DateTime _ModifiedDate;
+		private int _ContinentID;
 		
 		private EntitySet<Localization> _Localizations;
 		
@@ -405,10 +592,8 @@ namespace Tripper.DbLogic.LinqToSQL
     partial void OnCountryIDChanged();
     partial void OnNameChanging(string value);
     partial void OnNameChanged();
-    partial void OnContinentIDChanging(string value);
+    partial void OnContinentIDChanging(int value);
     partial void OnContinentIDChanged();
-    partial void OnModifiedDateChanging(System.DateTime value);
-    partial void OnModifiedDateChanged();
     #endregion
 		
 		public Country()
@@ -458,8 +643,8 @@ namespace Tripper.DbLogic.LinqToSQL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContinentID", DbType="Char(3) NOT NULL", CanBeNull=false)]
-		public string ContinentID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContinentID", DbType="Int NOT NULL")]
+		public int ContinentID
 		{
 			get
 			{
@@ -482,26 +667,6 @@ namespace Tripper.DbLogic.LinqToSQL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedDate", DbType="DateTime NOT NULL")]
-		public System.DateTime ModifiedDate
-		{
-			get
-			{
-				return this._ModifiedDate;
-			}
-			set
-			{
-				if ((this._ModifiedDate != value))
-				{
-					this.OnModifiedDateChanging(value);
-					this.SendPropertyChanging();
-					this._ModifiedDate = value;
-					this.SendPropertyChanged("ModifiedDate");
-					this.OnModifiedDateChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Country_Localization", Storage="_Localizations", ThisKey="CountryID", OtherKey="CountryID")]
 		public EntitySet<Localization> Localizations
 		{
@@ -515,7 +680,7 @@ namespace Tripper.DbLogic.LinqToSQL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Continent_Country", Storage="_Continent", ThisKey="ContinentID", OtherKey="ContinentID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Continent_Country", Storage="_Continent", ThisKey="ContinentID", OtherKey="continentID", IsForeignKey=true)]
 		public Continent Continent
 		{
 			get
@@ -538,11 +703,11 @@ namespace Tripper.DbLogic.LinqToSQL
 					if ((value != null))
 					{
 						value.Countries.Add(this);
-						this._ContinentID = value.ContinentID;
+						this._ContinentID = value.continentID;
 					}
 					else
 					{
-						this._ContinentID = default(string);
+						this._ContinentID = default(int);
 					}
 					this.SendPropertyChanged("Continent");
 				}
@@ -594,8 +759,6 @@ namespace Tripper.DbLogic.LinqToSQL
 		
 		private string _CountryID;
 		
-		private System.DateTime _ModifiedDate;
-		
 		private EntitySet<Stayment> _Stayments;
 		
 		private EntitySet<Transport> _Transports;
@@ -614,8 +777,6 @@ namespace Tripper.DbLogic.LinqToSQL
     partial void OnCityChanged();
     partial void OnCountryIDChanging(string value);
     partial void OnCountryIDChanged();
-    partial void OnModifiedDateChanging(System.DateTime value);
-    partial void OnModifiedDateChanged();
     #endregion
 		
 		public Localization()
@@ -687,26 +848,6 @@ namespace Tripper.DbLogic.LinqToSQL
 					this._CountryID = value;
 					this.SendPropertyChanged("CountryID");
 					this.OnCountryIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedDate", DbType="DateTime NOT NULL")]
-		public System.DateTime ModifiedDate
-		{
-			get
-			{
-				return this._ModifiedDate;
-			}
-			set
-			{
-				if ((this._ModifiedDate != value))
-				{
-					this.OnModifiedDateChanging(value);
-					this.SendPropertyChanging();
-					this._ModifiedDate = value;
-					this.SendPropertyChanged("ModifiedDate");
-					this.OnModifiedDateChanged();
 				}
 			}
 		}
@@ -1273,9 +1414,9 @@ namespace Tripper.DbLogic.LinqToSQL
 		
 		private EntityRef<Localization> _Localization1;
 		
-		private EntityRef<Vehicle> _Vehicle;
-		
 		private EntityRef<Trip> _Trip;
+		
+		private EntityRef<Vehicle> _Vehicle;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1325,8 +1466,8 @@ namespace Tripper.DbLogic.LinqToSQL
 		{
 			this._Localization = default(EntityRef<Localization>);
 			this._Localization1 = default(EntityRef<Localization>);
-			this._Vehicle = default(EntityRef<Vehicle>);
 			this._Trip = default(EntityRef<Trip>);
+			this._Vehicle = default(EntityRef<Vehicle>);
 			OnCreated();
 		}
 		
@@ -1794,40 +1935,6 @@ namespace Tripper.DbLogic.LinqToSQL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Vehicle_Transport", Storage="_Vehicle", ThisKey="VehicleID", OtherKey="VehicleID", IsForeignKey=true)]
-		public Vehicle Vehicle
-		{
-			get
-			{
-				return this._Vehicle.Entity;
-			}
-			set
-			{
-				Vehicle previousValue = this._Vehicle.Entity;
-				if (((previousValue != value) 
-							|| (this._Vehicle.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Vehicle.Entity = null;
-						previousValue.Transports.Remove(this);
-					}
-					this._Vehicle.Entity = value;
-					if ((value != null))
-					{
-						value.Transports.Add(this);
-						this._VehicleID = value.VehicleID;
-					}
-					else
-					{
-						this._VehicleID = default(int);
-					}
-					this.SendPropertyChanged("Vehicle");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Trip_Transport", Storage="_Trip", ThisKey="TripID", OtherKey="TripID", IsForeignKey=true)]
 		public Trip Trip
 		{
@@ -1862,6 +1969,40 @@ namespace Tripper.DbLogic.LinqToSQL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Vehicle_Transport", Storage="_Vehicle", ThisKey="VehicleID", OtherKey="VehicleID", IsForeignKey=true)]
+		public Vehicle Vehicle
+		{
+			get
+			{
+				return this._Vehicle.Entity;
+			}
+			set
+			{
+				Vehicle previousValue = this._Vehicle.Entity;
+				if (((previousValue != value) 
+							|| (this._Vehicle.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Vehicle.Entity = null;
+						previousValue.Transports.Remove(this);
+					}
+					this._Vehicle.Entity = value;
+					if ((value != null))
+					{
+						value.Transports.Add(this);
+						this._VehicleID = value.VehicleID;
+					}
+					else
+					{
+						this._VehicleID = default(int);
+					}
+					this.SendPropertyChanged("Vehicle");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1883,106 +2024,39 @@ namespace Tripper.DbLogic.LinqToSQL
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Trip")]
-	public partial class Trip : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Traveler")]
+	public partial class Traveler : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _TripID;
-		
-		private string _Name;
-		
 		private int _TravelerID;
 		
-		private System.DateTime _DepartureTime;
+		private string _Login;
 		
-		private decimal _Budget;
+		private string _Password;
 		
-		private decimal _EstimatedCost;
-		
-		private System.DateTime _ModifiedDate;
-		
-		private System.DateTime _CreateDate;
-		
-		private string _AdditionalInformation;
-		
-		private EntitySet<Stayment> _Stayments;
-		
-		private EntitySet<Transport> _Transports;
+		private EntitySet<Trip> _Trips;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnTripIDChanging(int value);
-    partial void OnTripIDChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
     partial void OnTravelerIDChanging(int value);
     partial void OnTravelerIDChanged();
-    partial void OnDepartureTimeChanging(System.DateTime value);
-    partial void OnDepartureTimeChanged();
-    partial void OnBudgetChanging(decimal value);
-    partial void OnBudgetChanged();
-    partial void OnEstimatedCostChanging(decimal value);
-    partial void OnEstimatedCostChanged();
-    partial void OnModifiedDateChanging(System.DateTime value);
-    partial void OnModifiedDateChanged();
-    partial void OnCreateDateChanging(System.DateTime value);
-    partial void OnCreateDateChanged();
-    partial void OnAdditionalInformationChanging(string value);
-    partial void OnAdditionalInformationChanged();
+    partial void OnLoginChanging(string value);
+    partial void OnLoginChanged();
+    partial void OnPasswordChanging(string value);
+    partial void OnPasswordChanged();
     #endregion
 		
-		public Trip()
+		public Traveler()
 		{
-			this._Stayments = new EntitySet<Stayment>(new Action<Stayment>(this.attach_Stayments), new Action<Stayment>(this.detach_Stayments));
-			this._Transports = new EntitySet<Transport>(new Action<Transport>(this.attach_Transports), new Action<Transport>(this.detach_Transports));
+			this._Trips = new EntitySet<Trip>(new Action<Trip>(this.attach_Trips), new Action<Trip>(this.detach_Trips));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TripID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int TripID
-		{
-			get
-			{
-				return this._TripID;
-			}
-			set
-			{
-				if ((this._TripID != value))
-				{
-					this.OnTripIDChanging(value);
-					this.SendPropertyChanging();
-					this._TripID = value;
-					this.SendPropertyChanged("TripID");
-					this.OnTripIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TravelerID", DbType="Int NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TravelerID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int TravelerID
 		{
 			get
@@ -1998,250 +2072,6 @@ namespace Tripper.DbLogic.LinqToSQL
 					this._TravelerID = value;
 					this.SendPropertyChanged("TravelerID");
 					this.OnTravelerIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepartureTime", DbType="DateTime NOT NULL")]
-		public System.DateTime DepartureTime
-		{
-			get
-			{
-				return this._DepartureTime;
-			}
-			set
-			{
-				if ((this._DepartureTime != value))
-				{
-					this.OnDepartureTimeChanging(value);
-					this.SendPropertyChanging();
-					this._DepartureTime = value;
-					this.SendPropertyChanged("DepartureTime");
-					this.OnDepartureTimeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Budget", DbType="Decimal(10,2) NOT NULL")]
-		public decimal Budget
-		{
-			get
-			{
-				return this._Budget;
-			}
-			set
-			{
-				if ((this._Budget != value))
-				{
-					this.OnBudgetChanging(value);
-					this.SendPropertyChanging();
-					this._Budget = value;
-					this.SendPropertyChanged("Budget");
-					this.OnBudgetChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EstimatedCost", DbType="Decimal(10,2) NOT NULL")]
-		public decimal EstimatedCost
-		{
-			get
-			{
-				return this._EstimatedCost;
-			}
-			set
-			{
-				if ((this._EstimatedCost != value))
-				{
-					this.OnEstimatedCostChanging(value);
-					this.SendPropertyChanging();
-					this._EstimatedCost = value;
-					this.SendPropertyChanged("EstimatedCost");
-					this.OnEstimatedCostChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedDate", DbType="DateTime NOT NULL")]
-		public System.DateTime ModifiedDate
-		{
-			get
-			{
-				return this._ModifiedDate;
-			}
-			set
-			{
-				if ((this._ModifiedDate != value))
-				{
-					this.OnModifiedDateChanging(value);
-					this.SendPropertyChanging();
-					this._ModifiedDate = value;
-					this.SendPropertyChanged("ModifiedDate");
-					this.OnModifiedDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateDate", DbType="DateTime NOT NULL")]
-		public System.DateTime CreateDate
-		{
-			get
-			{
-				return this._CreateDate;
-			}
-			set
-			{
-				if ((this._CreateDate != value))
-				{
-					this.OnCreateDateChanging(value);
-					this.SendPropertyChanging();
-					this._CreateDate = value;
-					this.SendPropertyChanged("CreateDate");
-					this.OnCreateDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdditionalInformation", DbType="NVarChar(100)")]
-		public string AdditionalInformation
-		{
-			get
-			{
-				return this._AdditionalInformation;
-			}
-			set
-			{
-				if ((this._AdditionalInformation != value))
-				{
-					this.OnAdditionalInformationChanging(value);
-					this.SendPropertyChanging();
-					this._AdditionalInformation = value;
-					this.SendPropertyChanged("AdditionalInformation");
-					this.OnAdditionalInformationChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Trip_Stayment", Storage="_Stayments", ThisKey="TripID", OtherKey="TripID")]
-		public EntitySet<Stayment> Stayments
-		{
-			get
-			{
-				return this._Stayments;
-			}
-			set
-			{
-				this._Stayments.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Trip_Transport", Storage="_Transports", ThisKey="TripID", OtherKey="TripID")]
-		public EntitySet<Transport> Transports
-		{
-			get
-			{
-				return this._Transports;
-			}
-			set
-			{
-				this._Transports.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Stayments(Stayment entity)
-		{
-			this.SendPropertyChanging();
-			entity.Trip = this;
-		}
-		
-		private void detach_Stayments(Stayment entity)
-		{
-			this.SendPropertyChanging();
-			entity.Trip = null;
-		}
-		
-		private void attach_Transports(Transport entity)
-		{
-			this.SendPropertyChanging();
-			entity.Trip = this;
-		}
-		
-		private void detach_Transports(Transport entity)
-		{
-			this.SendPropertyChanging();
-			entity.Trip = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[User]")]
-	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _UserID;
-		
-		private string _Login;
-		
-		private string _Password;
-		
-		private string _Name;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnUserIDChanging(int value);
-    partial void OnUserIDChanged();
-    partial void OnLoginChanging(string value);
-    partial void OnLoginChanged();
-    partial void OnPasswordChanging(string value);
-    partial void OnPasswordChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    #endregion
-		
-		public User()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int UserID
-		{
-			get
-			{
-				return this._UserID;
-			}
-			set
-			{
-				if ((this._UserID != value))
-				{
-					this.OnUserIDChanging(value);
-					this.SendPropertyChanging();
-					this._UserID = value;
-					this.SendPropertyChanged("UserID");
-					this.OnUserIDChanged();
 				}
 			}
 		}
@@ -2286,23 +2116,16 @@ namespace Tripper.DbLogic.LinqToSQL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Name
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Traveler_Trip", Storage="_Trips", ThisKey="TravelerID", OtherKey="TravelerID")]
+		public EntitySet<Trip> Trips
 		{
 			get
 			{
-				return this._Name;
+				return this._Trips;
 			}
 			set
 			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
+				this._Trips.Assign(value);
 			}
 		}
 		
@@ -2324,6 +2147,132 @@ namespace Tripper.DbLogic.LinqToSQL
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_Trips(Trip entity)
+		{
+			this.SendPropertyChanging();
+			entity.Traveler = this;
+		}
+		
+		private void detach_Trips(Trip entity)
+		{
+			this.SendPropertyChanging();
+			entity.Traveler = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Vehicle")]
+	public partial class Vehicle : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _VehicleID;
+		
+		private string _Name;
+		
+		private EntitySet<Transport> _Transports;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnVehicleIDChanging(int value);
+    partial void OnVehicleIDChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    #endregion
+		
+		public Vehicle()
+		{
+			this._Transports = new EntitySet<Transport>(new Action<Transport>(this.attach_Transports), new Action<Transport>(this.detach_Transports));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VehicleID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int VehicleID
+		{
+			get
+			{
+				return this._VehicleID;
+			}
+			set
+			{
+				if ((this._VehicleID != value))
+				{
+					this.OnVehicleIDChanging(value);
+					this.SendPropertyChanging();
+					this._VehicleID = value;
+					this.SendPropertyChanged("VehicleID");
+					this.OnVehicleIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Vehicle_Transport", Storage="_Transports", ThisKey="VehicleID", OtherKey="VehicleID")]
+		public EntitySet<Transport> Transports
+		{
+			get
+			{
+				return this._Transports;
+			}
+			set
+			{
+				this._Transports.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Transports(Transport entity)
+		{
+			this.SendPropertyChanging();
+			entity.Vehicle = this;
+		}
+		
+		private void detach_Transports(Transport entity)
+		{
+			this.SendPropertyChanging();
+			entity.Vehicle = null;
 		}
 	}
 }
