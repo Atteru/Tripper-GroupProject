@@ -24,16 +24,6 @@ namespace Tripper.DbLogic.LinqToSQL
             return string.Format("{0}", City);
         }
     }
-
-    partial class OtherCostsCatergory
-    {
-        public override string ToString()
-        {
-            return string.Format("{0}", _OtherCategoryName);
-        }
-    }
-
 }
-
 
 

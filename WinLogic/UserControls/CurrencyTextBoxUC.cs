@@ -16,7 +16,6 @@ namespace Tripper.WinLogic.UserControls
         {
             InitializeComponent();
             base.AutoScaleMode = AutoScaleMode.None;
-
         }
 
         // Property Content odnosi się do textBoxa zawartego w kotrolce
@@ -114,6 +113,14 @@ namespace Tripper.WinLogic.UserControls
                 _Font = base.Font = value;
                 this.textBox.Font = _Font;
                 this.messageLabel.Font = _Font;
+            }
+        }
+
+        public Decimal Value
+        {
+            get
+            {
+                return Decimal.Parse(textBox.Text);
             }
         }
 

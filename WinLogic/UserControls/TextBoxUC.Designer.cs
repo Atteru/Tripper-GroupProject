@@ -58,7 +58,8 @@
             this.textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox.Size = new System.Drawing.Size(297, 29);
             this.textBox.TabIndex = 6;
-            this.textBox.Click += new System.EventHandler(this.textBox_MessageLabelHide);
+            this.textBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
+            this.textBox.Enter += new System.EventHandler(this.messageLabel_Click);
             this.textBox.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_Validating);
             // 
             // TextBoxUC
@@ -73,6 +74,7 @@
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.Name = "TextBoxUC";
             this.Size = new System.Drawing.Size(297, 29);
+            this.Enter += new System.EventHandler(this.messageLabel_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 

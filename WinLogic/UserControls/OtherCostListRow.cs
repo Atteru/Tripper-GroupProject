@@ -14,7 +14,7 @@ namespace Tripper.WinLogic.UserControls
 {
     public partial class OtherCostListTableUC : UserControl
     {
-        private List<OtherCostsCatergory> categoryList = Connection.TripperData.OtherCostsCatergories.ToList();
+
 
         // true -> button dodaje, false -> button usuwa
         private bool _buttonStatus = true;
@@ -37,7 +37,6 @@ namespace Tripper.WinLogic.UserControls
         public OtherCostListTableUC()
         {
             InitializeComponent();
-            FillContextMenu(categoryList);
         }
 
         [Browsable(true)]
@@ -91,16 +90,6 @@ namespace Tripper.WinLogic.UserControls
 
         }
 
-        public void FillContextMenu(List<OtherCostsCatergory> categoryList)
-        {
-
-            for (int i = 0; i < categoryList.Count(); i++)
-            {
-                ToolStripMenuItem toolStripItem = new ToolStripMenuItem();
-                toolStripItem.Text = categoryList.ElementAt(i).ToString();
-                contextMenuStrip.Items.Add(toolStripItem);
-            }
-        }
 
         private void contextMenuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
