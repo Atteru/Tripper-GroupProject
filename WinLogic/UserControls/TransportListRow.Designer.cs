@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pTop = new System.Windows.Forms.Panel();
+            this.lTransportInfo = new System.Windows.Forms.Label();
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.bEdit = new System.Windows.Forms.Button();
             this.bDelete = new System.Windows.Forms.Button();
@@ -42,19 +43,32 @@
             // pTop
             // 
             this.pTop.BackColor = System.Drawing.Color.DarkCyan;
+            this.pTop.Controls.Add(this.lTransportInfo);
             this.pTop.Controls.Add(this.flowLayoutPanel);
             this.pTop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pTop.Location = new System.Drawing.Point(3, 3);
             this.pTop.Name = "pTop";
-            this.pTop.Size = new System.Drawing.Size(969, 49);
+            this.pTop.Size = new System.Drawing.Size(970, 49);
             this.pTop.TabIndex = 3;
+            // 
+            // lTransportInfo
+            // 
+            this.lTransportInfo.AutoSize = true;
+            this.lTransportInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lTransportInfo.ForeColor = System.Drawing.Color.White;
+            this.lTransportInfo.Location = new System.Drawing.Point(17, 15);
+            this.lTransportInfo.Name = "lTransportInfo";
+            this.lTransportInfo.Size = new System.Drawing.Size(204, 20);
+            this.lTransportInfo.TabIndex = 150;
+            this.lTransportInfo.Text = "Informacje o transporcie";
+            this.lTransportInfo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // flowLayoutPanel
             // 
             this.flowLayoutPanel.Controls.Add(this.bEdit);
             this.flowLayoutPanel.Controls.Add(this.bDelete);
             this.flowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel.Location = new System.Drawing.Point(763, 0);
+            this.flowLayoutPanel.Location = new System.Drawing.Point(764, 0);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
             this.flowLayoutPanel.Size = new System.Drawing.Size(206, 49);
             this.flowLayoutPanel.TabIndex = 2;
@@ -94,11 +108,13 @@
             // 
             // TicketPanel
             // 
+            this.TicketPanel.AutoSize = true;
             this.TicketPanel.BackColor = System.Drawing.Color.DarkCyan;
             this.TicketPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TicketPanel.Location = new System.Drawing.Point(3, 58);
+            this.TicketPanel.MinimumSize = new System.Drawing.Size(970, 370);
             this.TicketPanel.Name = "TicketPanel";
-            this.TicketPanel.Size = new System.Drawing.Size(969, 210);
+            this.TicketPanel.Size = new System.Drawing.Size(970, 370);
             this.TicketPanel.TabIndex = 2;
             this.TicketPanel.Visible = false;
             // 
@@ -115,7 +131,7 @@
             this.tableLayoutPanel.RowCount = 2;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel.Size = new System.Drawing.Size(975, 271);
+            this.tableLayoutPanel.Size = new System.Drawing.Size(976, 431);
             this.tableLayoutPanel.TabIndex = 0;
             // 
             // TransportListRow
@@ -127,10 +143,12 @@
             this.Controls.Add(this.tableLayoutPanel);
             this.Name = "TransportListRow";
             this.Padding = new System.Windows.Forms.Padding(3);
-            this.Size = new System.Drawing.Size(981, 277);
+            this.Size = new System.Drawing.Size(982, 437);
             this.pTop.ResumeLayout(false);
+            this.pTop.PerformLayout();
             this.flowLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.ResumeLayout(false);
+            this.tableLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,5 +162,6 @@
         private System.Windows.Forms.Button bDelete;
         private System.Windows.Forms.Panel TicketPanel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
+        private System.Windows.Forms.Label lTransportInfo;
     }
 }

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using Tripper.DbLogic.LinqToSQL;
 using Tripper.DbLogic;
 using Tripper.WinLogic.Classes;
-using Tripper.Enums;
+
 
 
 namespace Tripper.WinLogic.Forms

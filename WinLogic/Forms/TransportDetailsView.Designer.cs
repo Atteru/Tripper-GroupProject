@@ -34,7 +34,10 @@
             this.pTransportList = new System.Windows.Forms.Panel();
             this.tcTransportView = new System.Windows.Forms.TabControl();
             this.transportList = new System.Windows.Forms.TabPage();
+            this.pTableLayoutTransportList = new System.Windows.Forms.TableLayoutPanel();
             this.pTransportTable = new System.Windows.Forms.FlowLayoutPanel();
+            this.pTripListButtons = new System.Windows.Forms.Panel();
+            this.bAdd = new System.Windows.Forms.Button();
             this.newTransport = new System.Windows.Forms.TabPage();
             this.pVehicleTop = new System.Windows.Forms.Panel();
             this.pVehicleChoice = new System.Windows.Forms.TableLayoutPanel();
@@ -46,14 +49,18 @@
             this.pNewTicketView = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.vehicleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pTransportList.SuspendLayout();
             this.tcTransportView.SuspendLayout();
             this.transportList.SuspendLayout();
+            this.pTableLayoutTransportList.SuspendLayout();
+            this.pTripListButtons.SuspendLayout();
             this.newTransport.SuspendLayout();
             this.pVehicleTop.SuspendLayout();
             this.pVehicleChoice.SuspendLayout();
             this.pNewTransportBack.SuspendLayout();
             this.tableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vehicleBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // vehiclesImageList
@@ -94,8 +101,9 @@
             // 
             // transportList
             // 
+            this.transportList.AutoScroll = true;
             this.transportList.BackColor = System.Drawing.Color.Teal;
-            this.transportList.Controls.Add(this.pTransportTable);
+            this.transportList.Controls.Add(this.pTableLayoutTransportList);
             this.transportList.Location = new System.Drawing.Point(4, 22);
             this.transportList.Name = "transportList";
             this.transportList.Padding = new System.Windows.Forms.Padding(3);
@@ -103,17 +111,60 @@
             this.transportList.TabIndex = 0;
             this.transportList.Text = "transportList";
             // 
+            // pTableLayoutTransportList
+            // 
+            this.pTableLayoutTransportList.BackColor = System.Drawing.Color.DarkCyan;
+            this.pTableLayoutTransportList.ColumnCount = 2;
+            this.pTableLayoutTransportList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.18684F));
+            this.pTableLayoutTransportList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.81316F));
+            this.pTableLayoutTransportList.Controls.Add(this.pTransportTable, 0, 0);
+            this.pTableLayoutTransportList.Controls.Add(this.pTripListButtons, 1, 0);
+            this.pTableLayoutTransportList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pTableLayoutTransportList.Location = new System.Drawing.Point(3, 3);
+            this.pTableLayoutTransportList.Name = "pTableLayoutTransportList";
+            this.pTableLayoutTransportList.RowCount = 1;
+            this.pTableLayoutTransportList.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.pTableLayoutTransportList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.pTableLayoutTransportList.Size = new System.Drawing.Size(1413, 537);
+            this.pTableLayoutTransportList.TabIndex = 0;
+            // 
             // pTransportTable
             // 
-            this.pTransportTable.AutoSize = true;
+            this.pTransportTable.AutoScroll = true;
+            this.pTransportTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.pTransportTable.BackColor = System.Drawing.Color.Teal;
             this.pTransportTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pTransportTable.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.pTransportTable.Location = new System.Drawing.Point(3, 3);
-            this.pTransportTable.Margin = new System.Windows.Forms.Padding(3, 3, 3, 50);
             this.pTransportTable.Name = "pTransportTable";
             this.pTransportTable.Padding = new System.Windows.Forms.Padding(3);
-            this.pTransportTable.Size = new System.Drawing.Size(1413, 537);
-            this.pTransportTable.TabIndex = 157;
+            this.pTransportTable.Size = new System.Drawing.Size(1013, 531);
+            this.pTransportTable.TabIndex = 158;
+            // 
+            // pTripListButtons
+            // 
+            this.pTripListButtons.BackColor = System.Drawing.Color.Teal;
+            this.pTripListButtons.Controls.Add(this.bAdd);
+            this.pTripListButtons.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pTripListButtons.Location = new System.Drawing.Point(1022, 3);
+            this.pTripListButtons.Name = "pTripListButtons";
+            this.pTripListButtons.Size = new System.Drawing.Size(388, 531);
+            this.pTripListButtons.TabIndex = 159;
+            // 
+            // bAdd
+            // 
+            this.bAdd.BackColor = System.Drawing.Color.Teal;
+            this.bAdd.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bAdd.FlatAppearance.BorderSize = 2;
+            this.bAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bAdd.ForeColor = System.Drawing.Color.White;
+            this.bAdd.Location = new System.Drawing.Point(115, 20);
+            this.bAdd.Name = "bAdd";
+            this.bAdd.Size = new System.Drawing.Size(248, 38);
+            this.bAdd.TabIndex = 158;
+            this.bAdd.Text = "Dodaj ";
+            this.bAdd.UseVisualStyleBackColor = false;
+            this.bAdd.Click += new System.EventHandler(this.bAdd_Click);
             // 
             // newTransport
             // 
@@ -204,6 +255,7 @@
             // bAddPlane
             // 
             this.bAddPlane.BackColor = System.Drawing.Color.Teal;
+            this.bAddPlane.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "Name", true));
             this.bAddPlane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bAddPlane.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
             this.bAddPlane.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -254,7 +306,7 @@
             this.pNewTransportBack.Location = new System.Drawing.Point(20, 124);
             this.pNewTransportBack.Name = "pNewTransportBack";
             this.pNewTransportBack.Padding = new System.Windows.Forms.Padding(2);
-            this.pNewTransportBack.Size = new System.Drawing.Size(1379, 322);
+            this.pNewTransportBack.Size = new System.Drawing.Size(1379, 371);
             this.pNewTransportBack.TabIndex = 7;
             // 
             // pNewTicketView
@@ -263,7 +315,7 @@
             this.pNewTicketView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pNewTicketView.Location = new System.Drawing.Point(2, 2);
             this.pNewTicketView.Name = "pNewTicketView";
-            this.pNewTicketView.Size = new System.Drawing.Size(1375, 318);
+            this.pNewTicketView.Size = new System.Drawing.Size(1375, 367);
             this.pNewTicketView.TabIndex = 5;
             // 
             // label2
@@ -271,7 +323,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(17, 16);
+            this.label2.Location = new System.Drawing.Point(17, 14);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(86, 20);
             this.label2.TabIndex = 151;
@@ -290,12 +342,14 @@
             this.tableLayoutPanel.Size = new System.Drawing.Size(1471, 646);
             this.tableLayoutPanel.TabIndex = 0;
             // 
+            // vehicleBindingSource
+            // 
+            this.vehicleBindingSource.DataSource = typeof(Tripper.DbLogic.LinqToSQL.Vehicle);
+            // 
             // TransportDetailsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
-            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(1471, 646);
             this.Controls.Add(this.tableLayoutPanel);
@@ -308,13 +362,15 @@
             this.pTransportList.PerformLayout();
             this.tcTransportView.ResumeLayout(false);
             this.transportList.ResumeLayout(false);
-            this.transportList.PerformLayout();
+            this.pTableLayoutTransportList.ResumeLayout(false);
+            this.pTripListButtons.ResumeLayout(false);
             this.newTransport.ResumeLayout(false);
             this.pVehicleTop.ResumeLayout(false);
             this.pVehicleTop.PerformLayout();
             this.pVehicleChoice.ResumeLayout(false);
             this.pNewTransportBack.ResumeLayout(false);
             this.tableLayoutPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.vehicleBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -323,11 +379,9 @@
         private System.Windows.Forms.ImageList vehiclesImageList;
         private System.Windows.Forms.Panel pTransportList;
         private System.Windows.Forms.TabControl tcTransportView;
-        private System.Windows.Forms.TabPage transportList;
         private System.Windows.Forms.TabPage newTransport;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
-        private System.Windows.Forms.FlowLayoutPanel pTransportTable;
         private System.Windows.Forms.Panel pVehicleTop;
         private System.Windows.Forms.TableLayoutPanel pVehicleChoice;
         private System.Windows.Forms.Button bAddPublic;
@@ -336,5 +390,11 @@
         private System.Windows.Forms.Button bAddCar;
         private System.Windows.Forms.Panel pNewTicketView;
         private System.Windows.Forms.Panel pNewTransportBack;
+        private System.Windows.Forms.TabPage transportList;
+        private System.Windows.Forms.TableLayoutPanel pTableLayoutTransportList;
+        private System.Windows.Forms.FlowLayoutPanel pTransportTable;
+        private System.Windows.Forms.Panel pTripListButtons;
+        private System.Windows.Forms.Button bAdd;
+        private System.Windows.Forms.BindingSource vehicleBindingSource;
     }
 }

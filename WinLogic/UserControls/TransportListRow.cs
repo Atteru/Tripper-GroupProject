@@ -8,12 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tripper.WinLogic.Forms;
+using Tripper.DbLogic.LinqToSQL;
+using Tripper.DbLogic;
 
 namespace Tripper.WinLogic.UserControls
 {
     public partial class TransportListRow : UserControl
     {
+        
         NewTransportCreator transportDetails;
+
 
        [Browsable(true)]
         public bool EditPanelVisible
@@ -29,16 +33,29 @@ namespace Tripper.WinLogic.UserControls
             }
         }
 
-        public TransportListRow()
+        Transport _selectedTransport;
+        Transport SelectedTransport
         {
-            InitializeComponent();
+            get
+            {
+                return _selectedTransport;
+            }
+            set
+            {
+                _selectedTransport = value;
+            }
+        }
 
-            
+        public TransportListRow(Transport transport)
+        {
+            SelectedTransport = transport;
+            InitializeComponent();
+            lTransportInfo.Text = Connection.TripperData.Localizations.Single(loc => loc.LocalizationID == transport.DepartureLocalization) + " - " + Connection.TripperData.Localizations.Single(loc => loc.LocalizationID == transport.ArrivalLocalization).ToString();
         }
 
         private void ShowTicket()
         {
-            transportDetails = new NewTransportCreator();
+            transportDetails = new NewTransportCreator(SelectedTransport);
             transportDetails.TopLevel = false;
             transportDetails.Parent = this.TicketPanel;
             transportDetails.Dock = DockStyle.Fill;
@@ -57,8 +74,6 @@ namespace Tripper.WinLogic.UserControls
                 TicketPanel.Visible = false;
                 transportDetails.Close();
             } 
-
-
         }
 
 

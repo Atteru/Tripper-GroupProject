@@ -130,8 +130,9 @@ namespace Tripper.WinLogic.UserControls
             {
                 cbCity.Text = "";
             }
-          //  cbCountry_Validating(sender, null);
-          //  cbCity.SelectedIndex = -1;
+            //  cbCountry_Validating(sender, null);
+            cbCity.SelectedIndex = -1;
+            
         }
 
         private void cbCity_SelectionChangeCommitted(object sender, EventArgs e)

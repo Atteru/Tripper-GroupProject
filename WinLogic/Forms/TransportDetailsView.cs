@@ -8,12 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tripper.WinLogic.UserControls;
+using Tripper.DbLogic;
+using Tripper.DbLogic.LinqToSQL;
 
 namespace Tripper.WinLogic.Forms
 {
     public partial class TransportDetailsView : Form
     {
-        List<TransportListRow> tranportList = new List<TransportListRow>();
+        List<Transport> tranportList = new List<Transport>();
+       
 
         Button selectedVehicle
         {
@@ -32,23 +35,37 @@ namespace Tripper.WinLogic.Forms
         public TransportDetailsView()
         {
             InitializeComponent();
-            /*  tcTransportView.Appearance = TabAppearance.FlatButtons;
-              tcTransportView.ItemSize = new Size(0, 1);
-              tcTransportView.SizeMode = TabSizeMode.Fixed; */
 
+            tcTransportView.Appearance = TabAppearance.FlatButtons;
+            tcTransportView.ItemSize = new Size(0, 1);
+            tcTransportView.SizeMode = TabSizeMode.Fixed;
 
-
+            loadTransportList();
             if (tranportList.Count == 0)
             {
                 tcTransportView.SelectTab(newTransport);
             }
+
+
+        }
+
+        private void loadTransportList()
+        {
+            tranportList = Connection.TripperData.Transports.Where(trans => trans.TripID == 1).ToList();
+
+            foreach (Transport row in tranportList)
+            {
+                TransportListRow transportRow = new TransportListRow(row);
+                pTransportTable.Controls.Add(transportRow);
+            }
+            bAddPlane_Click(bAddPlane, null);
         }
 
         private void bAddRow_Click(object sender, EventArgs e)
         {
-            TransportListRow transportRow = new TransportListRow();
+          /*  TransportListRow transportRow = new TransportListRow();
             pTransportTable.Controls.Add(transportRow); 
-            transportRow.Dock = DockStyle.Top; 
+            transportRow.Dock = DockStyle.Top;  */
 
         }
 
@@ -59,6 +76,11 @@ namespace Tripper.WinLogic.Forms
             newTransport.Parent = this.pNewTicketView;
             newTransport.Dock = DockStyle.Fill;
             newTransport.Show();
+        }
+
+        private void bAdd_Click(object sender, EventArgs e)
+        {
+            tcTransportView.SelectTab(newTransport);
         }
     }
 }
