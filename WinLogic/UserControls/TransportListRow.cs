@@ -24,12 +24,12 @@ namespace Tripper.WinLogic.UserControls
         {
             get
             {
-                return TicketPanel.Visible;
+                return pTicketPanel.Visible;
             }
 
             set
             {
-                TicketPanel.Visible = value;
+                pTicketPanel.Visible = value;
             }
         }
 
@@ -57,9 +57,11 @@ namespace Tripper.WinLogic.UserControls
         {
             transportDetails = new NewTransportCreator(SelectedTransport);
             transportDetails.TopLevel = false;
-            transportDetails.Parent = this.TicketPanel;
+            transportDetails.Parent = this.pTicketPanel;
             transportDetails.Dock = DockStyle.Fill;
             transportDetails.Show();
+            pTicketPanel.Height = transportDetails.Height;
+             
         }
 
         private void bEdit_Click(object sender, EventArgs e)
@@ -67,11 +69,11 @@ namespace Tripper.WinLogic.UserControls
             if (!EditPanelVisible)
             {
                 ShowTicket();
-                TicketPanel.Visible = true;
+                pTicketPanel.Visible = true;
             }
             else
             {
-                TicketPanel.Visible = false;
+                pTicketPanel.Visible = false;
                 transportDetails.Close();
             } 
         }

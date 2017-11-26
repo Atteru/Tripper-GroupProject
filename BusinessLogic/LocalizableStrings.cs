@@ -27,19 +27,7 @@ namespace Tripper.BusinessLogic
 
             public static Vehicle GetVehicle(string vehicle)
             {
-                switch (vehicle)
-                {
-                    case Plane:
-                        return Connection.TripperData.Vehicles.Single(v => v.Name == Plane);
-                    case Car:
-                        return Connection.TripperData.Vehicles.Single(v => v.Name == Car);
-                    case Public:
-                        return Connection.TripperData.Vehicles.Single(v => v.Name == Public);
-                    case OtherVehicle:
-                        return Connection.TripperData.Vehicles.Single(v => v.Name == OtherVehicle);
-                    default:
-                        return null;
-                }
+                  return Connection.TripperData.Vehicles.Single(v => v.Name == vehicle);
             }
             #endregion
         }

@@ -20,6 +20,43 @@ namespace Tripper.WinLogic.UserControls
         List<Localization> cityList;
         CultureInfo ci = new CultureInfo("en-US");
 
+
+        public string CityMessageIfEmpty
+        {
+            get; set;
+        }
+
+        public string CountryMessageIfEmpty
+        {
+            get; set;
+        }
+
+        [Browsable(true)]
+        public bool MessageVisibility
+        {
+            get
+            {
+                return lCityError.Visible == true && lCountryError.Visible == true;
+            }
+            set
+            {
+                lCountryError.Visible = lCityError.Visible = value;
+            }
+        }
+
+        private Localization _selectedLocalization;
+        public Localization SelectedLocalization
+        {
+            get
+            {
+                return _selectedLocalization;
+            }
+            set
+            {
+                _selectedLocalization = value;
+            }
+        }
+
         public LocalizationsUC()
         {
             InitializeComponent();
@@ -47,35 +84,19 @@ namespace Tripper.WinLogic.UserControls
             }
         }
 
-        public void GetLocalization(int localizationID)
+        public void FillLocalizationFields(int localizationID)
         {
             MessageVisibility = false;
             cbCity.DataSource = Connection.TripperData.Localizations.Where(local => local.LocalizationID == localizationID);
             cbCountry.DataSource = Connection.TripperData.Countries.Where(coutry => coutry.CountryID == ((Localization)cbCity.SelectedItem).CountryID);
         }
 
-        public string CityMessageIfEmpty
+        public int GetLocalizationFromFields()
         {
-            get; set;
+            Localization selectedLocalization = cbCity.SelectedItem as Localization;
+            return selectedLocalization.LocalizationID;
         }
 
-        public string CountryMessageIfEmpty
-        {
-            get; set;
-        }
-
-        [Browsable(true)]
-        public bool MessageVisibility
-        {
-            get
-            {
-                return lCityError.Visible == true && lCountryError.Visible == true;
-            }
-            set
-            {
-                lCountryError.Visible = lCityError.Visible = value;
-            }
-        }
 
         private void cbCountry_TextUpdate(object sender, EventArgs e)
         {
@@ -184,7 +205,6 @@ namespace Tripper.WinLogic.UserControls
 
         private void cbCountry_Validating(object sender, CancelEventArgs e)
         {
-
             if (cbCountry.Text == string.Empty)
             {
                 lCountryError.Visible = true;
@@ -207,6 +227,7 @@ namespace Tripper.WinLogic.UserControls
 
         private void cbCity_Validating(object sender, CancelEventArgs e)
         {
+            SelectedLocalization = null;
             if (cbCity.Text == string.Empty)
             {
                 lCityError.Visible = true;
@@ -215,6 +236,8 @@ namespace Tripper.WinLogic.UserControls
             }
             else
             {
+                if (SelectedLocalization != cbCity.SelectedItem as Localization)
+                    SelectedLocalization = cbCity.SelectedItem as Localization;
                 lCityError.Visible = false;
             }
         }

@@ -33,7 +33,7 @@ namespace Tripper.WinLogic.Forms
             tUserName.Text = "user";
             tPassword.Text = "user";
 
-            foreach (User u in Connection.TripperData.Users)
+            foreach (Traveler u in Connection.TripperData.Travelers)
             {
                 // Metoda Compare(string1, string2, wielkośćZnaków) zwraca 0 jeśli łańcuchy są takie same
                 if ((String.Compare(u.Login, tUserName.Text, true) == 0) && (String.Compare(u.Password, tPassword.Text, false) == 0))
