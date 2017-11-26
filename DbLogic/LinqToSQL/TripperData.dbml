@@ -7,6 +7,10 @@
       <Association Name="Continent_Country" Member="Countries" ThisKey="continentID" OtherKey="ContinentID" Type="Country" />
     </Type>
   </Table>
+<<<<<<< HEAD
+=======
+
+>>>>>>> d44f62898f8a291b95d8dfa135815578c8cb891c
   <Table Name="dbo.Trip" Member="Trips">
     <Type Name="Trip">
       <Column Name="TripID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -19,6 +23,10 @@
       <Association Name="Trip_Stayment" Member="Stayments" ThisKey="TripID" OtherKey="TripID" Type="Stayment" />
       <Association Name="Trip_Transport" Member="Transports" ThisKey="TripID" OtherKey="TripID" Type="Transport" />
       <Association Name="Traveler_Trip" Member="Traveler" ThisKey="TravelerID" OtherKey="TravelerID" Type="Traveler" IsForeignKey="true" />
+<<<<<<< HEAD
+=======
+
+>>>>>>> d44f62898f8a291b95d8dfa135815578c8cb891c
     </Type>
   </Table>
   <Table Name="dbo.Country" Member="Countries">
@@ -85,12 +93,20 @@
       <Association Name="Vehicle_Transport" Member="Vehicle" ThisKey="VehicleID" OtherKey="VehicleID" Type="Vehicle" IsForeignKey="true" />
     </Type>
   </Table>
+<<<<<<< HEAD
+=======
+
+>>>>>>> d44f62898f8a291b95d8dfa135815578c8cb891c
   <Table Name="dbo.Traveler" Member="Travelers">
     <Type Name="Traveler">
       <Column Name="TravelerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Login" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Password" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="Traveler_Trip" Member="Trips" ThisKey="TravelerID" OtherKey="TravelerID" Type="Trip" />
+<<<<<<< HEAD
+=======
+
+>>>>>>> d44f62898f8a291b95d8dfa135815578c8cb891c
     </Type>
   </Table>
   <Table Name="dbo.Vehicle" Member="Vehicles">
