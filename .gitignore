@@ -1,2 +1,5 @@
 /.vs
 /Properties/Settings.settings
+TripperDB.mdf
+TripperDB_log.ldf
+tripper.sln
