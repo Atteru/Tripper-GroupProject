@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tripper.DbLogic;
 using Tripper.DbLogic.LinqToSQL;
+using Tripper.WinLogic.Classes;
 
 namespace Tripper.WinLogic.Forms
 {
@@ -66,7 +67,13 @@ namespace Tripper.WinLogic.Forms
 
         private void bAddNewUser_Click(object sender, EventArgs e)
         {
-            tcLogin.SelectedTab = tabLogin;
+            User newUser = new User();
+            newUser = NewUser.AddNewUser(tNewUserName.Text, tNewPassword.Text, tNewPasswordConfirm.Text, tNewName.Text);
+            if (newUser != null) { 
+                Connection.TripperData.Users.InsertOnSubmit(newUser);
+                Connection.TripperData.SubmitChanges();
+            }
+
         }
 
     }

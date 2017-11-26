@@ -91,7 +91,7 @@ namespace Tripper.WinLogic.UserControls
 
         }
 
-        public void FillContextMenu(List<OtherCostsCatergory> categoryList)
+        private void FillContextMenu(List<OtherCostsCatergory> categoryList)
         {
 
             for (int i = 0; i < categoryList.Count(); i++)

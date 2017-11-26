@@ -24,10 +24,6 @@ namespace Tripper.DbLogic.LinqToSQL
             return string.Format("{0}", City);
         }
     }
-
-
-
 }
-
 
 
