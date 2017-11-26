@@ -44,7 +44,6 @@ namespace Tripper.WinLogic.Forms
         public NewTransportCreator(Transport row)
         {
             InitializeComponent();
-
             selectedTransport = Connection.TripperData.Transports.Single(transport => transport.Equals(row));
             SelectedVehicle = selectedTransport.Vehicle;
             tLocalizationDeparture.FillLocalizationFields(selectedTransport.DepartureLocalization);

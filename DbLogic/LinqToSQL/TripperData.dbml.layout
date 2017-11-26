@@ -1,8 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-=======
-
->>>>>>> d44f62898f8a291b95d8dfa135815578c8cb891c
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14.25, 8.5" name="TripperData">
   <DataContextMoniker Name="/TripperDataDataContext" />
   <nestedChildShapes>
@@ -115,10 +111,6 @@
       <nodes>
         <classShapeMoniker Id="c72ad6eb-9bd1-4172-bfef-0dc789704caa" />
         <classShapeMoniker Id="f06a3c47-7cae-484b-9eca-c1ef6fa0e059" />
-<<<<<<< HEAD
-=======
-
->>>>>>> d44f62898f8a291b95d8dfa135815578c8cb891c
       </nodes>
     </associationConnector>
   </nestedChildShapes>
