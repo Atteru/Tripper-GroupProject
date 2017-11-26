@@ -18,5 +18,10 @@ namespace Tripper.WinLogic.Forms
         }
 
 
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

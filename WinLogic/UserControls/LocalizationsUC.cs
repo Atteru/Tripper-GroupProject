@@ -19,6 +19,7 @@ namespace Tripper.WinLogic.UserControls
         List<Country> countryList = Connection.TripperData.Countries.ToList();
         List<Localization> cityList;
         CultureInfo ci = new CultureInfo("en-US");
+
         public LocalizationsUC()
         {
             InitializeComponent();
@@ -44,6 +45,13 @@ namespace Tripper.WinLogic.UserControls
             {
                 return cbCity;
             }
+        }
+
+        public void GetLocalization(int localizationID)
+        {
+            MessageVisibility = false;
+            cbCity.DataSource = Connection.TripperData.Localizations.Where(local => local.LocalizationID == localizationID);
+            cbCountry.DataSource = Connection.TripperData.Countries.Where(coutry => coutry.CountryID == ((Localization)cbCity.SelectedItem).CountryID);
         }
 
         public string CityMessageIfEmpty
@@ -76,7 +84,7 @@ namespace Tripper.WinLogic.UserControls
             newRefresh<Country>(comboBox, list);
         }
 
-        public void newRefresh<T>(ComboBox comboBox, IEnumerable<T> list)
+        public void newRefresh<T>(DynamicCombo comboBox, IEnumerable<T> list)
         {
             var tempList = list.Select(item => item).ToList();
 
@@ -100,7 +108,7 @@ namespace Tripper.WinLogic.UserControls
             else
             {
                 comboBox.DataSource = tempList;
-                comboBox.Height = 45;
+                comboBox.Close();
             }
             comboBox.SelectionStart = comboBox.Text.Length + 1;
         }
@@ -122,8 +130,9 @@ namespace Tripper.WinLogic.UserControls
             {
                 cbCity.Text = "";
             }
-          //  cbCountry_Validating(sender, null);
+            //  cbCountry_Validating(sender, null);
             cbCity.SelectedIndex = -1;
+            
         }
 
         private void cbCity_SelectionChangeCommitted(object sender, EventArgs e)
@@ -164,7 +173,7 @@ namespace Tripper.WinLogic.UserControls
         {
             DynamicCombo comboBox = sender as DynamicCombo;
             cbCountry_SelectionChangeCommitted(comboBox, null);
-            comboBox.Close();
+            comboBox.Close(); 
         }
 
         private void cbCity_Leave(object sender, EventArgs e)
@@ -191,7 +200,8 @@ namespace Tripper.WinLogic.UserControls
             }
             else
             {
-                lCountryError.Visible = false;
+                if(!lCountryError.Visible)
+                    lCountryError.Visible = false;
             }
         }
 

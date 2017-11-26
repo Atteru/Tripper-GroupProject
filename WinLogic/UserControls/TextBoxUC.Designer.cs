@@ -36,6 +36,7 @@
             // 
             this.messageLabel.AutoSize = true;
             this.messageLabel.BackColor = System.Drawing.SystemColors.Window;
+            this.messageLabel.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.messageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.messageLabel.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.messageLabel.Location = new System.Drawing.Point(4, 2);
@@ -57,7 +58,7 @@
             this.textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox.Size = new System.Drawing.Size(297, 29);
             this.textBox.TabIndex = 6;
-            this.textBox.Click += new System.EventHandler(this.textBox_Click);
+            this.textBox.Click += new System.EventHandler(this.textBox_MessageLabelHide);
             this.textBox.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_Validating);
             // 
             // TextBoxUC

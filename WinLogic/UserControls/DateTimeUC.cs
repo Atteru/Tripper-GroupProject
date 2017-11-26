@@ -93,11 +93,46 @@ namespace Tripper.WinLogic.UserControls
         {
             get
             {
-                return dtpDate.Enabled && dtpTime.Enabled;
+                return EnabledDate && EnabledTime;
             }
             set
             {
-                dtpDate.Enabled = dtpTime.Enabled = value;
+                EnabledDate = EnabledTime = value;
+            }
+        }
+
+        [Browsable(true)]
+        public bool EnabledDate
+        {
+            get
+            {
+                return dtpDate.Enabled && pDateMessage.Enabled && lDateMessage.Enabled;
+            }
+            set
+            {
+                dtpDate.Enabled = pDateMessage.Enabled = lDateMessage.Enabled = value;
+            }
+        }
+
+        [Browsable(true)]
+        public bool EnabledTime
+        {
+            get
+            {
+                return dtpTime.Enabled && pTimeMessage.Enabled && lTimeMessage.Enabled;
+            }
+            set
+            {
+                dtpTime.Enabled = pTimeMessage.Enabled = lTimeMessage.Enabled = value;
+            }
+        }
+
+        private bool _isSelected = false;
+        public bool IsSelected
+        {
+            get
+            {
+                return _isSelected;
             }
         }
 
@@ -105,18 +140,38 @@ namespace Tripper.WinLogic.UserControls
         {
             InitializeComponent();
             base.AutoScaleMode = AutoScaleMode.None;
+            this.EnabledTime = false;
             dtpTime.CustomFormat = "\tHH:mm";
         }
 
-        public DateTime Value()
-         {
-             return DateTime.Parse(this.Date.Text + " " + this.Time.Text + ":00");
-         }
+        public void GetDate(DateTime? date)
+        {
+            if(date != null)
+            {
+                pDateMessage.Visible = pTimeMessage.Visible = false;
+                DateTime tempDate = (DateTime)date;
+                dtpDate.Value = dtpTime.Value = tempDate;
+                _isSelected = true;
+            }
+        }
+
+        public DateTime? Value()
+        {
+            if(_isSelected)
+                return DateTime.Parse(this.Date.Text + " " + this.Time.Text + ":00");
+            return null;
+        }
 
         private void dtpDate_ValueChanged(object sender, EventArgs e)
         {
             if (pDateMessage.Visible)
                 pDateMessage.Visible = false;
+
+            if (!_isSelected)
+            {
+                _isSelected = true;
+                EnabledTime = true;
+            }
         }
 
 

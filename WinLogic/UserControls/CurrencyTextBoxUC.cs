@@ -42,6 +42,23 @@ namespace Tripper.WinLogic.UserControls
             }
         }
 
+        [Browsable(true)]
+        public new bool Enabled
+        {
+            get
+            {
+                return textBox.Enabled && messageLabel.Enabled;
+            }
+            set
+            {
+                textBox.Enabled = messageLabel.Enabled = value;
+                if (!textBox.Enabled)
+                    messageLabel.BackColor = SystemColors.Control;
+                else
+                    messageLabel.BackColor = SystemColors.Window;
+            }
+        }
+
 
         // Property Message odnosi się do labela zawartego w kotrolce
         // label służy do wyświetlania komunikatów na textboxie w stylu: "Podaj imię"
@@ -100,6 +117,12 @@ namespace Tripper.WinLogic.UserControls
             }
         }
 
+        public void GetData(decimal value)
+        {
+              MessageVisibility = false;
+              Text = value.ToString();
+        }
+
         private void textBox_Validating(object sender, CancelEventArgs e)
         {
             TextBox tbox = sender as TextBox;
@@ -110,6 +133,7 @@ namespace Tripper.WinLogic.UserControls
         }
 
 
+
         private void messageLabel_Click(object sender, EventArgs e)
         {
             if (MessageVisibility == true)
@@ -117,10 +141,12 @@ namespace Tripper.WinLogic.UserControls
             textBox.Focus();
         }
 
-        private void textBox_Click(object sender, EventArgs e)
+
+        private void textBox_MessageLabelHide(object sender, EventArgs e)
         {
             if (MessageVisibility == true)
                 MessageVisibility = false;
         }
+
     }
 }

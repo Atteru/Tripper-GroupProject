@@ -95,7 +95,6 @@ namespace Tripper.WinLogic.UserControls
         {
             if(StartingSize > 0)
                 this.Height = StartingSize;
-            this.SendToBack();
         }
 
     }

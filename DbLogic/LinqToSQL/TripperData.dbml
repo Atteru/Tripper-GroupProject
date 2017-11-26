@@ -1,10 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TripperDB" Class="TripperDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\TripperDB.mdf;Integrated Security=True;Connect Timeout=30" SettingsObjectName="Tripper.Properties.Settings" SettingsPropertyName="TripperDBConnectionString2" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=&quot;C:\Users\Administrator PC\Desktop\xxx\Tripper\TripperDB.mdf&quot;;Integrated Security=True;Connect Timeout=30" SettingsObjectName="Tripper.Properties.Settings" SettingsPropertyName="TripperDBConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Continent" Member="Continents">
     <Type Name="Continent">
       <Column Name="ContinentID" Type="System.String" DbType="Char(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="Continent_Country" Member="Countries" ThisKey="ContinentID" OtherKey="ContinentID" Type="Country" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[User]" Member="Users">
+    <Type Name="User">
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Login" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="User_Trip" Member="Trips" ThisKey="UserID" OtherKey="UserID" Type="Trip" />
     </Type>
   </Table>
   <Table Name="dbo.Country" Member="Countries">
@@ -69,6 +77,7 @@
       <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Association Name="Localization_Transport" Member="Localization" ThisKey="ArrivalLocalization" OtherKey="LocalizationID" Type="Localization" IsForeignKey="true" />
       <Association Name="Localization_Transport1" Member="Localization1" ThisKey="DepartureLocalization" OtherKey="LocalizationID" Type="Localization" IsForeignKey="true" />
+      <Association Name="Vehicle_Transport" Member="Vehicle" ThisKey="VehicleID" OtherKey="VehicleID" Type="Vehicle" IsForeignKey="true" />
       <Association Name="Trip_Transport" Member="Trip" ThisKey="TripID" OtherKey="TripID" Type="Trip" IsForeignKey="true" />
     </Type>
   </Table>
@@ -93,6 +102,14 @@
       <Column Name="Login" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Password" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[User]" Member="Users">
+    <Type Name="User">
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Login" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="User_Trip" Member="Trips" ThisKey="UserID" OtherKey="UserID" Type="Trip" />
     </Type>
   </Table>
 </Database>

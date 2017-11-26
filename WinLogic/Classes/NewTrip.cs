@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tripper.DbLogic;
 using Tripper.DbLogic.LinqToSQL;
-using Tripper.Enums;
+
 using System.Reflection;
 using System.Linq.Expressions;
 using System.ComponentModel;

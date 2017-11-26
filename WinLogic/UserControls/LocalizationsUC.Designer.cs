@@ -38,6 +38,7 @@
             // 
             this.lCityError.AutoSize = true;
             this.lCityError.BackColor = System.Drawing.Color.White;
+            this.lCityError.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.lCityError.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lCityError.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.lCityError.Location = new System.Drawing.Point(3, 38);
@@ -51,6 +52,7 @@
             // 
             this.lCountryError.AutoSize = true;
             this.lCountryError.BackColor = System.Drawing.Color.White;
+            this.lCountryError.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.lCountryError.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lCountryError.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.lCountryError.Location = new System.Drawing.Point(3, 3);
@@ -64,6 +66,7 @@
             // 
             this.cbCountry.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbCountry.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.cbCountry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.cbCountry.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbCountry.FormattingEnabled = true;
@@ -83,6 +86,7 @@
             // 
             this.cbCity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbCity.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.cbCity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.cbCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbCity.FormattingEnabled = true;

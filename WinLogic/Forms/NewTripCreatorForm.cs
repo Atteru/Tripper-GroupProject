@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using Tripper.DbLogic.LinqToSQL;
 using Tripper.DbLogic;
 using Tripper.WinLogic.Classes;
-using Tripper.Enums;
+
 
 
 namespace Tripper.WinLogic.Forms
@@ -38,7 +38,7 @@ namespace Tripper.WinLogic.Forms
         private void bAddVehicle_Click(object sender, EventArgs e)
         {
 
-            if(sender == bAddVehiclePlane)
+           /* if(sender == bAddVehiclePlane)
             {
                 transportCreator = new NewTransportCreator(Vehicle.Samolot);
             }
@@ -55,7 +55,7 @@ namespace Tripper.WinLogic.Forms
                 transportCreator = new NewTransportCreator(Vehicle.Bus);
             }
 
-            transportCreator.ShowDialog();
+            transportCreator.ShowDialog(); */
 
         }
 
