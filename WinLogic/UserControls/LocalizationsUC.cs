@@ -22,7 +22,7 @@ namespace Tripper.WinLogic.UserControls
         public LocalizationsUC()
         {
             InitializeComponent();
-            cbCountry.DataSource = countryList;
+            cbCountry.DataSource = CountryList;
             cbCountry.SelectedIndex = -1;
             cbCountry.IsOpened = false;
             cbCity.IsOpened = false;
@@ -69,10 +69,12 @@ namespace Tripper.WinLogic.UserControls
             }
         }
 
+        public List<Country> CountryList { get => countryList; set => countryList = value; }
+
         private void cbCountry_TextUpdate(object sender, EventArgs e)
         {
             DynamicCombo comboBox = sender as DynamicCombo;
-            var list = countryList.Where(country => country.Name.StartsWith(comboBox.Text, true, ci));
+            var list = CountryList.Where(country => country.Name.StartsWith(comboBox.Text, true, ci));
             newRefresh<Country>(comboBox, list);
         }
 
@@ -182,7 +184,7 @@ namespace Tripper.WinLogic.UserControls
                 lCountryError.Text = CountryMessageIfEmpty;
                 lCountryError.BringToFront();
             }
-            else if (!countryList.Any(country => country.Name.Equals(cbCountry.Text)))
+            else if (!CountryList.Any(country => country.Name.Equals(cbCountry.Text)))
             {
                 cbCountry.SelectedItem = cbCountry.Text = null;
                 lCountryError.Visible = true;

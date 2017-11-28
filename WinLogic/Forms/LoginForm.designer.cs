@@ -39,9 +39,9 @@
             this.pNewAccount = new System.Windows.Forms.Panel();
             this.tNewPasswordConfirm = new Tripper.WinLogic.UserControls.TextBoxUC();
             this.tNewPassword = new Tripper.WinLogic.UserControls.TextBoxUC();
-            this.tNewName = new Tripper.WinLogic.UserControls.TextBoxUC();
             this.tNewUserName = new Tripper.WinLogic.UserControls.TextBoxUC();
             this.bAddNewUser = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.tcLogin.SuspendLayout();
             this.tabLogin.SuspendLayout();
             this.pLogin.SuspendLayout();
@@ -89,9 +89,12 @@
             // 
             this.tPassword.AutoSize = true;
             this.tPassword.BackColor = System.Drawing.Color.Transparent;
+            this.tPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tPassword.LabelMessage = "Hasło";
             this.tPassword.Location = new System.Drawing.Point(48, 87);
+            this.tPassword.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.tPassword.MessageVisibility = false;
+            this.tPassword.Multiline = false;
             this.tPassword.Name = "tPassword";
             this.tPassword.Size = new System.Drawing.Size(389, 29);
             this.tPassword.TabIndex = 23;
@@ -100,9 +103,12 @@
             // 
             this.tUserName.AutoSize = true;
             this.tUserName.BackColor = System.Drawing.Color.Transparent;
+            this.tUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tUserName.LabelMessage = "Nazwa użytkownika";
             this.tUserName.Location = new System.Drawing.Point(48, 52);
+            this.tUserName.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.tUserName.MessageVisibility = false;
+            this.tUserName.Multiline = false;
             this.tUserName.Name = "tUserName";
             this.tUserName.Size = new System.Drawing.Size(389, 29);
             this.tUserName.TabIndex = 22;
@@ -151,9 +157,9 @@
             // pNewAccount
             // 
             this.pNewAccount.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pNewAccount.Controls.Add(this.button1);
             this.pNewAccount.Controls.Add(this.tNewPasswordConfirm);
             this.pNewAccount.Controls.Add(this.tNewPassword);
-            this.pNewAccount.Controls.Add(this.tNewName);
             this.pNewAccount.Controls.Add(this.tNewUserName);
             this.pNewAccount.Controls.Add(this.bAddNewUser);
             this.pNewAccount.Location = new System.Drawing.Point(270, 100);
@@ -165,9 +171,12 @@
             // 
             this.tNewPasswordConfirm.AutoSize = true;
             this.tNewPasswordConfirm.BackColor = System.Drawing.Color.Transparent;
+            this.tNewPasswordConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tNewPasswordConfirm.LabelMessage = "Potwierdź hasło";
-            this.tNewPasswordConfirm.Location = new System.Drawing.Point(48, 183);
-            this.tNewPasswordConfirm.MessageVisibility = true;
+            this.tNewPasswordConfirm.Location = new System.Drawing.Point(47, 136);
+            this.tNewPasswordConfirm.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.tNewPasswordConfirm.MessageVisibility = false;
+            this.tNewPasswordConfirm.Multiline = false;
             this.tNewPasswordConfirm.Name = "tNewPasswordConfirm";
             this.tNewPasswordConfirm.Size = new System.Drawing.Size(390, 29);
             this.tNewPasswordConfirm.TabIndex = 23;
@@ -176,45 +185,51 @@
             // 
             this.tNewPassword.AutoSize = true;
             this.tNewPassword.BackColor = System.Drawing.Color.Transparent;
+            this.tNewPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tNewPassword.LabelMessage = "Hasło";
-            this.tNewPassword.Location = new System.Drawing.Point(48, 148);
-            this.tNewPassword.MessageVisibility = true;
+            this.tNewPassword.Location = new System.Drawing.Point(47, 95);
+            this.tNewPassword.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.tNewPassword.MessageVisibility = false;
+            this.tNewPassword.Multiline = false;
             this.tNewPassword.Name = "tNewPassword";
             this.tNewPassword.Size = new System.Drawing.Size(390, 29);
             this.tNewPassword.TabIndex = 22;
             // 
-            // textBoxUC3
-            // 
-            this.tNewName.AutoSize = true;
-            this.tNewName.BackColor = System.Drawing.Color.Transparent;
-            this.tNewName.LabelMessage = "Imię";
-            this.tNewName.Location = new System.Drawing.Point(48, 89);
-            this.tNewName.MessageVisibility = true;
-            this.tNewName.Name = "textBoxUC3";
-            this.tNewName.Size = new System.Drawing.Size(389, 29);
-            this.tNewName.TabIndex = 21;
-            // 
-            // textBoxUC4
+            // tNewUserName
             // 
             this.tNewUserName.AutoSize = true;
             this.tNewUserName.BackColor = System.Drawing.Color.Transparent;
+            this.tNewUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tNewUserName.LabelMessage = "Nazwa użytkownika";
             this.tNewUserName.Location = new System.Drawing.Point(48, 54);
-            this.tNewUserName.MessageVisibility = true;
-            this.tNewUserName.Name = "textBoxUC4";
+            this.tNewUserName.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.tNewUserName.MessageVisibility = false;
+            this.tNewUserName.Multiline = false;
+            this.tNewUserName.Name = "tNewUserName";
             this.tNewUserName.Size = new System.Drawing.Size(389, 29);
             this.tNewUserName.TabIndex = 20;
             // 
             // bAddNewUser
             // 
             this.bAddNewUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bAddNewUser.Location = new System.Drawing.Point(48, 233);
+            this.bAddNewUser.Location = new System.Drawing.Point(47, 190);
             this.bAddNewUser.Name = "bAddNewUser";
             this.bAddNewUser.Size = new System.Drawing.Size(390, 37);
             this.bAddNewUser.TabIndex = 16;
             this.bAddNewUser.Text = "Dodaj konto";
             this.bAddNewUser.UseVisualStyleBackColor = true;
             this.bAddNewUser.Click += new System.EventHandler(this.bAddNewUser_Click);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button1.Location = new System.Drawing.Point(47, 233);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(390, 37);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "Anuluj";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // LoginForm
             // 
@@ -251,8 +266,8 @@
         private UserControls.TextBoxUC tPassword;
         private UserControls.TextBoxUC tUserName;
         private UserControls.TextBoxUC tNewUserName;
-        private UserControls.TextBoxUC tNewName;
         private UserControls.TextBoxUC tNewPasswordConfirm;
         private UserControls.TextBoxUC tNewPassword;
+        private System.Windows.Forms.Button button1;
     }
 }

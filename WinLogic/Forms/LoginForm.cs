@@ -67,7 +67,7 @@ namespace Tripper.WinLogic.Forms
         private void bAddNewUser_Click(object sender, EventArgs e)
         {
             User newUser = new User();
-            newUser = NewUser.AddNewUser(tNewUserName.Text, tNewPassword.Text, tNewPasswordConfirm.Text, tNewName.Text);
+            newUser = NewUser.AddNewUser(tNewUserName.Text, tNewPassword.Text, tNewPasswordConfirm.Text);
             if (newUser != null) { 
                 Connection.TripperData.Users.InsertOnSubmit(newUser);
                 Connection.TripperData.SubmitChanges();
@@ -75,5 +75,9 @@ namespace Tripper.WinLogic.Forms
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            tcLogin.SelectedTab = tabLogin;
+        }
     }
 }

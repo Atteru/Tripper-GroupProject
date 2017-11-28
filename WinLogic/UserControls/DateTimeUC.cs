@@ -30,6 +30,13 @@ namespace Tripper.WinLogic.UserControls
                 return dtpTime;
             }
         }
+        public DateTime GetDate
+        {
+            get
+            {
+                return dtpDate.Value;
+            }
+        }
 
         private Font _Font = DefaultFont;
         [Bindable(true)]

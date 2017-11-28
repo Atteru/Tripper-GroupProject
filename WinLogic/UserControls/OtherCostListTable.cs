@@ -15,13 +15,13 @@ namespace Tripper.WinLogic.UserControls
     public partial class OtherCostListTableUC : UserControl
     {
         // private List<OtherCostsCatergory> categoryList = Connection.TripperData.OtherCostsCatergories.ToList();
-        private List<OtherCostsCatergory> categoryList = new List<OtherCostsCatergory>();
+        //private List<OtherCostsCatergory> categoryList = new List<OtherCostsCatergory>();
 
-        public OtherCostListTableUC()
-        {
-            InitializeComponent();
-            FillContextMenu(categoryList);
-        }
+        //public OtherCostListTableUC()
+        //{
+        //    InitializeComponent();
+        //    FillContextMenu(categoryList);
+        //}
 
         [Browsable(true)]
         public new bool Enabled
@@ -61,16 +61,16 @@ namespace Tripper.WinLogic.UserControls
 
 
 
-        private void FillContextMenu(List<OtherCostsCatergory> categoryList)
-        {
+        //private void FillContextMenu(List<OtherCostsCatergory> categoryList)
+        //{
 
-            for (int i = 0; i < categoryList.Count(); i++)
-            {
-                ToolStripMenuItem toolStripItem = new ToolStripMenuItem();
-                toolStripItem.Text = categoryList.ElementAt(i).ToString();
-                contextMenuStrip.Items.Add(toolStripItem);
-            }
-        }
+        //    for (int i = 0; i < categoryList.Count(); i++)
+        //    {
+        //        ToolStripMenuItem toolStripItem = new ToolStripMenuItem();
+        //        toolStripItem.Text = categoryList.ElementAt(i).ToString();
+        //        contextMenuStrip.Items.Add(toolStripItem);
+        //    }
+        //}
 
         private void contextMenuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {

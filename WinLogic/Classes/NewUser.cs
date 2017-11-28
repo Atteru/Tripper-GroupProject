@@ -11,9 +11,9 @@ namespace Tripper.WinLogic.Classes
 {
     class NewUser
     {
-        public static User AddNewUser(string userAccountName,string userPassword, string userPasswordConfirm, string userName)
+        public static User AddNewUser(string userAccountName,string userPassword, string userPasswordConfirm)
         {
-            if (userAccountName == "" || userPassword == "" || userPasswordConfirm == "" || userName == "")
+            if (userAccountName == "" || userPassword == "" || userPasswordConfirm == "")
             {
                 MessageBox.Show("Uzupełnij wszystkie pola");
                 return null;
@@ -47,7 +47,6 @@ namespace Tripper.WinLogic.Classes
 
             newUser.Login = userAccountName;
             newUser.Password = userPassword;
-            newUser.Name = userName;
             MessageBox.Show("Użytkownik " + newUser.Login.ToString() + " został stwożony");
             return newUser;
         }

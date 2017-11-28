@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tripper.DbLogic;
+using Tripper.DbLogic.LinqToSQL;
+using Tripper.WinLogic.Classes;
+using Tripper.WinLogic.Forms;
 
 namespace Tripper.WinLogic.Forms
 {
@@ -31,8 +35,6 @@ namespace Tripper.WinLogic.Forms
         {
             lDaysCount.Text = "Dni łącznie: " + (Convert.ToInt32((dtpDateTo.Date.Value - dtpDateFrom.Date.Value).TotalDays)).ToString();
             lDaysCount.Visible = true;
-             
-
         }
 
         private void textBoxUC3_Load(object sender, EventArgs e)
@@ -48,6 +50,26 @@ namespace Tripper.WinLogic.Forms
         private void textBoxUC3_Leave(object sender, EventArgs e)
         {
             textBoxUC3.Height = 26;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Stayment newHotel = new Stayment();
+            String temporaryStringForCost = textBoxUC5.Text;
+            Decimal temporaryDecimal = (Decimal)0.00;
+            if (temporaryStringForCost != "")
+            {
+                temporaryDecimal = decimal.Parse(temporaryStringForCost);
+            }
+
+            newHotel = NewHotel.AddNewHotel(textBoxUC2.Text, textBoxUC1.Text, textBoxUC4.Text, textBoxUC3.Text
+                , dtpDateFrom.GetDate, dtpDateTo.GetDate, temporaryDecimal);
+            if (newHotel != null)
+            {
+                Connection.TripperData.Stayments.InsertOnSubmit(newHotel);
+                Connection.TripperData.SubmitChanges();
+            }
+
         }
     }
 }

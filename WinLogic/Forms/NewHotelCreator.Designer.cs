@@ -31,13 +31,13 @@
             this.dtpDateFrom = new Tripper.WinLogic.UserControls.DateTimeUC();
             this.textBoxUC2 = new Tripper.WinLogic.UserControls.TextBoxUC();
             this.textBoxUC1 = new Tripper.WinLogic.UserControls.TextBoxUC();
-            this.localizationsUC1 = new Tripper.WinLogic.UserControls.LocalizationsUC();
             this.dtpDateTo = new Tripper.WinLogic.UserControls.DateTimeUC();
             this.lDaysCount = new System.Windows.Forms.Label();
             this.textBoxUC3 = new Tripper.WinLogic.UserControls.TextBoxUC();
             this.textBoxUC4 = new Tripper.WinLogic.UserControls.TextBoxUC();
             this.button5 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.textBoxUC5 = new Tripper.WinLogic.UserControls.TextBoxUC();
             this.SuspendLayout();
             // 
             // dtpDateFrom
@@ -80,18 +80,6 @@
             this.textBoxUC1.Size = new System.Drawing.Size(204, 29);
             this.textBoxUC1.TabIndex = 142;
             // 
-            // localizationsUC1
-            // 
-            this.localizationsUC1.AutoSize = true;
-            this.localizationsUC1.BackColor = System.Drawing.Color.Transparent;
-            this.localizationsUC1.CityMessageIfEmpty = "Miasto";
-            this.localizationsUC1.CountryMessageIfEmpty = "Kraj";
-            this.localizationsUC1.Location = new System.Drawing.Point(226, 71);
-            this.localizationsUC1.MessageVisibility = true;
-            this.localizationsUC1.Name = "localizationsUC1";
-            this.localizationsUC1.Size = new System.Drawing.Size(218, 68);
-            this.localizationsUC1.TabIndex = 141;
-            // 
             // dtpDateTo
             // 
             this.dtpDateTo.BackColor = System.Drawing.Color.Transparent;
@@ -114,7 +102,7 @@
             this.lDaysCount.Name = "lDaysCount";
             this.lDaysCount.Size = new System.Drawing.Size(103, 20);
             this.lDaysCount.TabIndex = 148;
-            this.lDaysCount.Text = "Dni łącznie:";
+            this.lDaysCount.Text = "Dni łącznie:\r\n";
             this.lDaysCount.Visible = false;
             // 
             // textBoxUC3
@@ -163,6 +151,7 @@
             this.button5.TabIndex = 155;
             this.button5.Text = "Dodaj ";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label5
             // 
@@ -176,12 +165,27 @@
             this.label5.Text = "Zakwaterowanie";
             this.label5.Visible = false;
             // 
+            // textBoxUC5
+            // 
+            this.textBoxUC5.AutoSize = true;
+            this.textBoxUC5.BackColor = System.Drawing.Color.Transparent;
+            this.textBoxUC5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxUC5.LabelMessage = "Cost";
+            this.textBoxUC5.Location = new System.Drawing.Point(14, 221);
+            this.textBoxUC5.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.textBoxUC5.MessageVisibility = true;
+            this.textBoxUC5.Multiline = false;
+            this.textBoxUC5.Name = "textBoxUC5";
+            this.textBoxUC5.Size = new System.Drawing.Size(55, 26);
+            this.textBoxUC5.TabIndex = 159;
+            // 
             // NewHotelCreator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(875, 360);
+            this.Controls.Add(this.textBoxUC5);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.textBoxUC4);
@@ -190,7 +194,6 @@
             this.Controls.Add(this.dtpDateFrom);
             this.Controls.Add(this.textBoxUC2);
             this.Controls.Add(this.textBoxUC1);
-            this.Controls.Add(this.localizationsUC1);
             this.Controls.Add(this.textBoxUC3);
             this.Name = "NewHotelCreator";
             this.Text = "NewHotelCreator";
@@ -211,5 +214,6 @@
         private UserControls.TextBoxUC textBoxUC4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label5;
+        private UserControls.TextBoxUC textBoxUC5;
     }
 }
