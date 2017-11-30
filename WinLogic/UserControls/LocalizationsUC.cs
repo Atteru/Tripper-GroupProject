@@ -16,7 +16,7 @@ namespace Tripper.WinLogic.UserControls
 {
     public partial class LocalizationsUC : UserControl
     {
-        List<Country> countryList = Connection.TripperData.Countries.ToList();
+        List<Country> countryList;
         List<Localization> cityList;
         CultureInfo ci = new CultureInfo("en-US");
 
@@ -266,6 +266,12 @@ namespace Tripper.WinLogic.UserControls
         {
             if (lCityError.Visible)
                 lCityError.Visible = false;
+        }
+
+        private void cbCountry_Enter(object sender, EventArgs e)
+        {
+            if (countryList == null)
+                countryList = Connection.TripperData.Countries.ToList();
         }
     }
 }
