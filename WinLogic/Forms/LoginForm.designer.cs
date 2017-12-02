@@ -37,11 +37,11 @@
             this.bLogin = new System.Windows.Forms.Button();
             this.tabNewAccount = new System.Windows.Forms.TabPage();
             this.pNewAccount = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.tNewPasswordConfirm = new Tripper.WinLogic.UserControls.TextBoxUC();
             this.tNewPassword = new Tripper.WinLogic.UserControls.TextBoxUC();
             this.tNewUserName = new Tripper.WinLogic.UserControls.TextBoxUC();
             this.bAddNewUser = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.tcLogin.SuspendLayout();
             this.tabLogin.SuspendLayout();
             this.pLogin.SuspendLayout();
@@ -167,6 +167,17 @@
             this.pNewAccount.Size = new System.Drawing.Size(480, 350);
             this.pNewAccount.TabIndex = 18;
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button1.Location = new System.Drawing.Point(47, 233);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(390, 37);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "Anuluj";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // tNewPasswordConfirm
             // 
             this.tNewPasswordConfirm.AutoSize = true;
@@ -220,19 +231,9 @@
             this.bAddNewUser.UseVisualStyleBackColor = true;
             this.bAddNewUser.Click += new System.EventHandler(this.bAddNewUser_Click);
             // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button1.Location = new System.Drawing.Point(47, 233);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(390, 37);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "Anuluj";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // LoginForm
             // 
+            this.AcceptButton = this.bLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;

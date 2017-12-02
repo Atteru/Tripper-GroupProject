@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -10,17 +11,24 @@ namespace Tripper.WinLogic.Classes
 {
     class NewHotel
     {
-        static int numberOfCheckInfNotEmptyExecution = 0;
-        public static Stayment AddNewHotel(String hotelName, String hotelAddress, 
+        public static Stayment AddNewHotel(String hotelName, String hotelAddress,
             String hotelPhoneNumber, String additionalInfo, DateTime arrivalDate, DateTime dispatchDate, Decimal hotelCost)
         {
             Stayment newHotel = new Stayment();
 
-            newHotel.Name = hotelName;
+            if (hotelName == "")
+            {
+                MessageBox.Show("Uzupełnij nazwę hotelu");
+                return null;
+            }
+            else
+                newHotel.Name = hotelName;
             newHotel.Address = hotelAddress;
-            newHotel.DateFrom = arrivalDate;
+            
             newHotel.DateTo = dispatchDate;
-            newHotel.CreateDate = DateTime.Today;
+            newHotel.DateFrom = arrivalDate;
+
+            newHotel.CreateDate = DateTime.Now;
             newHotel.AdditionalInformation = additionalInfo;
             newHotel.ModifiedDate = newHotel.CreateDate;
             newHotel.Cost = hotelCost;
@@ -28,30 +36,26 @@ namespace Tripper.WinLogic.Classes
             return newHotel;
         }
 
-        private static String checkIfNotEmpty(String temporaryString)
+        public static bool CompareDateAndTime(DateTime first, DateTime second)
         {
-            if (temporaryString != "" && (numberOfCheckInfNotEmptyExecution == 1 || numberOfCheckInfNotEmptyExecution == 2 ||
-                numberOfCheckInfNotEmptyExecution == 3) )
-                return temporaryString;
-            else
-                switch (numberOfCheckInfNotEmptyExecution)
-                {
-                    case 1:
-                        MessageBox.Show("Podaj nazwę hotelu");
-                        numberOfCheckInfNotEmptyExecution = 0;
-                        return null;
-                    case 3:
-                        MessageBox.Show("Data przybycia jest pusta");
-                        numberOfCheckInfNotEmptyExecution = 0;
-                        return null;
-                    case 4:
-                        MessageBox.Show("Data wyjazdu jest pusta");
-                        numberOfCheckInfNotEmptyExecution = 0;
-                        return null;
-                    default:
-                        return null;
+            if (first.Date != second.Date)
+            {
+                return false;
+            }
+            if (first.Hour != second.Hour)
+            {
+                return false;
+            }
+            if (first.Minute != second.Minute)
+            {
+                return false;
+            }
+            if (first.Second != second.Second)
+            {
+                return false;
+            }
+            return true;
+        }
 
-                }
-         } 
     }
 }

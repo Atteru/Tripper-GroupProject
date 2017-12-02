@@ -22,19 +22,12 @@ namespace Tripper.WinLogic.UserControls
                 return dtpDate;
             }
         } 
-
+        
         public DateTimePicker Time
         {
             get
             {
                 return dtpTime;
-            }
-        }
-        public DateTime GetDate
-        {
-            get
-            {
-                return dtpDate.Value;
             }
         }
 

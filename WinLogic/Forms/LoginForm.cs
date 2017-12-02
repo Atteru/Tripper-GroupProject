@@ -28,12 +28,8 @@ namespace Tripper.WinLogic.Forms
 
         }
 
-
         private void bLogin_Click(object sender, EventArgs e)
         {
-            tUserName.Text = "user";
-            tPassword.Text = "user";
-
             foreach (User u in Connection.TripperData.Users)
             {
                 // Metoda Compare(string1, string2, wielkośćZnaków) zwraca 0 jeśli łańcuchy są takie same

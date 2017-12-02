@@ -63,7 +63,7 @@ namespace Tripper.WinLogic.Forms
             }
 
             newHotel = NewHotel.AddNewHotel(textBoxUC2.Text, textBoxUC1.Text, textBoxUC4.Text, textBoxUC3.Text
-                , dtpDateFrom.GetDate, dtpDateTo.GetDate, temporaryDecimal);
+                , dtpDateFrom.Value(), dtpDateTo.Value(), temporaryDecimal);
             if (newHotel != null)
             {
                 Connection.TripperData.Stayments.InsertOnSubmit(newHotel);
