@@ -11,9 +11,9 @@ namespace Tripper.WinLogic.Classes
 {
     class NewUser
     {
-        public static Traveler AddNewUser(string userAccountName,string userPassword, string userPasswordConfirm, string userName)
+        public static Traveler AddNewUser(string userAccountName,string userPassword, string userPasswordConfirm)
         {
-            if (userAccountName == "" || userPassword == "" || userPasswordConfirm == "" || userName == "")
+            if (userAccountName == "" || userPassword == "" || userPasswordConfirm == "")
             {
                 MessageBox.Show("Uzupełnij wszystkie pola");
                 return null;
