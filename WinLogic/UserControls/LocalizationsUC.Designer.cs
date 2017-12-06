@@ -41,7 +41,7 @@
             this.lCountryError.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.lCountryError.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lCountryError.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lCountryError.Location = new System.Drawing.Point(3, 3);
+            this.lCountryError.Location = new System.Drawing.Point(6, 7);
             this.lCountryError.Name = "lCountryError";
             this.lCountryError.Size = new System.Drawing.Size(84, 20);
             this.lCountryError.TabIndex = 5;
@@ -55,7 +55,7 @@
             this.lCityError.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.lCityError.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lCityError.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lCityError.Location = new System.Drawing.Point(3, 38);
+            this.lCityError.Location = new System.Drawing.Point(6, 42);
             this.lCityError.Name = "lCityError";
             this.lCityError.Size = new System.Drawing.Size(84, 20);
             this.lCityError.TabIndex = 3;
@@ -65,16 +65,18 @@
             // cbCountry
             // 
             this.cbCountry.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.cbCountry.Dock = System.Windows.Forms.DockStyle.Top;
             this.cbCountry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.cbCountry.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbCountry.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbCountry.FormattingEnabled = true;
             this.cbCountry.IsOpened = false;
-            this.cbCountry.Location = new System.Drawing.Point(0, 0);
+            this.cbCountry.Location = new System.Drawing.Point(3, 3);
+            this.cbCountry.Margin = new System.Windows.Forms.Padding(2);
             this.cbCountry.Name = "cbCountry";
-            this.cbCountry.Size = new System.Drawing.Size(226, 28);
+            this.cbCountry.Size = new System.Drawing.Size(223, 28);
             this.cbCountry.StartingSize = 0;
             this.cbCountry.TabIndex = 6;
+            this.cbCountry.SelectedIndexChanged += new System.EventHandler(this.cbCountry_SelectedIndexChanged);
             this.cbCountry.SelectionChangeCommitted += new System.EventHandler(this.cbCountry_SelectionChangeCommitted);
             this.cbCountry.TextUpdate += new System.EventHandler(this.cbCountry_TextUpdate);
             this.cbCountry.Click += new System.EventHandler(this.cbCountry_Click);
@@ -86,13 +88,14 @@
             // 
             this.cbCity.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.cbCity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.cbCity.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbCity.FormattingEnabled = true;
             this.cbCity.IsOpened = false;
-            this.cbCity.Location = new System.Drawing.Point(0, 35);
-            this.cbCity.Margin = new System.Windows.Forms.Padding(0);
+            this.cbCity.Location = new System.Drawing.Point(3, 38);
+            this.cbCity.Margin = new System.Windows.Forms.Padding(2);
             this.cbCity.Name = "cbCity";
-            this.cbCity.Size = new System.Drawing.Size(226, 28);
+            this.cbCity.Size = new System.Drawing.Size(223, 28);
             this.cbCity.StartingSize = 0;
             this.cbCity.TabIndex = 1;
             this.cbCity.SelectionChangeCommitted += new System.EventHandler(this.cbCity_SelectionChangeCommitted);
@@ -112,7 +115,7 @@
             this.Controls.Add(this.lCityError);
             this.Controls.Add(this.cbCity);
             this.Name = "LocalizationsUC";
-            this.Size = new System.Drawing.Size(226, 69);
+            this.Size = new System.Drawing.Size(231, 69);
             this.ResumeLayout(false);
             this.PerformLayout();
 

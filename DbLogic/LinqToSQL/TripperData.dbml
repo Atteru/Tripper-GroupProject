@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TripperDB" Class="TripperDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\TripperDB.mdf;Integrated Security=True;Connect Timeout=30" SettingsObjectName="Tripper.Properties.Settings" SettingsPropertyName="TripperDBConnectionString4" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\TripperDB.mdf;Integrated Security=True" SettingsObjectName="Tripper.Properties.Settings" SettingsPropertyName="TripperDBConnectionString2" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Continent" Member="Continents">
     <Type Name="Continent">
       <Column Name="continentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -75,10 +75,10 @@
       <Column Name="CarBrand" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Column Name="DepartureTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="ArrivalTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="DepartureLocalization" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ArrivalLocalization" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DepartureLocalization" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ArrivalLocalization" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Localization_Transport" Member="Localization" ThisKey="ArrivalLocalization" OtherKey="LocalizationID" Type="Localization" IsForeignKey="true" />
       <Association Name="Localization_Transport1" Member="Localization1" ThisKey="DepartureLocalization" OtherKey="LocalizationID" Type="Localization" IsForeignKey="true" />
       <Association Name="Trip_Transport" Member="Trip" ThisKey="TripID" OtherKey="TripID" Type="Trip" IsForeignKey="true" />

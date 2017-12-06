@@ -42,7 +42,7 @@
             // 
             this.dtpTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dtpTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTime.Location = new System.Drawing.Point(1, 34);
+            this.dtpTime.Location = new System.Drawing.Point(3, 35);
             this.dtpTime.Name = "dtpTime";
             this.dtpTime.ShowUpDown = true;
             this.dtpTime.Size = new System.Drawing.Size(106, 26);
@@ -55,9 +55,9 @@
             this.dtpDate.CalendarForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dtpDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dtpDate.Location = new System.Drawing.Point(0, 0);
+            this.dtpDate.Location = new System.Drawing.Point(3, 3);
             this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(188, 26);
+            this.dtpDate.Size = new System.Drawing.Size(182, 26);
             this.dtpDate.TabIndex = 113;
             this.dtpDate.ValueChanged += new System.EventHandler(this.dtpDate_ValueChanged);
             // 
@@ -68,9 +68,9 @@
             this.pDateMessage.BackColor = System.Drawing.Color.White;
             this.pDateMessage.Controls.Add(this.lDateMessage);
             this.pDateMessage.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.pDateMessage.Location = new System.Drawing.Point(1, 1);
+            this.pDateMessage.Location = new System.Drawing.Point(4, 4);
             this.pDateMessage.Name = "pDateMessage";
-            this.pDateMessage.Size = new System.Drawing.Size(153, 23);
+            this.pDateMessage.Size = new System.Drawing.Size(158, 23);
             this.pDateMessage.TabIndex = 114;
             this.pDateMessage.Click += new System.EventHandler(this.pDateMessage_Click);
             // 
@@ -92,7 +92,7 @@
             // 
             this.pTimeMessage.BackColor = System.Drawing.Color.White;
             this.pTimeMessage.Controls.Add(this.lTimeMessage);
-            this.pTimeMessage.Location = new System.Drawing.Point(2, 35);
+            this.pTimeMessage.Location = new System.Drawing.Point(4, 36);
             this.pTimeMessage.Name = "pTimeMessage";
             this.pTimeMessage.Size = new System.Drawing.Size(86, 23);
             this.pTimeMessage.TabIndex = 115;
@@ -122,7 +122,8 @@
             this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.dtpTime);
             this.Name = "DateTimeUC";
-            this.Size = new System.Drawing.Size(188, 60);
+            this.Padding = new System.Windows.Forms.Padding(3);
+            this.Size = new System.Drawing.Size(188, 65);
             this.pDateMessage.ResumeLayout(false);
             this.pDateMessage.PerformLayout();
             this.pTimeMessage.ResumeLayout(false);
