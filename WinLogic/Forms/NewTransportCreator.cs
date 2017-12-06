@@ -31,6 +31,7 @@ namespace Tripper.WinLogic.Forms
             {
                 _selectedVehicle = value;
                 ShowVehicleProperties(_selectedVehicle);
+
             }
         }
 
@@ -52,62 +53,45 @@ namespace Tripper.WinLogic.Forms
             tConfirmationNo.GetData<string>(selectedTransport.ConfirmationNumber);
             tTransportCost.GetData(selectedTransport.Cost);
             dtpDeparture.GetDate(selectedTransport.DepartureTime);
+            dtpDeparture.GetDate(selectedTransport.DepartureTime);
             dtpArrival.GetDate(selectedTransport.ArrivalTime);
             tTransporter.GetData<string>(selectedTransport.TransportOperator);
         }
 
-        private bool saveChanges()
+        private void saveChanges()
         {
             if(validationCheck())
             {
-                selectedTransport.TripID = 1;
-                selectedTransport.VehicleID = SelectedVehicle.VehicleID;
-                selectedTransport.DepartureLocalization = tLocalizationDeparture.GetLocalizationFromFields();
-                selectedTransport.ArrivalLocalization = tLocalizationArrival.GetLocalizationFromFields();
-                selectedTransport.DepartureTime = dtpDeparture.Value();
-                selectedTransport.ArrivalTime = dtpArrival.Value();
-                selectedTransport.FlightNumber = tFlightNo.Text;
-                selectedTransport.Seats = tSeats.Text;
-                selectedTransport.ConfirmationNumber = tConfirmationNo.Text;
-                selectedTransport.Cost = tTransportCost.Value;
-
-                return true;
+                selectedTransport.Vehicle = SelectedVehicle;
+                AddIfChanged(selectedTransport.DepartureLocalization, tLocalizationDeparture.GetLocalizationFromFields());
+                AddIfChanged(selectedTransport.ArrivalLocalization, tLocalizationArrival.GetLocalizationFromFields());
+                AddIfChanged(selectedTransport.DepartureTime, dtpDeparture.Value());
+                AddIfChanged(selectedTransport.ArrivalTime, dtpArrival.Value());
+                AddIfChanged(selectedTransport.FlightNumber, tFlightNo.Text);
+                AddIfChanged(selectedTransport.Seats, tSeats.Text);
+                AddIfChanged(selectedTransport.ConfirmationNumber, tConfirmationNo);
+                AddIfChanged(selectedTransport.Cost, tTransportCost.Value);
             }
-
-            return false;
-        }
-
-        private void SubmitChanges()
-        {
-            if (saveChanges())
-            {
-                Connection.TripperData.Transports.InsertOnSubmit(selectedTransport);
-
-                Connection.TripperData.SubmitChanges();
-                this.Close();
-
-            }
-
         }
 
         private bool validationCheck()
         {
-            bool validationResult = true;
+            if (ValidateCantBeNull(tLocalizationDeparture.GetLocalizationFromFields()))
+                return false;
 
-            if (!tLocalizationDeparture.CheckValidation())
-                validationResult = false;
+            if (ValidateCantBeNull(tLocalizationArrival.GetLocalizationFromFields()))
+                return false;
 
-            if (!tLocalizationArrival.CheckValidation())
-                validationResult = false;
+            if (ValidateCantBeNull(dtpDeparture.Value()))
+                return false;
 
-            if (!dtpArrival.CheckValidation())
-                validationResult = false;
+            if (ValidateCantBeNull(dtpArrival.Value()))
+                return false;
 
-            if (!dtpDeparture.CheckValidation())
-                validationResult = false;
+            return true;
 
-            return validationResult;
         }
+
 
         private bool ValidateCantBeNull(object source)
         {
@@ -178,11 +162,6 @@ namespace Tripper.WinLogic.Forms
             }     
         }
 
-        private void bAdd_Click(object sender, EventArgs e)
-        {
 
-        }
-
-    
     }
 }

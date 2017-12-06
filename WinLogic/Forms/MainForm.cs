@@ -26,6 +26,7 @@ namespace Tripper.WinLogic.Forms
           {
               InitializeComponent();
               UserID = userId;
+
           }*/
 
         public MainForm()

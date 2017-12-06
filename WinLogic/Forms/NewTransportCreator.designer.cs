@@ -34,25 +34,25 @@
             this.bAdd = new System.Windows.Forms.Button();
             this.pTableInfo = new System.Windows.Forms.TableLayoutPanel();
             this.pInfoPlane = new System.Windows.Forms.Panel();
-            this.tTransporter = new Tripper.WinLogic.UserControls.TextBoxUC();
-            this.tFlightNo = new Tripper.WinLogic.UserControls.TextBoxUC();
             this.label7 = new System.Windows.Forms.Label();
-            this.tConfirmationNo = new Tripper.WinLogic.UserControls.TextBoxUC();
             this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.pInfoPlanePublic = new System.Windows.Forms.Panel();
-            this.tTransportCost = new Tripper.WinLogic.UserControls.CurrencyTextBoxUC();
-            this.tSeats = new Tripper.WinLogic.UserControls.TextBoxUC();
             this.pInfoAll = new System.Windows.Forms.Panel();
-            this.tAdditonalInformations = new Tripper.WinLogic.UserControls.TextBoxUC();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.tLocalizationArrival = new Tripper.WinLogic.UserControls.LocalizationsUC();
+            this.tLocalizationDeparture = new Tripper.WinLogic.UserControls.LocalizationsUC();
+            this.tTransporter = new Tripper.WinLogic.UserControls.TextBoxUC();
+            this.tFlightNo = new Tripper.WinLogic.UserControls.TextBoxUC();
+            this.tConfirmationNo = new Tripper.WinLogic.UserControls.TextBoxUC();
+            this.tTransportCost = new Tripper.WinLogic.UserControls.CurrencyTextBoxUC();
+            this.tSeats = new Tripper.WinLogic.UserControls.TextBoxUC();
+            this.tAdditonalInformations = new Tripper.WinLogic.UserControls.TextBoxUC();
             this.dtpArrival = new Tripper.WinLogic.UserControls.DateTimeUC();
             this.dtpDeparture = new Tripper.WinLogic.UserControls.DateTimeUC();
-            this.tLocalizationDeparture = new Tripper.WinLogic.UserControls.LocalizationsUC();
-            this.tLocalizationArrival = new Tripper.WinLogic.UserControls.LocalizationsUC();
             this.pTableInfo.SuspendLayout();
             this.pInfoPlane.SuspendLayout();
             this.pInfoPlanePublic.SuspendLayout();
@@ -106,7 +106,6 @@
             this.bAdd.TabIndex = 176;
             this.bAdd.Text = "Dodaj ";
             this.bAdd.UseVisualStyleBackColor = false;
-            this.bAdd.Click += new System.EventHandler(this.bAdd_Click);
             // 
             // pTableInfo
             // 
@@ -143,34 +142,6 @@
             this.pInfoPlane.Size = new System.Drawing.Size(1068, 80);
             this.pInfoPlane.TabIndex = 167;
             // 
-            // tTransporter
-            // 
-            this.tTransporter.AutoSize = true;
-            this.tTransporter.BackColor = System.Drawing.Color.Transparent;
-            this.tTransporter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tTransporter.LabelMessage = "Linie lotnicze";
-            this.tTransporter.Location = new System.Drawing.Point(143, 8);
-            this.tTransporter.Margin = new System.Windows.Forms.Padding(0);
-            this.tTransporter.MessageVisibility = false;
-            this.tTransporter.Multiline = false;
-            this.tTransporter.Name = "tTransporter";
-            this.tTransporter.Size = new System.Drawing.Size(204, 29);
-            this.tTransporter.TabIndex = 158;
-            // 
-            // tFlightNo
-            // 
-            this.tFlightNo.AutoSize = true;
-            this.tFlightNo.BackColor = System.Drawing.Color.Transparent;
-            this.tFlightNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tFlightNo.LabelMessage = "Nr. Lotu";
-            this.tFlightNo.Location = new System.Drawing.Point(143, 49);
-            this.tFlightNo.Margin = new System.Windows.Forms.Padding(2);
-            this.tFlightNo.MessageVisibility = false;
-            this.tFlightNo.Multiline = false;
-            this.tFlightNo.Name = "tFlightNo";
-            this.tFlightNo.Size = new System.Drawing.Size(134, 29);
-            this.tFlightNo.TabIndex = 143;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -182,20 +153,6 @@
             this.label7.Size = new System.Drawing.Size(114, 20);
             this.label7.TabIndex = 161;
             this.label7.Text = "Linie lotnicze";
-            // 
-            // tConfirmationNo
-            // 
-            this.tConfirmationNo.AutoSize = true;
-            this.tConfirmationNo.BackColor = System.Drawing.Color.Transparent;
-            this.tConfirmationNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tConfirmationNo.LabelMessage = "Nr. Potwierdzenia";
-            this.tConfirmationNo.Location = new System.Drawing.Point(607, 49);
-            this.tConfirmationNo.Margin = new System.Windows.Forms.Padding(2);
-            this.tConfirmationNo.MessageVisibility = false;
-            this.tConfirmationNo.Multiline = false;
-            this.tConfirmationNo.Name = "tConfirmationNo";
-            this.tConfirmationNo.Size = new System.Drawing.Size(142, 29);
-            this.tConfirmationNo.TabIndex = 144;
             // 
             // label6
             // 
@@ -236,6 +193,131 @@
             this.pInfoPlanePublic.Size = new System.Drawing.Size(1068, 36);
             this.pInfoPlanePublic.TabIndex = 168;
             // 
+            // pInfoAll
+            // 
+            this.pInfoAll.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.pInfoAll.Controls.Add(this.label8);
+            this.pInfoAll.Controls.Add(this.tAdditonalInformations);
+            this.pInfoAll.Controls.Add(this.bAdd);
+            this.pInfoAll.Location = new System.Drawing.Point(0, 116);
+            this.pInfoAll.Margin = new System.Windows.Forms.Padding(0);
+            this.pInfoAll.Name = "pInfoAll";
+            this.pInfoAll.Size = new System.Drawing.Size(1068, 111);
+            this.pInfoAll.TabIndex = 169;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(46, 42);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(135, 20);
+            this.label3.TabIndex = 148;
+            this.label3.Text = "Kierunek - wylot";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(510, 43);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(135, 20);
+            this.label1.TabIndex = 149;
+            this.label1.Text = "Kierunek - wylot";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(279, 43);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(125, 20);
+            this.label2.TabIndex = 150;
+            this.label2.Text = "Data i godzina";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(742, 42);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(125, 20);
+            this.label4.TabIndex = 151;
+            this.label4.Text = "Data i godzina";
+            // 
+            // tLocalizationArrival
+            // 
+            this.tLocalizationArrival.AutoSize = true;
+            this.tLocalizationArrival.BackColor = System.Drawing.Color.Transparent;
+            this.tLocalizationArrival.CityMessageIfEmpty = "Miasto";
+            this.tLocalizationArrival.CountryMessageIfEmpty = "Kraj";
+            this.tLocalizationArrival.Location = new System.Drawing.Point(514, 65);
+            this.tLocalizationArrival.MessageVisibility = true;
+            this.tLocalizationArrival.Name = "tLocalizationArrival";
+            this.tLocalizationArrival.SelectedLocalization = null;
+            this.tLocalizationArrival.Size = new System.Drawing.Size(226, 68);
+            this.tLocalizationArrival.TabIndex = 142;
+            // 
+            // tLocalizationDeparture
+            // 
+            this.tLocalizationDeparture.AutoSize = true;
+            this.tLocalizationDeparture.BackColor = System.Drawing.Color.Transparent;
+            this.tLocalizationDeparture.CityMessageIfEmpty = "Miasto";
+            this.tLocalizationDeparture.CountryMessageIfEmpty = "Kraj";
+            this.tLocalizationDeparture.Location = new System.Drawing.Point(50, 65);
+            this.tLocalizationDeparture.MessageVisibility = true;
+            this.tLocalizationDeparture.Name = "tLocalizationDeparture";
+            this.tLocalizationDeparture.SelectedLocalization = null;
+            this.tLocalizationDeparture.Size = new System.Drawing.Size(227, 68);
+            this.tLocalizationDeparture.TabIndex = 140;
+            // 
+            // tTransporter
+            // 
+            this.tTransporter.AutoSize = true;
+            this.tTransporter.BackColor = System.Drawing.Color.Transparent;
+            this.tTransporter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tTransporter.LabelMessage = "Linie lotnicze";
+            this.tTransporter.Location = new System.Drawing.Point(143, 8);
+            this.tTransporter.Margin = new System.Windows.Forms.Padding(0);
+            this.tTransporter.MessageVisibility = false;
+            this.tTransporter.Multiline = false;
+            this.tTransporter.Name = "tTransporter";
+            this.tTransporter.Size = new System.Drawing.Size(204, 29);
+            this.tTransporter.TabIndex = 158;
+            // 
+            // tFlightNo
+            // 
+            this.tFlightNo.AutoSize = true;
+            this.tFlightNo.BackColor = System.Drawing.Color.Transparent;
+            this.tFlightNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tFlightNo.LabelMessage = "Nr. Lotu";
+            this.tFlightNo.Location = new System.Drawing.Point(143, 49);
+            this.tFlightNo.Margin = new System.Windows.Forms.Padding(2);
+            this.tFlightNo.MessageVisibility = false;
+            this.tFlightNo.Multiline = false;
+            this.tFlightNo.Name = "tFlightNo";
+            this.tFlightNo.Size = new System.Drawing.Size(134, 29);
+            this.tFlightNo.TabIndex = 143;
+            // 
+            // tConfirmationNo
+            // 
+            this.tConfirmationNo.AutoSize = true;
+            this.tConfirmationNo.BackColor = System.Drawing.Color.Transparent;
+            this.tConfirmationNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tConfirmationNo.LabelMessage = "Nr. Potwierdzenia";
+            this.tConfirmationNo.Location = new System.Drawing.Point(607, 49);
+            this.tConfirmationNo.Margin = new System.Windows.Forms.Padding(2);
+            this.tConfirmationNo.MessageVisibility = false;
+            this.tConfirmationNo.Multiline = false;
+            this.tConfirmationNo.Name = "tConfirmationNo";
+            this.tConfirmationNo.Size = new System.Drawing.Size(142, 29);
+            this.tConfirmationNo.TabIndex = 144;
+            // 
             // tTransportCost
             // 
             this.tTransportCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -260,19 +342,6 @@
             this.tSeats.Size = new System.Drawing.Size(134, 29);
             this.tSeats.TabIndex = 168;
             // 
-            // pInfoAll
-            // 
-            this.pInfoAll.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.pInfoAll.Controls.Add(this.label8);
-            this.pInfoAll.Controls.Add(this.tAdditonalInformations);
-            this.pInfoAll.Controls.Add(this.bAdd);
-            this.pInfoAll.Location = new System.Drawing.Point(0, 116);
-            this.pInfoAll.Margin = new System.Windows.Forms.Padding(0);
-            this.pInfoAll.Name = "pInfoAll";
-            this.pInfoAll.Size = new System.Drawing.Size(1068, 111);
-            this.pInfoAll.TabIndex = 169;
-            // 
             // tAdditonalInformations
             // 
             this.tAdditonalInformations.AutoScroll = true;
@@ -290,52 +359,6 @@
             this.tAdditonalInformations.Enter += new System.EventHandler(this.tAdditionalInformations_Enter);
             this.tAdditonalInformations.Leave += new System.EventHandler(this.tAdditionalInformations_Leave);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(49, 45);
-            this.label3.Margin = new System.Windows.Forms.Padding(0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(135, 20);
-            this.label3.TabIndex = 148;
-            this.label3.Text = "Kierunek - wylot";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(510, 46);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 20);
-            this.label1.TabIndex = 149;
-            this.label1.Text = "Kierunek - wylot";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(281, 46);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 20);
-            this.label2.TabIndex = 150;
-            this.label2.Text = "Data i godzina";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(744, 46);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(125, 20);
-            this.label4.TabIndex = 151;
-            this.label4.Text = "Data i godzina";
-            // 
             // dtpArrival
             // 
             this.dtpArrival.BackColor = System.Drawing.Color.Transparent;
@@ -343,11 +366,10 @@
             this.dtpArrival.Enabled = false;
             this.dtpArrival.EnabledDate = true;
             this.dtpArrival.EnabledTime = false;
-            this.dtpArrival.Location = new System.Drawing.Point(746, 69);
+            this.dtpArrival.Location = new System.Drawing.Point(746, 66);
             this.dtpArrival.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpArrival.Name = "dtpArrival";
-            this.dtpArrival.Padding = new System.Windows.Forms.Padding(3);
-            this.dtpArrival.Size = new System.Drawing.Size(188, 66);
+            this.dtpArrival.Size = new System.Drawing.Size(188, 60);
             this.dtpArrival.TabIndex = 153;
             this.dtpArrival.TimeLabelMessage = "Godzina";
             // 
@@ -361,36 +383,9 @@
             this.dtpDeparture.Location = new System.Drawing.Point(283, 67);
             this.dtpDeparture.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpDeparture.Name = "dtpDeparture";
-            this.dtpDeparture.Padding = new System.Windows.Forms.Padding(3);
-            this.dtpDeparture.Size = new System.Drawing.Size(188, 68);
+            this.dtpDeparture.Size = new System.Drawing.Size(188, 60);
             this.dtpDeparture.TabIndex = 152;
             this.dtpDeparture.TimeLabelMessage = "Godzina";
-            // 
-            // tLocalizationDeparture
-            // 
-            this.tLocalizationDeparture.AutoSize = true;
-            this.tLocalizationDeparture.BackColor = System.Drawing.Color.Transparent;
-            this.tLocalizationDeparture.CityMessageIfEmpty = "Miasto";
-            this.tLocalizationDeparture.CountryMessageIfEmpty = "Kraj";
-            this.tLocalizationDeparture.Location = new System.Drawing.Point(49, 65);
-            this.tLocalizationDeparture.MessageVisibility = true;
-            this.tLocalizationDeparture.Name = "tLocalizationDeparture";
-            this.tLocalizationDeparture.SelectedLocalization = null;
-            this.tLocalizationDeparture.Size = new System.Drawing.Size(228, 68);
-            this.tLocalizationDeparture.TabIndex = 179;
-            // 
-            // tLocalizationArrival
-            // 
-            this.tLocalizationArrival.AutoSize = true;
-            this.tLocalizationArrival.BackColor = System.Drawing.Color.Transparent;
-            this.tLocalizationArrival.CityMessageIfEmpty = "Miasto";
-            this.tLocalizationArrival.CountryMessageIfEmpty = "Kraj";
-            this.tLocalizationArrival.Location = new System.Drawing.Point(512, 67);
-            this.tLocalizationArrival.MessageVisibility = true;
-            this.tLocalizationArrival.Name = "tLocalizationArrival";
-            this.tLocalizationArrival.SelectedLocalization = null;
-            this.tLocalizationArrival.Size = new System.Drawing.Size(228, 68);
-            this.tLocalizationArrival.TabIndex = 180;
             // 
             // NewTransportCreator
             // 

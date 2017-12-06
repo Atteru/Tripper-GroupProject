@@ -16,22 +16,6 @@ namespace Tripper.WinLogic.Forms
 {
     public partial class TransportDetailsView : Form
     {
-        private Button selectedVehicleButton;
-
-        Color standardColor = Color.Teal;
-        Color clickedColor = Color.FromArgb(26, 147, 147);
-        public Button SelectedVehicleButton
-        {
-            set
-            {
-                if (selectedVehicleButton != null)
-                    selectedVehicleButton.BackColor = standardColor;
-                selectedVehicleButton = value;
-                selectedVehicleButton.BackColor = clickedColor;
-            }
-        }
-
-
         List<Transport> tranportList = new List<Transport>();
         NewTransportCreator newTransportPanel;
 
@@ -42,6 +26,7 @@ namespace Tripper.WinLogic.Forms
             tcTransportView.Appearance = TabAppearance.FlatButtons;
             tcTransportView.ItemSize = new Size(0, 1);
             tcTransportView.SizeMode = TabSizeMode.Fixed;
+            loadTransportPanel();
             loadTransportList();
             if (tranportList.Count == 0)
             {
@@ -49,23 +34,22 @@ namespace Tripper.WinLogic.Forms
             }
         }
 
+
         private void loadTransportList()
         {
             tranportList = Connection.TripperData.Transports.Where(trans => trans.TripID == 1).ToList();
-            tranportList = tranportList.OrderBy(trans => trans.DepartureTime).ToList();
 
             foreach (Transport row in tranportList)
             {
                 TransportListRow transportRow = new TransportListRow(row);
                 pTransportTable.Controls.Add(transportRow);
-                transportRow.Dock = DockStyle.Right;
             }
+            bAddPlane_Click(bAddPlane, null);
         }
-
 
         private void bAddRow_Click(object sender, EventArgs e)
         {
-          /* TransportListRow transportRow = new TransportListRow();
+          /*  TransportListRow transportRow = new TransportListRow();
             pTransportTable.Controls.Add(transportRow); 
             transportRow.Dock = DockStyle.Top;  */
         }
@@ -79,37 +63,34 @@ namespace Tripper.WinLogic.Forms
             newTransportPanel.Show();
         }
 
+ 
 
         private void bAdd_Click(object sender, EventArgs e)
         {
-            loadTransportPanel();
             tcTransportView.SelectTab(newTransport);
-            newTransportPanel.SelectedVehicle = LocalizableStrings.GetValue.GetVehicle(LocalizableStrings.Plane);
+            
         }
+
 
 
         private void bAddPlane_Click(object sender, EventArgs e)
         {
             newTransportPanel.SelectedVehicle = LocalizableStrings.GetValue.GetVehicle(LocalizableStrings.Plane);
-            SelectedVehicleButton = bAddPlane;
         }
 
         private void bAddCar_Click(object sender, EventArgs e)
         {
             newTransportPanel.SelectedVehicle = LocalizableStrings.GetValue.GetVehicle(LocalizableStrings.Car);
-            SelectedVehicleButton = bAddCar;
         }
 
         private void bAddPublic_Click(object sender, EventArgs e)
         {
             newTransportPanel.SelectedVehicle = LocalizableStrings.GetValue.GetVehicle(LocalizableStrings.Public);
-            SelectedVehicleButton = bAddPublic;
         }
 
         private void bAddOtherVehicle_Click(object sender, EventArgs e)
         {
             newTransportPanel.SelectedVehicle = LocalizableStrings.GetValue.GetVehicle(LocalizableStrings.OtherVehicle);
-            SelectedVehicleButton = bAddOtherVehicle;
         }
     }
 }
