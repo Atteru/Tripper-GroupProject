@@ -14,7 +14,7 @@ using Tripper.WinLogic.Forms;
 
 namespace Tripper.WinLogic.UserControls
 {
-    public partial class LocalizationsUC : UserControl
+    public partial class LocalizationsUC : UserControl, ITripperValidation
     {
         List<Country> countryList;
         List<Localization> cityList;
@@ -30,6 +30,7 @@ namespace Tripper.WinLogic.UserControls
         {
             get; set;
         }
+
 
         [Browsable(true)]
         public bool MessageVisibility
@@ -56,6 +57,21 @@ namespace Tripper.WinLogic.UserControls
                 _selectedLocalization = value;
             }
         }
+
+        private Country _selectedCoutry;
+        public Country SelectedCoutry
+        {
+            get
+            {
+                return _selectedCoutry;
+            }
+            private set
+            {
+                _selectedCoutry = value;
+            }
+        }
+
+        private bool inicialized = false;
 
         public LocalizationsUC()
         {
@@ -84,14 +100,14 @@ namespace Tripper.WinLogic.UserControls
             }
         }
 
-        public void FillLocalizationFields(int localizationID)
+        public void FillLocalizationFields(int? localizationID)
         {
             MessageVisibility = false;
             cbCity.DataSource = Connection.TripperData.Localizations.Where(local => local.LocalizationID == localizationID);
             cbCountry.DataSource = Connection.TripperData.Countries.Where(coutry => coutry.CountryID == ((Localization)cbCity.SelectedItem).CountryID);
         }
 
-        public int GetLocalizationFromFields()
+        public int? GetLocalizationFromFields()
         {
             Localization selectedLocalization = cbCity.SelectedItem as Localization;
             return selectedLocalization.LocalizationID;
@@ -104,6 +120,14 @@ namespace Tripper.WinLogic.UserControls
             var list = countryList.Where(country => country.Name.StartsWith(comboBox.Text, true, ci));
             newRefresh<Country>(comboBox, list);
         }
+
+        private void loadCoutryList(out List<Country> list)
+        {
+             list = Connection.TripperData.Countries.ToList();
+             setStartingCoutrySource();
+
+        }
+
 
         public void newRefresh<T>(DynamicCombo comboBox, IEnumerable<T> list)
         {
@@ -147,69 +171,81 @@ namespace Tripper.WinLogic.UserControls
             DynamicCombo comboBox = sender as DynamicCombo;
             cityList = Connection.TripperData.Localizations.Where(city => city.Country.Equals(cbCountry.SelectedItem)).ToList();
             cbCity.DataSource = cityList;
-            if (cbCity.Items.Count == 0)
-            {
-                cbCity.Text = "";
-            }
-            //  cbCountry_Validating(sender, null);
-            cbCity.SelectedIndex = -1;
+
+            SelectedLocalization = null;
+            cbCity.Text = "";
             
+              cbCountry_Validating(sender, null);
+            if(SelectedLocalization == null)
+                cbCity.SelectedIndex = -1;
+
         }
 
-        private void cbCity_SelectionChangeCommitted(object sender, EventArgs e)
+        private void addNewCity()
         {
-           
-            DynamicCombo comboBox = sender as DynamicCombo;
-            var list = comboBox.DataSource as List<Localization>;
+            var list = cbCity.DataSource as List<Localization>;
             if (list != null)
             {
-                bool ifCityExist = list.Any(city => city.City.Equals(comboBox.Text, StringComparison.Ordinal));
-                if (!ifCityExist && comboBox.Text != string.Empty)
+                bool ifCityExist = list.Any(city => city.City.Equals(cbCity.Text, StringComparison.Ordinal));
+                if (!ifCityExist && cbCity.Text != string.Empty)
                 {
                     DialogResult result = TripperMessageBox.Show("Podanego miasta nie ma na liście.\nCzy chcesz je dodać?", "Czy chcesz dodać miasto? ");
                     if (result == DialogResult.Yes)
                     {
                         Localization newCity = new Localization();
                         newCity.Country = cbCountry.SelectedItem as Country;
-                        newCity.City = comboBox.Text;
+                        newCity.City = cbCity.Text;
                         Connection.TripperData.Localizations.InsertOnSubmit(newCity);
                         try
                         {
                             Connection.TripperData.SubmitChanges();
                             cityList = Connection.TripperData.Localizations.Where(city => city.Country.Equals(cbCountry.SelectedItem) && city.Equals(newCity)).ToList();
-                            comboBox.DataSource = cityList;
+                            cbCity.DataSource = cityList;
                         }
                         catch (Exception ex)
                         {
                             MessageBox.Show(ex.Message);
                         }
                     }
-                  //  cbCity_Validating(sender, null);
-                    comboBox.Close();
+                    else
+                    {
+                        cbCity.Text = string.Empty;
+                    }
+                    //cbCity_Validating(cbCity, null);
+                    cbCity.Close();
                 }
             }
+        }
+
+        private void cbCity_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            addNewCity();
         }
 
         private void cbCountry_Leave(object sender, EventArgs e)
         {
             DynamicCombo comboBox = sender as DynamicCombo;
-            cbCountry_SelectionChangeCommitted(comboBox, null);
+            //cbCountry_SelectionChangeCommitted(comboBox, null); 
             comboBox.Close(); 
         }
 
         private void cbCity_Leave(object sender, EventArgs e)
         {
             DynamicCombo comboBox = sender as DynamicCombo;
+            cbCity_SelectionChangeCommitted(comboBox, null);
             comboBox.Close();
         }
 
-        private void cbCountry_Validating(object sender, CancelEventArgs e)
+        private bool checkCountryValidation()
         {
+            bool validationResult;
+
             if (cbCountry.Text == string.Empty)
             {
                 lCountryError.Visible = true;
                 lCountryError.Text = CountryMessageIfEmpty;
                 lCountryError.BringToFront();
+                validationResult = false;
             }
             else if (!countryList.Any(country => country.Name.Equals(cbCountry.Text)))
             {
@@ -217,29 +253,48 @@ namespace Tripper.WinLogic.UserControls
                 lCountryError.Visible = true;
                 lCountryError.Text = "Nieprawidłowa wartość";
                 lCountryError.BringToFront();
+                validationResult = false;
             }
             else
             {
-                if(!lCountryError.Visible)
+                if (!lCountryError.Visible)
                     lCountryError.Visible = false;
+                validationResult = true;
             }
+
+            return validationResult;
         }
 
-        private void cbCity_Validating(object sender, CancelEventArgs e)
+        private bool checkCityValidation()
         {
             SelectedLocalization = null;
+            bool validationResult;
             if (cbCity.Text == string.Empty)
             {
                 lCityError.Visible = true;
                 lCityError.Text = CityMessageIfEmpty;
                 lCityError.BringToFront();
+                validationResult = false;
             }
             else
             {
                 if (SelectedLocalization != cbCity.SelectedItem as Localization)
                     SelectedLocalization = cbCity.SelectedItem as Localization;
                 lCityError.Visible = false;
+                validationResult = true;
             }
+            return validationResult;
+        }
+
+
+        private void cbCountry_Validating(object sender, CancelEventArgs e)
+        {
+            checkCountryValidation();
+        }
+
+        private void cbCity_Validating(object sender, CancelEventArgs e)
+        {
+            checkCityValidation();
         }
 
         private void lCountryError_Click(object sender, EventArgs e)
@@ -260,18 +315,79 @@ namespace Tripper.WinLogic.UserControls
         {
             if (lCountryError.Visible)
                 lCountryError.Visible = false;
+            this.Refresh();
         }
 
         private void cbCity_Click(object sender, EventArgs e)
         {
             if (lCityError.Visible)
                 lCityError.Visible = false;
+            this.Refresh();
+        }
+
+        private void setStartingCoutrySource()
+        {
+            if (cbCountry.Text == string.Empty)
+            {
+                cbCountry.DataSource = countryList.ToList();
+                cbCountry.SelectedIndex = -1;
+            }
+            else
+            {
+                cbCountry.DataSource = countryList.Where(country => country.Equals(cbCountry.Text));
+            }
+        }
+
+
+        public void drawWarningBoeder(object sender)
+        {
+            DynamicCombo comboBox = sender as DynamicCombo;
+
+            Graphics g = this.CreateGraphics();
+            
+            Pen blackPen = new Pen(Color.Firebrick, 4);
+            int x = comboBox.Location.X;
+            int y = comboBox.Location.Y;
+            int width = comboBox.Width;
+            int height = comboBox.Height;
+
+            g.DrawRectangle(blackPen, x, y, width, height);
+            blackPen.Dispose();
+        }
+
+
+        public bool CheckValidation()
+        {
+            bool validationResult = true;
+
+            if (!checkCountryValidation())
+            {
+                drawWarningBoeder(cbCountry);
+                validationResult = false;
+            }
+
+            if (!checkCityValidation())
+            {
+               drawWarningBoeder(cbCity);
+                validationResult = false;
+            }
+
+            return validationResult;
+        }
+
+        private void cbCountry_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SelectedCoutry = cbCountry.SelectedItem as Country;
         }
 
         private void cbCountry_Enter(object sender, EventArgs e)
         {
-            if (countryList == null)
-                countryList = Connection.TripperData.Countries.ToList();
+            if (inicialized == false)
+            {
+                loadCoutryList(out countryList);
+                inicialized = true;
+            }
+
         }
     }
 }

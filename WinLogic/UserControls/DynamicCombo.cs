@@ -32,7 +32,28 @@ namespace Tripper.WinLogic.UserControls
             this.Resize += DynamicCombo_SizeChanged;
             this.Click += DynamicCombo_Click;
             base.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+
+
+
         }
+
+
+        public void drawWarningBoeder()
+        {
+            Graphics g = this.CreateGraphics();
+            g.Clear(Color.White) ;
+
+            Pen blackPen = new Pen(Color.Black, 4);
+
+            int x = this.Location.X;
+            int y = this.Location.Y;
+            int width = this.Width;
+            int height = this.Height;
+
+            g.DrawRectangle(blackPen, x, y, width, height);
+            blackPen.Dispose();
+        }
+
 
         private void DynamicCombo_Click(object sender, System.EventArgs e)
         {
@@ -96,6 +117,10 @@ namespace Tripper.WinLogic.UserControls
             if(StartingSize > 0)
                 this.Height = StartingSize;
         }
+
+
+
+
 
     }
 }

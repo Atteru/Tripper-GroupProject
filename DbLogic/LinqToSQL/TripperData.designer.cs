@@ -57,7 +57,7 @@ namespace Tripper.DbLogic.LinqToSQL
     #endregion
 		
 		public TripperDataDataContext() : 
-				base(global::Tripper.Properties.Settings.Default.TripperDBConnectionString4, mappingSource)
+				base(global::Tripper.Properties.Settings.Default.TripperDBConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}
@@ -1402,13 +1402,13 @@ namespace Tripper.DbLogic.LinqToSQL
 		
 		private System.Nullable<System.DateTime> _ArrivalTime;
 		
-		private int _DepartureLocalization;
+		private System.Nullable<int> _DepartureLocalization;
 		
-		private int _ArrivalLocalization;
+		private System.Nullable<int> _ArrivalLocalization;
 		
-		private System.DateTime _ModifiedDate;
+		private System.Nullable<System.DateTime> _ModifiedDate;
 		
-		private System.DateTime _CreateDate;
+		private System.Nullable<System.DateTime> _CreateDate;
 		
 		private EntityRef<Localization> _Localization;
 		
@@ -1452,13 +1452,13 @@ namespace Tripper.DbLogic.LinqToSQL
     partial void OnDepartureTimeChanged();
     partial void OnArrivalTimeChanging(System.Nullable<System.DateTime> value);
     partial void OnArrivalTimeChanged();
-    partial void OnDepartureLocalizationChanging(int value);
+    partial void OnDepartureLocalizationChanging(System.Nullable<int> value);
     partial void OnDepartureLocalizationChanged();
-    partial void OnArrivalLocalizationChanging(int value);
+    partial void OnArrivalLocalizationChanging(System.Nullable<int> value);
     partial void OnArrivalLocalizationChanged();
-    partial void OnModifiedDateChanging(System.DateTime value);
+    partial void OnModifiedDateChanging(System.Nullable<System.DateTime> value);
     partial void OnModifiedDateChanged();
-    partial void OnCreateDateChanging(System.DateTime value);
+    partial void OnCreateDateChanging(System.Nullable<System.DateTime> value);
     partial void OnCreateDateChanged();
     #endregion
 		
@@ -1779,8 +1779,8 @@ namespace Tripper.DbLogic.LinqToSQL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepartureLocalization", DbType="Int NOT NULL")]
-		public int DepartureLocalization
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepartureLocalization", DbType="Int")]
+		public System.Nullable<int> DepartureLocalization
 		{
 			get
 			{
@@ -1803,8 +1803,8 @@ namespace Tripper.DbLogic.LinqToSQL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ArrivalLocalization", DbType="Int NOT NULL")]
-		public int ArrivalLocalization
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ArrivalLocalization", DbType="Int")]
+		public System.Nullable<int> ArrivalLocalization
 		{
 			get
 			{
@@ -1827,8 +1827,8 @@ namespace Tripper.DbLogic.LinqToSQL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedDate", DbType="DateTime NOT NULL")]
-		public System.DateTime ModifiedDate
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ModifiedDate
 		{
 			get
 			{
@@ -1847,8 +1847,8 @@ namespace Tripper.DbLogic.LinqToSQL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateDate", DbType="DateTime NOT NULL")]
-		public System.DateTime CreateDate
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreateDate
 		{
 			get
 			{
@@ -1894,7 +1894,7 @@ namespace Tripper.DbLogic.LinqToSQL
 					}
 					else
 					{
-						this._ArrivalLocalization = default(int);
+						this._ArrivalLocalization = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Localization");
 				}
@@ -1928,7 +1928,7 @@ namespace Tripper.DbLogic.LinqToSQL
 					}
 					else
 					{
-						this._DepartureLocalization = default(int);
+						this._DepartureLocalization = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Localization1");
 				}
