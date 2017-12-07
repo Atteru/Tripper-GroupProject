@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tripper.DbLogic;
 using Tripper.DbLogic.LinqToSQL;
+using Tripper.WinLogic.Classes;
 
 namespace Tripper.WinLogic.Forms
 {
@@ -24,30 +25,38 @@ namespace Tripper.WinLogic.Forms
             tPassword.PasswordChar = true;
             tNewPassword.PasswordChar = true;
             tNewPasswordConfirm.PasswordChar = true;
+            tNewPassword.MessageVisibility = true;
+            tNewPasswordConfirm.MessageVisibility = true;
+            tUserName.MessageVisibility = true;
+            tPassword.MessageVisibility = true;
 
         }
 
-
         private void bLogin_Click(object sender, EventArgs e)
         {
-            tUserName.Text = "user";
-            tPassword.Text = "user";
-
+            Traveler user = new Traveler();
             foreach (Traveler u in Connection.TripperData.Travelers)
             {
                 // Metoda Compare(string1, string2, wielkośćZnaków) zwraca 0 jeśli łańcuchy są takie same
                 if ((String.Compare(u.Login, tUserName.Text, true) == 0) && (String.Compare(u.Password, tPassword.Text, false) == 0))
                 {
-                    this.Hide();
-                    //MainForm welcome = new MainForm(u.UserID);
-                    MainForm welcome = new MainForm();
-                    welcome.ShowDialog();
-                    this.Close();
+                    user = u;
                 }
                 else
                 {
-                    MessageBox.Show("Błędna nazwa użytkownika lub hasło");
+                    user = null;
                 }
+            }
+            if (user != null)
+            {
+                this.Hide();
+                MainForm welcome = new MainForm();
+                welcome.ShowDialog();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Błędna nazwa użytkownika lub hasło");
             }
         }
         // pilnuje położenia palenu logowania na środku formy
@@ -66,8 +75,18 @@ namespace Tripper.WinLogic.Forms
 
         private void bAddNewUser_Click(object sender, EventArgs e)
         {
-            tcLogin.SelectedTab = tabLogin;
+            Traveler newUser = new Traveler();
+            newUser = NewUser.AddNewUser(textBoxUC4.Text, tNewPassword.Text, tNewPasswordConfirm.Text);
+            if (newUser != null) { 
+                Connection.TripperData.Travelers.InsertOnSubmit(newUser);
+                Connection.TripperData.SubmitChanges();
+            }
+
         }
 
+        private void bCancel_Click(object sender, EventArgs e)
+        {
+            tcLogin.SelectedTab = tabLogin;
+        }
     }
 }

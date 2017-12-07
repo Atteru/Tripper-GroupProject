@@ -12,7 +12,7 @@ using Tripper.WinLogic.UserControls;
 using Tripper.WinLogic.Classes;
 using System.Globalization;
 using Tripper.BusinessLogic;
-using Tripper.BusinessLogic;
+
 
 namespace Tripper.WinLogic.Forms
 {

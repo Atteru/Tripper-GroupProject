@@ -14,7 +14,7 @@ using Tripper.WinLogic.Forms;
 
 namespace Tripper.WinLogic.UserControls
 {
-    public partial class LocalizationsUC : UserControl, ITripperValidation
+    public partial class LocalizationsUC : UserControl
     {
         List<Country> countryList;
         List<Localization> cityList;
@@ -109,7 +109,7 @@ namespace Tripper.WinLogic.UserControls
             cbCountry.DataSource = Connection.TripperData.Countries.Where(coutry => coutry.CountryID == ((Localization)cbCity.SelectedItem).CountryID);
         }
 
-        public int? GetLocalizationFromFields()
+        public int GetLocalizationFromFields()
         {
             Localization selectedLocalization = cbCity.SelectedItem as Localization;
             return selectedLocalization.LocalizationID;

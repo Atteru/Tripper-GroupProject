@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Tripper.WinLogic.UserControls
 {
-    public partial class DateTimeUC : UserControl, ITripperValidation
+    public partial class DateTimeUC : UserControl
     {
         public event EventHandler ValueChangedDate;
         public event EventHandler ValueChangedTime;
