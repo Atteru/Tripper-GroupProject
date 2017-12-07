@@ -98,13 +98,13 @@
             this.bAdd.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.bAdd.FlatAppearance.BorderSize = 2;
             this.bAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bAdd.ForeColor = System.Drawing.Color.White;
             this.bAdd.Location = new System.Drawing.Point(514, 34);
             this.bAdd.Name = "bAdd";
             this.bAdd.Size = new System.Drawing.Size(260, 38);
             this.bAdd.TabIndex = 176;
-            this.bAdd.Text = "Dodaj ";
+            this.bAdd.Text = "Akceptuj";
             this.bAdd.UseVisualStyleBackColor = false;
             this.bAdd.Click += new System.EventHandler(this.bAdd_Click);
             // 

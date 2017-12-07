@@ -11,6 +11,7 @@ using Tripper.WinLogic.UserControls;
 using Tripper.DbLogic;
 using Tripper.DbLogic.LinqToSQL;
 using Tripper.BusinessLogic;
+using System.Threading;
 
 namespace Tripper.WinLogic.Forms
 {
@@ -83,8 +84,8 @@ namespace Tripper.WinLogic.Forms
         private void bAdd_Click(object sender, EventArgs e)
         {
             loadTransportPanel();
-            tcTransportView.SelectTab(newTransport);
             newTransportPanel.SelectedVehicle = LocalizableStrings.GetValue.GetVehicle(LocalizableStrings.Plane);
+            tcTransportView.SelectTab(newTransport);
         }
 
 

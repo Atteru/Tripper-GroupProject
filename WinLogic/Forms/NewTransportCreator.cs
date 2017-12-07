@@ -12,6 +12,7 @@ using Tripper.WinLogic.UserControls;
 using Tripper.WinLogic.Classes;
 using System.Globalization;
 using Tripper.BusinessLogic;
+using Tripper.BusinessLogic;
 
 namespace Tripper.WinLogic.Forms
 {
@@ -34,14 +35,49 @@ namespace Tripper.WinLogic.Forms
             }
         }
 
+        private bool _editable;
+        public bool Editable
+        {
+            set
+            {
+                changeEditable(value);
+                _editable = value;
+
+            }
+            get
+            {
+                return _editable;
+            }
+        }
+
+        private CreatorMode mode;
+
+
+        private void changeEditable(bool value)
+        {
+            tLocalizationDeparture.Enabled = value;
+            tLocalizationArrival.Enabled = value;
+            dtpDeparture.Enabled = value;
+            dtpArrival.Enabled = value;
+            tTransporter.Enabled = value;
+            tTransportCost.Enabled = value;
+            tSeats.Enabled = value;
+            tConfirmationNo.Enabled = value;
+            tFlightNo.Enabled = value;
+            tAdditonalInformations.Enabled = value;
+            bAdd.Visible = value;
+        }
+
         public NewTransportCreator()
         {
+            mode = CreatorMode.AddNew;
             InitializeComponent();
             selectedTransport = new Transport();
         }
 
         public NewTransportCreator(Transport row)
         {
+            mode = CreatorMode.Edit;
             InitializeComponent();
             selectedTransport = Connection.TripperData.Transports.Single(transport => transport.Equals(row));
             SelectedVehicle = selectedTransport.Vehicle;
@@ -58,19 +94,26 @@ namespace Tripper.WinLogic.Forms
 
         private bool saveChanges()
         {
-            if(validationCheck())
+
+            if (validationCheck())
             {
-                selectedTransport.TripID = 1;
                 selectedTransport.VehicleID = SelectedVehicle.VehicleID;
                 selectedTransport.DepartureLocalization = tLocalizationDeparture.GetLocalizationFromFields();
                 selectedTransport.ArrivalLocalization = tLocalizationArrival.GetLocalizationFromFields();
                 selectedTransport.DepartureTime = dtpDeparture.Value();
                 selectedTransport.ArrivalTime = dtpArrival.Value();
+                selectedTransport.TransportOperator = tTransporter.Text;
                 selectedTransport.FlightNumber = tFlightNo.Text;
                 selectedTransport.Seats = tSeats.Text;
                 selectedTransport.ConfirmationNumber = tConfirmationNo.Text;
                 selectedTransport.Cost = tTransportCost.Value;
 
+
+                if (mode == CreatorMode.AddNew)
+                {
+                    selectedTransport.TripID = 1;
+                    Connection.TripperData.Transports.InsertOnSubmit(selectedTransport);
+                }
                 return true;
             }
 
@@ -81,10 +124,25 @@ namespace Tripper.WinLogic.Forms
         {
             if (saveChanges())
             {
-                Connection.TripperData.Transports.InsertOnSubmit(selectedTransport);
+                DialogResult result = TripperMessageBox.Show("Potwerdzić wprowadzone dane?", "");
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        Connection.TripperData.SubmitChanges();
+                    }
+                    catch (Exception exept)
+                    {
+                        TripperMessageBox.Show(exept.ToString(), "Błąd");
+                    }
 
-                Connection.TripperData.SubmitChanges();
-                this.Close();
+                    if (mode == CreatorMode.AddNew)
+                        this.Close();
+                    else
+                        this.Parent.Refresh();
+                }
+
+               
 
             }
 
@@ -180,7 +238,7 @@ namespace Tripper.WinLogic.Forms
 
         private void bAdd_Click(object sender, EventArgs e)
         {
-
+            SubmitChanges();
         }
 
     

@@ -37,7 +37,11 @@
             // 
             // bNo
             // 
-            this.bNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bNo.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bNo.FlatAppearance.BorderSize = 2;
+            this.bNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bNo.ForeColor = System.Drawing.Color.White;
             this.bNo.Location = new System.Drawing.Point(74, 97);
             this.bNo.Name = "bNo";
             this.bNo.Size = new System.Drawing.Size(100, 33);
@@ -48,7 +52,11 @@
             // 
             // bYes
             // 
-            this.bYes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bYes.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bYes.FlatAppearance.BorderSize = 2;
+            this.bYes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bYes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bYes.ForeColor = System.Drawing.Color.White;
             this.bYes.Location = new System.Drawing.Point(226, 97);
             this.bYes.Name = "bYes";
             this.bYes.Size = new System.Drawing.Size(100, 33);
@@ -68,6 +76,7 @@
             // lMessage
             // 
             this.lMessage.AutoEllipsis = true;
+            this.lMessage.BackColor = System.Drawing.Color.DarkCyan;
             this.lMessage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lMessage.ForeColor = System.Drawing.Color.White;
@@ -83,7 +92,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Teal;
+            this.BackColor = System.Drawing.Color.DarkCyan;
             this.ClientSize = new System.Drawing.Size(403, 142);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.bYes);

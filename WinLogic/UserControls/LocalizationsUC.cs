@@ -32,6 +32,7 @@ namespace Tripper.WinLogic.UserControls
         }
 
 
+
         [Browsable(true)]
         public bool MessageVisibility
         {
@@ -82,6 +83,7 @@ namespace Tripper.WinLogic.UserControls
             cbCity.IsOpened = false;
             lCityError.Text = CityMessageIfEmpty = "Miasto";
             lCountryError.Text = CountryMessageIfEmpty = "Kraj";
+    
         }
 
         public DynamicCombo CountryBox
@@ -123,10 +125,11 @@ namespace Tripper.WinLogic.UserControls
 
         private void loadCoutryList(out List<Country> list)
         {
-             list = Connection.TripperData.Countries.ToList();
-             setStartingCoutrySource();
+            list = Connection.TripperData.Countries.ToList();
+            setStartingCoutrySource();
 
         }
+
 
 
         public void newRefresh<T>(DynamicCombo comboBox, IEnumerable<T> list)
@@ -238,6 +241,9 @@ namespace Tripper.WinLogic.UserControls
 
         private bool checkCountryValidation()
         {
+            if(countryList == null)
+                loadCoutryList(out countryList);
+
             bool validationResult;
 
             if (cbCountry.Text == string.Empty)
@@ -334,7 +340,8 @@ namespace Tripper.WinLogic.UserControls
             }
             else
             {
-                cbCountry.DataSource = countryList.Where(country => country.Equals(cbCountry.Text));
+                cbCountry.DataSource = countryList.Where(country => country.Name.Equals(cbCountry.Text)).ToList();
+                 
             }
         }
 
