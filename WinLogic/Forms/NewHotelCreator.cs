@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tripper.DbLogic;
+using Tripper.DbLogic.LinqToSQL;
+using Tripper.WinLogic.Classes;
+using Tripper.WinLogic.Forms;
 
 namespace Tripper.WinLogic.Forms
 {
@@ -45,5 +49,18 @@ namespace Tripper.WinLogic.Forms
             tAdditonalInformations.Height = 26;
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Stayment newHotel = new Stayment();
+            int tripID = 1; //stabbed value for trpi id which should be passed from mainwindow
+
+            newHotel = NewHotel.AddNewHotel(textBoxUC2.Text, textBoxUC1.Text, textBoxUC4.Text, tAdditonalInformations.Text
+                , dtpDateFrom.Value(), dtpDateTo.Value(), tripID);
+            if (newHotel != null)
+            {
+                Connection.TripperData.Stayments.InsertOnSubmit(newHotel);
+                Connection.TripperData.SubmitChanges();
+            }
+        }
     }
 }

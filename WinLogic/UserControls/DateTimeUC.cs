@@ -128,6 +128,7 @@ namespace Tripper.WinLogic.UserControls
         }
 
         private bool _isSelected = false;
+
         public bool IsSelected
         {
             get

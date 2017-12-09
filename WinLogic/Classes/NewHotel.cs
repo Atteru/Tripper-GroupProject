@@ -12,11 +12,12 @@ namespace Tripper.WinLogic.Classes
     class NewHotel
     {
         public static Stayment AddNewHotel(String hotelName, String hotelAddress,
-            String hotelPhoneNumber, String additionalInfo, DateTime arrivalDate, DateTime dispatchDate, Decimal hotelCost)
+            String hotelPhoneNumber, String additionalInfo, DateTime  arrivalDate, DateTime dispatchDate, int tripID)
         {
             Stayment newHotel = new Stayment();
+            newHotel.TripID = tripID;
 
-            if (hotelName == "")
+            if (hotelName == "") //checking if name of hotel is not null
             {
                 MessageBox.Show("Uzupełnij nazwę hotelu");
                 return null;
@@ -25,37 +26,16 @@ namespace Tripper.WinLogic.Classes
                 newHotel.Name = hotelName;
             newHotel.Address = hotelAddress;
             
-            newHotel.DateTo = dispatchDate;
-            newHotel.DateFrom = arrivalDate;
+            newHotel.DateTo = dispatchDate; //can't add if datafield is empty as control does not return default valuea valid for DateTime, instead it return Now or Today
+            newHotel.DateFrom = arrivalDate; //same as line above
 
             newHotel.CreateDate = DateTime.Now;
             newHotel.AdditionalInformation = additionalInfo;
             newHotel.ModifiedDate = newHotel.CreateDate;
-            newHotel.Cost = hotelCost;
 
             return newHotel;
         }
 
-        public static bool CompareDateAndTime(DateTime first, DateTime second)
-        {
-            if (first.Date != second.Date)
-            {
-                return false;
-            }
-            if (first.Hour != second.Hour)
-            {
-                return false;
-            }
-            if (first.Minute != second.Minute)
-            {
-                return false;
-            }
-            if (first.Second != second.Second)
-            {
-                return false;
-            }
-            return true;
-        }
-
+        
     }
 }

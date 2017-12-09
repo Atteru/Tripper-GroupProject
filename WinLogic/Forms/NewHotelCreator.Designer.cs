@@ -44,6 +44,9 @@
             // 
             this.dtpDateFrom.BackColor = System.Drawing.Color.Transparent;
             this.dtpDateFrom.DatelabelMessage = "Data od";
+            this.dtpDateFrom.Enabled = false;
+            this.dtpDateFrom.EnabledDate = true;
+            this.dtpDateFrom.EnabledTime = false;
             this.dtpDateFrom.Location = new System.Drawing.Point(478, 71);
             this.dtpDateFrom.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpDateFrom.Name = "dtpDateFrom";
@@ -85,11 +88,13 @@
             this.localizationsUC1.AutoSize = true;
             this.localizationsUC1.BackColor = System.Drawing.Color.Transparent;
             this.localizationsUC1.CityMessageIfEmpty = "Miasto";
+            this.localizationsUC1.CountryList = null;
             this.localizationsUC1.CountryMessageIfEmpty = "Kraj";
             this.localizationsUC1.Location = new System.Drawing.Point(226, 71);
             this.localizationsUC1.MessageVisibility = true;
             this.localizationsUC1.Name = "localizationsUC1";
-            this.localizationsUC1.Size = new System.Drawing.Size(218, 68);
+            this.localizationsUC1.SelectedLocalization = null;
+            this.localizationsUC1.Size = new System.Drawing.Size(226, 68);
             this.localizationsUC1.TabIndex = 141;
             // 
             // dtpDateTo
@@ -97,6 +102,8 @@
             this.dtpDateTo.BackColor = System.Drawing.Color.Transparent;
             this.dtpDateTo.DatelabelMessage = "Data do";
             this.dtpDateTo.Enabled = false;
+            this.dtpDateTo.EnabledDate = true;
+            this.dtpDateTo.EnabledTime = false;
             this.dtpDateTo.Location = new System.Drawing.Point(672, 71);
             this.dtpDateTo.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpDateTo.Name = "dtpDateTo";
@@ -162,6 +169,7 @@
             this.button5.TabIndex = 155;
             this.button5.Text = "Dodaj ";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label5
             // 

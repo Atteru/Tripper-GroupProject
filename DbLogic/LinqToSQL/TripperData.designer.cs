@@ -57,7 +57,7 @@ namespace Tripper.DbLogic.LinqToSQL
     #endregion
 		
 		public TripperDataDataContext() : 
-				base(global::Tripper.Properties.Settings.Default.TripperDBConnectionString, mappingSource)
+				base(global::Tripper.Properties.Settings.Default.TripperDBConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}
