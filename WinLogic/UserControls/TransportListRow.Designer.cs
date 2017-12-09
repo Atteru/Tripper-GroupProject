@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.pTop = new System.Windows.Forms.Panel();
-            this.lTransportInfo = new System.Windows.Forms.Label();
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.bEdit = new System.Windows.Forms.Button();
             this.bDelete = new System.Windows.Forms.Button();
             this.pTicketPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.lTransportInfo = new System.Windows.Forms.LinkLabel();
             this.pTop.SuspendLayout();
             this.flowLayoutPanel.SuspendLayout();
             this.tableLayoutPanel.SuspendLayout();
@@ -50,18 +50,6 @@
             this.pTop.Name = "pTop";
             this.pTop.Size = new System.Drawing.Size(970, 49);
             this.pTop.TabIndex = 3;
-            // 
-            // lTransportInfo
-            // 
-            this.lTransportInfo.AutoSize = true;
-            this.lTransportInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lTransportInfo.ForeColor = System.Drawing.Color.White;
-            this.lTransportInfo.Location = new System.Drawing.Point(17, 15);
-            this.lTransportInfo.Name = "lTransportInfo";
-            this.lTransportInfo.Size = new System.Drawing.Size(204, 20);
-            this.lTransportInfo.TabIndex = 150;
-            this.lTransportInfo.Text = "Informacje o transporcie";
-            this.lTransportInfo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // flowLayoutPanel
             // 
@@ -132,6 +120,22 @@
             this.tableLayoutPanel.Size = new System.Drawing.Size(976, 431);
             this.tableLayoutPanel.TabIndex = 0;
             // 
+            // lTransportInfo
+            // 
+            this.lTransportInfo.ActiveLinkColor = System.Drawing.Color.Gainsboro;
+            this.lTransportInfo.AutoSize = true;
+            this.lTransportInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lTransportInfo.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.lTransportInfo.LinkColor = System.Drawing.Color.White;
+            this.lTransportInfo.Location = new System.Drawing.Point(19, 14);
+            this.lTransportInfo.Name = "lTransportInfo";
+            this.lTransportInfo.Size = new System.Drawing.Size(204, 20);
+            this.lTransportInfo.TabIndex = 151;
+            this.lTransportInfo.TabStop = true;
+            this.lTransportInfo.Text = "Informacje o transporcie";
+            this.lTransportInfo.VisitedLinkColor = System.Drawing.Color.White;
+            this.lTransportInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lTransportInfo_LinkClicked);
+            // 
             // TransportListRow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -159,6 +163,6 @@
         private System.Windows.Forms.Button bDelete;
         private System.Windows.Forms.Panel pTicketPanel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
-        private System.Windows.Forms.Label lTransportInfo;
+        private System.Windows.Forms.LinkLabel lTransportInfo;
     }
 }

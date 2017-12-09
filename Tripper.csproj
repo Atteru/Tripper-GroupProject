@@ -11,21 +11,6 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -71,7 +56,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
-    <Compile Include="WinLogic\Classes\NewHotel.cs" />
     <Compile Include="WinLogic\Classes\NewUser.cs" />
     <Compile Include="WinLogic\Classes\NewTransport.cs" />
     <Compile Include="WinLogic\Classes\NewTrip.cs" />
@@ -93,11 +77,23 @@
     <Compile Include="WinLogic\Forms\NewHotelCreator.Designer.cs">
       <DependentUpon>NewHotelCreator.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinLogic\Forms\NewOtherCostsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinLogic\Forms\NewOtherCostsList.Designer.cs">
+      <DependentUpon>NewOtherCostsList.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinLogic\Forms\NewTransportCreator.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="WinLogic\Forms\NewTransportCreator.designer.cs">
       <DependentUpon>NewTransportCreator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinLogic\Forms\NewTripCreatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinLogic\Forms\NewTripCreatorForm.designer.cs">
+      <DependentUpon>NewTripCreatorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="WinLogic\Forms\TransportDetailsView.cs">
       <SubType>Form</SubType>
@@ -144,6 +140,12 @@
     <Compile Include="WinLogic\UserControls\LocalizationsUC.Designer.cs">
       <DependentUpon>LocalizationsUC.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinLogic\UserControls\OtherCostListRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinLogic\UserControls\OtherCostListRow.Designer.cs">
+      <DependentUpon>OtherCostListRow.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinLogic\UserControls\TextBoxUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -166,8 +168,14 @@
     <EmbeddedResource Include="WinLogic\Forms\NewHotelCreator.resx">
       <DependentUpon>NewHotelCreator.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="WinLogic\Forms\NewOtherCostsList.resx">
+      <DependentUpon>NewOtherCostsList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WinLogic\Forms\NewTransportCreator.resx">
       <DependentUpon>NewTransportCreator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinLogic\Forms\NewTripCreatorForm.resx">
+      <DependentUpon>NewTripCreatorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinLogic\Forms\TransportDetailsView.resx">
       <DependentUpon>TransportDetailsView.cs</DependentUpon>
@@ -189,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WinLogic\UserControls\LocalizationsUC.resx">
       <DependentUpon>LocalizationsUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinLogic\UserControls\OtherCostListRow.resx">
+      <DependentUpon>OtherCostListRow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinLogic\UserControls\TextBoxUC.resx">
       <DependentUpon>TextBoxUC.cs</DependentUpon>
@@ -226,9 +237,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
@@ -238,6 +247,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Icon\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TripperDB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TripperDB_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>TripperDB.mdf</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
@@ -250,15 +268,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="TripperDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TripperDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>TripperDB.mdf</DependentUpon>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

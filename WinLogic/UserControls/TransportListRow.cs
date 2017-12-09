@@ -53,9 +53,11 @@ namespace Tripper.WinLogic.UserControls
             lTransportInfo.Text = Connection.TripperData.Localizations.Single(loc => loc.LocalizationID == transport.DepartureLocalization) + " - " + Connection.TripperData.Localizations.Single(loc => loc.LocalizationID == transport.ArrivalLocalization).ToString();
         }
 
-        private void ShowTicket()
+
+        private void ShowTicket(bool editable)
         {
             transportDetails = new NewTransportCreator(SelectedTransport);
+            transportDetails.Editable = editable;
             transportDetails.TopLevel = false;
             transportDetails.Parent = this.pTicketPanel;
             transportDetails.Dock = DockStyle.Fill;
@@ -68,16 +70,33 @@ namespace Tripper.WinLogic.UserControls
         {
             if (!EditPanelVisible)
             {
-                ShowTicket();
+                ShowTicket(true);
+                pTicketPanel.Visible = true;
+            }
+            else if (EditPanelVisible && transportDetails.Editable == false)
+            {
+                transportDetails.Editable = true;
+            }
+            else
+            {
+                pTicketPanel.Visible = false;
+                transportDetails.Close();
+            }
+        }
+
+        private void lTransportInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (!EditPanelVisible)
+            {
+                ShowTicket(false);
                 pTicketPanel.Visible = true;
             }
             else
             {
                 pTicketPanel.Visible = false;
                 transportDetails.Close();
-            } 
+            }
+
         }
-
-
     }
 }

@@ -163,6 +163,15 @@ namespace Tripper.WinLogic.UserControls
             return null;
         }
 
+        public string SqlValue()
+        {
+            DateTime tempDate = DateTime.Parse(this.Date.Text + " " + this.Time.Text + ":00");
+            string a =  tempDate.ToString();
+            return a;
+        }
+
+    
+
         private void dtpDate_ValueChanged(object sender, EventArgs e)
         {
             if (pDateMessage.Visible)
@@ -173,6 +182,7 @@ namespace Tripper.WinLogic.UserControls
                 _isSelected = true;
                 EnabledTime = true;
             }
+            this.Refresh();
         }
 
 
@@ -190,6 +200,34 @@ namespace Tripper.WinLogic.UserControls
         private void pDateMessage_Click(object sender, EventArgs e)
         {
             dtpDate.Focus();
+        }
+
+        private void drawWarningBoeder(object sender)
+        {
+            DateTimePicker combo = sender as DateTimePicker;
+
+            Graphics g = this.CreateGraphics();
+
+            Pen blackPen = new Pen(Color.Firebrick, 4);
+            int x = combo.Location.X;
+            int y = combo.Location.Y;
+            int width = combo.Width;
+            int height = combo.Height;
+
+            g.DrawRectangle(blackPen, x, y, width, height);
+            g.Dispose();
+        }
+
+
+        public bool CheckValidation()
+        {
+            if (Value() == null)
+            {
+                drawWarningBoeder(dtpDate);
+                drawWarningBoeder(dtpTime);
+                return false;
+            }
+            return true;
         }
     }
 }
