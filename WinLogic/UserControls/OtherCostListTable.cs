@@ -14,43 +14,26 @@ namespace Tripper.WinLogic.UserControls
 {
     public partial class OtherCostListTableUC : UserControl
     {
-        private List<OtherCostsCatergory> categoryList = Connection.TripperData.OtherCostsCatergories.ToList();
+        // private List<OtherCostsCatergory> categoryList = Connection.TripperData.OtherCostsCatergories.ToList();
+        //private List<OtherCostsCatergory> categoryList = new List<OtherCostsCatergory>();
 
-        // true -> button dodaje, false -> button usuwa
-        private bool _buttonStatus = true;
-        public bool ButtonStatus
-        {
-            get
-            {
-                return _buttonStatus;
-            }
-            set
-            {
-                _buttonStatus = value;
-                if (!value)
-                {
-
-                }
-            }
-        }
-
-        public OtherCostListTableUC()
-        {
-            InitializeComponent();
-            FillContextMenu(categoryList);
-        }
+        //public OtherCostListTableUC()
+        //{
+        //    InitializeComponent();
+        //    FillContextMenu(categoryList);
+        //}
 
         [Browsable(true)]
         public new bool Enabled
         {
             get
             {
-                return  tCostName.Enabled && tCost.Enabled;
+                return lRowNumber.Enabled && lCategory.Enabled && tCostName.Enabled && tCost.Enabled;
             }
 
             set
             {
-                tCostName.Enabled = tCost.Enabled = value;
+                lRowNumber.Enabled = lCategory.Enabled = tCostName.Enabled = tCost.Enabled = value;
             }
         }
 
@@ -71,41 +54,28 @@ namespace Tripper.WinLogic.UserControls
             get; set;
         }
 
-   
-
-        private void buttonChangeAdd()
-        {
-            button.Text = "Dodaj";
-            button.Click += button_ClickAdd;
-        }
-
-
-        private void buttonChangeDelete()
-        {
-            button.Text = "Usuń";
-        }
-
-        private void button_ClickAdd(object sender, EventArgs e)
+        private void button_Click(object sender, EventArgs e)
         {
             contextMenuStrip.Show(button, 0, button.Height);
-
         }
 
-        public void FillContextMenu(List<OtherCostsCatergory> categoryList)
-        {
 
-            for (int i = 0; i < categoryList.Count(); i++)
-            {
-                ToolStripMenuItem toolStripItem = new ToolStripMenuItem();
-                toolStripItem.Text = categoryList.ElementAt(i).ToString();
-                contextMenuStrip.Items.Add(toolStripItem);
-            }
-        }
+
+        //private void FillContextMenu(List<OtherCostsCatergory> categoryList)
+        //{
+
+        //    for (int i = 0; i < categoryList.Count(); i++)
+        //    {
+        //        ToolStripMenuItem toolStripItem = new ToolStripMenuItem();
+        //        toolStripItem.Text = categoryList.ElementAt(i).ToString();
+        //        contextMenuStrip.Items.Add(toolStripItem);
+        //    }
+        //}
 
         private void contextMenuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            lCategory.Text = e.ClickedItem.ToString();
-            this.Enabled = true;
+            var category = e.ClickedItem;
+            
 
         }
     }
