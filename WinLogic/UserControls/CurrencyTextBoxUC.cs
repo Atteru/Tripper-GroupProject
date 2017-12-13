@@ -16,6 +16,7 @@ namespace Tripper.WinLogic.UserControls
         {
             InitializeComponent();
             base.AutoScaleMode = AutoScaleMode.None;
+          
         }
 
         // Property Content odnosi się do textBoxa zawartego w kotrolce

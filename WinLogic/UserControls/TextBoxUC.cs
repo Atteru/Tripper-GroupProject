@@ -42,6 +42,20 @@ namespace Tripper.WinLogic.UserControls
             }
         }
 
+        [Browsable(true)]
+        public bool ReadOnly
+        {
+            get
+            {
+                return textBox.ReadOnly;
+            }
+
+            set
+            {
+                textBox.ReadOnly = value;
+            }
+        }
+
 
         public bool Multiline
         {

@@ -11,7 +11,7 @@ using System.ComponentModel;
 
 namespace Tripper.WinLogic.Classes
 {
-    public class NewTrip 
+    public class CurrentTrip 
     {
         private string _tipName;
         public string TripName

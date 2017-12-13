@@ -162,14 +162,8 @@ namespace Tripper.WinLogic.UserControls
             return null;
         }
 
-        public string SqlValue()
-        {
-            DateTime tempDate = DateTime.Parse(this.Date.Text + " " + this.Time.Text + ":00");
-            string a =  tempDate.ToString();
-            return a;
-        }
+ 
 
-    
 
         private void dtpDate_ValueChanged(object sender, EventArgs e)
         {
@@ -217,6 +211,17 @@ namespace Tripper.WinLogic.UserControls
             g.Dispose();
         }
 
+        public bool IsLaterThanValidation(DateTime? date)
+        {
+            if(date <= this.Value())
+            {
+                return true;
+            }
+
+            drawWarningBoeder(dtpDate);
+            drawWarningBoeder(dtpTime);
+            return false;
+        }
 
         public bool CheckValidation()
         {

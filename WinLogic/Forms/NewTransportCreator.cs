@@ -16,7 +16,7 @@ using Tripper.BusinessLogic;
 
 namespace Tripper.WinLogic.Forms
 {
-    public partial class NewTransportCreator : Form
+    public partial class NewTransportCreator : TripperDetailsEditPureForm
     {
         Transport selectedTransport;
         List<Vehicle> vehicleList = Connection.TripperData.Vehicles.ToList();
@@ -35,25 +35,10 @@ namespace Tripper.WinLogic.Forms
             }
         }
 
-        private bool _editable;
-        public bool Editable
-        {
-            set
-            {
-                changeEditable(value);
-                _editable = value;
-
-            }
-            get
-            {
-                return _editable;
-            }
-        }
-
         private CreatorMode mode;
 
 
-        private void changeEditable(bool value)
+        protected override void changeEditable(bool value)
         {
             tLocalizationDeparture.Enabled = value;
             tLocalizationArrival.Enabled = value;
@@ -68,14 +53,14 @@ namespace Tripper.WinLogic.Forms
             bAdd.Visible = value;
         }
 
-        public NewTransportCreator()
+        public NewTransportCreator() : base()
         {
             mode = CreatorMode.AddNew;
             InitializeComponent();
             selectedTransport = new Transport();
         }
 
-        public NewTransportCreator(Transport row)
+        public NewTransportCreator(Transport row) : base()
         {
             mode = CreatorMode.Edit;
             InitializeComponent();
@@ -107,8 +92,6 @@ namespace Tripper.WinLogic.Forms
                 selectedTransport.Seats = tSeats.Text;
                 selectedTransport.ConfirmationNumber = tConfirmationNo.Text;
                 selectedTransport.Cost = tTransportCost.Value;
-
-
                 if (mode == CreatorMode.AddNew)
                 {
                     selectedTransport.TripID = 1;
@@ -124,7 +107,7 @@ namespace Tripper.WinLogic.Forms
         {
             if (saveChanges())
             {
-                DialogResult result = TripperMessageBox.Show("Potwerdzić wprowadzone dane?", "");
+                DialogResult result = TripperMessageBox.Show("Czy chcesz dodać nową podróż?", "Nowa podróż");
                 if (result == DialogResult.Yes)
                 {
                     try
@@ -141,11 +124,7 @@ namespace Tripper.WinLogic.Forms
                     else
                         this.Parent.Refresh();
                 }
-
-               
-
             }
-
         }
 
         private bool validationCheck()
@@ -164,6 +143,13 @@ namespace Tripper.WinLogic.Forms
             if (!dtpDeparture.CheckValidation())
                 validationResult = false;
 
+            if (dtpArrival.Value() < dtpDeparture.Value())
+                validationResult = false;
+
+            if (!dtpArrival.IsLaterThanValidation(dtpDeparture.Value()))
+                validationResult = false;
+
+           
             return validationResult;
         }
 
@@ -241,6 +227,5 @@ namespace Tripper.WinLogic.Forms
             SubmitChanges();
         }
 
-    
     }
 }

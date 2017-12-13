@@ -12,14 +12,18 @@ namespace Tripper.WinLogic.Forms
 {
     public partial class TripperMessageBox : Form
     {
+
+        static TripperMessageBox MsgBox;
+        static DialogResult result = DialogResult.No;
+
         public TripperMessageBox()
         {
             InitializeComponent();
             
         }
 
-        static TripperMessageBox MsgBox;
-        static DialogResult result = DialogResult.No;
+
+
         public static DialogResult Show(string text, string caption)
         {
             MsgBox = new TripperMessageBox();

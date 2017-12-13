@@ -41,7 +41,7 @@
             this.tUserName = new Tripper.WinLogic.UserControls.TextBoxUC();
             this.tNewPasswordConfirm = new Tripper.WinLogic.UserControls.TextBoxUC();
             this.tNewPassword = new Tripper.WinLogic.UserControls.TextBoxUC();
-            this.textBoxUC4 = new Tripper.WinLogic.UserControls.TextBoxUC();
+            this.tNewUserName = new Tripper.WinLogic.UserControls.TextBoxUC();
             this.tcLogin.SuspendLayout();
             this.tabLogin.SuspendLayout();
             this.pLogin.SuspendLayout();
@@ -132,7 +132,7 @@
             this.pNewAccount.Controls.Add(this.bCancel);
             this.pNewAccount.Controls.Add(this.tNewPasswordConfirm);
             this.pNewAccount.Controls.Add(this.tNewPassword);
-            this.pNewAccount.Controls.Add(this.textBoxUC4);
+            this.pNewAccount.Controls.Add(this.tNewUserName);
             this.pNewAccount.Controls.Add(this.bAddNewUser);
             this.pNewAccount.Location = new System.Drawing.Point(270, 100);
             this.pNewAccount.Name = "pNewAccount";
@@ -219,17 +219,17 @@
             // 
             // textBoxUC4
             // 
-            this.textBoxUC4.AutoSize = true;
-            this.textBoxUC4.BackColor = System.Drawing.Color.Transparent;
-            this.textBoxUC4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBoxUC4.LabelMessage = "Nazwa użytkownika";
-            this.textBoxUC4.Location = new System.Drawing.Point(48, 54);
-            this.textBoxUC4.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.textBoxUC4.MessageVisibility = true;
-            this.textBoxUC4.Multiline = false;
-            this.textBoxUC4.Name = "textBoxUC4";
-            this.textBoxUC4.Size = new System.Drawing.Size(389, 29);
-            this.textBoxUC4.TabIndex = 20;
+            this.tNewUserName.AutoSize = true;
+            this.tNewUserName.BackColor = System.Drawing.Color.Transparent;
+            this.tNewUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tNewUserName.LabelMessage = "Nazwa użytkownika";
+            this.tNewUserName.Location = new System.Drawing.Point(48, 54);
+            this.tNewUserName.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.tNewUserName.MessageVisibility = true;
+            this.tNewUserName.Multiline = false;
+            this.tNewUserName.Name = "textBoxUC4";
+            this.tNewUserName.Size = new System.Drawing.Size(389, 29);
+            this.tNewUserName.TabIndex = 20;
             // 
             // LoginForm
             // 
@@ -268,7 +268,7 @@
         private UserControls.TextBoxUC tNewPassword;
         private UserControls.TextBoxUC tPassword;
         private UserControls.TextBoxUC tUserName;
-        private UserControls.TextBoxUC textBoxUC4;
+        private UserControls.TextBoxUC tNewUserName;
         private System.Windows.Forms.Button bCancel;
     }
 }

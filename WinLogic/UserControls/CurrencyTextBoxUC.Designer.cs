@@ -52,11 +52,12 @@
             // textBox
             // 
             this.textBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBox.Location = new System.Drawing.Point(0, 0);
             this.textBox.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.textBox.Name = "textBox";
-            this.textBox.Size = new System.Drawing.Size(216, 26);
+            this.textBox.Size = new System.Drawing.Size(116, 26);
             this.textBox.TabIndex = 8;
             this.textBox.Text = "0,00";
             this.textBox.Click += new System.EventHandler(this.textBox_MessageLabelHide);
@@ -70,7 +71,7 @@
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.textBox);
             this.Name = "CurrencyTextBoxUC";
-            this.Size = new System.Drawing.Size(216, 27);
+            this.Size = new System.Drawing.Size(116, 27);
             this.ResumeLayout(false);
             this.PerformLayout();
 

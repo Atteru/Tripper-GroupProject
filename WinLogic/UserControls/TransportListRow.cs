@@ -51,6 +51,8 @@ namespace Tripper.WinLogic.UserControls
             SelectedTransport = transport;
             InitializeComponent();
             lTransportInfo.Text = Connection.TripperData.Localizations.Single(loc => loc.LocalizationID == transport.DepartureLocalization) + " - " + Connection.TripperData.Localizations.Single(loc => loc.LocalizationID == transport.ArrivalLocalization).ToString();
+
+            
         }
 
 
@@ -97,6 +99,27 @@ namespace Tripper.WinLogic.UserControls
                 transportDetails.Close();
             }
 
+        }
+
+        private void bDelete_Click(object sender, EventArgs e)
+        {
+
+            DialogResult result = TripperMessageBox.Show("Czy chcesz usunąć podróż?", "Czy napewno?");
+            if (result == DialogResult.Yes)
+            {
+                Connection.TripperData.Transports.DeleteOnSubmit(SelectedTransport);
+                
+                try
+                {
+                    this.Visible = false;
+                    Connection.TripperData.SubmitChanges();
+                }
+                catch (Exception exept)
+                {
+                    TripperMessageBox.Show(exept.ToString(), "Błąd");
+                }
+
+            }
         }
     }
 }

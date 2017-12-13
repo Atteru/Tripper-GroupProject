@@ -213,6 +213,7 @@ namespace Tripper.WinLogic.UserControls
                     else
                     {
                         cbCity.Text = string.Empty;
+                        cbCity.SendToBack();
                     }
                     //cbCity_Validating(cbCity, null);
                     cbCity.Close();
@@ -241,6 +242,7 @@ namespace Tripper.WinLogic.UserControls
 
         private bool checkCountryValidation()
         {
+
             if(countryList == null)
                 loadCoutryList(out countryList);
 
@@ -384,6 +386,8 @@ namespace Tripper.WinLogic.UserControls
 
         private void cbCountry_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (lCountryError.Visible)
+                lCountryError.Visible = false;
             SelectedCoutry = cbCountry.SelectedItem as Country;
         }
 
@@ -394,7 +398,7 @@ namespace Tripper.WinLogic.UserControls
                 loadCoutryList(out countryList);
                 inicialized = true;
             }
-
         }
+
     }
 }

@@ -1,18 +1,59 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Drawing;
-using System.Drawing.Design;
-using System.Reflection;
+using System.Linq;
 using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-
-
 
 namespace Tripper.WinLogic.UserControls
 {
-    public class DynamicCombo : ComboBox
+    public partial class DynamicCombo : ComboBox
     {
+        public DynamicCombo()
+        {
+            InitializeComponent();
+            this.IsOpened = false;
+            this.PreviewKeyDown += DynamicCombo_PreviewKeyDown;
+            this.Resize += DynamicCombo_SizeChanged;
+            this.Click += DynamicCombo_Click;
+            base.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            this.DataSourceChanged += DynamicCombo_DataSourceChanged;
+        }
+
+        private Color _borderColor = SystemColors.WindowFrame;
+        private ButtonBorderStyle _borderStyle = ButtonBorderStyle.Solid;
+        private static int WM_PAINT = 0x000F;
+
+        
+        protected override void WndProc(ref Message m)
+        {
+            base.WndProc(ref m);
+
+            if(!this.Focused)
+                if (m.Msg == WM_PAINT)
+                {
+                    Graphics g = Graphics.FromHwnd(Handle);
+                    Rectangle bounds = new Rectangle(0, 0, Width, Height);
+                    ControlPaint.DrawBorder(g, bounds, _borderColor, _borderStyle);
+                }
+        }
+
+       /*
+        [DllImportAttribute("uxtheme.dll")]
+        private static extern int SetWindowTheme(IntPtr hWnd, string appname, string idlist);
+
+        protected override void OnHandleCreated(EventArgs e)
+        {
+            SetWindowTheme(this.Handle, "", "");
+            base.OnHandleCreated(e);
+        }
+        */
+
+
 
         public int StartingSize
         {
@@ -24,24 +65,21 @@ namespace Tripper.WinLogic.UserControls
             get; set;
         }
 
-        public DynamicCombo()
-            :base()
+
+        protected override void OnPaint(PaintEventArgs e)
         {
-            this.IsOpened = false;
-            this.PreviewKeyDown += DynamicCombo_PreviewKeyDown;
-            this.Resize += DynamicCombo_SizeChanged;
-            this.Click += DynamicCombo_Click;
-            base.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
-
-
-
+            base.OnPaint(e);
+            /*ControlPaint.DrawBorder(e.Graphics, ClientRectangle,
+                                 Color.Black, 1, ButtonBorderStyle.Solid,
+                                 Color.Black, 1, ButtonBorderStyle.Solid,
+                                 Color.Black, 1, ButtonBorderStyle.Solid,
+                                 Color.Black, 1, ButtonBorderStyle.Solid); */
         }
-
 
         public void drawWarningBoeder()
         {
             Graphics g = this.CreateGraphics();
-            g.Clear(Color.White) ;
+            g.Clear(Color.White);
 
             Pen blackPen = new Pen(Color.Black, 4);
 
@@ -96,7 +134,7 @@ namespace Tripper.WinLogic.UserControls
         private void DynamicCombo_SizeChanged(object sender, System.EventArgs e)
         {
             var comboBox = sender as DynamicCombo;
-            
+
             if (comboBox.Height > comboBox.StartingSize && StartingSize != 0)
                 comboBox.IsOpened = true;
             else
@@ -114,13 +152,20 @@ namespace Tripper.WinLogic.UserControls
 
         public void Close()
         {
-            if(StartingSize > 0)
+            if (StartingSize > 0)
                 this.Height = StartingSize;
         }
 
+        private void DynamicCombo_DataSourceChanged(object sender, EventArgs e)
+        {
+        var comboBox = sender as DynamicCombo;
 
-
-
+            if (comboBox.Height > comboBox.StartingSize && StartingSize != 0)
+                comboBox.IsOpened = true;
+            else
+                comboBox.IsOpened = false;
+        }
+      
 
     }
 }

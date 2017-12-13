@@ -15,12 +15,26 @@ using System.Threading;
 
 namespace Tripper.WinLogic.Forms
 {
-    public partial class TransportDetailsView : Form
+    public partial class TransportDetailsView : TripperContainerPureForm
     {
         private Button selectedVehicleButton;
 
         Color standardColor = Color.Teal;
         Color clickedColor = Color.FromArgb(26, 147, 147);
+
+        private Trip _selectedTrip;
+        public Trip SelectedTrip
+        {
+            get
+            {
+                return _selectedTrip;
+            }
+            set
+            {
+                _selectedTrip = value;
+            }
+        }
+
         public Button SelectedVehicleButton
         {
             set
@@ -33,33 +47,45 @@ namespace Tripper.WinLogic.Forms
         }
 
 
-        List<Transport> tranportList = new List<Transport>();
+        List<Transport> transportList = new List<Transport>();
+        List<TransportListRow> transportRowList = new List<TransportListRow>();
         NewTransportCreator newTransportPanel;
-
-        public TransportDetailsView()
+        
+        public TransportDetailsView(Trip selectedTrip)
         {
             InitializeComponent();
-
+            SelectedTrip = selectedTrip;
             tcTransportView.Appearance = TabAppearance.FlatButtons;
             tcTransportView.ItemSize = new Size(0, 1);
             tcTransportView.SizeMode = TabSizeMode.Fixed;
             loadTransportList();
-            if (tranportList.Count == 0)
+            if (transportList.Count == 0)
             {
-                tcTransportView.SelectTab(newTransport);
+
+                bAdd_Click(bAdd, null);
             }
         }
 
         private void loadTransportList()
         {
-            tranportList = Connection.TripperData.Transports.Where(trans => trans.TripID == 1).ToList();
-            tranportList = tranportList.OrderBy(trans => trans.DepartureTime).ToList();
+            if (transportList.Count > 0)
+            {
+                transportList.Clear();
+                foreach(TransportListRow row in transportRowList)
+                    row.Visible = false;
+                transportRowList.Clear();
+            }
+                
 
-            foreach (Transport row in tranportList)
+            transportList = Connection.TripperData.Transports.Where(trans => trans.TripID == SelectedTrip.TripID).ToList();
+            transportList = transportList.OrderBy(trans => trans.DepartureTime).ToList();
+
+            foreach (Transport row in transportList)
             {
                 TransportListRow transportRow = new TransportListRow(row);
+                transportRowList.Add(transportRow);
                 pTransportTable.Controls.Add(transportRow);
-                transportRow.Dock = DockStyle.Right;
+                transportRow.Dock = DockStyle.Top;
             }
         }
 
@@ -85,9 +111,10 @@ namespace Tripper.WinLogic.Forms
         {
             loadTransportPanel();
             newTransportPanel.SelectedVehicle = LocalizableStrings.GetValue.GetVehicle(LocalizableStrings.Plane);
-            tcTransportView.SelectTab(newTransport);
+            tcTransportView.SelectTab(newTransportPage);
+            newTransportPanel.FormClosing += newTransportPanel_FormClosing;
+            SelectedVehicleButton = bAddPlane;
         }
-
 
         private void bAddPlane_Click(object sender, EventArgs e)
         {
@@ -112,5 +139,15 @@ namespace Tripper.WinLogic.Forms
             newTransportPanel.SelectedVehicle = LocalizableStrings.GetValue.GetVehicle(LocalizableStrings.OtherVehicle);
             SelectedVehicleButton = bAddOtherVehicle;
         }
+
+        private void newTransportPanel_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            loadTransportList();
+            this.Refresh();
+            tcTransportView.SelectTab(transportListPage);
+            
+
+        }
+
     }
 }

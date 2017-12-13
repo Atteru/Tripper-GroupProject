@@ -52,6 +52,7 @@
             this.textBox.BackColor = System.Drawing.SystemColors.Window;
             this.textBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox.ForeColor = System.Drawing.SystemColors.ControlText;
             this.textBox.Location = new System.Drawing.Point(0, 0);
             this.textBox.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.textBox.Name = "textBox";
@@ -61,6 +62,7 @@
             this.textBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             this.textBox.Enter += new System.EventHandler(this.messageLabel_Click);
             this.textBox.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_Validating);
+            this.textBox.Text = "";
             // 
             // TextBoxUC
             // 

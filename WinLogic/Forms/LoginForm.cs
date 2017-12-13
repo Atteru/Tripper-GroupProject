@@ -76,7 +76,7 @@ namespace Tripper.WinLogic.Forms
         private void bAddNewUser_Click(object sender, EventArgs e)
         {
             Traveler newUser = new Traveler();
-            newUser = NewUser.AddNewUser(textBoxUC4.Text, tNewPassword.Text, tNewPasswordConfirm.Text);
+            newUser = NewUser.AddNewUser(tNewUserName.Text, tNewPassword.Text, tNewPasswordConfirm.Text, tNewUserName.Text);
             if (newUser != null) { 
                 Connection.TripperData.Travelers.InsertOnSubmit(newUser);
                 Connection.TripperData.SubmitChanges();

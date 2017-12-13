@@ -7,42 +7,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tripper.DbLogic.LinqToSQL;
+using Tripper.DbLogic;
 
 namespace Tripper.WinLogic.Forms
 {
-    public partial class TripDetailsView : Form
+    public partial class TripDetailsView : TripperContainerPureForm
     {
         TransportDetailsView transportDetails;
 
-        private Form _displayedForm;
-        public Form DisplayedForm
+        private Trip _selectedTrip;
+        public Trip SelectedTrip
         {
             get
             {
-                return _displayedForm;
+                return _selectedTrip;
             }
             set
             {
-                _displayedForm = value;
+                _selectedTrip = value;
             }
         }
 
-        public TripDetailsView()
+
+        public TripDetailsView(Trip selectedTrip)
         {
             InitializeComponent();
+            SelectedTrip = selectedTrip;
         }
-
-        
 
         public void ShowTransportDetails()
         {
             if(DisplayedForm == null)
             {
-                transportDetails = new TransportDetailsView();
-                transportDetails.TopLevel = false;
-                transportDetails.Parent = this.pCurrentView;
-                transportDetails.Dock = DockStyle.Fill;
-                transportDetails.Show();
+                transportDetails = new TransportDetailsView(SelectedTrip);
+                transportDetails.DockForm(pCurrentView);
                 DisplayedForm = transportDetails;
             }
         }
