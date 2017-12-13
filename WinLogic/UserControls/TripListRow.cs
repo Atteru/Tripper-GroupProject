@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Tripper.WinLogic.Forms;
 using Tripper.DbLogic.LinqToSQL;
 using Tripper.DbLogic;
+using Tripper.WinLogic.Classes;
 
 namespace Tripper.WinLogic.UserControls
 {
@@ -56,7 +57,6 @@ namespace Tripper.WinLogic.UserControls
         {
             SelectedTrip = trip;
             InitializeComponent();
-            lTripName.Text = trip.Name;
             setTripInfo(trip);
         }
 
@@ -70,6 +70,7 @@ namespace Tripper.WinLogic.UserControls
 
         private void setTripInfo(Trip trip)
         {
+            lTripName.Text = trip.Name;
             Transport firstTransport = Connection.TripperData.Transports.Where(transport => transport.Trip.Equals(trip)).OrderBy(transport => transport.DepartureTime).First();
             Localization city = Connection.TripperData.Localizations.Single(loc => loc.LocalizationID.Equals(firstTransport.ArrivalLocalization));
             lDestination.Text = Connection.TripperData.Countries.Single(country => country.CountryID.Equals(city.CountryID)).Name.ToString() + ", " + city.City;
@@ -134,6 +135,11 @@ namespace Tripper.WinLogic.UserControls
                 pDatailsPanel.Visible = false;
                 tripDetails.Close();
             }
+        }
+
+        private void bEdit_Click(object sender, EventArgs e)
+        {
+            CurrentTrip.Trip = SelectedTrip;
         }
     }
 }

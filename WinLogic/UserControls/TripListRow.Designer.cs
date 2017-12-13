@@ -186,6 +186,7 @@
             this.bEdit.TabIndex = 161;
             this.bEdit.Text = "Edytuj";
             this.bEdit.UseVisualStyleBackColor = false;
+            this.bEdit.Click += new System.EventHandler(this.bEdit_Click);
             // 
             // bDelete
             // 

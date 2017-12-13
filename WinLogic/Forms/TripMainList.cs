@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Tripper.DbLogic.LinqToSQL;
 using Tripper.DbLogic;
 using Tripper.WinLogic.UserControls;
+using Tripper.WinLogic.Classes;
 
 namespace Tripper.WinLogic.Forms
 {
@@ -44,12 +45,10 @@ namespace Tripper.WinLogic.Forms
 
         private void bEdit_Click(object sender, EventArgs e)
         {
-          /*  Button bEdit = sender as Button;
-            TripListRow tripRow = bEdit as TripListRow;
-            TripDetailsView tripDetails = new TripDetailsView(tripRow.SelectedTrip);
-            tripDetails.DockForm(this.Parent);
            
-            this.Close(); */
+            MainForm mainForm = this.ParentForm as MainForm;
+            mainForm.OpenTripDetalis();
+            this.Close(); 
         }
     }
 }

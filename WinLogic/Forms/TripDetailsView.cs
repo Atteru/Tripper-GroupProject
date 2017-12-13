@@ -34,7 +34,11 @@ namespace Tripper.WinLogic.Forms
         {
             InitializeComponent();
             SelectedTrip = selectedTrip;
+            ShowTransportDetails();
+            setTripInfo(SelectedTrip);
         }
+
+
 
         public void ShowTransportDetails()
         {
@@ -46,6 +50,32 @@ namespace Tripper.WinLogic.Forms
             }
         }
 
-        
+        private void setTripInfo(Trip trip)
+        {
+            lTripName.Text = trip.Name;
+            Transport firstTransport = Connection.TripperData.Transports.Where(transport => transport.Trip.Equals(trip)).OrderBy(transport => transport.DepartureTime).First();
+            Localization city = Connection.TripperData.Localizations.Single(loc => loc.LocalizationID.Equals(firstTransport.ArrivalLocalization));
+            lDestination.Text = Connection.TripperData.Countries.Single(country => country.CountryID.Equals(city.CountryID)).Name.ToString() + ", " + city.City;
+            if (firstTransport.DepartureTime != null)
+            {
+                DateTime date = DateTime.Parse(firstTransport.DepartureTime.ToString());
+
+                lStartDate.Text = date.ToShortDateString();
+            }
+            else
+                lStartDate.Text = "Nie ustalono terminu";
+
+            if (firstTransport.DepartureTime > DateTime.Today)
+            {
+                TimeSpan tempDays = DateTime.Parse(firstTransport.DepartureTime.ToString()).Date - DateTime.Today.Date;
+                int daysTo = int.Parse(tempDays.Days.ToString());
+
+                string day = daysTo > 1 ? "dni" : "dzień";
+                lDaysCount.Text = "Podróż rozpocznie się za " + daysTo + " " + day;
+            }
+            else
+                lDaysCount.Text = "Podróż odbyła się";
+        }
+
     }
 }

@@ -11,20 +11,27 @@ using System.ComponentModel;
 
 namespace Tripper.WinLogic.Classes
 {
-    public static class CurrentTrip 
+    public class NewTrip 
     {
-        private static Trip _trip;
-        public static Trip Trip
+        private string _tipName;
+        public string TripName
         {
             get
             {
-                return _trip;
+                return _tipName;
             }
             set
             {
-                _trip = value;
+                _tipName = value;
             }
         }
+
+        public List<NewTransport> transportList;
+
+
+
+
+
 
     }
 }
