@@ -15,7 +15,7 @@ namespace Tripper.WinLogic.UserControls
     {
         public DynamicCombo()
         {
-            InitializeComponent();
+            //InitializeComponent();
             this.IsOpened = false;
             this.PreviewKeyDown += DynamicCombo_PreviewKeyDown;
             this.Resize += DynamicCombo_SizeChanged;

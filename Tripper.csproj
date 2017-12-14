@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogic\Enums.cs" />
     <Compile Include="BusinessLogic\LocalizableStrings.cs" />
     <Compile Include="DbLogic\DbConnection.cs" />
     <Compile Include="DbLogic\LinqToSQL\TripperData.designer.cs">
@@ -56,6 +57,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="WinLogic\Classes\CurrentTrip.cs" />
+    <Compile Include="WinLogic\Classes\NewHotel.cs" />
     <Compile Include="WinLogic\Classes\NewUser.cs" />
     <Compile Include="WinLogic\Classes\NewTransport.cs" />
     <Compile Include="WinLogic\Classes\NewTrip.cs" />
@@ -77,23 +80,17 @@
     <Compile Include="WinLogic\Forms\NewHotelCreator.Designer.cs">
       <DependentUpon>NewHotelCreator.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinLogic\Forms\NewOtherCostsList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WinLogic\Forms\NewOtherCostsList.Designer.cs">
-      <DependentUpon>NewOtherCostsList.cs</DependentUpon>
-    </Compile>
     <Compile Include="WinLogic\Forms\NewTransportCreator.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="WinLogic\Forms\NewTransportCreator.designer.cs">
       <DependentUpon>NewTransportCreator.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinLogic\Forms\NewTripCreatorForm.cs">
+    <Compile Include="WinLogic\Forms\NewTripCreator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WinLogic\Forms\NewTripCreatorForm.designer.cs">
-      <DependentUpon>NewTripCreatorForm.cs</DependentUpon>
+    <Compile Include="WinLogic\Forms\NewTripCreator.Designer.cs">
+      <DependentUpon>NewTripCreator.cs</DependentUpon>
     </Compile>
     <Compile Include="WinLogic\Forms\TransportDetailsView.cs">
       <SubType>Form</SubType>
@@ -106,6 +103,24 @@
     </Compile>
     <Compile Include="WinLogic\Forms\TripDetailsView.Designer.cs">
       <DependentUpon>TripDetailsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinLogic\Forms\TripMainList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinLogic\Forms\TripMainList.Designer.cs">
+      <DependentUpon>TripMainList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinLogic\Forms\TripperContainerPureForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinLogic\Forms\TripperContainerPureForm.Designer.cs">
+      <DependentUpon>TripperContainerPureForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinLogic\Forms\TripperDetailsEditPureForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinLogic\Forms\TripperDetailsEditPureForm.Designer.cs">
+      <DependentUpon>TripperDetailsEditPureForm.cs</DependentUpon>
     </Compile>
     <Compile Include="WinLogic\Forms\TripperMessageBox.cs">
       <SubType>Form</SubType>
@@ -140,12 +155,6 @@
     <Compile Include="WinLogic\UserControls\LocalizationsUC.Designer.cs">
       <DependentUpon>LocalizationsUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinLogic\UserControls\OtherCostListRow.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="WinLogic\UserControls\OtherCostListRow.Designer.cs">
-      <DependentUpon>OtherCostListRow.cs</DependentUpon>
-    </Compile>
     <Compile Include="WinLogic\UserControls\TextBoxUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -158,6 +167,12 @@
     <Compile Include="WinLogic\UserControls\TransportListRow.Designer.cs">
       <DependentUpon>TransportListRow.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinLogic\UserControls\TripListRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinLogic\UserControls\TripListRow.Designer.cs">
+      <DependentUpon>TripListRow.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinLogic\WinLogicUIMethods.cs" />
     <EmbeddedResource Include="WinLogic\Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -168,20 +183,27 @@
     <EmbeddedResource Include="WinLogic\Forms\NewHotelCreator.resx">
       <DependentUpon>NewHotelCreator.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinLogic\Forms\NewOtherCostsList.resx">
-      <DependentUpon>NewOtherCostsList.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="WinLogic\Forms\NewTransportCreator.resx">
       <DependentUpon>NewTransportCreator.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinLogic\Forms\NewTripCreatorForm.resx">
-      <DependentUpon>NewTripCreatorForm.cs</DependentUpon>
+    <EmbeddedResource Include="WinLogic\Forms\NewTripCreator.resx">
+      <DependentUpon>NewTripCreator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinLogic\Forms\TransportDetailsView.resx">
       <DependentUpon>TransportDetailsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="WinLogic\Forms\TripDetailsView.resx">
       <DependentUpon>TripDetailsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinLogic\Forms\TripMainList.resx">
+      <DependentUpon>TripMainList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinLogic\Forms\TripperContainerPureForm.resx">
+      <DependentUpon>TripperContainerPureForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinLogic\Forms\TripperDetailsEditPureForm.resx">
+      <DependentUpon>TripperDetailsEditPureForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinLogic\Forms\TripperMessageBox.resx">
       <DependentUpon>TripperMessageBox.cs</DependentUpon>
@@ -198,14 +220,14 @@
     <EmbeddedResource Include="WinLogic\UserControls\LocalizationsUC.resx">
       <DependentUpon>LocalizationsUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinLogic\UserControls\OtherCostListRow.resx">
-      <DependentUpon>OtherCostListRow.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="WinLogic\UserControls\TextBoxUC.resx">
       <DependentUpon>TextBoxUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinLogic\UserControls\TransportListRow.resx">
       <DependentUpon>TransportListRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinLogic\UserControls\TripListRow.resx">
+      <DependentUpon>TripListRow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DbLogic\LinqToSQL\TripperData.dbml.layout">
       <DependentUpon>TripperData.dbml</DependentUpon>
