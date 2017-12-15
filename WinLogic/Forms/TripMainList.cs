@@ -45,7 +45,6 @@ namespace Tripper.WinLogic.Forms
 
         private void bEdit_Click(object sender, EventArgs e)
         {
-           
             MainForm mainForm = this.ParentForm as MainForm;
             mainForm.OpenTripDetalis();
             this.Close(); 

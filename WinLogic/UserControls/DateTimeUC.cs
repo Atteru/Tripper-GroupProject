@@ -163,7 +163,12 @@ namespace Tripper.WinLogic.UserControls
             return null;
         }
 
- 
+        public DateTime ValueNotNull()
+        {
+             return DateTime.Parse(this.Date.Text + " " + this.Time.Text + ":00");
+
+        }
+
 
 
         private void dtpDate_ValueChanged(object sender, EventArgs e)

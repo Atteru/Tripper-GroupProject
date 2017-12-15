@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.pTop = new System.Windows.Forms.Panel();
-            this.lTransportInfo = new System.Windows.Forms.LinkLabel();
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.bEdit = new System.Windows.Forms.Button();
             this.bDelete = new System.Windows.Forms.Button();
+            this.bEdit = new System.Windows.Forms.Button();
+            this.lTransportInfo = new System.Windows.Forms.LinkLabel();
             this.pTicketPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.pTop.SuspendLayout();
@@ -52,23 +52,6 @@
             this.pTop.Size = new System.Drawing.Size(970, 49);
             this.pTop.TabIndex = 3;
             // 
-            // lTransportInfo
-            // 
-            this.lTransportInfo.ActiveLinkColor = System.Drawing.Color.Gainsboro;
-            this.lTransportInfo.AutoSize = true;
-            this.lTransportInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lTransportInfo.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lTransportInfo.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.lTransportInfo.LinkColor = System.Drawing.Color.DarkSlateGray;
-            this.lTransportInfo.Location = new System.Drawing.Point(19, 14);
-            this.lTransportInfo.Name = "lTransportInfo";
-            this.lTransportInfo.Size = new System.Drawing.Size(204, 20);
-            this.lTransportInfo.TabIndex = 151;
-            this.lTransportInfo.TabStop = true;
-            this.lTransportInfo.Text = "Informacje o transporcie";
-            this.lTransportInfo.VisitedLinkColor = System.Drawing.Color.DarkCyan;
-            this.lTransportInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lTransportInfo_LinkClicked);
-            // 
             // flowLayoutPanel
             // 
             this.flowLayoutPanel.Controls.Add(this.bEdit);
@@ -78,6 +61,22 @@
             this.flowLayoutPanel.Name = "flowLayoutPanel";
             this.flowLayoutPanel.Size = new System.Drawing.Size(206, 47);
             this.flowLayoutPanel.TabIndex = 2;
+            // 
+            // bDelete
+            // 
+            this.bDelete.BackColor = System.Drawing.Color.Teal;
+            this.bDelete.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray;
+            this.bDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bDelete.ForeColor = System.Drawing.Color.White;
+            this.bDelete.Location = new System.Drawing.Point(107, 3);
+            this.bDelete.Margin = new System.Windows.Forms.Padding(5, 3, 5, 5);
+            this.bDelete.Name = "bDelete";
+            this.bDelete.Size = new System.Drawing.Size(92, 40);
+            this.bDelete.TabIndex = 162;
+            this.bDelete.Text = "Usuń";
+            this.bDelete.UseVisualStyleBackColor = false;
+            this.bDelete.Click += new System.EventHandler(this.bDelete_Click);
             // 
             // bEdit
             // 
@@ -95,21 +94,22 @@
             this.bEdit.UseVisualStyleBackColor = false;
             this.bEdit.Click += new System.EventHandler(this.bEdit_Click);
             // 
-            // bDelete
+            // lTransportInfo
             // 
-            this.bDelete.BackColor = System.Drawing.Color.Teal;
-            this.bDelete.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray;
-            this.bDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bDelete.ForeColor = System.Drawing.Color.White;
-            this.bDelete.Location = new System.Drawing.Point(107, 3);
-            this.bDelete.Margin = new System.Windows.Forms.Padding(5, 3, 5, 5);
-            this.bDelete.Name = "bDelete";
-            this.bDelete.Size = new System.Drawing.Size(92, 40);
-            this.bDelete.TabIndex = 162;
-            this.bDelete.Text = "Usuń";
-            this.bDelete.UseVisualStyleBackColor = false;
-            this.bDelete.Click += new System.EventHandler(this.bDelete_Click);
+            this.lTransportInfo.ActiveLinkColor = System.Drawing.Color.Gainsboro;
+            this.lTransportInfo.AutoSize = true;
+            this.lTransportInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lTransportInfo.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lTransportInfo.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.lTransportInfo.LinkColor = System.Drawing.Color.DarkSlateGray;
+            this.lTransportInfo.Location = new System.Drawing.Point(19, 14);
+            this.lTransportInfo.Name = "lTransportInfo";
+            this.lTransportInfo.Size = new System.Drawing.Size(204, 20);
+            this.lTransportInfo.TabIndex = 151;
+            this.lTransportInfo.TabStop = true;
+            this.lTransportInfo.Text = "Informacje o transporcie";
+            this.lTransportInfo.VisitedLinkColor = System.Drawing.Color.DarkCyan;
+            this.lTransportInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lTransportInfo_LinkClicked);
             // 
             // pTicketPanel
             // 
@@ -160,11 +160,11 @@
         #endregion
 
         private System.Windows.Forms.Panel pTop;
+        private System.Windows.Forms.LinkLabel lTransportInfo;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
         private System.Windows.Forms.Button bEdit;
         private System.Windows.Forms.Button bDelete;
         private System.Windows.Forms.Panel pTicketPanel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
-        private System.Windows.Forms.LinkLabel lTransportInfo;
     }
 }

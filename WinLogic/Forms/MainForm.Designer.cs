@@ -39,12 +39,12 @@
             this.bAddNewTrip = new System.Windows.Forms.Button();
             this.tripDetailsFilterPage = new System.Windows.Forms.TabPage();
             this.newTripCreatorButtonPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.bBackToTripList = new System.Windows.Forms.Button();
             this.bOtherCosts = new System.Windows.Forms.Button();
             this.bStayment = new System.Windows.Forms.Button();
             this.bTransport = new System.Windows.Forms.Button();
             this.pTop = new System.Windows.Forms.Panel();
             this.pLeftCorner = new System.Windows.Forms.Panel();
-            this.bBackToTripList = new System.Windows.Forms.Button();
             this.pTopBanner.SuspendLayout();
             this.mainPanelTableLayoutPanel.SuspendLayout();
             this.pLeft.SuspendLayout();
@@ -165,7 +165,7 @@
             this.bTransportMainList.TabIndex = 156;
             this.bTransportMainList.Text = "Moje podróże";
             this.bTransportMainList.UseVisualStyleBackColor = false;
-            this.bTransportMainList.Click += new System.EventHandler(this.bTransportMainList_Click);
+            this.bTransportMainList.Click += new System.EventHandler(this.bTripMainList_Click);
             // 
             // bAddNewTrip
             // 
@@ -213,6 +213,22 @@
             this.newTripCreatorButtonPanel.Size = new System.Drawing.Size(206, 257);
             this.newTripCreatorButtonPanel.TabIndex = 1;
             // 
+            // bBackToTripList
+            // 
+            this.bBackToTripList.BackColor = System.Drawing.Color.Teal;
+            this.bBackToTripList.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.bBackToTripList.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray;
+            this.bBackToTripList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bBackToTripList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bBackToTripList.ForeColor = System.Drawing.Color.White;
+            this.bBackToTripList.Location = new System.Drawing.Point(6, 207);
+            this.bBackToTripList.Name = "bBackToTripList";
+            this.bBackToTripList.Size = new System.Drawing.Size(194, 44);
+            this.bBackToTripList.TabIndex = 158;
+            this.bBackToTripList.Text = "Powrót";
+            this.bBackToTripList.UseVisualStyleBackColor = false;
+            this.bBackToTripList.Click += new System.EventHandler(this.bBackToTripList_Click);
+            // 
             // bOtherCosts
             // 
             this.bOtherCosts.BackColor = System.Drawing.Color.Teal;
@@ -242,6 +258,7 @@
             this.bStayment.TabIndex = 156;
             this.bStayment.Text = "Zakwaterowanie";
             this.bStayment.UseVisualStyleBackColor = false;
+            this.bStayment.Click += new System.EventHandler(this.bStayment_Click);
             // 
             // bTransport
             // 
@@ -277,22 +294,6 @@
             this.pLeftCorner.Padding = new System.Windows.Forms.Padding(5);
             this.pLeftCorner.Size = new System.Drawing.Size(220, 53);
             this.pLeftCorner.TabIndex = 3;
-            // 
-            // bBackToTripList
-            // 
-            this.bBackToTripList.BackColor = System.Drawing.Color.Teal;
-            this.bBackToTripList.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bBackToTripList.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray;
-            this.bBackToTripList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bBackToTripList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bBackToTripList.ForeColor = System.Drawing.Color.White;
-            this.bBackToTripList.Location = new System.Drawing.Point(6, 207);
-            this.bBackToTripList.Name = "bBackToTripList";
-            this.bBackToTripList.Size = new System.Drawing.Size(194, 44);
-            this.bBackToTripList.TabIndex = 158;
-            this.bBackToTripList.Text = "Moje podróze";
-            this.bBackToTripList.UseVisualStyleBackColor = false;
-            this.bBackToTripList.Click += new System.EventHandler(this.bBackToTripList_Click);
             // 
             // MainForm
             // 

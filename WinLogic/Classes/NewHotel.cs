@@ -17,13 +17,7 @@ namespace Tripper.WinLogic.Classes
             Stayment newHotel = new Stayment();
             newHotel.TripID = tripID;
 
-            if (hotelName == "") //checking if name of hotel is not null
-            {
-                MessageBox.Show("Uzupełnij nazwę hotelu");
-                return null;
-            }
-            else
-                newHotel.Name = hotelName;
+            newHotel.Name = hotelName;
             newHotel.Address = hotelAddress;
             
             newHotel.DateTo = dispatchDate; //can't add if datafield is empty as control does not return default valuea valid for DateTime, instead it return Now or Today

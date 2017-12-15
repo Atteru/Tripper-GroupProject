@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Tripper.DbLogic;
 using Tripper.DbLogic.LinqToSQL;
 using Tripper.WinLogic.UserControls;
+using Tripper.BusinessLogic;
 
 namespace Tripper.WinLogic.Forms
 {
@@ -49,6 +50,7 @@ namespace Tripper.WinLogic.Forms
 
         public NewTripCreator(Trip selectedTrip)
         {
+            mode = CreatorMode.Edit;
             InitializeComponent();
             SelectedTrip = selectedTrip;
 

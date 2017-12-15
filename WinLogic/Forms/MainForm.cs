@@ -18,24 +18,6 @@ namespace Tripper.WinLogic.Forms
         TripDetailsView tripDetails;
         TripMainList tripList;
 
-   
-        TripperContainerPureForm _currentContainer;
-        TripperContainerPureForm CurrentContainer
-        {
-            get
-            {
-                return _currentContainer;
-            }
-            set
-            {
-                if(_currentContainer != null)
-                {
-                    _currentContainer.Close();
-                    
-                }
-                _currentContainer = value;
-            }
-        }
 
         public int UserID
         {
@@ -43,14 +25,6 @@ namespace Tripper.WinLogic.Forms
             private set;
         }
 
-
-
-
-        /*  public MainForm(int userId)
-          {
-              InitializeComponent();
-              UserID = userId;
-          }*/
 
         public MainForm()
         {
@@ -66,10 +40,10 @@ namespace Tripper.WinLogic.Forms
 
         public void OpenTripMainList()
         {
-            tripList = new TripMainList();
-            tripList.DockForm(pCenter);
-            CurrentContainer = tripList;
-            tcFilter.SelectTab(mainFilterPage);
+             tripList = new TripMainList();
+             tripList.DockForm(pCenter);
+             tcFilter.SelectTab(mainFilterPage);
+             DisplayedForm = tripList;
         }
 
 
@@ -77,41 +51,35 @@ namespace Tripper.WinLogic.Forms
         {
             tripDetails = new TripDetailsView(CurrentTrip.Trip);
             tripDetails.DockForm(pCenter);
-            CurrentContainer = tripDetails;
             tcFilter.SelectTab(tripDetailsFilterPage);
+            DisplayedForm = tripDetails;
 
         } 
 
         private void bTransport_Click(object sender, EventArgs e)
         {
             OpenTripDetalis();
-            if(tripDetails != null)
-                if (tripDetails.DisplayedForm != null)
-                {
-                    tripDetails.DisplayedForm.Close();
-                    tripDetails.DisplayedForm = null;
-                }
             tripDetails.ShowTransportDetails();
         }
 
         private void bStayment_Click(object sender, EventArgs e)
         {
-            if (tripDetails.DisplayedForm != null)
-            {
-                tripDetails.DisplayedForm.Close();
-                tripDetails.DisplayedForm = null;
-            }   
+            OpenTripDetalis();
+            tripDetails.ShowStaymentDetails();
         }
 
-        private void bTransportMainList_Click(object sender, EventArgs e)
+        private void bTripMainList_Click(object sender, EventArgs e)
         {
             OpenTripMainList();
         }
 
         private void bBackToTripList_Click(object sender, EventArgs e)
         {
-            CurrentContainer.Close();
+            //if (tripList != null)
+              //  tripList.Close();
             OpenTripMainList();
         }
+
+
     }
 }

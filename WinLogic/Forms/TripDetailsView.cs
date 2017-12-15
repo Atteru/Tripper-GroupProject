@@ -14,7 +14,8 @@ namespace Tripper.WinLogic.Forms
 {
     public partial class TripDetailsView : TripperContainerPureForm
     {
-        TransportDetailsView transportDetails;
+        TripperContainerPureForm detailsView;
+
 
         private Trip _selectedTrip;
         public Trip SelectedTrip
@@ -38,17 +39,20 @@ namespace Tripper.WinLogic.Forms
             setTripInfo(SelectedTrip);
         }
 
-
-
         public void ShowTransportDetails()
         {
-            if(DisplayedForm == null)
-            {
-                transportDetails = new TransportDetailsView(SelectedTrip);
-                transportDetails.DockForm(pCurrentView);
-                DisplayedForm = transportDetails;
-            }
+            detailsView = new TransportDetailsView(SelectedTrip);
+            DisplayedForm = detailsView;
+            detailsView.DockForm(pCurrentView);
         }
+
+        public void ShowStaymentDetails()
+        {
+            detailsView = new StaymentDetailsView(SelectedTrip);
+            DisplayedForm = detailsView;
+            detailsView.DockForm(pCurrentView);
+        }
+
 
         private void setTripInfo(Trip trip)
         {

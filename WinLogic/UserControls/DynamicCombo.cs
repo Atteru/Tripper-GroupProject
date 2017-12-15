@@ -33,13 +33,14 @@ namespace Tripper.WinLogic.UserControls
         {
             base.WndProc(ref m);
 
-            if(!this.Focused)
+            if(!this.Focused && this.Enabled)
                 if (m.Msg == WM_PAINT)
                 {
                     Graphics g = Graphics.FromHwnd(Handle);
                     Rectangle bounds = new Rectangle(0, 0, Width, Height);
                     ControlPaint.DrawBorder(g, bounds, _borderColor, _borderStyle);
                 }
+
         }
 
        /*

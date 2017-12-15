@@ -193,10 +193,32 @@ namespace Tripper.WinLogic.UserControls
             textBox.Focus();
         }
 
-
-        private void textBox_TextChanged(object sender, EventArgs e)
+        private void drawWarningBoeder(object sender)
         {
+            TextBox textBox = sender as TextBox;
 
+            Graphics g = this.CreateGraphics();
+
+            Pen blackPen = new Pen(Color.Firebrick, 4);
+            int x = textBox.Location.X;
+            int y = textBox.Location.Y;
+            int width = textBox.Width;
+            int height = textBox.Height;
+
+            g.DrawRectangle(blackPen, x, y, width, height);
+            g.Dispose();
         }
+
+
+        public bool CheckValidation()
+        {
+            if (this.Text == string.Empty)
+            {
+                drawWarningBoeder(textBox);
+                return false;
+            }
+            return true;
+        }
+
     }
 }

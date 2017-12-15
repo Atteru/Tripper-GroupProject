@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TripperDB" Class="TripperDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\TripperDB.mdf;Integrated Security=True" SettingsObjectName="Tripper.Properties.Settings" SettingsPropertyName="TripperDBConnectionString2" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\TripperDB.mdf;Integrated Security=True;Connect Timeout=30" SettingsObjectName="Tripper.Properties.Settings" SettingsPropertyName="TripperDBConnectionString2" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Continent" Member="Continents">
     <Type Name="Continent">
       <Column Name="continentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -7,18 +7,11 @@
       <Association Name="Continent_Country" Member="Countries" ThisKey="continentID" OtherKey="ContinentID" Type="Country" />
     </Type>
   </Table>
-  <Table Name="dbo.Trip" Member="Trips">
-    <Type Name="Trip">
-      <Column Name="TripID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+  <Table Name="dbo.Vehicle" Member="Vehicles">
+    <Type Name="Vehicle">
+      <Column Name="VehicleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="TravelerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Budget" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
-      <Column Name="AdditionalInformation" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Association Name="Trip_Stayment" Member="Stayments" ThisKey="TripID" OtherKey="TripID" Type="Stayment" />
-      <Association Name="Trip_Transport" Member="Transports" ThisKey="TripID" OtherKey="TripID" Type="Transport" />
-      <Association Name="Traveler_Trip" Member="Traveler" ThisKey="TravelerID" OtherKey="TravelerID" Type="Traveler" IsForeignKey="true" />
+      <Association Name="Vehicle_Transport" Member="Transports" ThisKey="VehicleID" OtherKey="VehicleID" Type="Transport" />
     </Type>
   </Table>
   <Table Name="dbo.Country" Member="Countries">
@@ -45,14 +38,14 @@
     <Type Name="Stayment">
       <Column Name="StaymentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Address" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="DateFrom" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="DateTo" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="TripID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="LocalizationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TripID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LocalizationID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Cost" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
-      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="AdditionalInformation" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Association Name="Localization_Stayment" Member="Localization" ThisKey="LocalizationID" OtherKey="LocalizationID" Type="Localization" IsForeignKey="true" />
       <Association Name="Trip_Stayment" Member="Trip" ThisKey="TripID" OtherKey="TripID" Type="Trip" IsForeignKey="true" />
@@ -75,14 +68,14 @@
       <Column Name="CarBrand" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Column Name="DepartureTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="ArrivalTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="DepartureLocalization" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ArrivalLocalization" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DepartureLocalization" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ArrivalLocalization" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Localization_Transport" Member="Localization" ThisKey="ArrivalLocalization" OtherKey="LocalizationID" Type="Localization" IsForeignKey="true" />
       <Association Name="Localization_Transport1" Member="Localization1" ThisKey="DepartureLocalization" OtherKey="LocalizationID" Type="Localization" IsForeignKey="true" />
-      <Association Name="Trip_Transport" Member="Trip" ThisKey="TripID" OtherKey="TripID" Type="Trip" IsForeignKey="true" />
       <Association Name="Vehicle_Transport" Member="Vehicle" ThisKey="VehicleID" OtherKey="VehicleID" Type="Vehicle" IsForeignKey="true" />
+      <Association Name="Trip_Transport" Member="Trip" ThisKey="TripID" OtherKey="TripID" Type="Trip" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Traveler" Member="Travelers">
@@ -93,11 +86,18 @@
       <Association Name="Traveler_Trip" Member="Trips" ThisKey="TravelerID" OtherKey="TravelerID" Type="Trip" />
     </Type>
   </Table>
-  <Table Name="dbo.Vehicle" Member="Vehicles">
-    <Type Name="Vehicle">
-      <Column Name="VehicleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+  <Table Name="dbo.Trip" Member="Trips">
+    <Type Name="Trip">
+      <Column Name="TripID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Vehicle_Transport" Member="Transports" ThisKey="VehicleID" OtherKey="VehicleID" Type="Transport" />
+      <Column Name="TravelerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Budget" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="AdditionalInformation" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Trip_Stayment" Member="Stayments" ThisKey="TripID" OtherKey="TripID" Type="Stayment" />
+      <Association Name="Trip_Transport" Member="Transports" ThisKey="TripID" OtherKey="TripID" Type="Transport" />
+      <Association Name="Traveler_Trip" Member="Traveler" ThisKey="TravelerID" OtherKey="TravelerID" Type="Traveler" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

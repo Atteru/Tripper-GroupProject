@@ -35,8 +35,6 @@ namespace Tripper.WinLogic.Forms
             }
         }
 
-        private CreatorMode mode;
-
 
         protected override void changeEditable(bool value)
         {
@@ -75,6 +73,7 @@ namespace Tripper.WinLogic.Forms
             dtpDeparture.GetDate(selectedTransport.DepartureTime);
             dtpArrival.GetDate(selectedTransport.ArrivalTime);
             tTransporter.GetData<string>(selectedTransport.TransportOperator);
+           // tAdditonalInformations.GetData<StringInfo>(selectedTransport.AdditonalInformations);
         }
 
         private bool saveChanges()
@@ -94,7 +93,7 @@ namespace Tripper.WinLogic.Forms
                 selectedTransport.Cost = tTransportCost.Value;
                 if (mode == CreatorMode.AddNew)
                 {
-                    selectedTransport.TripID = 1;
+                    selectedTransport.TripID = CurrentTrip.Trip.TripID;
                     Connection.TripperData.Transports.InsertOnSubmit(selectedTransport);
                 }
                 return true;

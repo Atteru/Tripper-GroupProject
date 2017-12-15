@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Tripper.WinLogic.Forms
 {
-    public partial class TripperContainerPureForm : Form
+    public partial class TripperContainerPureForm : TripperPureBaseFrom
     {
-        private Form _displayedForm;
-        public Form DisplayedForm
+        private TripperPureBaseFrom _displayedForm;
+        public TripperPureBaseFrom DisplayedForm
         {
             get
             {
@@ -21,10 +21,18 @@ namespace Tripper.WinLogic.Forms
             }
             set
             {
-                _displayedForm = value;
+                if (_displayedForm != null)
+                {
+                    if (_displayedForm.CanBeClosed())
+                    {
+                        _displayedForm.Close();
+                        _displayedForm = value;
+                    }
+                }
+                else if(_displayedForm == null)
+                    _displayedForm = value;
             }
         }
-
 
         public void DockForm(Control parentPanel)
         {
@@ -32,6 +40,23 @@ namespace Tripper.WinLogic.Forms
             this.Parent = parentPanel;
             this.Dock = DockStyle.Fill;
             this.Show();
+      
+        }
+
+
+        public override bool CanBeClosed()
+        {
+            if (DisplayedForm != null)
+                return DisplayedForm.CanBeClosed();
+
+            return true;
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            base.OnClosing(e);
+            if (DisplayedForm != null)
+                DisplayedForm.Close();
         }
 
     }

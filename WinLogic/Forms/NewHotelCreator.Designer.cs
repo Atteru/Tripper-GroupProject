@@ -29,69 +29,48 @@
         private void InitializeComponent()
         {
             this.lDaysCount = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBoxUC4 = new Tripper.WinLogic.UserControls.TextBoxUC();
+            this.bAdd = new System.Windows.Forms.Button();
             this.dtpDateTo = new Tripper.WinLogic.UserControls.DateTimeUC();
             this.dtpDateFrom = new Tripper.WinLogic.UserControls.DateTimeUC();
-            this.textBoxUC2 = new Tripper.WinLogic.UserControls.TextBoxUC();
-            this.textBoxUC1 = new Tripper.WinLogic.UserControls.TextBoxUC();
-            this.localizationsUC1 = new Tripper.WinLogic.UserControls.LocalizationsUC();
+            this.tHotelName = new Tripper.WinLogic.UserControls.TextBoxUC();
+            this.tHotelAddress = new Tripper.WinLogic.UserControls.TextBoxUC();
+            this.tLocalization = new Tripper.WinLogic.UserControls.LocalizationsUC();
             this.tAdditonalInformations = new Tripper.WinLogic.UserControls.TextBoxUC();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tHotelPhone = new Tripper.WinLogic.UserControls.TextBoxUC();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tStaymentCost = new Tripper.WinLogic.UserControls.CurrencyTextBoxUC();
             this.SuspendLayout();
             // 
             // lDaysCount
             // 
             this.lDaysCount.AutoSize = true;
             this.lDaysCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lDaysCount.ForeColor = System.Drawing.Color.White;
-            this.lDaysCount.Location = new System.Drawing.Point(474, 107);
+            this.lDaysCount.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lDaysCount.Location = new System.Drawing.Point(495, 98);
             this.lDaysCount.Name = "lDaysCount";
             this.lDaysCount.Size = new System.Drawing.Size(103, 20);
             this.lDaysCount.TabIndex = 148;
             this.lDaysCount.Text = "Dni łącznie:";
             this.lDaysCount.Visible = false;
             // 
-            // button5
+            // bAdd
             // 
-            this.button5.BackColor = System.Drawing.Color.Teal;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button5.FlatAppearance.BorderSize = 2;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(478, 183);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(217, 38);
-            this.button5.TabIndex = 155;
-            this.button5.Text = "Dodaj ";
-            this.button5.UseVisualStyleBackColor = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(10, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(161, 24);
-            this.label5.TabIndex = 158;
-            this.label5.Text = "Zakwaterowanie";
-            this.label5.Visible = false;
-            // 
-            // textBoxUC4
-            // 
-            this.textBoxUC4.AutoSize = true;
-            this.textBoxUC4.BackColor = System.Drawing.Color.Transparent;
-            this.textBoxUC4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBoxUC4.LabelMessage = "Numer telefonu";
-            this.textBoxUC4.Location = new System.Drawing.Point(14, 142);
-            this.textBoxUC4.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.textBoxUC4.MessageVisibility = true;
-            this.textBoxUC4.Multiline = false;
-            this.textBoxUC4.Name = "textBoxUC4";
-            this.textBoxUC4.Size = new System.Drawing.Size(204, 29);
-            this.textBoxUC4.TabIndex = 150;
+            this.bAdd.BackColor = System.Drawing.Color.Teal;
+            this.bAdd.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray;
+            this.bAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bAdd.ForeColor = System.Drawing.Color.White;
+            this.bAdd.Location = new System.Drawing.Point(499, 268);
+            this.bAdd.Name = "bAdd";
+            this.bAdd.Size = new System.Drawing.Size(217, 38);
+            this.bAdd.TabIndex = 155;
+            this.bAdd.Text = "Dodaj ";
+            this.bAdd.UseVisualStyleBackColor = false;
+            this.bAdd.Click += new System.EventHandler(this.bAdd_Click);
             // 
             // dtpDateTo
             // 
@@ -100,7 +79,7 @@
             this.dtpDateTo.Enabled = false;
             this.dtpDateTo.EnabledDate = true;
             this.dtpDateTo.EnabledTime = false;
-            this.dtpDateTo.Location = new System.Drawing.Point(672, 67);
+            this.dtpDateTo.Location = new System.Drawing.Point(689, 58);
             this.dtpDateTo.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpDateTo.Name = "dtpDateTo";
             this.dtpDateTo.Padding = new System.Windows.Forms.Padding(3);
@@ -116,7 +95,7 @@
             this.dtpDateFrom.Enabled = false;
             this.dtpDateFrom.EnabledDate = true;
             this.dtpDateFrom.EnabledTime = false;
-            this.dtpDateFrom.Location = new System.Drawing.Point(478, 67);
+            this.dtpDateFrom.Location = new System.Drawing.Point(495, 58);
             this.dtpDateFrom.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpDateFrom.Name = "dtpDateFrom";
             this.dtpDateFrom.Padding = new System.Windows.Forms.Padding(3);
@@ -125,46 +104,51 @@
             this.dtpDateFrom.TimeLabelMessage = "Godzina";
             this.dtpDateFrom.ValueChangedDate += new System.EventHandler(this.dtpDateFrom_ValueChangedDate);
             // 
-            // textBoxUC2
+            // tHotelName
             // 
-            this.textBoxUC2.AutoSize = true;
-            this.textBoxUC2.BackColor = System.Drawing.Color.Transparent;
-            this.textBoxUC2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBoxUC2.LabelMessage = "Nazwa hotelu";
-            this.textBoxUC2.Location = new System.Drawing.Point(14, 71);
-            this.textBoxUC2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.textBoxUC2.MessageVisibility = true;
-            this.textBoxUC2.Multiline = false;
-            this.textBoxUC2.Name = "textBoxUC2";
-            this.textBoxUC2.Size = new System.Drawing.Size(204, 29);
-            this.textBoxUC2.TabIndex = 144;
+            this.tHotelName.AutoSize = true;
+            this.tHotelName.BackColor = System.Drawing.Color.Transparent;
+            this.tHotelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tHotelName.LabelMessage = "Nazwa hotelu";
+            this.tHotelName.Location = new System.Drawing.Point(37, 61);
+            this.tHotelName.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.tHotelName.MessageVisibility = true;
+            this.tHotelName.Multiline = false;
+            this.tHotelName.Name = "tHotelName";
+            this.tHotelName.Padding = new System.Windows.Forms.Padding(3);
+            this.tHotelName.ReadOnly = false;
+            this.tHotelName.Size = new System.Drawing.Size(204, 34);
+            this.tHotelName.TabIndex = 144;
             // 
-            // textBoxUC1
+            // tHotelAddress
             // 
-            this.textBoxUC1.AutoSize = true;
-            this.textBoxUC1.BackColor = System.Drawing.Color.Transparent;
-            this.textBoxUC1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBoxUC1.LabelMessage = "Adres";
-            this.textBoxUC1.Location = new System.Drawing.Point(14, 106);
-            this.textBoxUC1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.textBoxUC1.MessageVisibility = true;
-            this.textBoxUC1.Multiline = false;
-            this.textBoxUC1.Name = "textBoxUC1";
-            this.textBoxUC1.Size = new System.Drawing.Size(204, 29);
-            this.textBoxUC1.TabIndex = 142;
+            this.tHotelAddress.AutoSize = true;
+            this.tHotelAddress.BackColor = System.Drawing.Color.Transparent;
+            this.tHotelAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tHotelAddress.LabelMessage = "Adres";
+            this.tHotelAddress.Location = new System.Drawing.Point(37, 94);
+            this.tHotelAddress.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.tHotelAddress.MessageVisibility = true;
+            this.tHotelAddress.Multiline = false;
+            this.tHotelAddress.Name = "tHotelAddress";
+            this.tHotelAddress.Padding = new System.Windows.Forms.Padding(3);
+            this.tHotelAddress.ReadOnly = false;
+            this.tHotelAddress.Size = new System.Drawing.Size(204, 29);
+            this.tHotelAddress.TabIndex = 142;
             // 
-            // localizationsUC1
+            // tLocalization
             // 
-            this.localizationsUC1.AutoSize = true;
-            this.localizationsUC1.BackColor = System.Drawing.Color.Transparent;
-            this.localizationsUC1.CityMessageIfEmpty = "Miasto";
-            this.localizationsUC1.CountryMessageIfEmpty = "Kraj";
-            this.localizationsUC1.Location = new System.Drawing.Point(226, 68);
-            this.localizationsUC1.MessageVisibility = true;
-            this.localizationsUC1.Name = "localizationsUC1";
-            this.localizationsUC1.SelectedLocalization = null;
-            this.localizationsUC1.Size = new System.Drawing.Size(228, 68);
-            this.localizationsUC1.TabIndex = 141;
+            this.tLocalization.AutoSize = true;
+            this.tLocalization.BackColor = System.Drawing.Color.Transparent;
+            this.tLocalization.CityMessageIfEmpty = "Miasto";
+            this.tLocalization.CountryList = null;
+            this.tLocalization.CountryMessageIfEmpty = "Kraj";
+            this.tLocalization.Location = new System.Drawing.Point(243, 58);
+            this.tLocalization.MessageVisibility = true;
+            this.tLocalization.Name = "tLocalization";
+            this.tLocalization.SelectedLocalization = null;
+            this.tLocalization.Size = new System.Drawing.Size(228, 68);
+            this.tLocalization.TabIndex = 141;
             // 
             // tAdditonalInformations
             // 
@@ -173,32 +157,126 @@
             this.tAdditonalInformations.BackColor = System.Drawing.Color.Transparent;
             this.tAdditonalInformations.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tAdditonalInformations.LabelMessage = "Informacje dodatkowe";
-            this.tAdditonalInformations.Location = new System.Drawing.Point(14, 183);
+            this.tAdditonalInformations.Location = new System.Drawing.Point(27, 268);
             this.tAdditonalInformations.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.tAdditonalInformations.MessageVisibility = true;
+            this.tAdditonalInformations.MessageVisibility = false;
             this.tAdditonalInformations.Multiline = true;
             this.tAdditonalInformations.Name = "tAdditonalInformations";
+            this.tAdditonalInformations.Padding = new System.Windows.Forms.Padding(3);
+            this.tAdditonalInformations.ReadOnly = false;
             this.tAdditonalInformations.Size = new System.Drawing.Size(420, 26);
             this.tAdditonalInformations.TabIndex = 149;
             this.tAdditonalInformations.Enter += new System.EventHandler(this.tAdditionalInformations_Enter);
             this.tAdditonalInformations.Leave += new System.EventHandler(this.tAdditionalInformations_Leave);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label3.Location = new System.Drawing.Point(37, 35);
+            this.label3.Margin = new System.Windows.Forms.Padding(0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(176, 20);
+            this.label3.TabIndex = 156;
+            this.label3.Text = "Nazwa i adres hotelu";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label1.Location = new System.Drawing.Point(495, 36);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(107, 20);
+            this.label1.TabIndex = 157;
+            this.label1.Text = "Data pobytu";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label8.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label8.Location = new System.Drawing.Point(27, 242);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(186, 20);
+            this.label8.TabIndex = 158;
+            this.label8.Text = "Informacje dodatkowe";
+            // 
+            // tHotelPhone
+            // 
+            this.tHotelPhone.AutoSize = true;
+            this.tHotelPhone.BackColor = System.Drawing.Color.Transparent;
+            this.tHotelPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tHotelPhone.LabelMessage = "Linie lotnicze";
+            this.tHotelPhone.Location = new System.Drawing.Point(147, 156);
+            this.tHotelPhone.Margin = new System.Windows.Forms.Padding(0);
+            this.tHotelPhone.MessageVisibility = false;
+            this.tHotelPhone.Multiline = false;
+            this.tHotelPhone.Name = "tHotelPhone";
+            this.tHotelPhone.Padding = new System.Windows.Forms.Padding(3);
+            this.tHotelPhone.ReadOnly = false;
+            this.tHotelPhone.Size = new System.Drawing.Size(233, 29);
+            this.tHotelPhone.TabIndex = 160;
+            this.tHotelPhone.Tag = "5";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label2.Location = new System.Drawing.Point(12, 159);
+            this.label2.Margin = new System.Windows.Forms.Padding(0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(132, 20);
+            this.label2.TabIndex = 161;
+            this.label2.Text = "Numer telefonu";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label10.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label10.Location = new System.Drawing.Point(461, 159);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(113, 20);
+            this.label10.TabIndex = 162;
+            this.label10.Text = "Koszt pobytu";
+            // 
+            // tStaymentCost
+            // 
+            this.tStaymentCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tStaymentCost.LabelMessage = "0.00";
+            this.tStaymentCost.Location = new System.Drawing.Point(580, 156);
+            this.tStaymentCost.MessageVisibility = true;
+            this.tStaymentCost.Name = "tStaymentCost";
+            this.tStaymentCost.Size = new System.Drawing.Size(103, 27);
+            this.tStaymentCost.TabIndex = 163;
+            this.tStaymentCost.Tag = "";
+            // 
             // NewHotelCreator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Teal;
-            this.ClientSize = new System.Drawing.Size(875, 360);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.textBoxUC4);
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.ClientSize = new System.Drawing.Size(956, 360);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.lDaysCount);
             this.Controls.Add(this.dtpDateTo);
             this.Controls.Add(this.dtpDateFrom);
-            this.Controls.Add(this.textBoxUC2);
-            this.Controls.Add(this.textBoxUC1);
-            this.Controls.Add(this.localizationsUC1);
+            this.Controls.Add(this.tHotelName);
+            this.Controls.Add(this.tHotelAddress);
+            this.Controls.Add(this.tLocalization);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.tStaymentCost);
+            this.Controls.Add(this.tHotelPhone);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.tAdditonalInformations);
+            this.Controls.Add(this.bAdd);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "NewHotelCreator";
             this.Text = "NewHotelCreator";
             this.ResumeLayout(false);
@@ -208,15 +286,20 @@
 
         #endregion
 
-        private UserControls.LocalizationsUC localizationsUC1;
-        private UserControls.TextBoxUC textBoxUC1;
-        private UserControls.TextBoxUC textBoxUC2;
+        private UserControls.LocalizationsUC tLocalization;
+        private UserControls.TextBoxUC tHotelAddress;
+        private UserControls.TextBoxUC tHotelName;
         private UserControls.DateTimeUC dtpDateFrom;
         private UserControls.DateTimeUC dtpDateTo;
         private System.Windows.Forms.Label lDaysCount;
         private UserControls.TextBoxUC tAdditonalInformations;
-        private UserControls.TextBoxUC textBoxUC4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button bAdd;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label8;
+        private UserControls.TextBoxUC tHotelPhone;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label10;
+        private UserControls.CurrencyTextBoxUC tStaymentCost;
     }
 }

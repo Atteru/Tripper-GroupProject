@@ -11,5 +11,10 @@ namespace Tripper.BusinessLogic
         {
             AddNew, Edit
         }
-    
+
+        public enum CreatorStatus
+        {
+            Edit, Confirmed
+    }
+
 }
