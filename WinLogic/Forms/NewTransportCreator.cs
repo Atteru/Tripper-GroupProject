@@ -200,12 +200,12 @@ namespace Tripper.WinLogic.Forms
 
         private void tAdditionalInformations_Enter(object sender, EventArgs e)
         {
-            tAdditonalInformations.Height = 26*3 - 10;
+            tAdditonalInformations.Height = tTransporter.Height * 2;
         }
 
         private void tAdditionalInformations_Leave(object sender, EventArgs e)
         {
-            tAdditonalInformations.Height = 26;
+            tAdditonalInformations.Height = tTransporter.Height + 5;
         }
 
         public void ShowVehicleProperties(Vehicle vehicle)
@@ -224,6 +224,11 @@ namespace Tripper.WinLogic.Forms
         private void bAdd_Click(object sender, EventArgs e)
         {
             SubmitChanges();
+        }
+
+        private void tTransportCost_Load(object sender, EventArgs e)
+        {
+
         }
 
     }

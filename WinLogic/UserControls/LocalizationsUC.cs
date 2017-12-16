@@ -116,7 +116,11 @@ namespace Tripper.WinLogic.UserControls
         }
 
 
-        public List<Country> CountryList { get => countryList; set => countryList = value; }
+        public List<Country> CountryList
+        {
+            get { return countryList; }
+            set { countryList = value; }
+        }
 
         private void cbCountry_TextUpdate(object sender, EventArgs e)
         {

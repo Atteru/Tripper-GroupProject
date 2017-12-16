@@ -59,9 +59,9 @@
             this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             this.tableLayoutPanel.RowCount = 2;
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 160F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 145F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel.Size = new System.Drawing.Size(983, 463);
+            this.tableLayoutPanel.Size = new System.Drawing.Size(983, 448);
             this.tableLayoutPanel.TabIndex = 1;
             // 
             // pDatailsPanel
@@ -69,7 +69,7 @@
             this.pDatailsPanel.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.pDatailsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pDatailsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pDatailsPanel.Location = new System.Drawing.Point(3, 163);
+            this.pDatailsPanel.Location = new System.Drawing.Point(3, 148);
             this.pDatailsPanel.Name = "pDatailsPanel";
             this.pDatailsPanel.Size = new System.Drawing.Size(977, 297);
             this.pDatailsPanel.TabIndex = 2;
@@ -84,7 +84,7 @@
             this.pTop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pTop.Location = new System.Drawing.Point(3, 3);
             this.pTop.Name = "pTop";
-            this.pTop.Size = new System.Drawing.Size(977, 154);
+            this.pTop.Size = new System.Drawing.Size(977, 139);
             this.pTop.TabIndex = 3;
             // 
             // pTripView
@@ -99,7 +99,7 @@
             this.pTripView.Location = new System.Drawing.Point(0, 0);
             this.pTripView.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
             this.pTripView.Name = "pTripView";
-            this.pTripView.Size = new System.Drawing.Size(769, 152);
+            this.pTripView.Size = new System.Drawing.Size(769, 137);
             this.pTripView.TabIndex = 3;
             // 
             // lTripName
@@ -110,7 +110,7 @@
             this.lTripName.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.lTripName.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.lTripName.LinkColor = System.Drawing.Color.DarkSlateGray;
-            this.lTripName.Location = new System.Drawing.Point(181, 28);
+            this.lTripName.Location = new System.Drawing.Point(181, 20);
             this.lTripName.Name = "lTripName";
             this.lTripName.Size = new System.Drawing.Size(153, 24);
             this.lTripName.TabIndex = 164;
@@ -124,7 +124,7 @@
             this.lDestination.AutoSize = true;
             this.lDestination.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lDestination.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lDestination.Location = new System.Drawing.Point(181, 63);
+            this.lDestination.Location = new System.Drawing.Point(181, 55);
             this.lDestination.Name = "lDestination";
             this.lDestination.Size = new System.Drawing.Size(125, 20);
             this.lDestination.TabIndex = 163;
@@ -135,7 +135,7 @@
             this.lDaysCount.AutoSize = true;
             this.lDaysCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lDaysCount.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lDaysCount.Location = new System.Drawing.Point(181, 103);
+            this.lDaysCount.Location = new System.Drawing.Point(181, 95);
             this.lDaysCount.Name = "lDaysCount";
             this.lDaysCount.Size = new System.Drawing.Size(221, 20);
             this.lDaysCount.TabIndex = 162;
@@ -146,7 +146,7 @@
             this.lStartDate.AutoSize = true;
             this.lStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lStartDate.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lStartDate.Location = new System.Drawing.Point(181, 83);
+            this.lStartDate.Location = new System.Drawing.Point(181, 75);
             this.lStartDate.Name = "lStartDate";
             this.lStartDate.Size = new System.Drawing.Size(53, 20);
             this.lStartDate.TabIndex = 161;
@@ -156,9 +156,9 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.MintCream;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(24, 15);
+            this.pictureBox1.Location = new System.Drawing.Point(27, 19);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(141, 111);
+            this.pictureBox1.Size = new System.Drawing.Size(138, 98);
             this.pictureBox1.TabIndex = 159;
             this.pictureBox1.TabStop = false;
             // 
@@ -169,7 +169,7 @@
             this.flowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.flowLayoutPanel.Location = new System.Drawing.Point(769, 0);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
-            this.flowLayoutPanel.Size = new System.Drawing.Size(206, 152);
+            this.flowLayoutPanel.Size = new System.Drawing.Size(206, 137);
             this.flowLayoutPanel.TabIndex = 2;
             // 
             // bEdit
@@ -211,7 +211,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.tableLayoutPanel);
             this.Name = "TripListRow";
-            this.Size = new System.Drawing.Size(983, 463);
+            this.Size = new System.Drawing.Size(983, 448);
             this.tableLayoutPanel.ResumeLayout(false);
             this.pTop.ResumeLayout(false);
             this.pTripView.ResumeLayout(false);

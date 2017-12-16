@@ -65,38 +65,39 @@
             this.pTopBanner.Location = new System.Drawing.Point(0, 0);
             this.pTopBanner.Name = "pTopBanner";
             this.pTopBanner.RowCount = 2;
-            this.pTopBanner.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.68602F));
-            this.pTopBanner.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 89.31399F));
+            this.pTopBanner.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.834008F));
+            this.pTopBanner.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 97.16599F));
             this.pTopBanner.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.pTopBanner.Size = new System.Drawing.Size(1245, 758);
+            this.pTopBanner.Size = new System.Drawing.Size(1245, 741);
             this.pTopBanner.TabIndex = 0;
             // 
             // mainPanelTableLayoutPanel
             // 
             this.mainPanelTableLayoutPanel.BackColor = System.Drawing.Color.DarkCyan;
             this.mainPanelTableLayoutPanel.ColumnCount = 2;
-            this.mainPanelTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.24052F));
-            this.mainPanelTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.75948F));
+            this.mainPanelTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.51412F));
+            this.mainPanelTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.48588F));
             this.mainPanelTableLayoutPanel.Controls.Add(this.pCenter, 1, 1);
             this.mainPanelTableLayoutPanel.Controls.Add(this.pLeft, 0, 1);
             this.mainPanelTableLayoutPanel.Controls.Add(this.pTop, 1, 0);
             this.mainPanelTableLayoutPanel.Controls.Add(this.pLeftCorner, 0, 0);
             this.mainPanelTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainPanelTableLayoutPanel.Location = new System.Drawing.Point(3, 84);
+            this.mainPanelTableLayoutPanel.Location = new System.Drawing.Point(3, 23);
             this.mainPanelTableLayoutPanel.Name = "mainPanelTableLayoutPanel";
             this.mainPanelTableLayoutPanel.RowCount = 2;
             this.mainPanelTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.941877F));
             this.mainPanelTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.05812F));
-            this.mainPanelTableLayoutPanel.Size = new System.Drawing.Size(1239, 671);
+            this.mainPanelTableLayoutPanel.Size = new System.Drawing.Size(1239, 715);
             this.mainPanelTableLayoutPanel.TabIndex = 0;
             // 
             // pCenter
             // 
+            this.pCenter.AutoScroll = true;
             this.pCenter.BackColor = System.Drawing.Color.White;
             this.pCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pCenter.Location = new System.Drawing.Point(229, 62);
+            this.pCenter.Location = new System.Drawing.Point(219, 66);
             this.pCenter.Name = "pCenter";
-            this.pCenter.Size = new System.Drawing.Size(1007, 606);
+            this.pCenter.Size = new System.Drawing.Size(1017, 646);
             this.pCenter.TabIndex = 1;
             // 
             // pLeft
@@ -104,9 +105,9 @@
             this.pLeft.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.pLeft.Controls.Add(this.tcFilter);
             this.pLeft.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pLeft.Location = new System.Drawing.Point(3, 62);
+            this.pLeft.Location = new System.Drawing.Point(3, 66);
             this.pLeft.Name = "pLeft";
-            this.pLeft.Size = new System.Drawing.Size(220, 606);
+            this.pLeft.Size = new System.Drawing.Size(210, 646);
             this.pLeft.TabIndex = 0;
             // 
             // tcFilter
@@ -118,7 +119,7 @@
             this.tcFilter.Location = new System.Drawing.Point(0, 0);
             this.tcFilter.Name = "tcFilter";
             this.tcFilter.SelectedIndex = 0;
-            this.tcFilter.Size = new System.Drawing.Size(220, 606);
+            this.tcFilter.Size = new System.Drawing.Size(210, 646);
             this.tcFilter.TabIndex = 1;
             // 
             // mainFilterPage
@@ -128,7 +129,7 @@
             this.mainFilterPage.Location = new System.Drawing.Point(4, 23);
             this.mainFilterPage.Name = "mainFilterPage";
             this.mainFilterPage.Padding = new System.Windows.Forms.Padding(3);
-            this.mainFilterPage.Size = new System.Drawing.Size(212, 579);
+            this.mainFilterPage.Size = new System.Drawing.Size(202, 619);
             this.mainFilterPage.TabIndex = 1;
             this.mainFilterPage.Text = "mainFilterPage";
             // 
@@ -148,7 +149,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(206, 101);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(196, 101);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // bTransportMainList
@@ -161,7 +162,7 @@
             this.bTransportMainList.ForeColor = System.Drawing.Color.White;
             this.bTransportMainList.Location = new System.Drawing.Point(6, 56);
             this.bTransportMainList.Name = "bTransportMainList";
-            this.bTransportMainList.Size = new System.Drawing.Size(194, 44);
+            this.bTransportMainList.Size = new System.Drawing.Size(184, 44);
             this.bTransportMainList.TabIndex = 156;
             this.bTransportMainList.Text = "Moje podróże";
             this.bTransportMainList.UseVisualStyleBackColor = false;
@@ -177,7 +178,7 @@
             this.bAddNewTrip.ForeColor = System.Drawing.Color.White;
             this.bAddNewTrip.Location = new System.Drawing.Point(6, 6);
             this.bAddNewTrip.Name = "bAddNewTrip";
-            this.bAddNewTrip.Size = new System.Drawing.Size(194, 44);
+            this.bAddNewTrip.Size = new System.Drawing.Size(184, 44);
             this.bAddNewTrip.TabIndex = 155;
             this.bAddNewTrip.Text = "Dodaj podróż";
             this.bAddNewTrip.UseVisualStyleBackColor = false;
@@ -189,7 +190,7 @@
             this.tripDetailsFilterPage.Location = new System.Drawing.Point(4, 23);
             this.tripDetailsFilterPage.Name = "tripDetailsFilterPage";
             this.tripDetailsFilterPage.Padding = new System.Windows.Forms.Padding(3);
-            this.tripDetailsFilterPage.Size = new System.Drawing.Size(212, 579);
+            this.tripDetailsFilterPage.Size = new System.Drawing.Size(202, 619);
             this.tripDetailsFilterPage.TabIndex = 0;
             this.tripDetailsFilterPage.Text = "tripDetailsFilterPage";
             // 
@@ -210,7 +211,7 @@
             this.newTripCreatorButtonPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.newTripCreatorButtonPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.newTripCreatorButtonPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.newTripCreatorButtonPanel.Size = new System.Drawing.Size(206, 257);
+            this.newTripCreatorButtonPanel.Size = new System.Drawing.Size(196, 257);
             this.newTripCreatorButtonPanel.TabIndex = 1;
             // 
             // bBackToTripList
@@ -223,7 +224,7 @@
             this.bBackToTripList.ForeColor = System.Drawing.Color.White;
             this.bBackToTripList.Location = new System.Drawing.Point(6, 207);
             this.bBackToTripList.Name = "bBackToTripList";
-            this.bBackToTripList.Size = new System.Drawing.Size(194, 44);
+            this.bBackToTripList.Size = new System.Drawing.Size(184, 44);
             this.bBackToTripList.TabIndex = 158;
             this.bBackToTripList.Text = "Powrót";
             this.bBackToTripList.UseVisualStyleBackColor = false;
@@ -239,7 +240,7 @@
             this.bOtherCosts.ForeColor = System.Drawing.Color.White;
             this.bOtherCosts.Location = new System.Drawing.Point(6, 106);
             this.bOtherCosts.Name = "bOtherCosts";
-            this.bOtherCosts.Size = new System.Drawing.Size(194, 44);
+            this.bOtherCosts.Size = new System.Drawing.Size(184, 44);
             this.bOtherCosts.TabIndex = 157;
             this.bOtherCosts.Text = "Wydatki";
             this.bOtherCosts.UseVisualStyleBackColor = false;
@@ -254,7 +255,7 @@
             this.bStayment.ForeColor = System.Drawing.Color.White;
             this.bStayment.Location = new System.Drawing.Point(6, 56);
             this.bStayment.Name = "bStayment";
-            this.bStayment.Size = new System.Drawing.Size(194, 44);
+            this.bStayment.Size = new System.Drawing.Size(184, 44);
             this.bStayment.TabIndex = 156;
             this.bStayment.Text = "Zakwaterowanie";
             this.bStayment.UseVisualStyleBackColor = false;
@@ -270,7 +271,7 @@
             this.bTransport.ForeColor = System.Drawing.Color.White;
             this.bTransport.Location = new System.Drawing.Point(6, 6);
             this.bTransport.Name = "bTransport";
-            this.bTransport.Size = new System.Drawing.Size(194, 44);
+            this.bTransport.Size = new System.Drawing.Size(184, 44);
             this.bTransport.TabIndex = 155;
             this.bTransport.Text = "Transport";
             this.bTransport.UseVisualStyleBackColor = false;
@@ -280,9 +281,9 @@
             // 
             this.pTop.BackColor = System.Drawing.Color.Teal;
             this.pTop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pTop.Location = new System.Drawing.Point(229, 3);
+            this.pTop.Location = new System.Drawing.Point(219, 3);
             this.pTop.Name = "pTop";
-            this.pTop.Size = new System.Drawing.Size(1007, 53);
+            this.pTop.Size = new System.Drawing.Size(1017, 57);
             this.pTop.TabIndex = 2;
             // 
             // pLeftCorner
@@ -292,14 +293,14 @@
             this.pLeftCorner.Location = new System.Drawing.Point(3, 3);
             this.pLeftCorner.Name = "pLeftCorner";
             this.pLeftCorner.Padding = new System.Windows.Forms.Padding(5);
-            this.pLeftCorner.Size = new System.Drawing.Size(220, 53);
+            this.pLeftCorner.Size = new System.Drawing.Size(210, 57);
             this.pLeftCorner.TabIndex = 3;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1245, 758);
+            this.ClientSize = new System.Drawing.Size(1245, 741);
             this.Controls.Add(this.pTopBanner);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

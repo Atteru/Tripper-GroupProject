@@ -86,7 +86,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label8.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label8.Location = new System.Drawing.Point(46, 17);
+            this.label8.Location = new System.Drawing.Point(46, 7);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(186, 20);
             this.label8.TabIndex = 0;
@@ -99,7 +99,7 @@
             this.bAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bAdd.ForeColor = System.Drawing.Color.White;
-            this.bAdd.Location = new System.Drawing.Point(514, 34);
+            this.bAdd.Location = new System.Drawing.Point(514, 24);
             this.bAdd.Name = "bAdd";
             this.bAdd.Size = new System.Drawing.Size(260, 38);
             this.bAdd.TabIndex = 1;
@@ -117,13 +117,13 @@
             this.pTableInfo.Controls.Add(this.pInfoPlane, 0, 0);
             this.pTableInfo.Controls.Add(this.pInfoPlanePublic, 0, 1);
             this.pTableInfo.Controls.Add(this.pInfoAll, 0, 2);
-            this.pTableInfo.Location = new System.Drawing.Point(0, 152);
+            this.pTableInfo.Location = new System.Drawing.Point(0, 118);
             this.pTableInfo.Name = "pTableInfo";
             this.pTableInfo.RowCount = 3;
             this.pTableInfo.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.pTableInfo.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.pTableInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 111F));
-            this.pTableInfo.Size = new System.Drawing.Size(1068, 227);
+            this.pTableInfo.Size = new System.Drawing.Size(1037, 211);
             this.pTableInfo.TabIndex = 2;
             // 
             // pInfoPlane
@@ -140,7 +140,7 @@
             this.pInfoPlane.Location = new System.Drawing.Point(0, 0);
             this.pInfoPlane.Margin = new System.Windows.Forms.Padding(0);
             this.pInfoPlane.Name = "pInfoPlane";
-            this.pInfoPlane.Size = new System.Drawing.Size(1068, 80);
+            this.pInfoPlane.Size = new System.Drawing.Size(1037, 64);
             this.pInfoPlane.TabIndex = 0;
             // 
             // tTransporter
@@ -149,11 +149,13 @@
             this.tTransporter.BackColor = System.Drawing.Color.Transparent;
             this.tTransporter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tTransporter.LabelMessage = "Linie lotnicze";
-            this.tTransporter.Location = new System.Drawing.Point(143, 8);
+            this.tTransporter.Location = new System.Drawing.Point(143, 1);
             this.tTransporter.Margin = new System.Windows.Forms.Padding(0);
             this.tTransporter.MessageVisibility = false;
             this.tTransporter.Multiline = false;
             this.tTransporter.Name = "tTransporter";
+            this.tTransporter.Padding = new System.Windows.Forms.Padding(3);
+            this.tTransporter.ReadOnly = false;
             this.tTransporter.Size = new System.Drawing.Size(204, 29);
             this.tTransporter.TabIndex = 6;
             this.tTransporter.Tag = "5";
@@ -164,11 +166,13 @@
             this.tFlightNo.BackColor = System.Drawing.Color.Transparent;
             this.tFlightNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tFlightNo.LabelMessage = "Nr. Lotu";
-            this.tFlightNo.Location = new System.Drawing.Point(143, 49);
+            this.tFlightNo.Location = new System.Drawing.Point(143, 33);
             this.tFlightNo.Margin = new System.Windows.Forms.Padding(2);
             this.tFlightNo.MessageVisibility = false;
             this.tFlightNo.Multiline = false;
             this.tFlightNo.Name = "tFlightNo";
+            this.tFlightNo.Padding = new System.Windows.Forms.Padding(3);
+            this.tFlightNo.ReadOnly = false;
             this.tFlightNo.Size = new System.Drawing.Size(134, 29);
             this.tFlightNo.TabIndex = 7;
             this.tFlightNo.Tag = "6";
@@ -178,7 +182,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label7.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label7.Location = new System.Drawing.Point(27, 11);
+            this.label7.Location = new System.Drawing.Point(27, 4);
             this.label7.Margin = new System.Windows.Forms.Padding(0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(114, 20);
@@ -191,11 +195,13 @@
             this.tConfirmationNo.BackColor = System.Drawing.Color.Transparent;
             this.tConfirmationNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tConfirmationNo.LabelMessage = "Nr. Potwierdzenia";
-            this.tConfirmationNo.Location = new System.Drawing.Point(607, 49);
+            this.tConfirmationNo.Location = new System.Drawing.Point(607, 33);
             this.tConfirmationNo.Margin = new System.Windows.Forms.Padding(2);
             this.tConfirmationNo.MessageVisibility = false;
             this.tConfirmationNo.Multiline = false;
             this.tConfirmationNo.Name = "tConfirmationNo";
+            this.tConfirmationNo.Padding = new System.Windows.Forms.Padding(3);
+            this.tConfirmationNo.ReadOnly = false;
             this.tConfirmationNo.Size = new System.Drawing.Size(142, 29);
             this.tConfirmationNo.TabIndex = 8;
             this.tConfirmationNo.Tag = "";
@@ -205,7 +211,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label6.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label6.Location = new System.Drawing.Point(455, 52);
+            this.label6.Location = new System.Drawing.Point(455, 36);
             this.label6.Margin = new System.Windows.Forms.Padding(2);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(149, 20);
@@ -217,7 +223,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label9.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label9.Location = new System.Drawing.Point(67, 52);
+            this.label9.Location = new System.Drawing.Point(67, 36);
             this.label9.Margin = new System.Windows.Forms.Padding(2);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(73, 20);
@@ -233,22 +239,23 @@
             this.pInfoPlanePublic.Controls.Add(this.tTransportCost);
             this.pInfoPlanePublic.Controls.Add(this.tSeats);
             this.pInfoPlanePublic.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pInfoPlanePublic.Location = new System.Drawing.Point(0, 80);
+            this.pInfoPlanePublic.Location = new System.Drawing.Point(0, 64);
             this.pInfoPlanePublic.Margin = new System.Windows.Forms.Padding(0);
             this.pInfoPlanePublic.Name = "pInfoPlanePublic";
-            this.pInfoPlanePublic.Size = new System.Drawing.Size(1068, 36);
+            this.pInfoPlanePublic.Size = new System.Drawing.Size(1037, 36);
             this.pInfoPlanePublic.TabIndex = 1;
             // 
             // tTransportCost
             // 
             this.tTransportCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tTransportCost.LabelMessage = "0.00";
-            this.tTransportCost.Location = new System.Drawing.Point(606, 1);
+            this.tTransportCost.Location = new System.Drawing.Point(610, 4);
             this.tTransportCost.MessageVisibility = true;
             this.tTransportCost.Name = "tTransportCost";
             this.tTransportCost.Size = new System.Drawing.Size(103, 27);
             this.tTransportCost.TabIndex = 10;
             this.tTransportCost.Tag = "";
+            this.tTransportCost.Load += new System.EventHandler(this.tTransportCost_Load);
             // 
             // tSeats
             // 
@@ -261,6 +268,8 @@
             this.tSeats.MessageVisibility = false;
             this.tSeats.Multiline = false;
             this.tSeats.Name = "tSeats";
+            this.tSeats.Padding = new System.Windows.Forms.Padding(3);
+            this.tSeats.ReadOnly = false;
             this.tSeats.Size = new System.Drawing.Size(134, 29);
             this.tSeats.TabIndex = 9;
             this.tSeats.Tag = "";
@@ -272,10 +281,10 @@
             this.pInfoAll.Controls.Add(this.label8);
             this.pInfoAll.Controls.Add(this.tAdditonalInformations);
             this.pInfoAll.Controls.Add(this.bAdd);
-            this.pInfoAll.Location = new System.Drawing.Point(0, 116);
+            this.pInfoAll.Location = new System.Drawing.Point(0, 100);
             this.pInfoAll.Margin = new System.Windows.Forms.Padding(0);
             this.pInfoAll.Name = "pInfoAll";
-            this.pInfoAll.Size = new System.Drawing.Size(1068, 111);
+            this.pInfoAll.Size = new System.Drawing.Size(1037, 111);
             this.pInfoAll.TabIndex = 2;
             // 
             // tAdditonalInformations
@@ -285,11 +294,13 @@
             this.tAdditonalInformations.BackColor = System.Drawing.Color.Transparent;
             this.tAdditonalInformations.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tAdditonalInformations.LabelMessage = "Informacje dodatkowe";
-            this.tAdditonalInformations.Location = new System.Drawing.Point(50, 40);
+            this.tAdditonalInformations.Location = new System.Drawing.Point(50, 30);
             this.tAdditonalInformations.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.tAdditonalInformations.MessageVisibility = false;
             this.tAdditonalInformations.Multiline = true;
             this.tAdditonalInformations.Name = "tAdditonalInformations";
+            this.tAdditonalInformations.Padding = new System.Windows.Forms.Padding(3);
+            this.tAdditonalInformations.ReadOnly = false;
             this.tAdditonalInformations.Size = new System.Drawing.Size(420, 26);
             this.tAdditonalInformations.TabIndex = 11;
             this.tAdditonalInformations.Tag = "";
@@ -301,7 +312,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label3.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label3.Location = new System.Drawing.Point(49, 45);
+            this.label3.Location = new System.Drawing.Point(49, 21);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(135, 20);
@@ -313,7 +324,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label1.Location = new System.Drawing.Point(510, 46);
+            this.label1.Location = new System.Drawing.Point(510, 22);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(135, 20);
@@ -325,7 +336,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label2.Location = new System.Drawing.Point(281, 46);
+            this.label2.Location = new System.Drawing.Point(281, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(125, 20);
             this.label2.TabIndex = 6;
@@ -336,7 +347,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label4.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label4.Location = new System.Drawing.Point(744, 46);
+            this.label4.Location = new System.Drawing.Point(744, 22);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(125, 20);
             this.label4.TabIndex = 5;
@@ -347,8 +358,9 @@
             this.tLocalizationArrival.AutoSize = true;
             this.tLocalizationArrival.BackColor = System.Drawing.Color.Transparent;
             this.tLocalizationArrival.CityMessageIfEmpty = "Miasto";
+            this.tLocalizationArrival.CountryList = null;
             this.tLocalizationArrival.CountryMessageIfEmpty = "Kraj";
-            this.tLocalizationArrival.Location = new System.Drawing.Point(512, 67);
+            this.tLocalizationArrival.Location = new System.Drawing.Point(512, 43);
             this.tLocalizationArrival.MessageVisibility = true;
             this.tLocalizationArrival.Name = "tLocalizationArrival";
             this.tLocalizationArrival.SelectedLocalization = null;
@@ -362,8 +374,9 @@
             this.tLocalizationDeparture.AutoSize = true;
             this.tLocalizationDeparture.BackColor = System.Drawing.Color.Transparent;
             this.tLocalizationDeparture.CityMessageIfEmpty = "Miasto";
+            this.tLocalizationDeparture.CountryList = null;
             this.tLocalizationDeparture.CountryMessageIfEmpty = "Kraj";
-            this.tLocalizationDeparture.Location = new System.Drawing.Point(49, 65);
+            this.tLocalizationDeparture.Location = new System.Drawing.Point(49, 41);
             this.tLocalizationDeparture.MessageVisibility = true;
             this.tLocalizationDeparture.Name = "tLocalizationDeparture";
             this.tLocalizationDeparture.SelectedLocalization = null;
@@ -379,7 +392,7 @@
             this.dtpArrival.Enabled = false;
             this.dtpArrival.EnabledDate = true;
             this.dtpArrival.EnabledTime = false;
-            this.dtpArrival.Location = new System.Drawing.Point(746, 69);
+            this.dtpArrival.Location = new System.Drawing.Point(746, 45);
             this.dtpArrival.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpArrival.Name = "dtpArrival";
             this.dtpArrival.Padding = new System.Windows.Forms.Padding(3);
@@ -396,7 +409,7 @@
             this.dtpDeparture.Enabled = false;
             this.dtpDeparture.EnabledDate = true;
             this.dtpDeparture.EnabledTime = false;
-            this.dtpDeparture.Location = new System.Drawing.Point(283, 67);
+            this.dtpDeparture.Location = new System.Drawing.Point(283, 43);
             this.dtpDeparture.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpDeparture.Name = "dtpDeparture";
             this.dtpDeparture.Padding = new System.Windows.Forms.Padding(3);
@@ -413,7 +426,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(1470, 381);
+            this.ClientSize = new System.Drawing.Size(1046, 336);
             this.Controls.Add(this.tLocalizationArrival);
             this.Controls.Add(this.tLocalizationDeparture);
             this.Controls.Add(this.pTableInfo);

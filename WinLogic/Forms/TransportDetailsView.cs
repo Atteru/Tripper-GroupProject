@@ -149,5 +149,39 @@ namespace Tripper.WinLogic.Forms
 
         }
 
+        private void pTransportTable_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pTableLayoutTransportList_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pTableLayoutTransportList_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pTransportTable_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void transportListPage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pNewTicketView_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

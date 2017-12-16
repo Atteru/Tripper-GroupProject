@@ -56,7 +56,7 @@ namespace Tripper.WinLogic.Forms
 
             tTripTitle.Text = selectedTrip.Name;
             tBudget.Text = selectedTrip.Budget.ToString();
-            tAdditonalInfo.Text = selectedTrip.AdditionalInformation;
+            //tAdditonalInfo.Text = selectedTrip.AdditionalInformation;
             tBudget.MessageVisibility = false;
             
         }

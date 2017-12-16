@@ -81,5 +81,9 @@ namespace Tripper.WinLogic.Forms
                 lDaysCount.Text = "Podróż odbyła się";
         }
 
+        private void pTripView_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
