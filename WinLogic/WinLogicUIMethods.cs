@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
-
+using System.Windows.Forms;
 
 
 namespace Tripper.DbLogic.LinqToSQL
@@ -24,10 +24,9 @@ namespace Tripper.DbLogic.LinqToSQL
             return string.Format("{0}", City);
         }
     }
-
-
-
 }
+
+
 
 
 

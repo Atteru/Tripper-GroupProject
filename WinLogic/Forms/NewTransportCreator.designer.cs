@@ -45,8 +45,8 @@
             this.tSeats = new Tripper.WinLogic.UserControls.TextBoxUC();
             this.pInfoAll = new System.Windows.Forms.Panel();
             this.tAdditonalInformations = new Tripper.WinLogic.UserControls.TextBoxUC();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lDepartureCourse = new System.Windows.Forms.Label();
+            this.lArrivalCourse = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tLocalizationArrival = new Tripper.WinLogic.UserControls.LocalizationsUC();
@@ -307,29 +307,29 @@
             this.tAdditonalInformations.Enter += new System.EventHandler(this.tAdditionalInformations_Enter);
             this.tAdditonalInformations.Leave += new System.EventHandler(this.tAdditionalInformations_Leave);
             // 
-            // label3
+            // lDepartureCourse
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label3.Location = new System.Drawing.Point(49, 21);
-            this.label3.Margin = new System.Windows.Forms.Padding(0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(135, 20);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Kierunek - wylot";
+            this.lDepartureCourse.AutoSize = true;
+            this.lDepartureCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lDepartureCourse.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lDepartureCourse.Location = new System.Drawing.Point(49, 21);
+            this.lDepartureCourse.Margin = new System.Windows.Forms.Padding(0);
+            this.lDepartureCourse.Name = "lDepartureCourse";
+            this.lDepartureCourse.Size = new System.Drawing.Size(135, 20);
+            this.lDepartureCourse.TabIndex = 8;
+            this.lDepartureCourse.Text = "Kierunek - wylot";
             // 
-            // label1
+            // lArrivalCourse
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label1.Location = new System.Drawing.Point(510, 22);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 20);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Kierunek - wylot";
+            this.lArrivalCourse.AutoSize = true;
+            this.lArrivalCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lArrivalCourse.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lArrivalCourse.Location = new System.Drawing.Point(510, 22);
+            this.lArrivalCourse.Margin = new System.Windows.Forms.Padding(0);
+            this.lArrivalCourse.Name = "lArrivalCourse";
+            this.lArrivalCourse.Size = new System.Drawing.Size(148, 20);
+            this.lArrivalCourse.TabIndex = 7;
+            this.lArrivalCourse.Text = "Kierunek - przylot";
             // 
             // label2
             // 
@@ -434,8 +434,8 @@
             this.Controls.Add(this.dtpDeparture);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lArrivalCourse);
+            this.Controls.Add(this.lDepartureCourse);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "NewTransportCreator";
@@ -472,8 +472,8 @@
         private UserControls.TextBoxUC tConfirmationNo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lDepartureCourse;
+        private System.Windows.Forms.Label lArrivalCourse;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private UserControls.DateTimeUC dtpDeparture;

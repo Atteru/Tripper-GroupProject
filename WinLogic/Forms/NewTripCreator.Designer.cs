@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.pTableLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.pAddedTripInfo = new System.Windows.Forms.Panel();
+            this.pAdditionalInfo = new System.Windows.Forms.Panel();
+            this.pStaymentListLayout = new System.Windows.Forms.FlowLayoutPanel();
             this.pTripHeader = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.tBudget = new Tripper.WinLogic.UserControls.CurrencyTextBoxUC();
@@ -39,6 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tAdditonalInfo = new Tripper.WinLogic.UserControls.TextBoxUC();
             this.pTableLayout.SuspendLayout();
+            this.pAdditionalInfo.SuspendLayout();
             this.pTripHeader.SuspendLayout();
             this.pAdditonalInfo.SuspendLayout();
             this.SuspendLayout();
@@ -48,7 +50,7 @@
             this.pTableLayout.AutoSize = true;
             this.pTableLayout.ColumnCount = 1;
             this.pTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.pTableLayout.Controls.Add(this.pAddedTripInfo, 0, 1);
+            this.pTableLayout.Controls.Add(this.pAdditionalInfo, 0, 1);
             this.pTableLayout.Controls.Add(this.pTripHeader, 0, 0);
             this.pTableLayout.Controls.Add(this.pAdditonalInfo, 0, 2);
             this.pTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -58,17 +60,28 @@
             this.pTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.pTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.pTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.pTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.pTableLayout.Size = new System.Drawing.Size(899, 352);
             this.pTableLayout.TabIndex = 151;
             // 
-            // pAddedTripInfo
+            // pAdditionalInfo
             // 
-            this.pAddedTripInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pAddedTripInfo.Location = new System.Drawing.Point(3, 84);
-            this.pAddedTripInfo.Name = "pAddedTripInfo";
-            this.pAddedTripInfo.Size = new System.Drawing.Size(893, 128);
-            this.pAddedTripInfo.TabIndex = 1;
-            this.pAddedTripInfo.Visible = false;
+            this.pAdditionalInfo.Controls.Add(this.pStaymentListLayout);
+            this.pAdditionalInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pAdditionalInfo.Location = new System.Drawing.Point(3, 84);
+            this.pAdditionalInfo.Name = "pAdditionalInfo";
+            this.pAdditionalInfo.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
+            this.pAdditionalInfo.Size = new System.Drawing.Size(893, 128);
+            this.pAdditionalInfo.TabIndex = 1;
+            // 
+            // pStaymentListLayout
+            // 
+            this.pStaymentListLayout.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pStaymentListLayout.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.pStaymentListLayout.Location = new System.Drawing.Point(45, 0);
+            this.pStaymentListLayout.Name = "pStaymentListLayout";
+            this.pStaymentListLayout.Size = new System.Drawing.Size(351, 128);
+            this.pStaymentListLayout.TabIndex = 0;
             // 
             // pTripHeader
             // 
@@ -87,7 +100,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label10.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label10.Location = new System.Drawing.Point(458, 36);
+            this.label10.Location = new System.Drawing.Point(454, 36);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(66, 20);
             this.label10.TabIndex = 153;
@@ -97,7 +110,7 @@
             // 
             this.tBudget.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tBudget.LabelMessage = "0.00";
-            this.tBudget.Location = new System.Drawing.Point(530, 33);
+            this.tBudget.Location = new System.Drawing.Point(526, 33);
             this.tBudget.MessageVisibility = true;
             this.tBudget.Name = "tBudget";
             this.tBudget.Size = new System.Drawing.Size(103, 27);
@@ -110,11 +123,12 @@
             this.tTripTitle.BackColor = System.Drawing.Color.Transparent;
             this.tTripTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tTripTitle.LabelMessage = "Linie lotnicze";
-            this.tTripTitle.Location = new System.Drawing.Point(156, 33);
+            this.tTripTitle.Location = new System.Drawing.Point(156, 31);
             this.tTripTitle.Margin = new System.Windows.Forms.Padding(0);
             this.tTripTitle.MessageVisibility = false;
             this.tTripTitle.Multiline = false;
             this.tTripTitle.Name = "tTripTitle";
+            this.tTripTitle.Padding = new System.Windows.Forms.Padding(3);
             this.tTripTitle.ReadOnly = false;
             this.tTripTitle.Size = new System.Drawing.Size(204, 29);
             this.tTripTitle.TabIndex = 151;
@@ -165,6 +179,7 @@
             this.tAdditonalInfo.MessageVisibility = false;
             this.tAdditonalInfo.Multiline = true;
             this.tAdditonalInfo.Name = "tAdditonalInfo";
+            this.tAdditonalInfo.Padding = new System.Windows.Forms.Padding(3);
             this.tAdditonalInfo.ReadOnly = false;
             this.tAdditonalInfo.Size = new System.Drawing.Size(589, 26);
             this.tAdditonalInfo.TabIndex = 150;
@@ -184,6 +199,7 @@
             this.Name = "NewTripCreator";
             this.Text = "NewTripCreator";
             this.pTableLayout.ResumeLayout(false);
+            this.pAdditionalInfo.ResumeLayout(false);
             this.pTripHeader.ResumeLayout(false);
             this.pTripHeader.PerformLayout();
             this.pAdditonalInfo.ResumeLayout(false);
@@ -195,14 +211,15 @@
 
         #endregion
         private System.Windows.Forms.TableLayoutPanel pTableLayout;
-        private System.Windows.Forms.Panel pAddedTripInfo;
+        private System.Windows.Forms.Panel pAdditonalInfo;
+        private System.Windows.Forms.Label label1;
+        private UserControls.TextBoxUC tAdditonalInfo;
+        private System.Windows.Forms.Panel pAdditionalInfo;
         private System.Windows.Forms.Panel pTripHeader;
         private System.Windows.Forms.Label label10;
         private UserControls.CurrencyTextBoxUC tBudget;
         private UserControls.TextBoxUC tTripTitle;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Panel pAdditonalInfo;
-        private System.Windows.Forms.Label label1;
-        private UserControls.TextBoxUC tAdditonalInfo;
+        private System.Windows.Forms.FlowLayoutPanel pStaymentListLayout;
     }
 }

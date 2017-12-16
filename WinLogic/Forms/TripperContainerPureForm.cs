@@ -25,6 +25,7 @@ namespace Tripper.WinLogic.Forms
                 {
                     if (_displayedForm.CanBeClosed())
                     {
+                        if(_displayedForm is TripperContainerPureForm)
                         _displayedForm.Close();
                         _displayedForm = value;
                     }

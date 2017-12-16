@@ -15,16 +15,13 @@ namespace Tripper.WinLogic.Forms
 {
     public partial class MainForm : TripperContainerPureForm
     {
-        TripDetailsView tripDetails;
-        TripMainList tripList;
-
-
         public int UserID
         {
             get;
             private set;
         }
 
+        TripDetailsView tripDetailsView;
 
         public MainForm()
         {
@@ -40,32 +37,33 @@ namespace Tripper.WinLogic.Forms
 
         public void OpenTripMainList()
         {
-             tripList = new TripMainList();
-             tripList.DockForm(pCenter);
-             tcFilter.SelectTab(mainFilterPage);
-             DisplayedForm = tripList;
-        }
 
+           DisplayedForm = new TripMainList();
+           if (DisplayedForm is TripMainList)
+              ((TripMainList)DisplayedForm).DockForm(pCenter);
+            
+        }
 
         public void OpenTripDetalis()
         {
-            tripDetails = new TripDetailsView(CurrentTrip.Trip);
-            tripDetails.DockForm(pCenter);
+            tripDetailsView = new TripDetailsView(CurrentTrip.Trip);
+            DisplayedForm = tripDetailsView;
+            ((TripDetailsView)DisplayedForm).DockForm(pCenter);
             tcFilter.SelectTab(tripDetailsFilterPage);
-            DisplayedForm = tripDetails;
-
         } 
 
         private void bTransport_Click(object sender, EventArgs e)
         {
-            OpenTripDetalis();
-            tripDetails.ShowTransportDetails();
+            if(tripDetailsView == null)
+                OpenTripDetalis();
+            ((TripDetailsView)DisplayedForm).ShowTransportDetails();
         }
 
         private void bStayment_Click(object sender, EventArgs e)
         {
-            OpenTripDetalis();
-            tripDetails.ShowStaymentDetails();
+            if (tripDetailsView == null)
+                OpenTripDetalis();
+           ((TripDetailsView)DisplayedForm).ShowStaymentDetails();
         }
 
         private void bTripMainList_Click(object sender, EventArgs e)
@@ -75,11 +73,15 @@ namespace Tripper.WinLogic.Forms
 
         private void bBackToTripList_Click(object sender, EventArgs e)
         {
-            //if (tripList != null)
-              //  tripList.Close();
             OpenTripMainList();
         }
 
-
+        private void pCenter_ControlAdded(object sender, ControlEventArgs e)
+        {
+            if(e.Control is TripMainList)
+            {
+                 tcFilter.SelectTab(mainFilterPage);
+            }
+        }
     }
 }

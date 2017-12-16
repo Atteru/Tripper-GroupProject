@@ -91,15 +91,15 @@
             // pMainTablePanel
             // 
             this.pMainTablePanel.ColumnCount = 1;
-            this.pMainTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.pMainTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.pMainTablePanel.Controls.Add(this.pListMainPanel, 0, 1);
             this.pMainTablePanel.Controls.Add(this.pHeaderMainPanel, 0, 0);
             this.pMainTablePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pMainTablePanel.Location = new System.Drawing.Point(0, 0);
             this.pMainTablePanel.Name = "pMainTablePanel";
             this.pMainTablePanel.RowCount = 2;
-            this.pMainTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.31448F));
-            this.pMainTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.68552F));
+            this.pMainTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.pMainTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.pMainTablePanel.Size = new System.Drawing.Size(1085, 601);
             this.pMainTablePanel.TabIndex = 0;
             // 
@@ -107,9 +107,9 @@
             // 
             this.pListMainPanel.Controls.Add(this.tcTripView);
             this.pListMainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pListMainPanel.Location = new System.Drawing.Point(3, 71);
+            this.pListMainPanel.Location = new System.Drawing.Point(3, 73);
             this.pListMainPanel.Name = "pListMainPanel";
-            this.pListMainPanel.Size = new System.Drawing.Size(1079, 527);
+            this.pListMainPanel.Size = new System.Drawing.Size(1079, 525);
             this.pListMainPanel.TabIndex = 0;
             // 
             // tcTripView
@@ -120,7 +120,7 @@
             this.tcTripView.Location = new System.Drawing.Point(0, 0);
             this.tcTripView.Name = "tcTripView";
             this.tcTripView.SelectedIndex = 0;
-            this.tcTripView.Size = new System.Drawing.Size(1079, 527);
+            this.tcTripView.Size = new System.Drawing.Size(1079, 525);
             this.tcTripView.TabIndex = 168;
             // 
             // TripLis
@@ -131,7 +131,7 @@
             this.TripLis.Location = new System.Drawing.Point(4, 22);
             this.TripLis.Name = "TripLis";
             this.TripLis.Padding = new System.Windows.Forms.Padding(3);
-            this.TripLis.Size = new System.Drawing.Size(1071, 501);
+            this.TripLis.Size = new System.Drawing.Size(1071, 499);
             this.TripLis.TabIndex = 0;
             this.TripLis.Text = "TripList";
             // 
@@ -141,16 +141,14 @@
             this.pTableLayoutTripList.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.pTableLayoutTripList.ColumnCount = 1;
             this.pTableLayoutTripList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.pTableLayoutTripList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.pTableLayoutTripList.Controls.Add(this.pTripTable, 0, 1);
+            this.pTableLayoutTripList.Controls.Add(this.pTripTable, 0, 0);
             this.pTableLayoutTripList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pTableLayoutTripList.Location = new System.Drawing.Point(3, 3);
             this.pTableLayoutTripList.Name = "pTableLayoutTripList";
-            this.pTableLayoutTripList.RowCount = 2;
-            this.pTableLayoutTripList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.pTableLayoutTripList.RowCount = 1;
             this.pTableLayoutTripList.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.pTableLayoutTripList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.pTableLayoutTripList.Size = new System.Drawing.Size(1065, 495);
+            this.pTableLayoutTripList.Size = new System.Drawing.Size(1065, 493);
             this.pTableLayoutTripList.TabIndex = 0;
             // 
             // pTripTable
@@ -160,10 +158,10 @@
             this.pTripTable.BackColor = System.Drawing.Color.White;
             this.pTripTable.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pTripTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pTripTable.Location = new System.Drawing.Point(3, 53);
+            this.pTripTable.Location = new System.Drawing.Point(3, 3);
             this.pTripTable.Name = "pTripTable";
             this.pTripTable.Padding = new System.Windows.Forms.Padding(3, 3, 3, 100);
-            this.pTripTable.Size = new System.Drawing.Size(1059, 439);
+            this.pTripTable.Size = new System.Drawing.Size(1059, 487);
             this.pTripTable.TabIndex = 160;
             // 
             // newTrip
@@ -174,7 +172,7 @@
             this.newTrip.Location = new System.Drawing.Point(4, 22);
             this.newTrip.Name = "newTrip";
             this.newTrip.Padding = new System.Windows.Forms.Padding(20);
-            this.newTrip.Size = new System.Drawing.Size(1071, 501);
+            this.newTrip.Size = new System.Drawing.Size(1071, 499);
             this.newTrip.TabIndex = 1;
             this.newTrip.Text = "newTrip";
             // 
@@ -333,7 +331,7 @@
             this.pHeaderMainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pHeaderMainPanel.Location = new System.Drawing.Point(3, 3);
             this.pHeaderMainPanel.Name = "pHeaderMainPanel";
-            this.pHeaderMainPanel.Size = new System.Drawing.Size(1079, 62);
+            this.pHeaderMainPanel.Size = new System.Drawing.Size(1079, 64);
             this.pHeaderMainPanel.TabIndex = 1;
             // 
             // label5

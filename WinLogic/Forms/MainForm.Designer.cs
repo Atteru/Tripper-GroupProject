@@ -99,6 +99,7 @@
             this.pCenter.Name = "pCenter";
             this.pCenter.Size = new System.Drawing.Size(1017, 646);
             this.pCenter.TabIndex = 1;
+            this.pCenter.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.pCenter_ControlAdded);
             // 
             // pLeft
             // 

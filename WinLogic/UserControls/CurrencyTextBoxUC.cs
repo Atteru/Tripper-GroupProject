@@ -39,6 +39,7 @@ namespace Tripper.WinLogic.UserControls
             set
             {
                 textBox.Text = value;
+                MessageVisibility = false;
             }
         }
 

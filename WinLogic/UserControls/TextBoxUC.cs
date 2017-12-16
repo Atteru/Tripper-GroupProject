@@ -179,7 +179,7 @@ namespace Tripper.WinLogic.UserControls
         private void textBox_Validating(object sender, CancelEventArgs e)
         {
             TextBox tbox = sender as TextBox;
-            if (tbox.Text == string.Empty && MessageVisibility)
+            if (tbox.Text == string.Empty && !MessageVisibility)
             {
                  messageLabel.Visible = true;
             }
@@ -188,6 +188,7 @@ namespace Tripper.WinLogic.UserControls
 
         private void messageLabel_Click(object sender, EventArgs e)
         {
+            Refresh();
             if (MessageVisibility)
                 messageLabel.Visible = false;
             textBox.Focus();

@@ -48,6 +48,7 @@ namespace Tripper.WinLogic.Forms
             InitializeComponent();
         }
 
+
         public NewTripCreator(Trip selectedTrip)
         {
             mode = CreatorMode.Edit;
@@ -56,12 +57,27 @@ namespace Tripper.WinLogic.Forms
 
             tTripTitle.Text = selectedTrip.Name;
             tBudget.Text = selectedTrip.Budget.ToString();
-            //tAdditonalInfo.Text = selectedTrip.AdditionalInformation;
-            tBudget.MessageVisibility = false;
+            setAdditionalInformation();
+
             
         }
 
-        
+        private void setAdditionalInformation()
+        {
+            List<Stayment> staymentList = Connection.TripperData.Stayments.Where(stayment => stayment.TripID == SelectedTrip.TripID).ToList();
+            if(staymentList.Count == 0)
+                tBudget.MessageVisibility = false;
+            else
+                foreach (Stayment staymant in staymentList)
+                {
+                    string staymentInfoLocalization = Connection.TripperData.Localizations.Single(loc => loc.LocalizationID == staymant.LocalizationID).City;
+                    Label staymentInfo = new Label();
+                    staymentInfo.Text = staymentInfoLocalization + "    " + staymant.DateFrom.Date.ToShortDateString() + staymant.DateTo.Date.ToShortDateString();
+                    staymentInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+                    staymentInfo.ForeColor = Color.DarkSlateGray;
+                    pStaymentListLayout.Controls.Add(staymentInfo);
+                }
+        }
 
         private void tAdditionalInformations_Enter(object sender, EventArgs e)
         {
@@ -80,7 +96,6 @@ namespace Tripper.WinLogic.Forms
             tAdditonalInfo.Enabled = value;
             AditionalInfoOpen = value;
         }
-
 
     }
 }

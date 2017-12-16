@@ -48,7 +48,6 @@
             this.bAddOtherVehicle = new System.Windows.Forms.Button();
             this.bAddPlane = new System.Windows.Forms.Button();
             this.bAddCar = new System.Windows.Forms.Button();
-            this.pNewTransportBack = new System.Windows.Forms.Panel();
             this.pNewTicketView = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleBindingSource)).BeginInit();
             this.tableLayoutPanel.SuspendLayout();
@@ -60,7 +59,6 @@
             this.newTransportPage.SuspendLayout();
             this.pVehicleTop.SuspendLayout();
             this.pVehicleChoice.SuspendLayout();
-            this.pNewTransportBack.SuspendLayout();
             this.SuspendLayout();
             // 
             // vehiclesImageList
@@ -127,7 +125,6 @@
             this.transportListPage.Size = new System.Drawing.Size(1270, 332);
             this.transportListPage.TabIndex = 0;
             this.transportListPage.Text = "transportListPage";
-            this.transportListPage.Click += new System.EventHandler(this.transportListPage_Click);
             // 
             // pTableLayoutTransportList
             // 
@@ -146,7 +143,6 @@
             this.pTableLayoutTransportList.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.pTableLayoutTransportList.Size = new System.Drawing.Size(1264, 326);
             this.pTableLayoutTransportList.TabIndex = 1;
-            this.pTableLayoutTransportList.Paint += new System.Windows.Forms.PaintEventHandler(this.pTableLayoutTransportList_Paint_1);
             // 
             // pTransportTable
             // 
@@ -154,13 +150,12 @@
             this.pTransportTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pTransportTable.BackColor = System.Drawing.Color.White;
             this.pTransportTable.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pTransportTable.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pTransportTable.Location = new System.Drawing.Point(6, 54);
+            this.pTransportTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pTransportTable.Location = new System.Drawing.Point(3, 54);
             this.pTransportTable.Name = "pTransportTable";
             this.pTransportTable.Padding = new System.Windows.Forms.Padding(3);
-            this.pTransportTable.Size = new System.Drawing.Size(1255, 249);
+            this.pTransportTable.Size = new System.Drawing.Size(1258, 249);
             this.pTransportTable.TabIndex = 160;
-            this.pTransportTable.Paint += new System.Windows.Forms.PaintEventHandler(this.pTransportTable_Paint_1);
             // 
             // panel2
             // 
@@ -207,12 +202,12 @@
             // newTransportPage
             // 
             this.newTransportPage.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.newTransportPage.Controls.Add(this.pNewTicketView);
             this.newTransportPage.Controls.Add(this.pVehicleTop);
-            this.newTransportPage.Controls.Add(this.pNewTransportBack);
             this.newTransportPage.Location = new System.Drawing.Point(4, 22);
             this.newTransportPage.Name = "newTransportPage";
             this.newTransportPage.Padding = new System.Windows.Forms.Padding(20, 15, 20, 20);
-            this.newTransportPage.Size = new System.Drawing.Size(1267, 328);
+            this.newTransportPage.Size = new System.Drawing.Size(1270, 332);
             this.newTransportPage.TabIndex = 1;
             this.newTransportPage.Text = "newTransportPage";
             // 
@@ -224,7 +219,7 @@
             this.pVehicleTop.Location = new System.Drawing.Point(20, 15);
             this.pVehicleTop.Name = "pVehicleTop";
             this.pVehicleTop.Padding = new System.Windows.Forms.Padding(1);
-            this.pVehicleTop.Size = new System.Drawing.Size(1227, 85);
+            this.pVehicleTop.Size = new System.Drawing.Size(1230, 85);
             this.pVehicleTop.TabIndex = 0;
             // 
             // pVehicleChoice
@@ -245,7 +240,7 @@
             this.pVehicleChoice.Name = "pVehicleChoice";
             this.pVehicleChoice.RowCount = 1;
             this.pVehicleChoice.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.pVehicleChoice.Size = new System.Drawing.Size(1225, 83);
+            this.pVehicleChoice.Size = new System.Drawing.Size(1228, 83);
             this.pVehicleChoice.TabIndex = 169;
             // 
             // bAddPublic
@@ -262,11 +257,11 @@
             this.bAddPublic.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.bAddPublic.ImageIndex = 0;
             this.bAddPublic.ImageList = this.vehiclesImageList;
-            this.bAddPublic.Location = new System.Drawing.Point(617, 0);
+            this.bAddPublic.Location = new System.Drawing.Point(619, 0);
             this.bAddPublic.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.bAddPublic.Name = "bAddPublic";
             this.bAddPublic.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.bAddPublic.Size = new System.Drawing.Size(296, 83);
+            this.bAddPublic.Size = new System.Drawing.Size(297, 83);
             this.bAddPublic.TabIndex = 14;
             this.bAddPublic.Text = "Transport publiczny";
             this.bAddPublic.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -287,7 +282,7 @@
             this.bAddOtherVehicle.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.bAddOtherVehicle.ImageIndex = 4;
             this.bAddOtherVehicle.ImageList = this.vehiclesImageList;
-            this.bAddOtherVehicle.Location = new System.Drawing.Point(923, 0);
+            this.bAddOtherVehicle.Location = new System.Drawing.Point(926, 0);
             this.bAddOtherVehicle.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.bAddOtherVehicle.Name = "bAddOtherVehicle";
             this.bAddOtherVehicle.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
@@ -316,7 +311,7 @@
             this.bAddPlane.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.bAddPlane.Name = "bAddPlane";
             this.bAddPlane.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.bAddPlane.Size = new System.Drawing.Size(296, 83);
+            this.bAddPlane.Size = new System.Drawing.Size(297, 83);
             this.bAddPlane.TabIndex = 12;
             this.bAddPlane.Text = "Samolot";
             this.bAddPlane.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -337,43 +332,27 @@
             this.bAddCar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.bAddCar.ImageIndex = 1;
             this.bAddCar.ImageList = this.vehiclesImageList;
-            this.bAddCar.Location = new System.Drawing.Point(311, 0);
+            this.bAddCar.Location = new System.Drawing.Point(312, 0);
             this.bAddCar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.bAddCar.Name = "bAddCar";
             this.bAddCar.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.bAddCar.Size = new System.Drawing.Size(296, 83);
+            this.bAddCar.Size = new System.Drawing.Size(297, 83);
             this.bAddCar.TabIndex = 11;
             this.bAddCar.Text = "Samochód";
             this.bAddCar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bAddCar.UseVisualStyleBackColor = false;
             this.bAddCar.Click += new System.EventHandler(this.bAddCar_Click);
             // 
-            // pNewTransportBack
-            // 
-            this.pNewTransportBack.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pNewTransportBack.AutoScroll = true;
-            this.pNewTransportBack.BackColor = System.Drawing.Color.White;
-            this.pNewTransportBack.Controls.Add(this.pNewTicketView);
-            this.pNewTransportBack.Location = new System.Drawing.Point(20, 106);
-            this.pNewTransportBack.Name = "pNewTransportBack";
-            this.pNewTransportBack.Padding = new System.Windows.Forms.Padding(2);
-            this.pNewTransportBack.Size = new System.Drawing.Size(1227, 219);
-            this.pNewTransportBack.TabIndex = 7;
-            // 
             // pNewTicketView
             // 
-            this.pNewTicketView.AutoSize = true;
-            this.pNewTicketView.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.pNewTicketView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pNewTicketView.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.pNewTicketView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pNewTicketView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pNewTicketView.Location = new System.Drawing.Point(2, 2);
+            this.pNewTicketView.Location = new System.Drawing.Point(21, 120);
             this.pNewTicketView.Name = "pNewTicketView";
-            this.pNewTicketView.Size = new System.Drawing.Size(1223, 215);
-            this.pNewTicketView.TabIndex = 5;
-            this.pNewTicketView.Paint += new System.Windows.Forms.PaintEventHandler(this.pNewTicketView_Paint);
+            this.pNewTicketView.Size = new System.Drawing.Size(1229, 189);
+            this.pNewTicketView.TabIndex = 170;
             // 
             // TransportDetailsView
             // 
@@ -400,8 +379,6 @@
             this.pVehicleTop.ResumeLayout(false);
             this.pVehicleTop.PerformLayout();
             this.pVehicleChoice.ResumeLayout(false);
-            this.pNewTransportBack.ResumeLayout(false);
-            this.pNewTransportBack.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -420,12 +397,11 @@
         private System.Windows.Forms.Button bAddOtherVehicle;
         private System.Windows.Forms.Button bAddPlane;
         private System.Windows.Forms.Button bAddCar;
-        private System.Windows.Forms.Panel pNewTransportBack;
-        private System.Windows.Forms.Panel pNewTicketView;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TableLayoutPanel pTableLayoutTransportList;
         private System.Windows.Forms.FlowLayoutPanel pTransportTable;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button bAdd;
+        private System.Windows.Forms.Panel pNewTicketView;
     }
 }

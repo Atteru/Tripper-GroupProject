@@ -12,9 +12,16 @@ namespace Tripper.WinLogic.Forms
 {
     public partial class TripperPureBaseFrom : Form
     {
+
         public TripperPureBaseFrom()
         {
             InitializeComponent();
+            AlreadyOpened = true;
+        }
+
+        public bool AlreadyOpened
+        {
+            get; set;
         }
 
         virtual public bool CanBeClosed()

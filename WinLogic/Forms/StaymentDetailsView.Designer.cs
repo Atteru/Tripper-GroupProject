@@ -36,10 +36,9 @@
             this.pStaymentTable = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.bAdd = new System.Windows.Forms.Button();
-            this.newStaymentPage = new System.Windows.Forms.TabPage();
-            this.pNewStaymentBack = new System.Windows.Forms.Panel();
-            this.pNewStaymentView = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.newStaymentPage = new System.Windows.Forms.TabPage();
+            this.pNewStaymentView = new System.Windows.Forms.Panel();
             this.tableLayoutPanel.SuspendLayout();
             this.pStaymentList.SuspendLayout();
             this.tcStaymentView.SuspendLayout();
@@ -47,7 +46,6 @@
             this.pTableLayoutStaymentList.SuspendLayout();
             this.panel2.SuspendLayout();
             this.newStaymentPage.SuspendLayout();
-            this.pNewStaymentBack.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel
@@ -159,40 +157,6 @@
             this.bAdd.UseVisualStyleBackColor = false;
             this.bAdd.Click += new System.EventHandler(this.bAdd_Click);
             // 
-            // newStaymentPage
-            // 
-            this.newStaymentPage.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.newStaymentPage.Controls.Add(this.pNewStaymentBack);
-            this.newStaymentPage.Location = new System.Drawing.Point(4, 22);
-            this.newStaymentPage.Name = "newStaymentPage";
-            this.newStaymentPage.Padding = new System.Windows.Forms.Padding(20);
-            this.newStaymentPage.Size = new System.Drawing.Size(1270, 332);
-            this.newStaymentPage.TabIndex = 1;
-            this.newStaymentPage.Text = "newStaymentPage";
-            // 
-            // pNewStaymentBack
-            // 
-            this.pNewStaymentBack.AutoSize = true;
-            this.pNewStaymentBack.BackColor = System.Drawing.Color.White;
-            this.pNewStaymentBack.Controls.Add(this.pNewStaymentView);
-            this.pNewStaymentBack.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pNewStaymentBack.Location = new System.Drawing.Point(20, 20);
-            this.pNewStaymentBack.Name = "pNewStaymentBack";
-            this.pNewStaymentBack.Padding = new System.Windows.Forms.Padding(2);
-            this.pNewStaymentBack.Size = new System.Drawing.Size(1230, 292);
-            this.pNewStaymentBack.TabIndex = 7;
-            // 
-            // pNewStaymentView
-            // 
-            this.pNewStaymentView.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.pNewStaymentView.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.pNewStaymentView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pNewStaymentView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pNewStaymentView.Location = new System.Drawing.Point(2, 2);
-            this.pNewStaymentView.Name = "pNewStaymentView";
-            this.pNewStaymentView.Size = new System.Drawing.Size(1226, 288);
-            this.pNewStaymentView.TabIndex = 5;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -203,6 +167,28 @@
             this.label2.Size = new System.Drawing.Size(139, 20);
             this.label2.TabIndex = 151;
             this.label2.Text = "Zakwaterowanie";
+            // 
+            // newStaymentPage
+            // 
+            this.newStaymentPage.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.newStaymentPage.Controls.Add(this.pNewStaymentView);
+            this.newStaymentPage.Location = new System.Drawing.Point(4, 22);
+            this.newStaymentPage.Name = "newStaymentPage";
+            this.newStaymentPage.Padding = new System.Windows.Forms.Padding(20);
+            this.newStaymentPage.Size = new System.Drawing.Size(1270, 332);
+            this.newStaymentPage.TabIndex = 1;
+            this.newStaymentPage.Text = "newStaymentPage";
+            // 
+            // pNewStaymentView
+            // 
+            this.pNewStaymentView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pNewStaymentView.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.pNewStaymentView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pNewStaymentView.Location = new System.Drawing.Point(20, 20);
+            this.pNewStaymentView.Name = "pNewStaymentView";
+            this.pNewStaymentView.Size = new System.Drawing.Size(1230, 292);
+            this.pNewStaymentView.TabIndex = 6;
             // 
             // StaymentDetailsView
             // 
@@ -222,8 +208,6 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.newStaymentPage.ResumeLayout(false);
-            this.newStaymentPage.PerformLayout();
-            this.pNewStaymentBack.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -239,8 +223,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button bAdd;
         private System.Windows.Forms.TabPage newStaymentPage;
-        private System.Windows.Forms.Panel pNewStaymentBack;
-        private System.Windows.Forms.Panel pNewStaymentView;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel pNewStaymentView;
     }
 }

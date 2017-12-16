@@ -210,15 +210,24 @@ namespace Tripper.WinLogic.Forms
 
         public void ShowVehicleProperties(Vehicle vehicle)
         {
+            string courseTerm = "Kierunek - ";
+            string courseTermDeparture = "Wyjazd";
+            string courseTermArrival = "Przyjazd";
+
             hideVehiclePanel();
             if(vehicle == LocalizableStrings.GetValue.GetVehicle(LocalizableStrings.Plane))
             {
+                courseTermDeparture = "Wylot";
+                courseTermArrival = "Przylot";
                 pInfoPlane.Visible = pInfoPlanePublic.Visible = true;
             }
             else if(vehicle == LocalizableStrings.GetValue.GetVehicle(LocalizableStrings.Public))
             {
                 pInfoPlanePublic.Visible = true;
-            }     
+            }
+            lDepartureCourse.Text = courseTerm + courseTermDeparture;
+            lArrivalCourse.Text = courseTerm + courseTermArrival;
+
         }
 
         private void bAdd_Click(object sender, EventArgs e)

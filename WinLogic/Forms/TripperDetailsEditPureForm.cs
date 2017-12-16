@@ -49,6 +49,7 @@ namespace Tripper.WinLogic.Forms
             }
         }
 
+
         public override bool CanBeClosed()
         {
             if(mode == CreatorMode.AddNew && cratorStatus == CreatorStatus.Edit)
@@ -67,6 +68,14 @@ namespace Tripper.WinLogic.Forms
             base.OnClosing(e);
             if (cratorStatus == CreatorStatus.Confirmed)
                 cratorStatus = CreatorStatus.Edit;
+            //this.Parent.Visible = false;
+        }
+
+        protected override void OnDockChanged(EventArgs e)
+        {
+            base.OnDockChanged(e);
+            this.Parent.Height = this.Height;
+            this.Parent.Refresh();
         }
 
 
