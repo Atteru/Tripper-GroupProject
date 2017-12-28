@@ -1,24 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Tripper.WinLogic.Forms;
 using Tripper.DbLogic.LinqToSQL;
 using Tripper.DbLogic;
-using Tripper.WinLogic.Classes;
 
-namespace Tripper.WinLogic.UserControls
+namespace Tripper.WinLogic.Forms
 {
-    public partial class TripListRow : ListRowPureControl
+    public partial class TripContainerView : TripperContainerPureForm
     {
+        TripperContainerPureForm detailsView;
 
-
-        NewTripCreator tripDetails;
 
         private Trip _selectedTrip;
         public Trip SelectedTrip
@@ -33,24 +30,31 @@ namespace Tripper.WinLogic.UserControls
             }
         }
 
-        public TripListRow()
+
+        public TripContainerView(Trip selectedTrip)
         {
             InitializeComponent();
+            SelectedTrip = selectedTrip;
+            ShowTransportDetails();
+            setTripInfo(SelectedTrip);
         }
 
-        public TripListRow(Trip trip)
+        public void ShowTransportDetails()
         {
-            SelectedTrip = trip;
-            InitializeComponent();
-            setTripInfo(trip);
+            detailsView = new TransportDetailsView(SelectedTrip);
+            detailsView.DockForm(pCurrentView);
         }
 
-        public Button EditButton
+        public void ShowStaymentDetails()
         {
-            get
-            {
-                return bEdit;
-            }
+            detailsView = new StaymentDetailsView(SelectedTrip);
+            detailsView.DockForm(pCurrentView);
+        }
+
+        public void ShowOtherCoststDetails()
+        {
+            detailsView = new OtherCostsDetailsView(SelectedTrip);
+            detailsView.DockForm(pCurrentView);
         }
 
         private void setTripInfo(Trip trip)
@@ -80,9 +84,14 @@ namespace Tripper.WinLogic.UserControls
                 lDaysCount.Text = "Podróż odbyła się";
         }
 
-        private void bEdit_Click(object sender, EventArgs e)
+        public override void GoBackToParent()
         {
-            CurrentTrip.Trip = SelectedTrip;
+            CloseDisplayedForms();
+        }
+
+        private void pTripView_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

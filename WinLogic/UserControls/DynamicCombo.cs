@@ -40,21 +40,7 @@ namespace Tripper.WinLogic.UserControls
                     Rectangle bounds = new Rectangle(0, 0, Width, Height);
                     ControlPaint.DrawBorder(g, bounds, _borderColor, _borderStyle);
                 }
-
-        }
-
-       /*
-        [DllImportAttribute("uxtheme.dll")]
-        private static extern int SetWindowTheme(IntPtr hWnd, string appname, string idlist);
-
-        protected override void OnHandleCreated(EventArgs e)
-        {
-            SetWindowTheme(this.Handle, "", "");
-            base.OnHandleCreated(e);
-        }
-        */
-
-
+        } 
 
         public int StartingSize
         {
@@ -64,17 +50,6 @@ namespace Tripper.WinLogic.UserControls
         public bool IsOpened
         {
             get; set;
-        }
-
-
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            base.OnPaint(e);
-            /*ControlPaint.DrawBorder(e.Graphics, ClientRectangle,
-                                 Color.Black, 1, ButtonBorderStyle.Solid,
-                                 Color.Black, 1, ButtonBorderStyle.Solid,
-                                 Color.Black, 1, ButtonBorderStyle.Solid,
-                                 Color.Black, 1, ButtonBorderStyle.Solid); */
         }
 
         public void drawWarningBoeder()

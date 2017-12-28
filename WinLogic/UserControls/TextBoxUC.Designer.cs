@@ -45,6 +45,7 @@
             this.messageLabel.Size = new System.Drawing.Size(54, 24);
             this.messageLabel.TabIndex = 1;
             this.messageLabel.Text = "Tytuł";
+            this.messageLabel.Visible = false;
             this.messageLabel.Click += new System.EventHandler(this.messageLabel_Click);
             // 
             // textBox

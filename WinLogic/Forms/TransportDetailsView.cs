@@ -15,7 +15,7 @@ using System.Threading;
 
 namespace Tripper.WinLogic.Forms
 {
-    public partial class TransportDetailsView : TripperContainerPureForm
+    public partial class TransportDetailsView : TripperDetailsViewPureForm
     {
         private Button selectedVehicleButton;
 
@@ -45,6 +45,7 @@ namespace Tripper.WinLogic.Forms
                 selectedVehicleButton.BackColor = clickedColor;
             }
         }
+        
 
 
         List<Transport> transportList = new List<Transport>();
@@ -80,12 +81,15 @@ namespace Tripper.WinLogic.Forms
             transportList = Connection.TripperData.Transports.Where(trans => trans.TripID == SelectedTrip.TripID).ToList();
             transportList = transportList.OrderBy(trans => trans.DepartureTime).ToList();
 
+            Decimal total = 0;
+
             foreach (Transport row in transportList)
             {
                 TransportListRow transportRow = new TransportListRow(row);
                 transportRowList.Add(transportRow);
                 pTransportTable.Controls.Add(transportRow);
                 transportRow.Dock = DockStyle.Top;
+                total += row.Cost;
             }
         }
 
@@ -145,9 +149,14 @@ namespace Tripper.WinLogic.Forms
             loadTransportList();
             this.Refresh();
             tcTransportView.SelectTab(transportListPage);
-            
-
         }
 
+        private void tcTransportView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tcTransportView.SelectedTab == newTransportPage)
+                Mode = DetailsViewMode.AddNew;
+            else
+                Mode = DetailsViewMode.ListView;
+        }
     }
 }

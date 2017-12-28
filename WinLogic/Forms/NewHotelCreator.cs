@@ -22,8 +22,8 @@ namespace Tripper.WinLogic.Forms
         public NewHotelCreator() :base()
         {
             InitializeComponent();
-            mode = CreatorMode.AddNew;
-            cratorStatus = CreatorStatus.Edit;
+            Mode = BusinessLogic.CreatorMode.AddNew;
+            Status = CreatorStatus.Edit;
             dtpDateFrom.Date.ValueChanged += dtpDateFrom_ValueChangedDate;
             dtpDateTo.Date.ValueChanged += dtpDateTo_ValueChangedDate;
             selecteStayment = new Stayment();
@@ -33,7 +33,7 @@ namespace Tripper.WinLogic.Forms
 
         public NewHotelCreator(Stayment row) : base()
         {
-            mode = CreatorMode.Edit;
+            Mode = BusinessLogic.CreatorMode.Edit;
             InitializeComponent();
             selecteStayment = Connection.TripperData.Stayments.Single(transport => transport.Equals(row));
             tLocalization.FillLocalizationFields(selecteStayment.LocalizationID);
@@ -65,7 +65,7 @@ namespace Tripper.WinLogic.Forms
             if (validationCheck())
             {
                 selecteStayment.Name = tHotelName.Text;
-                selecteStayment.LocalizationID = tLocalization.GetLocalizationFromFields();
+                selecteStayment.Localization = Connection.TripperData.Localizations.Single(c => c.LocalizationID == tLocalization.SelectedLocalization.LocalizationID);
                 selecteStayment.DateFrom = dtpDateFrom.ValueNotNull();
                 selecteStayment.DateTo = dtpDateTo.ValueNotNull();
                 selecteStayment.Address = tHotelAddress.Text;
@@ -73,7 +73,7 @@ namespace Tripper.WinLogic.Forms
                 //selecteStayment.PhoneNumber = tHotelPhone.Text;
                 selecteStayment.AdditionalInformation = tAdditonalInformations.Text;
   
-                if (mode == CreatorMode.AddNew)
+                if (Mode == BusinessLogic.CreatorMode.AddNew)
                 {
                     selecteStayment.TripID = CurrentTrip.Trip.TripID;
                     Connection.TripperData.Stayments.InsertOnSubmit(selecteStayment);
@@ -95,17 +95,17 @@ namespace Tripper.WinLogic.Forms
                     try
                     {
                         Connection.TripperData.SubmitChanges();
-                        cratorStatus = CreatorStatus.Confirmed;
+                        Status = CreatorStatus.Confirmed;
                     }
                     catch (Exception exept)
                     {
                         TripperMessageBox.Show(exept.ToString(), "Błąd");
                     }
 
-                    if (mode == CreatorMode.AddNew)
+                    if (Mode == BusinessLogic.CreatorMode.AddNew)
                         this.Close();
                     else
-                        this.Parent.Refresh();
+                        OnAfterUpdate(EventArgs.Empty);
                 }
             }
         }
@@ -153,7 +153,7 @@ namespace Tripper.WinLogic.Forms
 
         private void tAdditionalInformations_Leave(object sender, EventArgs e)
         {
-            tAdditonalInformations.Height = 26;
+            tAdditonalInformations.Height = 32;
         }
 
         private void bAdd_Click(object sender, EventArgs e)
@@ -161,7 +161,10 @@ namespace Tripper.WinLogic.Forms
             SubmitChanges();
         }
 
- 
+        public override void GoBackToParent()
+        {
+            this.Close();
+        }
 
     }
 }

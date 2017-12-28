@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.pDatailsPanel = new System.Windows.Forms.Panel();
             this.pTop = new System.Windows.Forms.Panel();
             this.pTripView = new System.Windows.Forms.Panel();
             this.lTripName = new System.Windows.Forms.LinkLabel();
@@ -53,7 +52,6 @@
             this.tableLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel.ColumnCount = 1;
             this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel.Controls.Add(this.pDatailsPanel, 0, 1);
             this.tableLayoutPanel.Controls.Add(this.pTop, 0, 0);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
@@ -61,19 +59,8 @@
             this.tableLayoutPanel.RowCount = 2;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 145F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel.Size = new System.Drawing.Size(983, 448);
+            this.tableLayoutPanel.Size = new System.Drawing.Size(983, 145);
             this.tableLayoutPanel.TabIndex = 1;
-            // 
-            // pDatailsPanel
-            // 
-            this.pDatailsPanel.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.pDatailsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pDatailsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pDatailsPanel.Location = new System.Drawing.Point(3, 148);
-            this.pDatailsPanel.Name = "pDatailsPanel";
-            this.pDatailsPanel.Size = new System.Drawing.Size(977, 297);
-            this.pDatailsPanel.TabIndex = 2;
-            this.pDatailsPanel.Visible = false;
             // 
             // pTop
             // 
@@ -104,7 +91,7 @@
             // 
             // lTripName
             // 
-            this.lTripName.ActiveLinkColor = System.Drawing.Color.Gainsboro;
+            this.lTripName.ActiveLinkColor = System.Drawing.Color.DarkSlateGray;
             this.lTripName.AutoSize = true;
             this.lTripName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lTripName.ForeColor = System.Drawing.Color.DarkSlateGray;
@@ -117,7 +104,6 @@
             this.lTripName.TabStop = true;
             this.lTripName.Text = "Nazwa podróży";
             this.lTripName.VisitedLinkColor = System.Drawing.Color.DarkCyan;
-            this.lTripName.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lTripName_LinkClicked);
             // 
             // lDestination
             // 
@@ -211,7 +197,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.tableLayoutPanel);
             this.Name = "TripListRow";
-            this.Size = new System.Drawing.Size(983, 448);
+            this.Size = new System.Drawing.Size(983, 145);
             this.tableLayoutPanel.ResumeLayout(false);
             this.pTop.ResumeLayout(false);
             this.pTripView.ResumeLayout(false);
@@ -226,7 +212,6 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
-        private System.Windows.Forms.Panel pDatailsPanel;
         private System.Windows.Forms.Panel pTop;
         private System.Windows.Forms.Panel pTripView;
         private System.Windows.Forms.Label lDestination;

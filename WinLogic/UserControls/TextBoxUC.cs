@@ -39,6 +39,7 @@ namespace Tripper.WinLogic.UserControls
             set
             {
                 textBox.Text = value;
+                messageLabel.Visible = false;
             }
         }
 
@@ -103,19 +104,21 @@ namespace Tripper.WinLogic.UserControls
         // label służy do wyświetlania komunikatów na textboxie w stylu: "Podaj imię"
         // Docelowo label będzie obsługiwał walidację danych
 
-        
+
 
         // Property ustawia widoczność komunikatu
+        private bool _messageVisibility;
         public bool MessageVisibility
         {
             get
             {
-                return messageLabel.Visible;
+                return _messageVisibility;
             }
-
             set
             {
-                messageLabel.Visible = value;
+                _messageVisibility = value;
+                if (_messageVisibility && textBox.Text == string.Empty)
+                    messageLabel.Visible = true;
             }
         }
 
@@ -179,7 +182,7 @@ namespace Tripper.WinLogic.UserControls
         private void textBox_Validating(object sender, CancelEventArgs e)
         {
             TextBox tbox = sender as TextBox;
-            if (tbox.Text == string.Empty && !MessageVisibility)
+            if (tbox.Text == string.Empty && MessageVisibility && !messageLabel.Visible)
             {
                  messageLabel.Visible = true;
             }
@@ -189,7 +192,7 @@ namespace Tripper.WinLogic.UserControls
         private void messageLabel_Click(object sender, EventArgs e)
         {
             Refresh();
-            if (MessageVisibility)
+            if (MessageVisibility && messageLabel.Visible)
                 messageLabel.Visible = false;
             textBox.Focus();
         }
@@ -200,7 +203,7 @@ namespace Tripper.WinLogic.UserControls
 
             Graphics g = this.CreateGraphics();
 
-            Pen blackPen = new Pen(Color.Firebrick, 4);
+            Pen blackPen = new Pen(Color.Firebrick, 2);
             int x = textBox.Location.X;
             int y = textBox.Location.Y;
             int width = textBox.Width;

@@ -83,7 +83,6 @@ namespace Tripper.WinLogic.UserControls
             cbCity.IsOpened = false;
             lCityError.Text = CityMessageIfEmpty = "Miasto";
             lCountryError.Text = CountryMessageIfEmpty = "Kraj";
-    
         }
 
         public DynamicCombo CountryBox
@@ -360,7 +359,7 @@ namespace Tripper.WinLogic.UserControls
 
             Graphics g = this.CreateGraphics();
             
-            Pen blackPen = new Pen(Color.Firebrick, 4);
+            Pen blackPen = new Pen(Color.Firebrick, 2);
             int x = comboBox.Location.X;
             int y = comboBox.Location.Y;
             int width = comboBox.Width;

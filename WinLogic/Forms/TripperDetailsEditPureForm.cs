@@ -13,8 +13,19 @@ namespace Tripper.WinLogic.Forms
 {
     public partial class TripperDetailsEditPureForm : TripperPureBaseFrom
     {
-        protected CreatorMode mode;
-        protected CreatorStatus cratorStatus; 
+        public event EventHandler AfterUpdate;
+
+        public CreatorMode Mode
+        {
+            get;
+            protected set;
+
+        }
+        public CreatorStatus Status
+        {
+            get;
+            protected set;
+        }
 
 
         private bool _editable;
@@ -37,25 +48,14 @@ namespace Tripper.WinLogic.Forms
 
         }
 
-        protected override void OnParentChanged(EventArgs e)
-        {
-            base.OnParentChanged(e);
-
-            Form form = this.ParentForm;
-            if(form is TripperContainerPureForm)
-            {
-                TripperContainerPureForm ParentForm = form as TripperContainerPureForm;
-                ParentForm.DisplayedForm = this;
-            }
-        }
-
-
         public override bool CanBeClosed()
         {
-            if(mode == CreatorMode.AddNew && cratorStatus == CreatorStatus.Edit)
+            base.CanBeClosed();
+
+            if (Mode == BusinessLogic.CreatorMode.AddNew && Status == CreatorStatus.Edit)
             {
-               DialogResult result = TripperMessageBox.Show("Czy czcesz wyjść bez zapisana zmian?", "Czy napewno?");
-                if (result == DialogResult.No)
+                DialogResult result = TripperMessageBox.Show("Czy czcesz wyjść bez zapisana zmian?", "Czy napewno?");
+                if (result != DialogResult.Yes)
                 {
                     return false;
                 }
@@ -66,8 +66,8 @@ namespace Tripper.WinLogic.Forms
         protected override void OnClosing(CancelEventArgs e)
         {
             base.OnClosing(e);
-            if (cratorStatus == CreatorStatus.Confirmed)
-                cratorStatus = CreatorStatus.Edit;
+            if (Status == CreatorStatus.Confirmed)
+                Status = CreatorStatus.Edit;
             //this.Parent.Visible = false;
         }
 
@@ -78,6 +78,13 @@ namespace Tripper.WinLogic.Forms
             this.Parent.Refresh();
         }
 
-
+        protected virtual void OnAfterUpdate(EventArgs e)
+        {
+            EventHandler handler = AfterUpdate;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
     }
 }

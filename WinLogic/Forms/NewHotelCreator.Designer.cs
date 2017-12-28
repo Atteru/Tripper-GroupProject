@@ -64,11 +64,11 @@
             this.bAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bAdd.ForeColor = System.Drawing.Color.White;
-            this.bAdd.Location = new System.Drawing.Point(499, 268);
+            this.bAdd.Location = new System.Drawing.Point(499, 232);
             this.bAdd.Name = "bAdd";
             this.bAdd.Size = new System.Drawing.Size(217, 38);
             this.bAdd.TabIndex = 155;
-            this.bAdd.Text = "Dodaj ";
+            this.bAdd.Text = "Zapisz";
             this.bAdd.UseVisualStyleBackColor = false;
             this.bAdd.Click += new System.EventHandler(this.bAdd_Click);
             // 
@@ -157,14 +157,14 @@
             this.tAdditonalInformations.BackColor = System.Drawing.Color.Transparent;
             this.tAdditonalInformations.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tAdditonalInformations.LabelMessage = "Informacje dodatkowe";
-            this.tAdditonalInformations.Location = new System.Drawing.Point(27, 268);
+            this.tAdditonalInformations.Location = new System.Drawing.Point(27, 232);
             this.tAdditonalInformations.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.tAdditonalInformations.MessageVisibility = false;
             this.tAdditonalInformations.Multiline = true;
             this.tAdditonalInformations.Name = "tAdditonalInformations";
             this.tAdditonalInformations.Padding = new System.Windows.Forms.Padding(3);
             this.tAdditonalInformations.ReadOnly = false;
-            this.tAdditonalInformations.Size = new System.Drawing.Size(420, 26);
+            this.tAdditonalInformations.Size = new System.Drawing.Size(420, 32);
             this.tAdditonalInformations.TabIndex = 149;
             this.tAdditonalInformations.Enter += new System.EventHandler(this.tAdditionalInformations_Enter);
             this.tAdditonalInformations.Leave += new System.EventHandler(this.tAdditionalInformations_Leave);
@@ -198,7 +198,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label8.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label8.Location = new System.Drawing.Point(27, 242);
+            this.label8.Location = new System.Drawing.Point(27, 206);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(186, 20);
             this.label8.TabIndex = 158;
@@ -210,7 +210,7 @@
             this.tHotelPhone.BackColor = System.Drawing.Color.Transparent;
             this.tHotelPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tHotelPhone.LabelMessage = "Linie lotnicze";
-            this.tHotelPhone.Location = new System.Drawing.Point(147, 156);
+            this.tHotelPhone.Location = new System.Drawing.Point(154, 148);
             this.tHotelPhone.Margin = new System.Windows.Forms.Padding(0);
             this.tHotelPhone.MessageVisibility = false;
             this.tHotelPhone.Multiline = false;
@@ -226,7 +226,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label2.Location = new System.Drawing.Point(12, 159);
+            this.label2.Location = new System.Drawing.Point(17, 153);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(132, 20);
@@ -238,7 +238,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label10.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label10.Location = new System.Drawing.Point(461, 159);
+            this.label10.Location = new System.Drawing.Point(461, 153);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(113, 20);
             this.label10.TabIndex = 162;
@@ -248,7 +248,7 @@
             // 
             this.tStaymentCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tStaymentCost.LabelMessage = "0.00";
-            this.tStaymentCost.Location = new System.Drawing.Point(580, 156);
+            this.tStaymentCost.Location = new System.Drawing.Point(580, 150);
             this.tStaymentCost.MessageVisibility = true;
             this.tStaymentCost.Name = "tStaymentCost";
             this.tStaymentCost.Size = new System.Drawing.Size(103, 27);
@@ -260,7 +260,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(956, 360);
+            this.ClientSize = new System.Drawing.Size(956, 314);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lDaysCount);

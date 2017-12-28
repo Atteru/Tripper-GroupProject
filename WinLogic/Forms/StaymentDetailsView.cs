@@ -15,7 +15,7 @@ using System.Threading;
 
 namespace Tripper.WinLogic.Forms
 {
-    public partial class StaymentDetailsView : TripperContainerPureForm
+    public partial class StaymentDetailsView : TripperDetailsViewPureForm
     {
         private Trip _selectedTrip;
         public Trip SelectedTrip
@@ -38,16 +38,13 @@ namespace Tripper.WinLogic.Forms
         public StaymentDetailsView(Trip selectedTrip)
         {
             InitializeComponent();
+            Mode = DetailsViewMode.ListView;
             SelectedTrip = selectedTrip;
             tcStaymentView.Appearance = TabAppearance.FlatButtons;
             tcStaymentView.ItemSize = new Size(0, 1);
             tcStaymentView.SizeMode = TabSizeMode.Fixed;
             loadStaymentList();
-            if (StaymentList.Count == 0)
-            {
 
-                bAdd_Click(bAdd, null);
-            }
         }
 
         private void loadStaymentList()
@@ -89,8 +86,6 @@ namespace Tripper.WinLogic.Forms
             loadStaymentList();
             this.Refresh();
             tcStaymentView.SelectTab(StaymentListPage);
-
-
         }
 
         private void bAdd_Click(object sender, EventArgs e)
@@ -98,7 +93,16 @@ namespace Tripper.WinLogic.Forms
             loadStaymentPanel();
             tcStaymentView.SelectTab(newStaymentPage);
             newStaymentPanel.FormClosing += newStaymentPanel_FormClosing;
+        }
 
+
+
+        private void tcStaymentView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tcStaymentView.SelectedTab == newStaymentPage)
+                Mode = DetailsViewMode.AddNew;
+            else
+                Mode = DetailsViewMode.ListView;
         }
     }
 }

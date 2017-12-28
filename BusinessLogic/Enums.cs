@@ -15,6 +15,11 @@ namespace Tripper.BusinessLogic
         public enum CreatorStatus
         {
             Edit, Confirmed
-    }
+        }
+
+        public enum DetailsViewMode
+        {
+            ListView, AddNew
+        }
 
 }

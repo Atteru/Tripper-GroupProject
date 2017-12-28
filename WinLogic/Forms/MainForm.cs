@@ -21,7 +21,7 @@ namespace Tripper.WinLogic.Forms
             private set;
         }
 
-        TripDetailsView tripDetailsView;
+        TripperContainerPureForm currentContainer;
 
         public MainForm()
         {
@@ -37,34 +37,65 @@ namespace Tripper.WinLogic.Forms
 
         public void OpenTripMainList()
         {
+            if (!(currentContainer is TripMainList))
+            {
+                if (currentContainer != null)
+                    currentContainer.Close();
 
-           DisplayedForm = new TripMainList();
-           if (DisplayedForm is TripMainList)
-              ((TripMainList)DisplayedForm).DockForm(pCenter);
-            
+                currentContainer = new TripMainList();
+                ((TripMainList)currentContainer).DockForm(pCenter);
+            }
         }
 
         public void OpenTripDetalis()
         {
-            tripDetailsView = new TripDetailsView(CurrentTrip.Trip);
-            DisplayedForm = tripDetailsView;
-            ((TripDetailsView)DisplayedForm).DockForm(pCenter);
-            tcFilter.SelectTab(tripDetailsFilterPage);
-        } 
+            if(!(currentContainer is TripContainerView) && currentContainer != null)
+            {
+                if (currentContainer != null)
+                    currentContainer.Close();
+
+                currentContainer = new TripContainerView(CurrentTrip.Trip);
+                ((TripContainerView)currentContainer).DockForm(pCenter);
+                tcFilter.SelectTab(tripDetailsFilterPage);
+                currentContainer.FormClosed += currentContainer_FormClosed;
+            }
+        }
+
+        private void currentContainer_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            currentContainer.FormClosed -= currentContainer_FormClosed;
+            currentContainer = new TripMainList();
+            ((TripMainList)currentContainer).DockForm(pCenter);
+        }
 
         private void bTransport_Click(object sender, EventArgs e)
         {
-            if(tripDetailsView == null)
+            if(currentContainer.CanBeClosed())
+            {
                 OpenTripDetalis();
-            ((TripDetailsView)DisplayedForm).ShowTransportDetails();
+                ((TripContainerView)currentContainer).ShowTransportDetails();
+            }
         }
 
         private void bStayment_Click(object sender, EventArgs e)
         {
-            if (tripDetailsView == null)
+            if (currentContainer.CanBeClosed())
+            {
                 OpenTripDetalis();
-           ((TripDetailsView)DisplayedForm).ShowStaymentDetails();
+                ((TripContainerView)currentContainer).ShowStaymentDetails();
+            }
+
         }
+
+        private void bOtherCosts_Click(object sender, EventArgs e)
+        {
+            if (currentContainer.CanBeClosed())
+            {
+                OpenTripDetalis();
+                ((TripContainerView)currentContainer).ShowOtherCoststDetails();
+            }
+        }
+
 
         private void bTripMainList_Click(object sender, EventArgs e)
         {
@@ -73,7 +104,10 @@ namespace Tripper.WinLogic.Forms
 
         private void bBackToTripList_Click(object sender, EventArgs e)
         {
-            OpenTripMainList();
+            if (currentContainer.CanBeClosed())
+            {
+                CloseDisplayedForms();
+            }
         }
 
         private void pCenter_ControlAdded(object sender, ControlEventArgs e)

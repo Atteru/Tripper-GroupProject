@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tripper.WinLogic.Classes;
 
 namespace Tripper.WinLogic.Forms
 {
@@ -23,15 +24,16 @@ namespace Tripper.WinLogic.Forms
             {
                 if (_displayedForm != null)
                 {
-                    if (_displayedForm.CanBeClosed())
-                    {
-                        if(_displayedForm is TripperContainerPureForm)
-                        _displayedForm.Close();
-                        _displayedForm = value;
-                    }
+                     if (_displayedForm is TripperContainerPureForm)
+                          _displayedForm.Close();
+                     _displayedForm = value;
                 }
-                else if(_displayedForm == null)
+                else 
+                {
                     _displayedForm = value;
+                }
+
+                DisplayedFormList.Add(value);
             }
         }
 
@@ -44,21 +46,26 @@ namespace Tripper.WinLogic.Forms
       
         }
 
-
         public override bool CanBeClosed()
         {
-            if (DisplayedForm != null)
-                return DisplayedForm.CanBeClosed();
+            bool canBeClosed = true;
+            foreach (TripperPureBaseFrom form in DisplayedFormList)
+            {
+                if (!form.CanBeClosed())
+                {
+                    canBeClosed = false;
+                }
+            }
 
-            return true;
+            return canBeClosed;
         }
 
         protected override void OnClosing(CancelEventArgs e)
         {
             base.OnClosing(e);
-            if (DisplayedForm != null)
-                DisplayedForm.Close();
+            this.DisplayedFormList.Clear();
         }
+
 
     }
 }

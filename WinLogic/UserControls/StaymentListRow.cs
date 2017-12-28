@@ -13,7 +13,7 @@ using Tripper.DbLogic;
 
 namespace Tripper.WinLogic.UserControls
 {
-    public partial class StaymentListRow : UserControl
+    public partial class StaymentListRow : ListRowPureControl
     {
 
         NewHotelCreator StaymentDetails;
@@ -50,24 +50,27 @@ namespace Tripper.WinLogic.UserControls
         {
             SelectedStayment = Stayment;
             InitializeComponent();
-            lStaymentInfo.Text = setStaymentInfo();
-
-
+            lStaymentInfo.Text = SetInfo();
         }
 
-        private string setStaymentInfo()
+        private void StaymentDetails_AfterUpdate(object sender, EventArgs e)
         {
-            string localization = Connection.TripperData.Localizations.Single(loc => loc.LocalizationID == SelectedStayment.LocalizationID).City;
+            lStaymentInfo.Text = SetInfo();
+        }
+
+        protected override string SetInfo()
+        {
+            string localization = SelectedStayment.Localization.City;
             string date = SelectedStayment.DateFrom.Date.ToShortDateString() + " - " + SelectedStayment.DateTo.Date.ToShortDateString();
 
             return localization + " " + date;
-
         }
 
 
-        private void ShowTicket(bool editable)
+        private void ShowStaymentDatails(bool editable)
         {
             StaymentDetails = new NewHotelCreator(SelectedStayment);
+            StaymentDetails.AfterUpdate += StaymentDetails_AfterUpdate;
             StaymentDetails.Editable = editable;
             StaymentDetails.TopLevel = false;
             StaymentDetails.Parent = this.pStaymentPanel;
@@ -81,7 +84,7 @@ namespace Tripper.WinLogic.UserControls
         {
             if (!EditPanelVisible)
             {
-                ShowTicket(true);
+                ShowStaymentDatails(true);
                 pStaymentPanel.Visible = true;
             }
             else if (EditPanelVisible && StaymentDetails.Editable == false)
@@ -99,7 +102,7 @@ namespace Tripper.WinLogic.UserControls
         {
             if (!EditPanelVisible)
             {
-                ShowTicket(false);
+                ShowStaymentDatails(false);
                 pStaymentPanel.Visible = true;
             }
             else

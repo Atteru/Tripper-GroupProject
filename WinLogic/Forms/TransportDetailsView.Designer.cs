@@ -42,13 +42,13 @@
             this.bAdd = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.newTransportPage = new System.Windows.Forms.TabPage();
+            this.pNewTicketView = new System.Windows.Forms.Panel();
             this.pVehicleTop = new System.Windows.Forms.Panel();
             this.pVehicleChoice = new System.Windows.Forms.TableLayoutPanel();
             this.bAddPublic = new System.Windows.Forms.Button();
             this.bAddOtherVehicle = new System.Windows.Forms.Button();
             this.bAddPlane = new System.Windows.Forms.Button();
             this.bAddCar = new System.Windows.Forms.Button();
-            this.pNewTicketView = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleBindingSource)).BeginInit();
             this.tableLayoutPanel.SuspendLayout();
             this.pTransportList.SuspendLayout();
@@ -113,6 +113,7 @@
             this.tcTransportView.SelectedIndex = 0;
             this.tcTransportView.Size = new System.Drawing.Size(1278, 358);
             this.tcTransportView.TabIndex = 167;
+            this.tcTransportView.SelectedIndexChanged += new System.EventHandler(this.tcTransportView_SelectedIndexChanged);
             // 
             // transportListPage
             // 
@@ -210,6 +211,17 @@
             this.newTransportPage.Size = new System.Drawing.Size(1270, 332);
             this.newTransportPage.TabIndex = 1;
             this.newTransportPage.Text = "newTransportPage";
+            // 
+            // pNewTicketView
+            // 
+            this.pNewTicketView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pNewTicketView.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.pNewTicketView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pNewTicketView.Location = new System.Drawing.Point(21, 120);
+            this.pNewTicketView.Name = "pNewTicketView";
+            this.pNewTicketView.Size = new System.Drawing.Size(1229, 189);
+            this.pNewTicketView.TabIndex = 170;
             // 
             // pVehicleTop
             // 
@@ -343,17 +355,6 @@
             this.bAddCar.UseVisualStyleBackColor = false;
             this.bAddCar.Click += new System.EventHandler(this.bAddCar_Click);
             // 
-            // pNewTicketView
-            // 
-            this.pNewTicketView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pNewTicketView.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.pNewTicketView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pNewTicketView.Location = new System.Drawing.Point(21, 120);
-            this.pNewTicketView.Name = "pNewTicketView";
-            this.pNewTicketView.Size = new System.Drawing.Size(1229, 189);
-            this.pNewTicketView.TabIndex = 170;
-            // 
             // TransportDetailsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -390,18 +391,18 @@
         private System.Windows.Forms.BindingSource vehicleBindingSource;
         private System.Windows.Forms.TabControl tcTransportView;
         private System.Windows.Forms.TabPage transportListPage;
+        private System.Windows.Forms.TableLayoutPanel pTableLayoutTransportList;
+        private System.Windows.Forms.FlowLayoutPanel pTransportTable;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button bAdd;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabPage newTransportPage;
+        private System.Windows.Forms.Panel pNewTicketView;
         private System.Windows.Forms.Panel pVehicleTop;
         private System.Windows.Forms.TableLayoutPanel pVehicleChoice;
         private System.Windows.Forms.Button bAddPublic;
         private System.Windows.Forms.Button bAddOtherVehicle;
         private System.Windows.Forms.Button bAddPlane;
         private System.Windows.Forms.Button bAddCar;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TableLayoutPanel pTableLayoutTransportList;
-        private System.Windows.Forms.FlowLayoutPanel pTransportTable;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button bAdd;
-        private System.Windows.Forms.Panel pNewTicketView;
     }
 }

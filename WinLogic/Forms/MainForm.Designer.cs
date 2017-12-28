@@ -245,6 +245,7 @@
             this.bOtherCosts.TabIndex = 157;
             this.bOtherCosts.Text = "Wydatki";
             this.bOtherCosts.UseVisualStyleBackColor = false;
+            this.bOtherCosts.Click += new System.EventHandler(this.bOtherCosts_Click);
             // 
             // bStayment
             // 

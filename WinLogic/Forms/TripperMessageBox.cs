@@ -42,6 +42,7 @@ namespace Tripper.WinLogic.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
+            result = DialogResult.No;
             MsgBox.Close();
         }
 

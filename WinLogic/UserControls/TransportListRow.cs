@@ -13,7 +13,7 @@ using Tripper.DbLogic;
 
 namespace Tripper.WinLogic.UserControls
 {
-    public partial class TransportListRow : UserControl
+    public partial class TransportListRow : ListRowPureControl
     {
         
         NewTransportCreator transportDetails;
@@ -50,15 +50,23 @@ namespace Tripper.WinLogic.UserControls
         {
             SelectedTransport = transport;
             InitializeComponent();
-            lTransportInfo.Text = Connection.TripperData.Localizations.Single(loc => loc.LocalizationID == transport.DepartureLocalization) + " - " + Connection.TripperData.Localizations.Single(loc => loc.LocalizationID == transport.ArrivalLocalization).ToString();
-
-            
+            lTransportInfo.Text = SetInfo();
         }
 
+        private void TransportDetails_AfterUpdate(object sender, EventArgs e)
+        {
+            lTransportInfo.Text = SetInfo();
+        }
+
+        protected override string SetInfo()
+        {
+            return SelectedTransport.Localization.City + " - " + SelectedTransport.Localization1.City;
+        }
 
         private void ShowTicket(bool editable)
         {
             transportDetails = new NewTransportCreator(SelectedTransport);
+            transportDetails.AfterUpdate += TransportDetails_AfterUpdate;
             transportDetails.Editable = editable;
             transportDetails.TopLevel = false;
             transportDetails.Parent = this.pTicketPanel;

@@ -53,14 +53,15 @@ namespace Tripper.WinLogic.Forms
 
         public NewTransportCreator() : base()
         {
-            mode = CreatorMode.AddNew;
+            Mode = BusinessLogic.CreatorMode.AddNew;
+            Status = CreatorStatus.Edit;
             InitializeComponent();
             selectedTransport = new Transport();
         }
 
         public NewTransportCreator(Transport row) : base()
         {
-            mode = CreatorMode.Edit;
+            Mode = BusinessLogic.CreatorMode.Edit;
             InitializeComponent();
             selectedTransport = Connection.TripperData.Transports.Single(transport => transport.Equals(row));
             SelectedVehicle = selectedTransport.Vehicle;
@@ -82,8 +83,8 @@ namespace Tripper.WinLogic.Forms
             if (validationCheck())
             {
                 selectedTransport.VehicleID = SelectedVehicle.VehicleID;
-                selectedTransport.DepartureLocalization = tLocalizationDeparture.GetLocalizationFromFields();
-                selectedTransport.ArrivalLocalization = tLocalizationArrival.GetLocalizationFromFields();
+                selectedTransport.Localization = Connection.TripperData.Localizations.Single(c => c.LocalizationID == tLocalizationDeparture.SelectedLocalization.LocalizationID);
+                selectedTransport.Localization1 = Connection.TripperData.Localizations.Single(c => c.LocalizationID == tLocalizationArrival.SelectedLocalization.LocalizationID);
                 selectedTransport.DepartureTime = dtpDeparture.Value();
                 selectedTransport.ArrivalTime = dtpArrival.Value();
                 selectedTransport.TransportOperator = tTransporter.Text;
@@ -91,7 +92,7 @@ namespace Tripper.WinLogic.Forms
                 selectedTransport.Seats = tSeats.Text;
                 selectedTransport.ConfirmationNumber = tConfirmationNo.Text;
                 selectedTransport.Cost = tTransportCost.Value;
-                if (mode == CreatorMode.AddNew)
+                if (Mode == BusinessLogic.CreatorMode.AddNew)
                 {
                     selectedTransport.TripID = CurrentTrip.Trip.TripID;
                     Connection.TripperData.Transports.InsertOnSubmit(selectedTransport);
@@ -112,16 +113,17 @@ namespace Tripper.WinLogic.Forms
                     try
                     {
                         Connection.TripperData.SubmitChanges();
+                        Status = CreatorStatus.Confirmed;
                     }
                     catch (Exception exept)
                     {
                         TripperMessageBox.Show(exept.ToString(), "Błąd");
                     }
 
-                    if (mode == CreatorMode.AddNew)
+                    if (Mode == BusinessLogic.CreatorMode.AddNew)
                         this.Close();
                     else
-                        this.Parent.Refresh();
+                        OnAfterUpdate(EventArgs.Empty);
                 }
             }
         }
@@ -235,9 +237,9 @@ namespace Tripper.WinLogic.Forms
             SubmitChanges();
         }
 
-        private void tTransportCost_Load(object sender, EventArgs e)
+        public override void GoBackToParent()
         {
-
+            this.Close();
         }
 
     }

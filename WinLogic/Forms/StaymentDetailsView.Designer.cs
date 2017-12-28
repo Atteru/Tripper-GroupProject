@@ -84,6 +84,7 @@
             this.tcStaymentView.SelectedIndex = 0;
             this.tcStaymentView.Size = new System.Drawing.Size(1278, 358);
             this.tcStaymentView.TabIndex = 167;
+            this.tcStaymentView.SelectedIndexChanged += new System.EventHandler(this.tcStaymentView_SelectedIndexChanged);
             // 
             // StaymentListPage
             // 
@@ -124,7 +125,7 @@
             this.pStaymentTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pStaymentTable.Location = new System.Drawing.Point(3, 53);
             this.pStaymentTable.Name = "pStaymentTable";
-            this.pStaymentTable.Padding = new System.Windows.Forms.Padding(3);
+            this.pStaymentTable.Padding = new System.Windows.Forms.Padding(3, 3, 3, 50);
             this.pStaymentTable.Size = new System.Drawing.Size(1258, 250);
             this.pStaymentTable.TabIndex = 160;
             // 

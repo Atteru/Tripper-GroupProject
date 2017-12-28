@@ -207,7 +207,7 @@ namespace Tripper.WinLogic.UserControls
 
             Graphics g = this.CreateGraphics();
 
-            Pen blackPen = new Pen(Color.Firebrick, 4);
+            Pen blackPen = new Pen(Color.Firebrick, 2);
             int x = combo.Location.X;
             int y = combo.Location.Y;
             int width = combo.Width;
