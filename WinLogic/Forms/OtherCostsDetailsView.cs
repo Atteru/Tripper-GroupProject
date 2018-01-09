@@ -70,7 +70,13 @@ namespace Tripper.WinLogic.Forms
                 OtherCostsRowList.Add(OtherCostsRow);
                 pOtherCostsTable.Controls.Add(OtherCostsRow);
                 OtherCostsRow.Dock = DockStyle.Top;
+                OtherCostsRow.AfterUpdate += OtherCostsRow_AfterUpdate;
             }
+        }
+
+        private void OtherCostsRow_AfterUpdate(object sender, EventArgs e)
+        {
+               OnAfterUpdate(EventArgs.Empty);
         }
 
         private void NewOtherCostRow_AfterAdd(object sender, EventArgs e)
@@ -78,8 +84,10 @@ namespace Tripper.WinLogic.Forms
             OtherCost lastInserted = Connection.TripperData.OtherCosts.Where(cost => cost.Trip == SelectedTrip).ToList().Last() ;
             OtherCostsList.Add(lastInserted);
             OtherCostsListRow OtherCostsRow = new OtherCostsListRow(lastInserted);
+            OtherCostsRow.AfterUpdate += OtherCostsRow_AfterUpdate;
             pOtherCostsTable.Controls.Add(OtherCostsRow);
             OtherCostsRow.Dock = DockStyle.Top;
+            OnAfterUpdate(EventArgs.Empty);
         }
 
     }

@@ -30,6 +30,10 @@ namespace Tripper.WinLogic.UserControls
             set
             {
                 pTicketPanel.Visible = value;
+                if (value)
+                    bEdit.Text = "Anuluj";
+                else
+                    bEdit.Text = "Edytuj";
             }
         }
 
@@ -56,6 +60,7 @@ namespace Tripper.WinLogic.UserControls
         private void TransportDetails_AfterUpdate(object sender, EventArgs e)
         {
             lTransportInfo.Text = SetInfo();
+            OnAfterUpdate(EventArgs.Empty);
         }
 
         protected override string SetInfo()
@@ -81,7 +86,7 @@ namespace Tripper.WinLogic.UserControls
             if (!EditPanelVisible)
             {
                 ShowTicket(true);
-                pTicketPanel.Visible = true;
+                EditPanelVisible = true;
             }
             else if (EditPanelVisible && transportDetails.Editable == false)
             {
@@ -89,7 +94,7 @@ namespace Tripper.WinLogic.UserControls
             }
             else
             {
-                pTicketPanel.Visible = false;
+                EditPanelVisible = false;
                 transportDetails.Close();
             }
         }
@@ -99,11 +104,11 @@ namespace Tripper.WinLogic.UserControls
             if (!EditPanelVisible)
             {
                 ShowTicket(false);
-                pTicketPanel.Visible = true;
+                EditPanelVisible = true;
             }
             else
             {
-                pTicketPanel.Visible = false;
+                EditPanelVisible = false;
                 transportDetails.Close();
             }
 
@@ -121,6 +126,7 @@ namespace Tripper.WinLogic.UserControls
                 {
                     this.Visible = false;
                     Connection.TripperData.SubmitChanges();
+                    OnAfterUpdate(EventArgs.Empty);
                 }
                 catch (Exception exept)
                 {

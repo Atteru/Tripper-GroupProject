@@ -75,12 +75,13 @@ namespace Tripper.WinLogic.Forms
   
                 if (Mode == BusinessLogic.CreatorMode.AddNew)
                 {
-                    selecteStayment.TripID = CurrentTrip.Trip.TripID;
+                    selecteStayment.TripID = CurrentSelected.Trip.TripID;
                     Connection.TripperData.Stayments.InsertOnSubmit(selecteStayment);
                 }
                 return true;
             }
 
+            showErrorMesage(lError);
             return false;
         }
 
@@ -89,24 +90,8 @@ namespace Tripper.WinLogic.Forms
         {
             if (saveChanges())
             {
-                DialogResult result = TripperMessageBox.Show("Czy chcesz dodać zakwaterowanie?", "Nowe zakwaterowanie");
-                if (result == DialogResult.Yes)
-                {
-                    try
-                    {
-                        Connection.TripperData.SubmitChanges();
-                        Status = CreatorStatus.Confirmed;
-                    }
-                    catch (Exception exept)
-                    {
-                        TripperMessageBox.Show(exept.ToString(), "Błąd");
-                    }
+                confirmChanges("Czy chcesz dodać zakwaterowanie?");
 
-                    if (Mode == BusinessLogic.CreatorMode.AddNew)
-                        this.Close();
-                    else
-                        OnAfterUpdate(EventArgs.Empty);
-                }
             }
         }
 
@@ -166,5 +151,17 @@ namespace Tripper.WinLogic.Forms
             this.Close();
         }
 
+        private void showErrorMesage(Label label)
+        {
+            var t = new Timer();
+            label.Visible = true;
+            t.Interval = 5000;
+            t.Tick += (s, e) =>
+            {
+                label.Hide();
+                t.Stop();
+            };
+            t.Start();
+        }
     }
 }

@@ -70,8 +70,16 @@ namespace Tripper.WinLogic.UserControls
                 textBox.Multiline = value;
             
             }
-
         }
+
+        public Label Label
+        {
+            get
+            {
+                return messageLabel;
+            }
+        }
+
 
         [Browsable(true)]
         public new bool Enabled
@@ -197,9 +205,8 @@ namespace Tripper.WinLogic.UserControls
             textBox.Focus();
         }
 
-        private void drawWarningBoeder(object sender)
+        public void DrawWarningBoeder()
         {
-            TextBox textBox = sender as TextBox;
 
             Graphics g = this.CreateGraphics();
 
@@ -213,12 +220,17 @@ namespace Tripper.WinLogic.UserControls
             g.Dispose();
         }
 
+        public void Reset()
+        {
+            textBox.Text = string.Empty;
+            messageLabel.Visible = true;
+        }
 
         public bool CheckValidation()
         {
             if (this.Text == string.Empty)
             {
-                drawWarningBoeder(textBox);
+                DrawWarningBoeder();
                 return false;
             }
             return true;

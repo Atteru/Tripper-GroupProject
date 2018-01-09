@@ -13,6 +13,8 @@ namespace Tripper.WinLogic.Forms
 {
     public partial class TripperContainerPureForm : TripperPureBaseFrom
     {
+        public event EventHandler AfterUpdate;
+
         private TripperPureBaseFrom _displayedForm;
         public TripperPureBaseFrom DisplayedForm
         {
@@ -66,6 +68,14 @@ namespace Tripper.WinLogic.Forms
             this.DisplayedFormList.Clear();
         }
 
+        protected virtual void OnAfterUpdate(EventArgs e)
+        {
+            EventHandler handler = AfterUpdate;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
 
     }
 }

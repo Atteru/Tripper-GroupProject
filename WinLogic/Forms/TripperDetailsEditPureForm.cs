@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tripper.BusinessLogic;
+using Tripper.DbLogic;
 
 namespace Tripper.WinLogic.Forms
 {
@@ -27,6 +28,8 @@ namespace Tripper.WinLogic.Forms
             protected set;
         }
 
+        protected string AddNewMessage;
+        protected string EditMessage;
 
         private bool _editable;
         public bool Editable
@@ -48,6 +51,7 @@ namespace Tripper.WinLogic.Forms
 
         }
 
+
         public override bool CanBeClosed()
         {
             base.CanBeClosed();
@@ -61,6 +65,32 @@ namespace Tripper.WinLogic.Forms
                 }
             }
             return true;
+        }
+
+        public void confirmChanges(string newAddMessage, string editMessage = "Zapisać zmiany?", bool closeAfterAdd = true)
+        {
+            DialogResult result;
+            if (Mode == CreatorMode.AddNew)
+                result = TripperMessageBox.Show(newAddMessage, "");
+            else
+                result = TripperMessageBox.Show(editMessage, "");
+
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    Connection.TripperData.SubmitChanges();
+                    Status = CreatorStatus.Confirmed;
+                    OnAfterUpdate(EventArgs.Empty);
+                }
+                catch (Exception exept)
+                {
+                    TripperMessageBox.Show(exept.ToString(), "Błąd");
+                }
+
+                if (Mode == BusinessLogic.CreatorMode.AddNew && closeAfterAdd)
+                    this.Close();
+            }
         }
 
         protected override void OnClosing(CancelEventArgs e)

@@ -22,11 +22,8 @@ namespace Tripper.WinLogic.Classes
             
             newHotel.DateTo = dispatchDate; //can't add if datafield is empty as control does not return default valuea valid for DateTime, instead it return Now or Today
             newHotel.DateFrom = arrivalDate; //same as line above
-
-            newHotel.CreateDate = DateTime.Now;
+            
             newHotel.AdditionalInformation = additionalInfo;
-            newHotel.ModifiedDate = newHotel.CreateDate;
-
             return newHotel;
         }
 

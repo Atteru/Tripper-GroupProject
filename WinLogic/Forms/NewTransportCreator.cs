@@ -94,12 +94,12 @@ namespace Tripper.WinLogic.Forms
                 selectedTransport.Cost = tTransportCost.Value;
                 if (Mode == BusinessLogic.CreatorMode.AddNew)
                 {
-                    selectedTransport.TripID = CurrentTrip.Trip.TripID;
+                    selectedTransport.TripID = CurrentSelected.Trip.TripID;
                     Connection.TripperData.Transports.InsertOnSubmit(selectedTransport);
                 }
                 return true;
             }
-
+            showErrorMesage(lError);
             return false;
         }
 
@@ -107,24 +107,7 @@ namespace Tripper.WinLogic.Forms
         {
             if (saveChanges())
             {
-                DialogResult result = TripperMessageBox.Show("Czy chcesz dodać nową podróż?", "Nowa podróż");
-                if (result == DialogResult.Yes)
-                {
-                    try
-                    {
-                        Connection.TripperData.SubmitChanges();
-                        Status = CreatorStatus.Confirmed;
-                    }
-                    catch (Exception exept)
-                    {
-                        TripperMessageBox.Show(exept.ToString(), "Błąd");
-                    }
-
-                    if (Mode == BusinessLogic.CreatorMode.AddNew)
-                        this.Close();
-                    else
-                        OnAfterUpdate(EventArgs.Empty);
-                }
+                confirmChanges("Czy chcesz dodać trasport?");
             }
         }
 
@@ -215,22 +198,35 @@ namespace Tripper.WinLogic.Forms
             string courseTerm = "Kierunek - ";
             string courseTermDeparture = "Wyjazd";
             string courseTermArrival = "Przyjazd";
-
+            setSeatsLabel(vehicle);
             hideVehiclePanel();
+
             if(vehicle == LocalizableStrings.GetValue.GetVehicle(LocalizableStrings.Plane))
             {
                 courseTermDeparture = "Wylot";
                 courseTermArrival = "Przylot";
                 pInfoPlane.Visible = pInfoPlanePublic.Visible = true;
+                setSeatsLabel(vehicle);
             }
-            else if(vehicle == LocalizableStrings.GetValue.GetVehicle(LocalizableStrings.Public))
+            else
             {
                 pInfoPlanePublic.Visible = true;
             }
+
             lDepartureCourse.Text = courseTerm + courseTermDeparture;
             lArrivalCourse.Text = courseTerm + courseTermArrival;
 
         }
+
+       private void setSeatsLabel(Vehicle vehicle)
+       {
+            bool result = true;
+            if (vehicle == LocalizableStrings.GetValue.GetVehicle(LocalizableStrings.Car) || vehicle == LocalizableStrings.GetValue.GetVehicle(LocalizableStrings.OtherVehicle))
+                result = false;
+            tSeats.Visible = lSeats.Visible = result;
+
+       }
+      
 
         private void bAdd_Click(object sender, EventArgs e)
         {
@@ -242,5 +238,17 @@ namespace Tripper.WinLogic.Forms
             this.Close();
         }
 
+        private void showErrorMesage(Label label)
+        {
+            var t = new Timer();
+            label.Visible = true;
+            t.Interval = 5000;
+            t.Tick += (s, e) =>
+            {
+                label.Hide();
+                t.Stop();
+            };
+            t.Start();
+        }
     }
 }

@@ -44,7 +44,24 @@ namespace Tripper.WinLogic.Forms
             tcStaymentView.ItemSize = new Size(0, 1);
             tcStaymentView.SizeMode = TabSizeMode.Fixed;
             loadStaymentList();
+            chooseTab();
 
+        }
+
+        private void chooseTab()
+        {
+            if(Connection.TripperData.Stayments.Any(s => s.Trip == SelectedTrip))
+            {
+                tcStaymentView.SelectedTab = StaymentListPage;
+            }
+            else
+            {
+                tcStaymentView.SelectedTab = newStaymentPage;
+                loadStaymentPanel();
+                tcStaymentView.SelectTab(newStaymentPage);
+                newStaymentPanel.FormClosing += newStaymentPanel_FormClosing;
+                newStaymentPanel.AfterUpdate += StaymentRow_AfterUpdate;
+            }
         }
 
         private void loadStaymentList()
@@ -67,9 +84,14 @@ namespace Tripper.WinLogic.Forms
                 StaymentRowList.Add(StaymentRow);
                 pStaymentTable.Controls.Add(StaymentRow);
                 StaymentRow.Dock = DockStyle.Top;
+                StaymentRow.AfterUpdate += StaymentRow_AfterUpdate;
             }
         }
 
+        private void StaymentRow_AfterUpdate(object sender, EventArgs e)
+        {
+            OnAfterUpdate(EventArgs.Empty);
+        }
 
         private void loadStaymentPanel()
         {
@@ -93,6 +115,7 @@ namespace Tripper.WinLogic.Forms
             loadStaymentPanel();
             tcStaymentView.SelectTab(newStaymentPage);
             newStaymentPanel.FormClosing += newStaymentPanel_FormClosing;
+            newStaymentPanel.AfterUpdate += StaymentRow_AfterUpdate;
         }
 
 

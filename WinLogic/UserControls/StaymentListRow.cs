@@ -30,6 +30,11 @@ namespace Tripper.WinLogic.UserControls
             set
             {
                 pStaymentPanel.Visible = value;
+
+                if (value)
+                    bEdit.Text = "Anuluj";
+                else
+                    bEdit.Text = "Edytuj";
             }
         }
 
@@ -56,6 +61,7 @@ namespace Tripper.WinLogic.UserControls
         private void StaymentDetails_AfterUpdate(object sender, EventArgs e)
         {
             lStaymentInfo.Text = SetInfo();
+            OnAfterUpdate(EventArgs.Empty);
         }
 
         protected override string SetInfo()
@@ -85,7 +91,7 @@ namespace Tripper.WinLogic.UserControls
             if (!EditPanelVisible)
             {
                 ShowStaymentDatails(true);
-                pStaymentPanel.Visible = true;
+                EditPanelVisible = true;
             }
             else if (EditPanelVisible && StaymentDetails.Editable == false)
             {
@@ -93,7 +99,7 @@ namespace Tripper.WinLogic.UserControls
             }
             else
             {
-                pStaymentPanel.Visible = false;
+                EditPanelVisible = false;
                 StaymentDetails.Close();
             }
         }
@@ -103,11 +109,11 @@ namespace Tripper.WinLogic.UserControls
             if (!EditPanelVisible)
             {
                 ShowStaymentDatails(false);
-                pStaymentPanel.Visible = true;
+               EditPanelVisible = true;
             }
             else
             {
-                pStaymentPanel.Visible = false;
+                EditPanelVisible = false;
                 StaymentDetails.Close();
             }
         }
@@ -124,6 +130,7 @@ namespace Tripper.WinLogic.UserControls
                 {
                     this.Visible = false;
                     Connection.TripperData.SubmitChanges();
+                    OnAfterUpdate(EventArgs.Empty);
                 }
                 catch (Exception exept)
                 {

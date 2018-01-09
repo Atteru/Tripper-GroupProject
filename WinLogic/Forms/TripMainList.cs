@@ -16,13 +16,25 @@ namespace Tripper.WinLogic.Forms
 {
     public partial class TripMainList : TripperContainerPureForm
     {
+        private Traveler _selectedTraveler;
+        public Traveler SelectedTraveler
+        {
+            get
+            {
+                return _selectedTraveler;
+            }
+            private set
+            {
+                _selectedTraveler = value;
+            }
+        }
 
         List<Trip> tripList;
 
-        public TripMainList()
+        public TripMainList(Traveler traveler)
         {
             InitializeComponent();
-
+            SelectedTraveler = traveler;
             tcTripView.Appearance = TabAppearance.FlatButtons;
             tcTripView.ItemSize = new Size(0, 1);
             tcTripView.SizeMode = TabSizeMode.Fixed;
@@ -31,7 +43,12 @@ namespace Tripper.WinLogic.Forms
 
         private void loadTransportList()
         {
-            tripList = Connection.TripperData.Trips.Where(trip => trip.TravelerID == 1).OrderBy(trip => trip.TripID).ToList();
+            tripList = Connection.TripperData.Trips.Where(trip => trip.Traveler == SelectedTraveler).OrderBy(trip => trip.TripID).ToList();
+
+            if(tripList.Count == 0)
+            {
+                lNoTrip.Visible = true;
+            }
 
             foreach (Trip row in tripList)
             {
@@ -39,6 +56,7 @@ namespace Tripper.WinLogic.Forms
                 pTripTable.Controls.Add(tripRow);
                 tripRow.Dock = DockStyle.Top;
                 tripRow.EditButton.Click += bEdit_Click;
+                tripRow.Label.LinkClicked += bEdit_Click;
             }
         }
 
@@ -49,5 +67,6 @@ namespace Tripper.WinLogic.Forms
             mainForm.OpenTripDetalis();
             this.Close(); 
         }
+
     }
 }

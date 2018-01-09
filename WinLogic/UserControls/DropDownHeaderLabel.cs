@@ -26,10 +26,8 @@ namespace Tripper.WinLogic.UserControls
                 _borderColor = SystemColors.WindowFrame;
             else
                 _borderColor = Color.Silver ;
-    {
 
-	}
-    }
+        }
 
 
         private Color _borderColor = SystemColors.WindowFrame;

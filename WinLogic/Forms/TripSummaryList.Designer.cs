@@ -73,13 +73,13 @@
             this.kosztDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pCostsTotal = new System.Windows.Forms.Panel();
             this.lCostsTotal = new System.Windows.Forms.Label();
+            this.lNoInfo = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.bNotes = new System.Windows.Forms.Button();
             this.notesPage = new System.Windows.Forms.TabPage();
             this.pNotes = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.bInfo = new System.Windows.Forms.Button();
-            this.lNoInfo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.otherCostsByTripIDResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.staymentByTripIDResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.transprtByTripIDResultBindingSource)).BeginInit();
@@ -189,6 +189,7 @@
             this.lTransportHeader.TabStop = true;
             this.lTransportHeader.Text = "Transport";
             this.lTransportHeader.VisitedLinkColor = System.Drawing.Color.DarkCyan;
+            this.lTransportHeader.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lTransportHeader_LinkClicked);
             // 
             // dgvTransport
             // 
@@ -335,6 +336,7 @@
             this.lStaymentHeader.TabStop = true;
             this.lStaymentHeader.Text = "Zakwaterowanie";
             this.lStaymentHeader.VisitedLinkColor = System.Drawing.Color.DarkCyan;
+            this.lStaymentHeader.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lStaymentHeader_LinkClicked);
             // 
             // dgvStayment
             // 
@@ -481,6 +483,7 @@
             this.lCostsHeader.TabStop = true;
             this.lCostsHeader.Text = "Wydatki";
             this.lCostsHeader.VisitedLinkColor = System.Drawing.Color.DarkCyan;
+            this.lCostsHeader.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lCostsHeader_LinkClicked);
             // 
             // dgvCosts
             // 
@@ -593,6 +596,19 @@
             this.lCostsTotal.TabIndex = 153;
             this.lCostsTotal.Text = "Suma: 0.00";
             // 
+            // lNoInfo
+            // 
+            this.lNoInfo.AutoSize = true;
+            this.lNoInfo.BackColor = System.Drawing.Color.Transparent;
+            this.lNoInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lNoInfo.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lNoInfo.Location = new System.Drawing.Point(23, 539);
+            this.lNoInfo.Name = "lNoInfo";
+            this.lNoInfo.Size = new System.Drawing.Size(405, 20);
+            this.lNoInfo.TabIndex = 153;
+            this.lNoInfo.Text = "Nie dodałeś jeszcze żadnych składowych podróży";
+            this.lNoInfo.Visible = false;
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.Control;
@@ -677,19 +693,6 @@
             this.bInfo.Text = "Informacje";
             this.bInfo.UseVisualStyleBackColor = false;
             this.bInfo.Click += new System.EventHandler(this.bInfo_Click);
-            // 
-            // lNoInfo
-            // 
-            this.lNoInfo.AutoSize = true;
-            this.lNoInfo.BackColor = System.Drawing.Color.Transparent;
-            this.lNoInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lNoInfo.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lNoInfo.Location = new System.Drawing.Point(23, 539);
-            this.lNoInfo.Name = "lNoInfo";
-            this.lNoInfo.Size = new System.Drawing.Size(405, 20);
-            this.lNoInfo.TabIndex = 153;
-            this.lNoInfo.Text = "Nie dodałeś jeszcze żadnych składowych podróży";
-            this.lNoInfo.Visible = false;
             // 
             // TripSummaryList
             // 

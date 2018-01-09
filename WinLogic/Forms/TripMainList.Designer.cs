@@ -36,6 +36,7 @@
             this.TripLis = new System.Windows.Forms.TabPage();
             this.pTableLayoutTripList = new System.Windows.Forms.TableLayoutPanel();
             this.pTripTable = new System.Windows.Forms.FlowLayoutPanel();
+            this.lNoTrip = new System.Windows.Forms.Label();
             this.newTrip = new System.Windows.Forms.TabPage();
             this.pNewTripBack = new System.Windows.Forms.Panel();
             this.pNewTicketView = new System.Windows.Forms.Panel();
@@ -48,6 +49,7 @@
             this.tcTripView.SuspendLayout();
             this.TripLis.SuspendLayout();
             this.pTableLayoutTripList.SuspendLayout();
+            this.pTripTable.SuspendLayout();
             this.newTrip.SuspendLayout();
             this.pNewTripBack.SuspendLayout();
             this.pHeaderMainPanel.SuspendLayout();
@@ -118,7 +120,8 @@
             // TripLis
             // 
             this.TripLis.AutoScroll = true;
-            this.TripLis.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.TripLis.BackColor = System.Drawing.Color.White;
+            this.TripLis.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TripLis.Controls.Add(this.pTableLayoutTripList);
             this.TripLis.Location = new System.Drawing.Point(4, 22);
             this.TripLis.Name = "TripLis";
@@ -130,7 +133,7 @@
             // pTableLayoutTripList
             // 
             this.pTableLayoutTripList.AutoSize = true;
-            this.pTableLayoutTripList.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.pTableLayoutTripList.BackColor = System.Drawing.Color.White;
             this.pTableLayoutTripList.ColumnCount = 1;
             this.pTableLayoutTripList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.pTableLayoutTripList.Controls.Add(this.pTripTable, 0, 0);
@@ -140,7 +143,7 @@
             this.pTableLayoutTripList.RowCount = 1;
             this.pTableLayoutTripList.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.pTableLayoutTripList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 493F));
-            this.pTableLayoutTripList.Size = new System.Drawing.Size(1065, 493);
+            this.pTableLayoutTripList.Size = new System.Drawing.Size(1063, 491);
             this.pTableLayoutTripList.TabIndex = 0;
             // 
             // pTripTable
@@ -148,13 +151,27 @@
             this.pTripTable.AutoScroll = true;
             this.pTripTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pTripTable.BackColor = System.Drawing.Color.White;
-            this.pTripTable.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pTripTable.Controls.Add(this.lNoTrip);
             this.pTripTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pTripTable.Location = new System.Drawing.Point(3, 3);
             this.pTripTable.Name = "pTripTable";
             this.pTripTable.Padding = new System.Windows.Forms.Padding(3, 3, 3, 100);
-            this.pTripTable.Size = new System.Drawing.Size(1059, 487);
+            this.pTripTable.Size = new System.Drawing.Size(1057, 487);
             this.pTripTable.TabIndex = 160;
+            // 
+            // lNoTrip
+            // 
+            this.lNoTrip.AutoSize = true;
+            this.lNoTrip.BackColor = System.Drawing.Color.Transparent;
+            this.lNoTrip.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lNoTrip.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lNoTrip.Location = new System.Drawing.Point(23, 23);
+            this.lNoTrip.Margin = new System.Windows.Forms.Padding(20);
+            this.lNoTrip.Name = "lNoTrip";
+            this.lNoTrip.Size = new System.Drawing.Size(323, 20);
+            this.lNoTrip.TabIndex = 154;
+            this.lNoTrip.Text = "Nie dodałeś jeszcze żadnych podróży...";
+            this.lNoTrip.Visible = false;
             // 
             // newTrip
             // 
@@ -230,6 +247,8 @@
             this.TripLis.ResumeLayout(false);
             this.TripLis.PerformLayout();
             this.pTableLayoutTripList.ResumeLayout(false);
+            this.pTripTable.ResumeLayout(false);
+            this.pTripTable.PerformLayout();
             this.newTrip.ResumeLayout(false);
             this.pNewTripBack.ResumeLayout(false);
             this.pNewTripBack.PerformLayout();
@@ -254,5 +273,6 @@
         private System.Windows.Forms.Panel pNewTicketView;
         private System.Windows.Forms.Panel pHeaderMainPanel;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lNoTrip;
     }
 }

@@ -19,6 +19,12 @@ namespace Tripper.BusinessLogic
 
         #endregion
 
+        #region Summarty
+
+        public const string Transport = "Transport";
+        public const string Stayment = "Zakwaterowanie";
+        public const string Costs = "Wydatki";
+        #endregion
 
 
         public static class GetValue

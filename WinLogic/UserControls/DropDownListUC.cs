@@ -118,8 +118,30 @@ namespace Tripper.WinLogic
                 SelectedItem = dropDownList.SelectedItem;
                 ListBoxVilibility = false;
             }
+        }
 
+        public bool CheckValidation()
+        {
+            if (SelectedItem == null)
+            {
+                DrawWarningBoeder();
+                return false;
+            }
+            return true;
+        }
 
+        public void DrawWarningBoeder()
+        {
+            Graphics g = dropDownHeader.CreateGraphics();
+
+            Pen blackPen = new Pen(Color.Firebrick, 4);
+            int x = dropDownHeader.Location.X;
+            int y = dropDownHeader.Location.Y;
+            int width = dropDownHeader.Width;
+            int height = dropDownHeader.Height;
+
+            g.DrawRectangle(blackPen, x, y, width, height);
+            g.Dispose();
         }
     }
 }

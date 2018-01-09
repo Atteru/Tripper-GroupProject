@@ -37,6 +37,7 @@
             this.bAdd = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cbOtherCostsCategory = new Tripper.WinLogic.DropDownListUC();
+            this.lError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label3
@@ -44,7 +45,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label3.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label3.Location = new System.Drawing.Point(36, 24);
+            this.label3.Location = new System.Drawing.Point(34, 33);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 20);
@@ -57,7 +58,7 @@
             this.tOtherCostName.BackColor = System.Drawing.Color.Transparent;
             this.tOtherCostName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tOtherCostName.LabelMessage = "";
-            this.tOtherCostName.Location = new System.Drawing.Point(250, 45);
+            this.tOtherCostName.Location = new System.Drawing.Point(252, 54);
             this.tOtherCostName.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.tOtherCostName.MessageVisibility = false;
             this.tOtherCostName.Multiline = false;
@@ -72,7 +73,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label10.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label10.Location = new System.Drawing.Point(577, 24);
+            this.label10.Location = new System.Drawing.Point(579, 33);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(54, 20);
             this.label10.TabIndex = 177;
@@ -82,7 +83,7 @@
             // 
             this.tCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tCost.LabelMessage = "0.00";
-            this.tCost.Location = new System.Drawing.Point(581, 47);
+            this.tCost.Location = new System.Drawing.Point(583, 56);
             this.tCost.MessageVisibility = true;
             this.tCost.Name = "tCost";
             this.tCost.Size = new System.Drawing.Size(109, 27);
@@ -94,7 +95,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label8.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label8.Location = new System.Drawing.Point(36, 97);
+            this.label8.Location = new System.Drawing.Point(34, 106);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(186, 20);
             this.label8.TabIndex = 174;
@@ -107,7 +108,7 @@
             this.tAdditonalInformations.BackColor = System.Drawing.Color.Transparent;
             this.tAdditonalInformations.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tAdditonalInformations.LabelMessage = "Informacje dodatkowe";
-            this.tAdditonalInformations.Location = new System.Drawing.Point(36, 123);
+            this.tAdditonalInformations.Location = new System.Drawing.Point(38, 132);
             this.tAdditonalInformations.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.tAdditonalInformations.MessageVisibility = false;
             this.tAdditonalInformations.Multiline = true;
@@ -126,7 +127,7 @@
             this.bAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bAdd.ForeColor = System.Drawing.Color.White;
-            this.bAdd.Location = new System.Drawing.Point(483, 123);
+            this.bAdd.Location = new System.Drawing.Point(485, 132);
             this.bAdd.Name = "bAdd";
             this.bAdd.Size = new System.Drawing.Size(217, 38);
             this.bAdd.TabIndex = 185;
@@ -139,7 +140,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label1.Location = new System.Drawing.Point(247, 24);
+            this.label1.Location = new System.Drawing.Point(248, 33);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(120, 20);
@@ -151,17 +152,30 @@
             this.cbOtherCostsCategory.AutoSize = true;
             this.cbOtherCostsCategory.BackColor = System.Drawing.Color.Transparent;
             this.cbOtherCostsCategory.DataSource = null;
-            this.cbOtherCostsCategory.Location = new System.Drawing.Point(36, 47);
+            this.cbOtherCostsCategory.Location = new System.Drawing.Point(38, 56);
             this.cbOtherCostsCategory.Name = "cbOtherCostsCategory";
             this.cbOtherCostsCategory.SelectedItem = null;
             this.cbOtherCostsCategory.Size = new System.Drawing.Size(202, 29);
             this.cbOtherCostsCategory.TabIndex = 180;
             // 
+            // lError
+            // 
+            this.lError.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lError.ForeColor = System.Drawing.Color.Firebrick;
+            this.lError.Location = new System.Drawing.Point(1, 4);
+            this.lError.Name = "lError";
+            this.lError.Size = new System.Drawing.Size(691, 20);
+            this.lError.TabIndex = 186;
+            this.lError.Text = "Nie wszystkie dane zostały uzupełnione poprawnie";
+            this.lError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lError.Visible = false;
+            // 
             // NewOtherCostsCreator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(956, 200);
+            this.ClientSize = new System.Drawing.Size(956, 216);
+            this.Controls.Add(this.lError);
             this.Controls.Add(this.cbOtherCostsCategory);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
@@ -189,5 +203,6 @@
         private System.Windows.Forms.Button bAdd;
         private System.Windows.Forms.Label label1;
         private DropDownListUC cbOtherCostsCategory;
+        private System.Windows.Forms.Label lError;
     }
 }

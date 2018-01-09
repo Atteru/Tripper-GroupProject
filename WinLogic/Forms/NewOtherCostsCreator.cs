@@ -31,7 +31,7 @@ namespace Tripper.WinLogic.Forms
         }
 
 
-            public NewOtherCostsCreator(OtherCost row) : base()
+        public NewOtherCostsCreator(OtherCost row) : base()
         {
             Mode = BusinessLogic.CreatorMode.Edit;
             InitializeComponent();
@@ -40,7 +40,7 @@ namespace Tripper.WinLogic.Forms
             tOtherCostName.GetData<string>(selectedOtherCosts.Name);
             cbOtherCostsCategory.SelectedItem = Connection.TripperData.OtherCostsCatergories.Single(category => category.OtherCategoryID == selectedOtherCosts.OtherCategoryID);
             tCost.GetData(selectedOtherCosts.Cost);
-            //tAdditonalInformations.GetData<string>(selectedOtherCosts.AdditonalInformations);
+            tAdditonalInformations.GetData<string>(selectedOtherCosts.AdditionalInformation);
 
         }
 
@@ -61,16 +61,17 @@ namespace Tripper.WinLogic.Forms
                 selectedOtherCosts.Name = tOtherCostName.Text;
                 selectedOtherCosts.OtherCategoryID = ((OtherCostsCatergory)cbOtherCostsCategory.SelectedItem).OtherCategoryID;
                 selectedOtherCosts.Cost = tCost.Value;
-                //selectedOtherCosts.AdditonalInformations = tAdditonalInformations.Text; 
+                selectedOtherCosts.AdditionalInformation = tAdditonalInformations.Text; 
 
                 if (Mode == BusinessLogic.CreatorMode.AddNew)
                 {
-                    selectedOtherCosts.TripID = CurrentTrip.Trip.TripID;
+                    selectedOtherCosts.TripID = CurrentSelected.Trip.TripID;
                     Connection.TripperData.OtherCosts.InsertOnSubmit(selectedOtherCosts);
                 }
                 return true;
             }
 
+            showErrorMesage(lError);
             return false;
         }
 
@@ -79,7 +80,12 @@ namespace Tripper.WinLogic.Forms
         {
             if (saveChanges())
             {
-                DialogResult result = TripperMessageBox.Show("Czy chcesz dodać zakwaterowanie?", "Nowe zakwaterowanie");
+                DialogResult result;
+                if (Mode == CreatorMode.AddNew)
+                    result = TripperMessageBox.Show("Dodać nowy koszt?", "");
+                else
+                    result = TripperMessageBox.Show("Zapiszać zmiany?", "");
+
                 if (result == DialogResult.Yes)
                 {
                     try
@@ -87,6 +93,7 @@ namespace Tripper.WinLogic.Forms
                         Connection.TripperData.SubmitChanges();
                         Status = CreatorStatus.Confirmed;
                         OnAfterAdd(EventArgs.Empty);
+                        OnAfterUpdate(EventArgs.Empty);
                     }
                     catch (Exception exept)
                     {
@@ -95,8 +102,6 @@ namespace Tripper.WinLogic.Forms
 
                     if (Mode == BusinessLogic.CreatorMode.AddNew)
                         this.Close();
-                    else
-                        OnAfterUpdate(EventArgs.Empty);
                 }
             }
         }
@@ -108,6 +113,8 @@ namespace Tripper.WinLogic.Forms
             if (!tOtherCostName.CheckValidation())
                 validationResult = false;
 
+            if(!cbOtherCostsCategory.CheckValidation())
+                validationResult = false;
 
             return validationResult;
         }
@@ -142,6 +149,19 @@ namespace Tripper.WinLogic.Forms
             {
                 handler(this, e);
             }
+        }
+
+        private void showErrorMesage(Label label)
+        {
+            var t = new Timer();
+            label.Visible = true;
+            t.Interval = 5000;
+            t.Tick += (s, e) =>
+            {
+                label.Hide();
+                t.Stop();
+            };
+            t.Start();
         }
 
     }

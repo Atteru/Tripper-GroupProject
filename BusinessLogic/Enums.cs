@@ -22,4 +22,8 @@ namespace Tripper.BusinessLogic
             ListView, AddNew
         }
 
+        public enum NoteType
+        {
+            CheckBox, Note
+        }
 }

@@ -40,7 +40,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.pInfoPlanePublic = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lSeats = new System.Windows.Forms.Label();
             this.tTransportCost = new Tripper.WinLogic.UserControls.CurrencyTextBoxUC();
             this.tSeats = new Tripper.WinLogic.UserControls.TextBoxUC();
             this.pInfoAll = new System.Windows.Forms.Panel();
@@ -53,6 +53,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lArrivalCourse = new System.Windows.Forms.Label();
             this.lDepartureCourse = new System.Windows.Forms.Label();
+            this.lError = new System.Windows.Forms.Label();
             this.pTableInfo.SuspendLayout();
             this.pInfoPlane.SuspendLayout();
             this.pInfoPlanePublic.SuspendLayout();
@@ -66,7 +67,7 @@
             this.tLocalizationArrival.CityMessageIfEmpty = "Miasto";
             this.tLocalizationArrival.CountryList = null;
             this.tLocalizationArrival.CountryMessageIfEmpty = "Kraj";
-            this.tLocalizationArrival.Location = new System.Drawing.Point(512, 43);
+            this.tLocalizationArrival.Location = new System.Drawing.Point(512, 50);
             this.tLocalizationArrival.MessageVisibility = true;
             this.tLocalizationArrival.Name = "tLocalizationArrival";
             this.tLocalizationArrival.SelectedLocalization = null;
@@ -82,7 +83,7 @@
             this.tLocalizationDeparture.CityMessageIfEmpty = "Miasto";
             this.tLocalizationDeparture.CountryList = null;
             this.tLocalizationDeparture.CountryMessageIfEmpty = "Kraj";
-            this.tLocalizationDeparture.Location = new System.Drawing.Point(49, 41);
+            this.tLocalizationDeparture.Location = new System.Drawing.Point(49, 48);
             this.tLocalizationDeparture.MessageVisibility = true;
             this.tLocalizationDeparture.Name = "tLocalizationDeparture";
             this.tLocalizationDeparture.SelectedLocalization = null;
@@ -106,7 +107,7 @@
             this.pTableInfo.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.pTableInfo.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.pTableInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 111F));
-            this.pTableInfo.Size = new System.Drawing.Size(1037, 211);
+            this.pTableInfo.Size = new System.Drawing.Size(1037, 213);
             this.pTableInfo.TabIndex = 2;
             // 
             // pInfoPlane
@@ -123,7 +124,7 @@
             this.pInfoPlane.Location = new System.Drawing.Point(0, 0);
             this.pInfoPlane.Margin = new System.Windows.Forms.Padding(0);
             this.pInfoPlane.Name = "pInfoPlane";
-            this.pInfoPlane.Size = new System.Drawing.Size(1037, 64);
+            this.pInfoPlane.Size = new System.Drawing.Size(1037, 66);
             this.pInfoPlane.TabIndex = 0;
             // 
             // tTransporter
@@ -132,7 +133,7 @@
             this.tTransporter.BackColor = System.Drawing.Color.Transparent;
             this.tTransporter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tTransporter.LabelMessage = "Linie lotnicze";
-            this.tTransporter.Location = new System.Drawing.Point(143, 1);
+            this.tTransporter.Location = new System.Drawing.Point(143, 3);
             this.tTransporter.Margin = new System.Windows.Forms.Padding(0);
             this.tTransporter.MessageVisibility = false;
             this.tTransporter.Multiline = false;
@@ -149,7 +150,7 @@
             this.tFlightNo.BackColor = System.Drawing.Color.Transparent;
             this.tFlightNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tFlightNo.LabelMessage = "Nr. Lotu";
-            this.tFlightNo.Location = new System.Drawing.Point(143, 33);
+            this.tFlightNo.Location = new System.Drawing.Point(143, 35);
             this.tFlightNo.Margin = new System.Windows.Forms.Padding(2);
             this.tFlightNo.MessageVisibility = false;
             this.tFlightNo.Multiline = false;
@@ -165,7 +166,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label7.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label7.Location = new System.Drawing.Point(27, 4);
+            this.label7.Location = new System.Drawing.Point(27, 6);
             this.label7.Margin = new System.Windows.Forms.Padding(0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(114, 20);
@@ -178,14 +179,14 @@
             this.tConfirmationNo.BackColor = System.Drawing.Color.Transparent;
             this.tConfirmationNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tConfirmationNo.LabelMessage = "Nr. Potwierdzenia";
-            this.tConfirmationNo.Location = new System.Drawing.Point(607, 33);
+            this.tConfirmationNo.Location = new System.Drawing.Point(607, 35);
             this.tConfirmationNo.Margin = new System.Windows.Forms.Padding(2);
             this.tConfirmationNo.MessageVisibility = false;
             this.tConfirmationNo.Multiline = false;
             this.tConfirmationNo.Name = "tConfirmationNo";
             this.tConfirmationNo.Padding = new System.Windows.Forms.Padding(3);
             this.tConfirmationNo.ReadOnly = false;
-            this.tConfirmationNo.Size = new System.Drawing.Size(142, 29);
+            this.tConfirmationNo.Size = new System.Drawing.Size(133, 29);
             this.tConfirmationNo.TabIndex = 8;
             this.tConfirmationNo.Tag = "";
             // 
@@ -194,7 +195,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label6.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label6.Location = new System.Drawing.Point(455, 36);
+            this.label6.Location = new System.Drawing.Point(455, 38);
             this.label6.Margin = new System.Windows.Forms.Padding(2);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(149, 20);
@@ -206,7 +207,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label9.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label9.Location = new System.Drawing.Point(67, 36);
+            this.label9.Location = new System.Drawing.Point(67, 38);
             this.label9.Margin = new System.Windows.Forms.Padding(2);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(73, 20);
@@ -218,11 +219,11 @@
             this.pInfoPlanePublic.AutoSize = true;
             this.pInfoPlanePublic.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pInfoPlanePublic.Controls.Add(this.label10);
-            this.pInfoPlanePublic.Controls.Add(this.label5);
+            this.pInfoPlanePublic.Controls.Add(this.lSeats);
             this.pInfoPlanePublic.Controls.Add(this.tTransportCost);
             this.pInfoPlanePublic.Controls.Add(this.tSeats);
             this.pInfoPlanePublic.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pInfoPlanePublic.Location = new System.Drawing.Point(0, 64);
+            this.pInfoPlanePublic.Location = new System.Drawing.Point(0, 66);
             this.pInfoPlanePublic.Margin = new System.Windows.Forms.Padding(0);
             this.pInfoPlanePublic.Name = "pInfoPlanePublic";
             this.pInfoPlanePublic.Size = new System.Drawing.Size(1037, 36);
@@ -233,31 +234,31 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label10.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label10.Location = new System.Drawing.Point(504, 4);
+            this.label10.Location = new System.Drawing.Point(550, 5);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(100, 20);
+            this.label10.Size = new System.Drawing.Size(54, 20);
             this.label10.TabIndex = 0;
-            this.label10.Text = "Cena biletu";
+            this.label10.Text = "Koszt";
             // 
-            // label5
+            // lSeats
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label5.Location = new System.Drawing.Point(71, 4);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 20);
-            this.label5.TabIndex = 172;
-            this.label5.Text = "Miejsca";
+            this.lSeats.AutoSize = true;
+            this.lSeats.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lSeats.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lSeats.Location = new System.Drawing.Point(71, 4);
+            this.lSeats.Name = "lSeats";
+            this.lSeats.Size = new System.Drawing.Size(69, 20);
+            this.lSeats.TabIndex = 172;
+            this.lSeats.Text = "Miejsca";
             // 
             // tTransportCost
             // 
             this.tTransportCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tTransportCost.LabelMessage = "0.00";
-            this.tTransportCost.Location = new System.Drawing.Point(610, 4);
+            this.tTransportCost.Location = new System.Drawing.Point(610, 5);
             this.tTransportCost.MessageVisibility = true;
             this.tTransportCost.Name = "tTransportCost";
-            this.tTransportCost.Size = new System.Drawing.Size(103, 27);
+            this.tTransportCost.Size = new System.Drawing.Size(127, 27);
             this.tTransportCost.TabIndex = 10;
             this.tTransportCost.Tag = "";
             // 
@@ -285,7 +286,7 @@
             this.pInfoAll.Controls.Add(this.label8);
             this.pInfoAll.Controls.Add(this.tAdditonalInformations);
             this.pInfoAll.Controls.Add(this.bAdd);
-            this.pInfoAll.Location = new System.Drawing.Point(0, 100);
+            this.pInfoAll.Location = new System.Drawing.Point(0, 102);
             this.pInfoAll.Margin = new System.Windows.Forms.Padding(0);
             this.pInfoAll.Name = "pInfoAll";
             this.pInfoAll.Size = new System.Drawing.Size(1037, 111);
@@ -345,7 +346,7 @@
             this.dtpArrival.Enabled = false;
             this.dtpArrival.EnabledDate = true;
             this.dtpArrival.EnabledTime = false;
-            this.dtpArrival.Location = new System.Drawing.Point(746, 45);
+            this.dtpArrival.Location = new System.Drawing.Point(746, 52);
             this.dtpArrival.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpArrival.Name = "dtpArrival";
             this.dtpArrival.Padding = new System.Windows.Forms.Padding(3);
@@ -362,7 +363,7 @@
             this.dtpDeparture.Enabled = false;
             this.dtpDeparture.EnabledDate = true;
             this.dtpDeparture.EnabledTime = false;
-            this.dtpDeparture.Location = new System.Drawing.Point(283, 43);
+            this.dtpDeparture.Location = new System.Drawing.Point(283, 50);
             this.dtpDeparture.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpDeparture.Name = "dtpDeparture";
             this.dtpDeparture.Padding = new System.Windows.Forms.Padding(3);
@@ -377,7 +378,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label4.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label4.Location = new System.Drawing.Point(744, 22);
+            this.label4.Location = new System.Drawing.Point(744, 29);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(125, 20);
             this.label4.TabIndex = 5;
@@ -388,7 +389,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label2.Location = new System.Drawing.Point(281, 22);
+            this.label2.Location = new System.Drawing.Point(281, 29);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(125, 20);
             this.label2.TabIndex = 6;
@@ -399,7 +400,7 @@
             this.lArrivalCourse.AutoSize = true;
             this.lArrivalCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lArrivalCourse.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lArrivalCourse.Location = new System.Drawing.Point(510, 22);
+            this.lArrivalCourse.Location = new System.Drawing.Point(510, 29);
             this.lArrivalCourse.Margin = new System.Windows.Forms.Padding(0);
             this.lArrivalCourse.Name = "lArrivalCourse";
             this.lArrivalCourse.Size = new System.Drawing.Size(148, 20);
@@ -411,12 +412,24 @@
             this.lDepartureCourse.AutoSize = true;
             this.lDepartureCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lDepartureCourse.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lDepartureCourse.Location = new System.Drawing.Point(49, 21);
+            this.lDepartureCourse.Location = new System.Drawing.Point(49, 28);
             this.lDepartureCourse.Margin = new System.Windows.Forms.Padding(0);
             this.lDepartureCourse.Name = "lDepartureCourse";
             this.lDepartureCourse.Size = new System.Drawing.Size(135, 20);
             this.lDepartureCourse.TabIndex = 8;
             this.lDepartureCourse.Text = "Kierunek - wylot";
+            // 
+            // lError
+            // 
+            this.lError.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lError.ForeColor = System.Drawing.Color.Firebrick;
+            this.lError.Location = new System.Drawing.Point(0, 1);
+            this.lError.Name = "lError";
+            this.lError.Size = new System.Drawing.Size(934, 20);
+            this.lError.TabIndex = 187;
+            this.lError.Text = "Nie wszystkie dane zostały uzupełnione poprawnie";
+            this.lError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lError.Visible = false;
             // 
             // NewTransportCreator
             // 
@@ -426,6 +439,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1046, 336);
+            this.Controls.Add(this.lError);
             this.Controls.Add(this.tLocalizationArrival);
             this.Controls.Add(this.tLocalizationDeparture);
             this.Controls.Add(this.pTableInfo);
@@ -455,7 +469,7 @@
 
         #endregion
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lSeats;
         private UserControls.TextBoxUC tSeats;
         private UserControls.CurrencyTextBoxUC tTransportCost;
         private System.Windows.Forms.Label label8;
@@ -479,5 +493,6 @@
         private UserControls.DateTimeUC dtpArrival;
         private UserControls.LocalizationsUC tLocalizationDeparture;
         private UserControls.LocalizationsUC tLocalizationArrival;
+        private System.Windows.Forms.Label lError;
     }
 }

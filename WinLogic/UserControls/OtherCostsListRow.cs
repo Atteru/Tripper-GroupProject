@@ -31,6 +31,12 @@ namespace Tripper.WinLogic.UserControls
             set
             {
                 pOtherCostsPanel.Visible = value;
+
+                if (value)
+                    bEdit.Text = "Anuluj";
+                else
+                    bEdit.Text = "Edytuj";
+
                 if (CreateNewMode)
                 {
                     bAdd.Visible = !value;
@@ -79,6 +85,7 @@ namespace Tripper.WinLogic.UserControls
         private void OtherCostDetails_AfterUpdate(object sender, EventArgs e)
         {
             lOtherCostsInfo.Text = SetInfo();
+            OnAfterUpdate(EventArgs.Empty);
         }
 
         public OtherCostsListRow()
@@ -177,6 +184,7 @@ namespace Tripper.WinLogic.UserControls
                 {
                     this.Visible = false;
                     Connection.TripperData.SubmitChanges();
+                    OnAfterUpdate(EventArgs.Empty);
                 }
                 catch (Exception exept)
                 {

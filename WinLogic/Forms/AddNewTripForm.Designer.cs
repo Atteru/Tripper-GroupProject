@@ -122,7 +122,7 @@
             this.bAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bAdd.ForeColor = System.Drawing.Color.White;
-            this.bAdd.Location = new System.Drawing.Point(416, 443);
+            this.bAdd.Location = new System.Drawing.Point(415, 442);
             this.bAdd.Margin = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.bAdd.Name = "bAdd";
             this.bAdd.Size = new System.Drawing.Size(124, 30);
@@ -138,7 +138,7 @@
             this.bCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bCancel.ForeColor = System.Drawing.Color.White;
-            this.bCancel.Location = new System.Drawing.Point(554, 443);
+            this.bCancel.Location = new System.Drawing.Point(553, 442);
             this.bCancel.Margin = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.bCancel.Name = "bCancel";
             this.bCancel.Size = new System.Drawing.Size(120, 31);

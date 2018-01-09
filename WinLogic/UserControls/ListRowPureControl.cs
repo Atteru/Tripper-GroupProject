@@ -12,6 +12,8 @@ namespace Tripper.WinLogic.UserControls
 {
     public partial class ListRowPureControl : UserControl
     {
+        public event EventHandler AfterUpdate;
+
         public ListRowPureControl()
         {
             InitializeComponent();
@@ -20,6 +22,15 @@ namespace Tripper.WinLogic.UserControls
         protected virtual string SetInfo()
         {
             return string.Empty;
+        }
+
+        protected virtual void OnAfterUpdate(EventArgs e)
+        {
+            EventHandler handler = AfterUpdate;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
         }
     }
 }

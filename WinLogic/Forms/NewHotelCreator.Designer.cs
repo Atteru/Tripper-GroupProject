@@ -43,6 +43,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tStaymentCost = new Tripper.WinLogic.UserControls.CurrencyTextBoxUC();
+            this.lError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lDaysCount
@@ -255,12 +256,25 @@
             this.tStaymentCost.TabIndex = 163;
             this.tStaymentCost.Tag = "";
             // 
+            // lError
+            // 
+            this.lError.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lError.ForeColor = System.Drawing.Color.Firebrick;
+            this.lError.Location = new System.Drawing.Point(0, 9);
+            this.lError.Name = "lError";
+            this.lError.Size = new System.Drawing.Size(877, 20);
+            this.lError.TabIndex = 164;
+            this.lError.Text = "Nie wszystkie dane zostały uzupełnione poprawnie";
+            this.lError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lError.Visible = false;
+            // 
             // NewHotelCreator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(956, 314);
+            this.Controls.Add(this.lError);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lDaysCount);
@@ -301,5 +315,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label10;
         private UserControls.CurrencyTextBoxUC tStaymentCost;
+        private System.Windows.Forms.Label lError;
     }
 }

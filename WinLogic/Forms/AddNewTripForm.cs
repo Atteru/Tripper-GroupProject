@@ -146,13 +146,13 @@ namespace Tripper.WinLogic.Forms
                     newTrip.ImageIndex = SelectedAvatar;
                     newTrip.TravelerID = SelectedTraveler.TravelerID;
                     Connection.TripperData.Trips.InsertOnSubmit(newTrip);
-
+                    CurrentSelected.Trip = newTrip;
                     try
                     {
+                        this.Hide();
                         Connection.TripperData.SubmitChanges();
-                        CurrentSelected.Trip = newTrip;
-                        OnAfterAdd(EventArgs.Empty);
                         readyToClose = true;
+                        OnAfterAdd(EventArgs.Empty);
                         this.Close();
                     }
                     catch (Exception exept)

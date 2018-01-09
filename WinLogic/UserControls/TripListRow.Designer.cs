@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TripListRow));
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.pTop = new System.Windows.Forms.Panel();
             this.pTripView = new System.Windows.Forms.Panel();
@@ -35,14 +37,15 @@
             this.lDestination = new System.Windows.Forms.Label();
             this.lDaysCount = new System.Windows.Forms.Label();
             this.lStartDate = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.bEdit = new System.Windows.Forms.Button();
             this.bDelete = new System.Windows.Forms.Button();
+            this.imageAvatarList = new System.Windows.Forms.ImageList(this.components);
             this.tableLayoutPanel.SuspendLayout();
             this.pTop.SuspendLayout();
             this.pTripView.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.flowLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,7 +84,7 @@
             this.pTripView.Controls.Add(this.lDestination);
             this.pTripView.Controls.Add(this.lDaysCount);
             this.pTripView.Controls.Add(this.lStartDate);
-            this.pTripView.Controls.Add(this.pictureBox1);
+            this.pTripView.Controls.Add(this.pictureBox);
             this.pTripView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pTripView.Location = new System.Drawing.Point(0, 0);
             this.pTripView.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
@@ -104,6 +107,7 @@
             this.lTripName.TabStop = true;
             this.lTripName.Text = "Nazwa podróży";
             this.lTripName.VisitedLinkColor = System.Drawing.Color.DarkCyan;
+            this.lTripName.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lTripName_LinkClicked);
             // 
             // lDestination
             // 
@@ -138,15 +142,16 @@
             this.lStartDate.TabIndex = 161;
             this.lStartDate.Text = "termin";
             // 
-            // pictureBox1
+            // pictureBox
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.MintCream;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(27, 19);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(138, 98);
-            this.pictureBox1.TabIndex = 159;
-            this.pictureBox1.TabStop = false;
+            this.pictureBox.BackColor = System.Drawing.Color.MintCream;
+            this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox.Location = new System.Drawing.Point(33, 19);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(132, 98);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox.TabIndex = 159;
+            this.pictureBox.TabStop = false;
             // 
             // flowLayoutPanel
             // 
@@ -188,6 +193,22 @@
             this.bDelete.TabIndex = 162;
             this.bDelete.Text = "Usuń";
             this.bDelete.UseVisualStyleBackColor = false;
+            this.bDelete.Click += new System.EventHandler(this.bDelete_Click);
+            // 
+            // imageAvatarList
+            // 
+            this.imageAvatarList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageAvatarList.ImageStream")));
+            this.imageAvatarList.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageAvatarList.Images.SetKeyName(0, "pic (10).png");
+            this.imageAvatarList.Images.SetKeyName(1, "pic (1).png");
+            this.imageAvatarList.Images.SetKeyName(2, "pic (2).png");
+            this.imageAvatarList.Images.SetKeyName(3, "pic (4).png");
+            this.imageAvatarList.Images.SetKeyName(4, "pic (5).png");
+            this.imageAvatarList.Images.SetKeyName(5, "pic (7).png");
+            this.imageAvatarList.Images.SetKeyName(6, "pic (8).png");
+            this.imageAvatarList.Images.SetKeyName(7, "pic (11).png");
+            this.imageAvatarList.Images.SetKeyName(8, "pic (13).png");
+            this.imageAvatarList.Images.SetKeyName(9, "pic (14).png");
             // 
             // TripListRow
             // 
@@ -202,7 +223,7 @@
             this.pTop.ResumeLayout(false);
             this.pTripView.ResumeLayout(false);
             this.pTripView.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.flowLayoutPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -217,10 +238,11 @@
         private System.Windows.Forms.Label lDestination;
         private System.Windows.Forms.Label lDaysCount;
         private System.Windows.Forms.Label lStartDate;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
         private System.Windows.Forms.Button bEdit;
         private System.Windows.Forms.Button bDelete;
         private System.Windows.Forms.LinkLabel lTripName;
+        private System.Windows.Forms.ImageList imageAvatarList;
     }
 }
