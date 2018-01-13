@@ -13,15 +13,15 @@ namespace Tripper.WinLogic.Forms
 {
     public partial class SplashForm : Form
     {
-        //Delegate for cross thread call to close
+
         private delegate void CloseDelegate();
 
-        //The type of form to be displayed as the splash screen.
+
         private static SplashForm splashForm;
 
         static public void ShowSplashScreen()
         {
-            // Make sure it is only launched once.
+
             if (splashForm != null)
                 return;
             Thread thread = new Thread(new ThreadStart(SplashForm.ShowForm));
@@ -93,3 +93,29 @@ namespace Tripper.WinLogic.Forms
         }
     }
 }
+
+    namespace Fasada
+    {
+        class ObliczaniePierWielom
+        {
+            public void DeltaDodatnia(double a, double b, double c)
+            {
+                double delta = b * b - 4.0 * a * c;
+                Console.WriteLine("Pierwszy pierwiastek: {0}", (-b - delta) / (2 * a));
+                Console.WriteLine("Drugi pierwiastek: {0}", (-b + delta) / (2 * a));
+            }
+
+            public void DeltaRownaZero(double a, double b, double c)
+            {
+                Console.WriteLine("Pierwiastek: {0}", (-b) / (2 * a));
+            }
+
+            public void DeltaUjemna(double a, double b, double c)
+            {
+                Console.WriteLine("Brak pierwiastków wielomianu kwadratowego");
+            }
+        }
+}
+
+
+

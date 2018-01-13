@@ -32,7 +32,9 @@ namespace Tripper.WinLogic.UserControls
         public DataTimeUC()
         {
             InitializeComponent();
+            dtpDate.CustomFormat = "dd-MM-yyyy";
             dtpTime.CustomFormat = "HH:mm";
+       
          
         }
 

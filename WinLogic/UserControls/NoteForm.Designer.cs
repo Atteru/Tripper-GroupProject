@@ -121,6 +121,7 @@
             this.richTextBox.Size = new System.Drawing.Size(654, 384);
             this.richTextBox.TabIndex = 11;
             this.richTextBox.Text = "";
+            this.richTextBox.Padding = new System.Windows.Forms.Padding(15);
             // 
             // NoteForm
             // 

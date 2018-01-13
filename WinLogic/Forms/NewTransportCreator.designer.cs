@@ -365,6 +365,7 @@
             this.dtpDeparture.EnabledTime = false;
             this.dtpDeparture.Location = new System.Drawing.Point(283, 50);
             this.dtpDeparture.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpDeparture.Date.ValueChanged += dtpDeparture_ValueChangedDate;
             this.dtpDeparture.Name = "dtpDeparture";
             this.dtpDeparture.Padding = new System.Windows.Forms.Padding(3);
             this.dtpDeparture.Size = new System.Drawing.Size(188, 68);
@@ -372,6 +373,7 @@
             this.dtpDeparture.TabStop = false;
             this.dtpDeparture.Tag = "2";
             this.dtpDeparture.TimeLabelMessage = "Godzina";
+            this.dtpDeparture.ValueChangedDate += new System.EventHandler(this.dtpDeparture_ValueChangedDate);
             // 
             // label4
             // 

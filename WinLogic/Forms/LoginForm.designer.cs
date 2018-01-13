@@ -465,51 +465,6 @@
             // 
             // bChPasswordCancel
             // 
-            this.bChPasswordCancel.BackColor = System.Drawing.Color.Teal;
-            this.bChPasswordCancel.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray;
-            this.bChPasswordCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bChPasswordCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bChPasswordCancel.ForeColor = System.Drawing.Color.White;
-            this.bChPasswordCancel.Location = new System.Drawing.Point(48, 239);
-            this.bChPasswordCancel.Name = "bChPasswordCancel";
-            this.bChPasswordCancel.Size = new System.Drawing.Size(389, 38);
-            this.bChPasswordCancel.TabIndex = 25;
-            this.bChPasswordCancel.Tag = "";
-            this.bChPasswordCancel.Text = "Anuluj";
-            this.bChPasswordCancel.UseVisualStyleBackColor = false;
-            this.bChPasswordCancel.Click += new System.EventHandler(this.bChPasswordCancel_Click);
-            // 
-            // bChPasswordConfirm
-            // 
-            this.bChPasswordConfirm.BackColor = System.Drawing.Color.Teal;
-            this.bChPasswordConfirm.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray;
-            this.bChPasswordConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bChPasswordConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bChPasswordConfirm.ForeColor = System.Drawing.Color.White;
-            this.bChPasswordConfirm.Location = new System.Drawing.Point(48, 195);
-            this.bChPasswordConfirm.Name = "bChPasswordConfirm";
-            this.bChPasswordConfirm.Size = new System.Drawing.Size(389, 38);
-            this.bChPasswordConfirm.TabIndex = 24;
-            this.bChPasswordConfirm.Tag = "";
-            this.bChPasswordConfirm.Text = "Akceptuj";
-            this.bChPasswordConfirm.UseVisualStyleBackColor = false;
-            this.bChPasswordConfirm.Click += new System.EventHandler(this.bChPasswordConfirm_Click);
-            // 
-            // tChPasswordPassword
-            // 
-            this.tChPasswordPassword.AutoSize = true;
-            this.tChPasswordPassword.BackColor = System.Drawing.Color.Transparent;
-            this.tChPasswordPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tChPasswordPassword.LabelMessage = "Nowe hasło";
-            this.tChPasswordPassword.Location = new System.Drawing.Point(48, 87);
-            this.tChPasswordPassword.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.tChPasswordPassword.MessageVisibility = true;
-            this.tChPasswordPassword.Multiline = false;
-            this.tChPasswordPassword.Name = "tChPasswordPassword";
-            this.tChPasswordPassword.Padding = new System.Windows.Forms.Padding(3);
-            this.tChPasswordPassword.ReadOnly = false;
-            this.tChPasswordPassword.Size = new System.Drawing.Size(389, 38);
-            this.tChPasswordPassword.TabIndex = 23;
             // 
             // tChPasswordCurrent
             // 
@@ -526,6 +481,51 @@
             this.tChPasswordCurrent.ReadOnly = false;
             this.tChPasswordCurrent.Size = new System.Drawing.Size(389, 37);
             this.tChPasswordCurrent.TabIndex = 22;
+            this.bChPasswordCancel.BackColor = System.Drawing.Color.Teal;
+            this.bChPasswordCancel.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray;
+            this.bChPasswordCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bChPasswordCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bChPasswordCancel.ForeColor = System.Drawing.Color.White;
+            this.bChPasswordCancel.Location = new System.Drawing.Point(48, 239);
+            this.bChPasswordCancel.Name = "bChPasswordCancel";
+            this.bChPasswordCancel.Size = new System.Drawing.Size(389, 38);
+            this.bChPasswordCancel.TabIndex = 25;
+            this.bChPasswordCancel.Tag = "";
+            this.bChPasswordCancel.Text = "Anuluj";
+            this.bChPasswordCancel.UseVisualStyleBackColor = false;
+            this.bChPasswordCancel.Click += new System.EventHandler(this.bChPasswordCancel_Click);
+            // 
+            // tChPasswordPassword
+            // 
+            this.tChPasswordPassword.AutoSize = true;
+            this.tChPasswordPassword.BackColor = System.Drawing.Color.Transparent;
+            this.tChPasswordPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tChPasswordPassword.LabelMessage = "Nowe hasło";
+            this.tChPasswordPassword.Location = new System.Drawing.Point(48, 87);
+            this.tChPasswordPassword.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.tChPasswordPassword.MessageVisibility = true;
+            this.tChPasswordPassword.Multiline = false;
+            this.tChPasswordPassword.Name = "tChPasswordPassword";
+            this.tChPasswordPassword.Padding = new System.Windows.Forms.Padding(3);
+            this.tChPasswordPassword.ReadOnly = false;
+            this.tChPasswordPassword.Size = new System.Drawing.Size(389, 38);
+            this.tChPasswordPassword.TabIndex = 26;
+            // 
+            // bChPasswordConfirm
+            // 
+            this.bChPasswordConfirm.BackColor = System.Drawing.Color.Teal;
+            this.bChPasswordConfirm.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray;
+            this.bChPasswordConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bChPasswordConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bChPasswordConfirm.ForeColor = System.Drawing.Color.White;
+            this.bChPasswordConfirm.Location = new System.Drawing.Point(48, 195);
+            this.bChPasswordConfirm.Name = "bChPasswordConfirm";
+            this.bChPasswordConfirm.Size = new System.Drawing.Size(389, 38);
+            this.bChPasswordConfirm.TabIndex = 27;
+            this.bChPasswordConfirm.Tag = "";
+            this.bChPasswordConfirm.Text = "Akceptuj";
+            this.bChPasswordConfirm.UseVisualStyleBackColor = false;
+            this.bChPasswordConfirm.Click += new System.EventHandler(this.bChPasswordConfirm_Click);
             // 
             // LoginForm
             // 

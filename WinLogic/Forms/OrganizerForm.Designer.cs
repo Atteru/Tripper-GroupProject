@@ -38,11 +38,13 @@
             this.rbNote = new System.Windows.Forms.RadioButton();
             this.rbCheckBox = new System.Windows.Forms.RadioButton();
             this.pHeader = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.pOrganizerCenter = new System.Windows.Forms.FlowLayoutPanel();
             this.pNewCheckBoxMain.SuspendLayout();
             this.pCreateNewCheckBox.SuspendLayout();
             this.pRadioButtons.SuspendLayout();
             this.pHeader.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pNewCheckBoxMain
@@ -196,30 +198,44 @@
             // 
             this.pHeader.Controls.Add(this.pNewCheckBoxMain);
             this.pHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pHeader.Location = new System.Drawing.Point(0, 0);
+            this.pHeader.Location = new System.Drawing.Point(10, 10);
             this.pHeader.Name = "pHeader";
-            this.pHeader.Size = new System.Drawing.Size(1008, 120);
+            this.pHeader.Size = new System.Drawing.Size(988, 99);
             this.pHeader.TabIndex = 1;
+            // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.pOrganizerCenter);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(10, 109);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(988, 568);
+            this.panel1.TabIndex = 2;
             // 
             // pOrganizerCenter
             // 
             this.pOrganizerCenter.AutoSize = true;
-            this.pOrganizerCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pOrganizerCenter.Location = new System.Drawing.Point(0, 120);
+            this.pOrganizerCenter.BackColor = System.Drawing.Color.White;
+            this.pOrganizerCenter.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pOrganizerCenter.Location = new System.Drawing.Point(0, 0);
             this.pOrganizerCenter.Name = "pOrganizerCenter";
-            this.pOrganizerCenter.Padding = new System.Windows.Forms.Padding(10, 10, 1000, 200);
-            this.pOrganizerCenter.Size = new System.Drawing.Size(1008, 567);
-            this.pOrganizerCenter.TabIndex = 2;
+            this.pOrganizerCenter.Padding = new System.Windows.Forms.Padding(10, 10, 500, 10);
+            this.pOrganizerCenter.Size = new System.Drawing.Size(986, 20);
+            this.pOrganizerCenter.TabIndex = 3;
             // 
             // OrganizerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScroll = true;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1008, 687);
-            this.Controls.Add(this.pOrganizerCenter);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "OrganizerForm";
+            this.Padding = new System.Windows.Forms.Padding(10);
             this.pNewCheckBoxMain.ResumeLayout(false);
             this.pNewCheckBoxMain.PerformLayout();
             this.pCreateNewCheckBox.ResumeLayout(false);
@@ -228,8 +244,9 @@
             this.pRadioButtons.PerformLayout();
             this.pHeader.ResumeLayout(false);
             this.pHeader.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -245,6 +262,7 @@
         private System.Windows.Forms.RadioButton rbNote;
         private System.Windows.Forms.RadioButton rbCheckBox;
         private System.Windows.Forms.Panel pHeader;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.FlowLayoutPanel pOrganizerCenter;
     }
 }

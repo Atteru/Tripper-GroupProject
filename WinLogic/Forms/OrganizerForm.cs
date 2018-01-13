@@ -158,6 +158,7 @@ namespace Tripper.WinLogic.Forms
                     newToDoCheckBox.IsChecked = false;
                     note = new CheckBoxUC(newToDoCheckBox);
                     Connection.TripperData.ToDoLists.InsertOnSubmit(newToDoCheckBox);
+                    note.BackColor = SystemColors.Control;
 
                     if (submitChanges())
                         addNoteToList(ToDoCheckList, CheckBoxControlList, newToDoCheckBox, note, true);
@@ -171,6 +172,7 @@ namespace Tripper.WinLogic.Forms
                     newNote.NoteText = string.Empty;
                     note = new NoteHeaderUC(newNote);
                     Connection.TripperData.Notes.InsertOnSubmit(newNote);
+                    note.BackColor = SystemColors.Control;
 
                     if (submitChanges())
                         addNoteToList(NoteList, NoteControList, newNote, note, true);

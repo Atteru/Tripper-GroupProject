@@ -57,6 +57,7 @@
             this.dtpDate.CalendarTitleForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.dtpDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDate.Location = new System.Drawing.Point(3, 3);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(182, 26);
@@ -110,7 +111,7 @@
             this.pDateMessage.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.pDateMessage.Location = new System.Drawing.Point(4, 4);
             this.pDateMessage.Name = "pDateMessage";
-            this.pDateMessage.Size = new System.Drawing.Size(158, 23);
+            this.pDateMessage.Size = new System.Drawing.Size(142, 23);
             this.pDateMessage.TabIndex = 114;
             this.pDateMessage.Click += new System.EventHandler(this.pDateMessage_Click);
             // 

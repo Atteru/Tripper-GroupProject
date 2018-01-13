@@ -182,9 +182,9 @@ namespace Tripper.WinLogic.UserControls
 
             SelectedLocalization = null;
             cbCity.Text = "";
-            
-              cbCountry_Validating(sender, null);
-            if(SelectedLocalization == null)
+
+            checkCountryValidation(false);
+            if (SelectedLocalization == null)
                 cbCity.SelectedIndex = -1;
 
         }
@@ -228,7 +228,7 @@ namespace Tripper.WinLogic.UserControls
 
         private void cbCity_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            addNewCity();
+           
         }
 
         private void cbCountry_Leave(object sender, EventArgs e)
@@ -242,10 +242,12 @@ namespace Tripper.WinLogic.UserControls
         {
             DynamicCombo comboBox = sender as DynamicCombo;
             cbCity_SelectionChangeCommitted(comboBox, null);
+            addNewCity();
             comboBox.Close();
+
         }
 
-        private bool checkCountryValidation()
+        private bool checkCountryValidation(bool onLeaveValidation = true)
         {
 
             if(countryList == null)
@@ -260,7 +262,8 @@ namespace Tripper.WinLogic.UserControls
                 lCountryError.BringToFront();
                 validationResult = false;
             }
-            else if (!CountryList.Any(country => country.Name.Equals(cbCountry.Text)))
+            else if (!CountryList.Any(country => country.Name.Equals(cbCountry.Text)) && onLeaveValidation)
+            //else if (cbCountry.Items.Count == 0)
             {
                 cbCountry.SelectedItem = cbCountry.Text = null;
                 lCountryError.Visible = true;

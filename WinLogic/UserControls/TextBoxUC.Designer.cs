@@ -39,7 +39,7 @@
             this.messageLabel.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.messageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.messageLabel.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.messageLabel.Location = new System.Drawing.Point(7, 5);
+            this.messageLabel.Location = new System.Drawing.Point(6, 4);
             this.messageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.messageLabel.Name = "messageLabel";
             this.messageLabel.Size = new System.Drawing.Size(54, 24);
@@ -54,11 +54,11 @@
             this.textBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBox.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.textBox.Location = new System.Drawing.Point(3, 3);
-            this.textBox.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.textBox.Location = new System.Drawing.Point(2, 2);
+            this.textBox.Margin = new System.Windows.Forms.Padding(2);
             this.textBox.Name = "textBox";
             this.textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox.Size = new System.Drawing.Size(291, 29);
+            this.textBox.Size = new System.Drawing.Size(293, 29);
             this.textBox.TabIndex = 6;
             this.textBox.Enter += new System.EventHandler(this.messageLabel_Click);
             this.textBox.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_Validating);
@@ -74,8 +74,8 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.Name = "TextBoxUC";
-            this.Padding = new System.Windows.Forms.Padding(3);
-            this.Size = new System.Drawing.Size(297, 37);
+            this.Padding = new System.Windows.Forms.Padding(2);
+            this.Size = new System.Drawing.Size(297, 33);
             this.Enter += new System.EventHandler(this.messageLabel_Click);
             this.ResumeLayout(false);
             this.PerformLayout();

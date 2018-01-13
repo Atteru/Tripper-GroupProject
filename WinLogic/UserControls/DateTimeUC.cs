@@ -143,6 +143,7 @@ namespace Tripper.WinLogic.UserControls
             base.AutoScaleMode = AutoScaleMode.None;
             this.EnabledTime = false;
             dtpTime.CustomFormat = "\tHH:mm";
+            dtpDate.CustomFormat = "yyyy-MM-dd";
         }
 
         public void GetDate(DateTime? date)
@@ -168,7 +169,6 @@ namespace Tripper.WinLogic.UserControls
              return DateTime.Parse(this.Date.Text + " " + this.Time.Text + ":00");
 
         }
-
 
 
         private void dtpDate_ValueChanged(object sender, EventArgs e)

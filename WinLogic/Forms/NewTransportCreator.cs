@@ -250,5 +250,11 @@ namespace Tripper.WinLogic.Forms
             };
             t.Start();
         }
+
+        private void dtpDeparture_ValueChangedDate(object sender, EventArgs e)
+        {
+            dtpArrival.MinDate = dtpDeparture.Date.Value;
+            dtpArrival.Date.Enabled = true;
+        }
     }
 }
